@@ -132,6 +132,6 @@ args 1 2 3
 * **`?`**: regular help, inline
 * **`??`**: superhelp, inline
 
-# Links
+# Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
