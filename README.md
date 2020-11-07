@@ -10,15 +10,19 @@ If you like the cheatsheet click ⭐ on the repo and stay tuned.
 Work in progress. PRs are welcome.
 </p>
 
-# Environment Variables
-* **`$VAR`**: Get the env var `VAR`
-* **`${...}`**: Get the entire environment (as a dict like object)
-* **`${'V'+'AR'}`**: Get the env var from an expression (eg, `VAR`)
-* [Xonsh Environment Variables](http://xon.sh/envvars.html) list
+# Basics
+Xonsh supports Python and shell commands:
+```python
+2 + 2
+# 4
 
-# Subprocess
+ls / | head -n 5
+# boot cdrom dev etc home
+```
 
-* **`$()`**: Captures output, returns stdout
+# Operators
+
+* **`$()`**: Captures output, returns stdout:
 * **`!()`**: Captures output, returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
   (Truthy if successful, compares to integers, iterates over lines of stdout)
 * **`$[]`**: Output passed, returns `None`
@@ -31,6 +35,12 @@ Work in progress. PRs are welcome.
 * **`&&`**, **`||`**: Same
 
 * **`COMMAND &`**: Background into job (May use `jobs`, `fg`, `bg`)
+
+# Environment Variables
+* **`$VAR`**: Get the env var `VAR`
+* **`${...}`**: Get the entire environment (as a dict like object)
+* **`${'V'+'AR'}`**: Get the env var from an expression (eg, `VAR`)
+* [Xonsh Environment Variables](http://xon.sh/envvars.html) list
 
 ## Redirection
 * **`>`**: Write (stdout) to
