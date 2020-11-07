@@ -10,16 +10,6 @@ If you like the cheatsheet click ⭐ on the repo and stay tuned.
 Work in progress. PRs are welcome.
 </p>
 
-# Basics
-Xonsh supports Python and shell commands:
-```python
-2 + 2
-# 4
-
-ls / | head -n 5
-# boot cdrom dev etc home
-```
-
 # Operators
 
 ### `$()`
