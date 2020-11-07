@@ -54,7 +54,7 @@ ls / | head -n 5
 >>> COMMAND1 e>o < input.txt | COMMAND2 > output.txt e>> errors.txt
 ```
 
-# Strings
+# [Advanced String Literals](https://xon.sh/tutorial.html#advanced-string-literals)
 
 * **`"foo"`**: Regular string: backslash escapes
 * **`f"foo"`**: Formatted string: brace substitutions, backslash escapes
@@ -64,13 +64,33 @@ ls / | head -n 5
 * **`pf"foo"`**: Formatted Path string: backslash escapes, brace substitutions, envvar substitutions, returns `Path`
 * **`fr"foo"`**: Raw Formatted string: brace substitutions
 
-# Globbing
-* Shell-like globs: Default in subprocess
-* **`` `re` ``**, **`` r`re` ``**: Glob by regular expression (Python and Subprocess)
-* **``g`glob` ``**: Glob by wildcard (Python and Subprocess)
-* **``@spam`egg` ``**: Glob by custom function `spam(s)` (Python and Subprocess)
-* **`` pr`re` ``**: Glob by regular expression, returning `Path` instances
-* **``pg`glob` ``**: Glob by wildcard, returning `Path` instances
+# [Globbing](https://xon.sh/tutorial.html#normal-globbing)
+Normal globbing:
+```python
+ls *.*
+# or
+ls g`*.*`
+# or return path instances:
+for f in gp`.*`:
+      print(f.exists())
+```
+Regular Expression Globbing:
+```python
+ls `.*`
+# or
+ls r`.*`
+# or return path instances:
+for f in rp`.*`:
+      print(f.exists())
+```
+[Custom function globbing](https://xon.sh/tutorial.html#custom-path-searches):
+```python
+def foo(s):
+    return [i for i in os.listdir('.') if i.startswith(s)]
+cd /
+@foo`bi`
+#['bin']
+```
 
 # [Aliases](https://xon.sh/tutorial.html#aliases)
 * `aliases['g'] = 'git status -sb'`
