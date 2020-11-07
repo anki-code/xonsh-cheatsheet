@@ -107,10 +107,32 @@ args @$(echo -e '1\n2\r3 4\r\n5')
 ```
 
 # Environment Variables
-* **`$VAR`**: Get the env var `VAR`
-* **`${...}`**: Get the entire environment (as a dict like object)
-* **`${'V'+'AR'}`**: Get the env var from an expression (eg, `VAR`)
-* [Xonsh Environment Variables](http://xon.sh/envvars.html) list
+
+```python
+aliases['args'] = lambda args: print(args)
+
+$VAR = 'value'    # Set environment variable
+
+'VAR' in ${...}   # Check environment variable exists
+#True
+
+${'V' + 'AR'}     # Get environment variable value by name from expression
+#'value'
+
+print($VAR)
+with ${...}.swap(VAR='another value'):   # Change value for commands block
+    print($VAR)
+print($VAR)
+#value
+#another value
+#value
+
+$VAR='new value' xonsh -c r'echo $VAR'   # Change value for subproc command
+#new value
+
+```
+
+See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
 ## Shell syntax
 * **`|`**: Shell-style pipe
