@@ -16,10 +16,6 @@ Work in progress. PRs are welcome.
 * **`${'V'+'AR'}`**: Get the env var from an expression (eg, `VAR`)
 * [Xonsh Environment Variables](http://xon.sh/envvars.html) list
 
-# Xonsh Scripts (xsh)
-* **`$ARGS`**: List of all command line parameter arguments.
-* **`$ARG0`, `$ARG1`, ... `$ARG9`**: Script command line argument at index n.
-
 # Subprocess
 
 * **`$()`**: Captures output, returns stdout
@@ -94,6 +90,13 @@ aliases['args'] = lambda args: print(args)
 args 1 2 3
 #['1', '2', '3']
 ```
+
+# Xonsh Scripts (xsh)
+* **`$ARGS`**: List of all command line parameter arguments.
+* **`$ARG0`, `$ARG1`, ... `$ARG9`**: Script command line argument at index n.
+
+# Xontribs
+* [Cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter)
 
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 * **`?`**: regular help, inline
