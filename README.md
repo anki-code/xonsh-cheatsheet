@@ -25,8 +25,13 @@ ls / | head -n 5
 **`$()`** - captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
 aliases['args'] = lambda args: print(args)
-args $(echo -e '1\n2\r3 4\r\n5')
+
+args $(echo -e '1\n2\r3 4\r\n5')       # Subproc mode
 #['1\n2\n3 4\n5\n']
+
+output = $(echo -e '1\n2\r3 4\r\n5')   # Python mode 
+output
+#'1\n2\n3 4\n5\n'
 ```
 
 **`!()`** - captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
@@ -58,7 +63,8 @@ for l in ret:
 
 ```
 
-**`$[]`**: Output passed, returns `None`.
+**`$[]`** - passes stdout to the screen and returns `None`.
+
 ```python
 ret = $[echo 123]
 #123
@@ -66,13 +72,34 @@ repr(ret)
 'None'
 ```
 
-**`![]`**: Output passed, returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
+**`![]`**:  - passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/proc.html#xonsh.proc.HiddenCommandPipeline)
 
-**`@()`**: Evaluate Python. `str` (not split), sequence, or callable (in the same form as callable aliases)
+```python
+ret = ![echo -e '1\n2\r3 4\r\n5']
+#1
+#3 4
+#5
+ret               # No representation, no return value because it's hidden CommandPipeline object
+ret.out           # But it has the properties from CommandPipeline
+'1\n2\r3 4\n5\n'
+```
+
+**`@()`** - evaluates Python and pass the arguments. 
+
+```python
+aliases['args'] = lambda args: print(args)
+
+args 'Supported:' @('string') @(['list','of','strings']) 
+#['Supported:', 'string', 'list', 'of', 'strings']
+
+echo -n '!' | @(lambda args, stdin: 'Callable in the same form as callable aliases'+ stdin.read())
+#Callable in the same form as callable aliases!!!
+```
 
 **`@$()`** - split output of the command by whitespaces:
 ```python
 aliases['args'] = lambda args: print(args)
+
 args @$(echo -e '1\n2\r3 4\r\n5')
 #['1', '2\r3', '4', '5']
 ```
