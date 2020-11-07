@@ -85,6 +85,6 @@ or:
 aliases['args'] = lambda args: print(args)
 ```
 
-# Help
+# [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 * **`?`**: regular help, inline
 * **`??`**: superhelp, inline
