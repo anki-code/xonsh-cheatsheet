@@ -79,10 +79,16 @@ def _myargs1(args):
     
 aliases['args'] = _myargs1
 del _myargs1
+
+args 1 2 3
+#['1', '2', '3']
 ```
 or:
 ```python
 aliases['args'] = lambda args: print(args)
+
+args 1 2 3
+#['1', '2', '3']
 ```
 
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
