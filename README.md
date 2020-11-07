@@ -6,6 +6,10 @@ Cheatsheet for xonsh shell.
 If you like the cheatsheet click ⭐ on the repo and stay tuned.
 </p>
 
+<p align="center">
+Work in progress. PRs are welcome.
+</p>
+
 # Environment Variables
 * **`$VAR`**: Get the env var `VAR`
 * **`${...}`**: Get the entire environment (as a dict like object)
@@ -94,3 +98,6 @@ args 1 2 3
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 * **`?`**: regular help, inline
 * **`??`**: superhelp, inline
+
+# Links
+* [Tutorial](https://xon.sh/tutorial.html)
