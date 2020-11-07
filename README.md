@@ -65,7 +65,7 @@ ls / | head -n 5
 * **`fr"foo"`**: Raw Formatted string: brace substitutions
 
 # [Globbing](https://xon.sh/tutorial.html#normal-globbing)
-Normal globbing:
+[Normal globbing](https://xon.sh/tutorial.html#normal-globbing):
 ```python
 ls *.*
 # or
@@ -74,7 +74,7 @@ ls g`*.*`
 for f in gp`.*`:
       print(f.exists())
 ```
-Regular Expression Globbing:
+[Regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing):
 ```python
 ls `.*`
 # or
