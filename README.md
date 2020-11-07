@@ -126,11 +126,26 @@ args 1 2 3
 * **`$ARG0`, `$ARG1`, ... `$ARG9`**: Script command line argument at index n.
 
 # Xontribs
-* [Cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter)
+Xontrib list: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
+
+Create xontrib [using cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter):
+```
+pip install cookiecutter
+cookiecutter gh:xonsh/xontrib-cookiecutter
+```
 
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
-* **`?`**: regular help, inline
-* **`??`**: superhelp, inline
+Add `?` (regular help) or `??` (super help) to the command:
+```python
+ls?
+# man page for ls
+
+import json
+json?
+# json module help
+json??
+# json module super help
+```
 
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
