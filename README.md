@@ -22,7 +22,9 @@ ls / | head -n 5
 
 # Operators
 
-**`$()`** - captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
+### `$()`
+
+Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
 aliases['args'] = lambda args: print(args)
 
@@ -34,8 +36,9 @@ output
 #'1\n2\n3 4\n5\n'
 ```
 
-**`!()`** - captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
-  (Truthy if successful, compares to integers, iterates over lines of stdout):
+### `!()`
+
+Captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
 ```python
 ret = !(echo 123)
@@ -63,7 +66,9 @@ for l in ret:
 
 ```
 
-**`$[]`** - passes stdout to the screen and returns `None`.
+### `$[]` 
+
+Passes stdout to the screen and returns `None`:
 
 ```python
 ret = $[echo 123]
@@ -72,7 +77,9 @@ repr(ret)
 'None'
 ```
 
-**`![]`**:  - passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/proc.html#xonsh.proc.HiddenCommandPipeline)
+### `![]`
+
+Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/proc.html#xonsh.proc.HiddenCommandPipeline):
 
 ```python
 ret = ![echo -e '1\n2\r3 4\r\n5']
@@ -84,7 +91,9 @@ ret.out           # But it has the properties from CommandPipeline
 '1\n2\r3 4\n5\n'
 ```
 
-**`@()`** - evaluates Python and pass the arguments. 
+### `@()`
+
+Evaluates Python and pass the arguments:
 
 ```python
 aliases['args'] = lambda args: print(args)
@@ -96,7 +105,10 @@ echo -n '!' | @(lambda args, stdin: 'Callable in the same form as callable alias
 #Callable in the same form as callable aliases!!!
 ```
 
-**`@$()`** - split output of the command by whitespaces:
+### `@$()`
+
+Split output of the command by whitespaces:
+
 ```python
 aliases['args'] = lambda args: print(args)
 
