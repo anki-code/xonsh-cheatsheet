@@ -22,19 +22,60 @@ ls / | head -n 5
 
 # Operators
 
-* **`$()`**: Captures output, returns stdout:
-* **`!()`**: Captures output, returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
-  (Truthy if successful, compares to integers, iterates over lines of stdout)
-* **`$[]`**: Output passed, returns `None`
-* **`![]`**: Output passed, returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
-* **`@()`**: Evaluate Python. `str` (not split), sequence, or callable (in the same form as callable aliases)
-* **`@$()`**: Execute and split
+**`$()`** - captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
+```python
+aliases['args'] = lambda args: print(args)
+args $(echo -e '1\n2\r3 4\r\n5')
+#['1\n2\n3 4\n5\n']
+```
 
-* **`|`**: Shell-style pipe
-* **`and`**, **`or`**: Logically joined commands, lazy
-* **`&&`**, **`||`**: Same
+**`!()`** - captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
+  (Truthy if successful, compares to integers, iterates over lines of stdout):
+  
+```python
+ret = !(echo 123)
+ret
+#CommandPipeline(
+#  pid=404136,                                                                                                     
+#  returncode=0,                                                                                                   
+#  args=['echo', '123'],                                                                                           
+#  alias=None,                                                                                                     
+#  timestamps=[1604742882.1826484, 1604742885.1393967],                                                            
+#  executed_cmd=['echo', '123'],                                                                                   
+#  input='',                                                                                                       
+#  output='123\n',                                                                                                 
+#  errors=None
+#)   
 
-* **`COMMAND &`**: Background into job (May use `jobs`, `fg`, `bg`)
+if ret:
+      print('Success')     
+#Success
+
+for l in ret:
+      print(l)     
+#123
+#
+
+```
+
+**`$[]`**: Output passed, returns `None`.
+```python
+ret = $[echo 123]
+#123
+repr(ret)
+'None'
+```
+
+**`![]`**: Output passed, returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline)
+
+**`@()`**: Evaluate Python. `str` (not split), sequence, or callable (in the same form as callable aliases)
+
+**`@$()`** - split output of the command by whitespaces:
+```python
+aliases['args'] = lambda args: print(args)
+args @$(echo -e '1\n2\r3 4\r\n5')
+#['1', '2\r3', '4', '5']
+```
 
 # Environment Variables
 * **`$VAR`**: Get the env var `VAR`
@@ -42,7 +83,11 @@ ls / | head -n 5
 * **`${'V'+'AR'}`**: Get the env var from an expression (eg, `VAR`)
 * [Xonsh Environment Variables](http://xon.sh/envvars.html) list
 
-## Redirection
+## Shell syntax
+* **`|`**: Shell-style pipe
+* **`and`**, **`or`**: Logically joined commands, lazy
+* **`&&`**, **`||`**: Same
+* **`COMMAND &`**: Background into job (May use `jobs`, `fg`, `bg`)
 * **`>`**: Write (stdout) to
 * **`>>`**: Append (stdout) to
 * **`</spam/eggs`**: Use file for stdin
@@ -150,3 +195,4 @@ json??
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
+* The first short version of the cheat sheet was made by @AstraLuma. Thanks!
