@@ -217,11 +217,120 @@ args 1 2 3
 #['1', '2', '3']
 ```
 
-# Xonsh Scripts (xsh)
+# Macros
+
+## [Simple macros](https://xon.sh/tutorial_macros.html#function-macros)
+
+```python
+def identity(x : str):
+    return x
+
+# No macro call
+
+identity('me')
+# 'me'
+
+identity(42)
+# 42
+
+identity(identity)
+# <function __main__.identity>
+
+# Macro call
+
+identity!('me')
+# "'me'"
+
+identity!(42)
+# '42'
+
+identity!(identity)
+# 'identity'
+
+identity!(42)
+# '42'
+
+identity!(  42 )
+# '42'
+
+identity!(import os)
+# 'import os'
+
+identity!(if True:
+    pass)
+# 'if True:\n    pass'
+```
+
+## [Subprocess Macros](https://xon.sh/tutorial_macros.html#subprocess-macros)
+
+```python
+echo! "Hello!"
+# "Hello!"
+
+bash -c! echo "Hello!"
+# Hello!
+
+docker run -it --rm xonsh/xonsh:slim xonsh -c! 2+2
+# 4
+```
+Inside of a macro, all additional munging is turned off:
+```
+
+echo $USER
+# lou
+
+echo! $USER
+# $USER
+
+```
+
+## [Macro block](https://xon.sh/tutorial_macros.html#context-manager-macros)
+
+```python
+import json
+
+class JsonBlock:
+    __xonsh_block__ = str
+
+    def __enter__(self):
+        return json.loads(self.macro_block)
+
+    def __exit__(self, *exc):
+        del self.macro_block, self.macro_globals, self.macro_locals
+
+
+with! JsonBlock() as j:
+    {
+        "Hello": "world!"
+    }
+    
+j['Hello']
+# world!
+```
+
+# [Tab-Completion](https://xon.sh/tutorial_completers.html)
+
+```python
+def dummy_completer(prefix, line, begidx, endidx, ctx):
+    '''
+    Completes everything with options "lou" and "carcolh",
+    regardless of the value of prefix.
+    '''
+    return {"lou", "carcolh"}
+    
+'''
+Add completer: completer add NAME FUNC
+'''
+completer add dummy dummy_completer
+```
+
+# Xonsh Script (xsh)
+
 * **`$ARGS`**: List of all command line parameter arguments.
 * **`$ARG0`, `$ARG1`, ... `$ARG9`**: Script command line argument at index n.
 
-# Xontribs
+# Xontrib
+
 Xontrib list: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
 
 Create xontrib [using cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter):
