@@ -296,7 +296,7 @@ b.lines
 # ['qwe', 'asd', 'zxc', '']
 ```
 
-## JsonBlock
+## Custom JsonBlock
 ```python
 import json
 
