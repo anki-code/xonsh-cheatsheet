@@ -6,10 +6,6 @@ Cheat sheet for xonsh shell with copy-pastable examples.
 If you like the cheatsheet click ⭐ on the repo and stay tuned.
 </p>
 
-<p align="center">
-Work in progress. PRs are welcome.
-</p>
-
 # Operators
 
 ### `$()`
