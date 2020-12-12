@@ -286,6 +286,21 @@ echo! $USER
 
 ## [Macro block](https://xon.sh/tutorial_macros.html#context-manager-macros)
 
+## Builtin macro Block
+```python
+from xonsh.contexts import Block
+with! Block() as b:
+    qwe
+    asd
+    zxc
+
+b.macro_block
+# 'qwe\nasd\nzxc\n\n'
+b.lines
+# ['qwe', 'asd', 'zxc', '']
+```
+
+## JsonBlock
 ```python
 import json
 
