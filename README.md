@@ -131,21 +131,61 @@ $VAR='new value' xonsh -c r'echo $VAR'   # Change value for subproc command
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
 # Shell syntax
-* **`|`**: Shell-style pipe
-* **`and`**, **`or`**: Logically joined commands, lazy
-* **`&&`**, **`||`**: Same
-* **`COMMAND &`**: Background into job (May use `jobs`, `fg`, `bg`)
-* **`>`**: Write (stdout) to
-* **`>>`**: Append (stdout) to
-* **`</spam/eggs`**: Use file for stdin
-* **`out`**, **`o`**
-* **`err`**, **`e`**
-* **`all`**, **`a`** (left-hand side only)
 
-Complex example:
+## [Input/Output Redirection](https://xon.sh/tutorial.html#input-output-redirection)
 
+```python
+# Redirect stdout
+COMMAND > output.txt
+COMMAND out> output.txt
+COMMAND o> output.txt
+COMMAND 1> output.txt # included for Bash compatibility
+
+# Redirecting stderr
+COMMAND err> errors.txt
+COMMAND e> errors.txt
+COMMAND 2> errors.txt # included for Bash compatibility
+
+# Redirecting all stdout and stderr
+COMMAND all> combined.txt
+COMMAND a> combined.txt
+COMMAND &> combined.txt # included for Bash compatibility
+
+# Merge stderr into stdout - error messages are reported to the same location as regular output
+COMMAND err>out
+COMMAND err>o
+COMMAND e>out
+COMMAND e>o
+COMMAND 2>&1  # included for Bash compatibility
+
+# Merge can be combined with other redirections
+COMMAND err>out | COMMAND2
+COMMAND e>o > combined.txt
+
+# Redirecting stdin
+COMMAND < input.txt
+< input.txt COMMAND
+
+# Combining I/O Redirects
+# This line will run COMMAND1 with the contents of input.txt fed in on stdin, 
+# and will pipe all output (stdout and stderr) to COMMAND2; 
+# the regular output of this command will be redirected to output.txt, 
+# and the error output will be appended to errors.txt.
+COMMAND1 e>o < input.txt | COMMAND2 > output.txt e>> errors.txt
 ```
->>> COMMAND1 e>o < input.txt | COMMAND2 > output.txt e>> errors.txt
+
+## [Background Jobs](https://xon.sh/tutorial.html#background-jobs)
+```python
+# Run command in background 
+sleep 30 &
+sleep 31 &
+sleep 32 &
+
+# List of jobs
+jobs
+# [4]+ running: sleep 32 & & (15644)
+# [3]- running: sleep 31 & & (15640)
+# [2]  running: sleep 30 & & (15636)
 ```
 
 # [Advanced String Literals](https://xon.sh/tutorial.html#advanced-string-literals)
@@ -187,10 +227,25 @@ cd /
 ```
 
 # [Aliases](https://xon.sh/tutorial.html#aliases)
-* `aliases['g'] = 'git status -sb'`
-* `aliases['gp'] = ['git', 'pull']`
 
-# [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
+## Simple alias
+
+```python
+# Add alias as string
+aliases['g'] = 'git status -sb'
+
+# Add alias as list
+aliases['gp'] = ['git', 'pull']
+
+# Add alias as simple callable lambda
+aliases['banana'] = lambda: "Banana for scale.\n"
+
+# Delete alias
+del aliases['banana']
+
+```
+
+## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
 
 ```python
 def _myargs1(args):
