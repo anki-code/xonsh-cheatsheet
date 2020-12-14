@@ -188,7 +188,19 @@ jobs
 # [2]  running: sleep 30 & & (15636)
 ```
 
-# [Advanced String Literals](https://xon.sh/tutorial.html#advanced-string-literals)
+# [String Literals in Subprocess-mode](https://xon.sh/tutorial.html#string-literals-in-subprocess-mode)
+
+Simple example:
+
+```python
+print("my home is $HOME")   # Python mode
+# my home is $HOME
+
+echo "my home is $HOME"     # Subprocess mode
+# my home is /home/snail
+```
+
+For the fine control of environment variables (envvar) substitutions, brace substitutions and backslash escapes there are extended list of literals:
 
 * **`"foo"`**: Regular string: backslash escapes
 * **`f"foo"`**: Formatted string: brace substitutions, backslash escapes
@@ -197,6 +209,19 @@ jobs
 * **`pr"foo"`**: Raw Path string: envvar substitutions, returns `Path`
 * **`pf"foo"`**: Formatted Path string: backslash escapes, brace substitutions, envvar substitutions, returns `Path`
 * **`fr"foo"`**: Raw Formatted string: brace substitutions
+
+To complete understanding let’s set environment variable `$EVAR` to `1` and local variable `var` to `2` and make a table that shows how literal changes the string in Python- and subprocess-mode:
+
+|         String literal      |      As python object       | print([String literal]) |  echo [String literal] |
+|    ------------------------ |  -------------------------- | ----------------------- | ---------------------  |
+|    `"/$EVAR/\'{var}\'"`   | `"/$EVAR/'{var}'"`        | `/$EVAR/'{var}'`      | `/1/'{var}'`         |
+|    `r"/$EVAR/\'{var}\'"`  | `"/$EVAR/\\'{var}\\'"`    | `/$EVAR/\'{var}\'`    | `/$EVAR/\'{var}\'`   |
+|    `f"/$EVAR/\'{var}\'"`  | `"/$EVAR/'2'"`            | `/$EVAR/'2'`          | `/1/'2'`             |
+|    `fr"/$EVAR/\'{var}\'"` | `"/$EVAR/\\'2\\'"`        | `/$EVAR/\'2\'`        | `/$EVAR/\'2\'`       |
+|    `p"/$EVAR/\'{var}\'"`  | `Path("/1/'{var}'")`      | `/1/'{var}'`          | `/1/'{var}'`         |
+|    `pr"/$EVAR/\'{var}\'"` | `Path("/1/\\'{var}\\'")`  | `/1/\'{var}\'`        | `/1/\'{var}\'`       |
+|    `pf"/$EVAR/\'{var}\'"` | `Path("/1/'2'")`          | `/1/'2'`              | `/1/'2'`             |
+
 
 # [Globbing](https://xon.sh/tutorial.html#normal-globbing)
 [Normal globbing](https://xon.sh/tutorial.html#normal-globbing):
