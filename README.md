@@ -130,7 +130,7 @@ $VAR='new value' xonsh -c r'echo $VAR'   # Change value for subproc command
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
-## Shell syntax
+# Shell syntax
 * **`|`**: Shell-style pipe
 * **`and`**, **`or`**: Logically joined commands, lazy
 * **`&&`**, **`||`**: Same
@@ -141,6 +141,8 @@ See also the list of [xonsh default environment variables](http://xon.sh/envvars
 * **`out`**, **`o`**
 * **`err`**, **`e`**
 * **`all`**, **`a`** (left-hand side only)
+
+Complex example:
 
 ```
 >>> COMMAND1 e>o < input.txt | COMMAND2 > output.txt e>> errors.txt
@@ -361,6 +363,20 @@ json?
 # json module help
 json??
 # json module super help
+```
+
+# Tips and tricks
+
+## Create file with content from command line
+```python
+echo @("""
+line 1
+line 2
+line 3
+""".strip()) > file.txt
+
+$(cat file.txt)
+# 'line 1\nline 2\nline 3\n'
 ```
 
 # Credits
