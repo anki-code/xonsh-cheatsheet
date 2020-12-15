@@ -419,8 +419,8 @@ completer add dummy dummy_completer
 
 # Xonsh Script (xsh)
 
-* **`$ARGS`**: List of all command line parameter arguments.
-* **`$ARG0`, `$ARG1`, ... `$ARG9`**: Script command line argument at index n.
+* `$ARGS`: List of all command line parameter arguments.
+* `$ARG0`, `$ARG1`, ..., `$ARG9`: Script command line argument at index n.
 * `print_color()` or `printx()`: Print colored message.
 * `exit()`: Exit from the script.
 
