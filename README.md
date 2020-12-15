@@ -105,8 +105,6 @@ args @$(echo -e '1\n2\r3 4\r\n5')
 # Environment Variables
 
 ```python
-aliases['args'] = lambda args: print(args)
-
 $VAR = 'value'    # Set environment variable
 
 'VAR' in ${...}   # Check environment variable exists
