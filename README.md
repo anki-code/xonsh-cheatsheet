@@ -1,5 +1,5 @@
 <p align="center">
-Cheat sheet for xonsh shell with copy-pastable examples.
+Cheat sheet for xonsh shell with copy-pastable examples. This is a good level of knowledge for any xonsh users.
 </p>
 
 <p align="center">
