@@ -364,7 +364,7 @@ echo! $USER
 
 ## [Macro block](https://xon.sh/tutorial_macros.html#context-manager-macros)
 
-## Builtin macro Block
+### Builtin macro Block
 ```python
 from xonsh.contexts import Block
 with! Block() as b:
@@ -378,7 +378,7 @@ b.lines
 # ['qwe', 'asd', 'zxc', '']
 ```
 
-## Custom JsonBlock
+### Custom JsonBlock
 ```python
 import json
 
@@ -421,6 +421,8 @@ completer add dummy dummy_completer
 
 * **`$ARGS`**: List of all command line parameter arguments.
 * **`$ARG0`, `$ARG1`, ... `$ARG9`**: Script command line argument at index n.
+* `print_color()` or `printx()`: Print colored message.
+* `exit()`: Exit from the script.
 
 # Xontrib
 
