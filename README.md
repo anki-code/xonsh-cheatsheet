@@ -52,7 +52,7 @@ for l in ret:
 
 ```
 
-### `$[]` - not capturing and return `None`, print stdout and stderr
+### `$[]` - not capturing (return `None`), print stdout and stderr
 
 Passes stdout to the screen and returns `None`:
 
@@ -62,6 +62,7 @@ ret = $[echo 123]
 repr(ret)
 'None'
 ```
+
 This is the same as `echo 123` but this syntax allows to explicitly run a subprocess command. 
 
 ### `![]` - capture all and return hidden rich object, print stdout and stderr
