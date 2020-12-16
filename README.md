@@ -225,19 +225,17 @@ To complete understanding let’s set environment variable `$EVAR` to `1` and lo
 [Normal globbing](https://xon.sh/tutorial.html#normal-globbing):
 ```python
 ls *.*
-# or
 ls g`*.*`
-# or return path instances:
-for f in gp`.*`:
+
+for f in gp`.*`:          # `p` is to return path instances
       print(f.exists())
 ```
 [Regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing):
 ```python
 ls `.*`
-# or
 ls r`.*`
-# or return path instances:
-for f in rp`.*`:
+
+for f in rp`.*`:          # `p` is to return path instances
       print(f.exists())
 ```
 [Custom function globbing](https://xon.sh/tutorial.html#custom-path-searches):
