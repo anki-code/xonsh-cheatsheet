@@ -114,14 +114,14 @@ ${'V' + 'AR'}     # Get environment variable value by name from expression
 #'value'
 
 print($VAR)
-with ${...}.swap(VAR='another value'):   # Change value for commands block
+with ${...}.swap(VAR='another value', NEW_VAR='new value'):   # Change variable for commands block
     print($VAR)
 print($VAR)
 #value
 #another value
 #value
 
-$VAR='new value' xonsh -c r'echo $VAR'   # Change value for subproc command
+$VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess command
 #new value
 
 ```
@@ -301,34 +301,27 @@ args 1 2 3
 def identity(x : str):
     return x
 
-# No macro call
+# No macro calls:
 
 identity('me')
 # 'me'
-
 identity(42)
 # 42
-
 identity(identity)
 # <function __main__.identity>
 
-# Macro call
+# Macro calls:
 
 identity!('me')
 # "'me'"
-
 identity!(42)
 # '42'
-
 identity!(identity)
 # 'identity'
-
 identity!(42)
 # '42'
-
 identity!(  42 )
 # '42'
-
 identity!(import os)
 # 'import os'
 
@@ -410,7 +403,7 @@ def dummy_completer(prefix, line, begidx, endidx, ctx):
     return {"lou", "carcolh"}
     
 '''
-Add completer: completer add NAME FUNC
+Add completer: `completer add <NAME> <FUNC>`
 '''
 completer add dummy dummy_completer
 ```
@@ -433,7 +426,9 @@ cookiecutter gh:xonsh/xontrib-cookiecutter
 ```
 
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
+
 Add `?` (regular help) or `??` (super help) to the command:
+
 ```python
 ls?
 # man page for ls
