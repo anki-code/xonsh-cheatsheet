@@ -454,6 +454,13 @@ $(cat file.txt)
 # 'line 1\nline 2\nline 3\n'
 ```
 
+## Bash and xonsh
+
+* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html)
+* [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
+* [Builtin xontrib bashisms](https://xon.sh/xontribs.html#bashisms) - Enables additional Bash-like syntax while at the command prompt. 
+* `bash -c! echo 123` - the way to run bash command line using macro syntax.
+
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
