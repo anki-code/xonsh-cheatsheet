@@ -459,6 +459,10 @@ $(cat file.txt)
 * [Builtin xontrib bashisms](https://xon.sh/xontribs.html#bashisms) - Enables additional Bash-like syntax while at the command prompt. 
 * `bash -c! echo 123` - the way to run bash command line using macro syntax.
 
+## Using xonsh wherever you go through the SSH
+
+You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
+
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
