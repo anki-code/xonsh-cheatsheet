@@ -22,7 +22,7 @@ output
 #'1\n2\n3 4\n5\n'
 ```
 
-### `!()` - capture all and return rich object without printing stdout and stderr
+### `!()` - capture all and return object without printing stdout and stderr
 
 Captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
@@ -65,7 +65,7 @@ repr(ret)
 
 This is the same as `echo 123` but this syntax allows to explicitly run a subprocess command. 
 
-### `![]` - capture all and return hidden rich object, print stdout and stderr
+### `![]` - capture all and return hidden object, print stdout and stderr
 
 Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/proc.html#xonsh.proc.HiddenCommandPipeline):
 
