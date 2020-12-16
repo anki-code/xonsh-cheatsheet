@@ -8,7 +8,7 @@ If you like the cheatsheet click ⭐ on the repo and stay tuned.
 
 # Operators
 
-### `$()`
+### `$()` - capture and return output without printing stdout and stderr
 
 Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
@@ -22,7 +22,7 @@ output
 #'1\n2\n3 4\n5\n'
 ```
 
-### `!()`
+### `!()` - capture all and return rich object without printing stdout and stderr
 
 Captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
@@ -52,7 +52,7 @@ for l in ret:
 
 ```
 
-### `$[]` 
+### `$[]` - not capturing and return `None`, print stdout and stderr
 
 Passes stdout to the screen and returns `None`:
 
@@ -62,8 +62,9 @@ ret = $[echo 123]
 repr(ret)
 'None'
 ```
+This is the same as `echo 123` but this syntax allows to explicitly run a subprocess command. 
 
-### `![]`
+### `![]` - capture all and return hidden rich object, print stdout and stderr
 
 Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/proc.html#xonsh.proc.HiddenCommandPipeline):
 
@@ -77,7 +78,7 @@ ret.out           # But it has the properties from CommandPipeline
 '1\n2\r3 4\n5\n'
 ```
 
-### `@()`
+### `@()` - use Python code as an argument or a callable alias
 
 Evaluates Python and pass the arguments:
 
@@ -91,9 +92,7 @@ echo -n '!' | @(lambda args, stdin: 'Callable in the same form as callable alias
 #Callable in the same form as callable aliases!!!
 ```
 
-### `@$()`
-
-Split output of the command by whitespaces:
+### `@$()` - split output of the command by white spaces for arguments list
 
 ```python
 aliases['args'] = lambda args: print(args)
