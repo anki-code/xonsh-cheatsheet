@@ -3,7 +3,7 @@ Cheat sheet for xonsh shell with copy-pastable examples. This is a good level of
 </p>
 
 <p align="center">
-If you like the cheatsheet click ⭐ on the repo and stay tuned.
+If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet now</a>.
 </p>
 
 # Operators
