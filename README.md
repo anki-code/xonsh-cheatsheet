@@ -20,7 +20,9 @@ len($(curl https://xon.sh))
 
 import json
 docker_network_id = '1c04fa7dbb06'
-docker_config = json.loads($(docker network inspect @(docker_network_id)))[0]['IPAM']['Config']
+network_config = json.loads( $(docker network inspect @(docker_network_id)) )[0]['IPAM']['Config']
+
+21 + 21
 ```
 
 # Operators
