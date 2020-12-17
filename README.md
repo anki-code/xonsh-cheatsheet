@@ -6,6 +6,23 @@ Cheat sheet for xonsh shell with copy-pastable examples. This is a good level of
 If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet now</a>.
 </p>
 
+# Basics
+
+The xonsh language is a superset of Python 3 with additional shell primitives that you are used to from Bash and IPython. As result you can mix shell commands and Python code as easy as possible:
+
+```python
+cd /tmp && ls
+
+for i in range(0, 42):
+    echo @(i+1)
+
+len($(curl https://xon.sh))
+
+import json
+docker_network_id = '1c04fa7dbb06'
+docker_config = json.loads($(docker network inspect @(docker_network_id)))[0]['IPAM']['Config']
+```
+
 # Operators
 
 ### `$()` - capture and return output without printing stdout and stderr
