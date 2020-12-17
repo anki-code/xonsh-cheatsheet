@@ -145,7 +145,7 @@ $VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess comman
 ```
 
 Work with `$PATH`:
-```
+```python
 $PATH
 # EnvPath(
 # ['/usr/bin',
