@@ -142,7 +142,19 @@ print($VAR)
 
 $VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess command
 #new value
+```
 
+Work with `$PATH`:
+```
+$PATH
+# EnvPath(
+# ['/usr/bin',
+#  '/sbin',
+#  '/bin']
+# )
+
+$PATH.insert(0, '/tmp')  # Add first path to $PATH list
+$PATH.append('/tmp')  # Add last path to $PATH list
 ```
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
