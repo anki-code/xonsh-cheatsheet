@@ -144,7 +144,7 @@ $VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess comman
 #new value
 ```
 
-Work with `$PATH`:
+Work with [`$PATH`](https://xon.sh/envvars.html#path):
 ```python
 $PATH
 # EnvPath(
