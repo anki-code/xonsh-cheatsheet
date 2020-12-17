@@ -23,6 +23,12 @@ docker_network_id = '1c04fa7dbb06'
 network_config = json.loads( $(docker network inspect @(docker_network_id)) )[0]['IPAM']['Config']
 
 21 + 21
+
+$PATH.append('/tmp')
+
+for file in gp`*.*`:
+    if file.exists():
+        du -sh @(file)
 ```
 
 # Operators
