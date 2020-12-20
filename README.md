@@ -8,7 +8,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 # Basics
 
-The xonsh language is a superset of Python 3 with additional shell primitives that you are used to from Bash and IPython. As result you can mix shell commands and Python code as easy as possible:
+The xonsh language is a superset of Python 3 with additional shell primitives that you are used to from Bash and IPython. As result you can mix shell commands and Python code as easy as possible. Examples:
 
 ```python
 cd /tmp && ls
