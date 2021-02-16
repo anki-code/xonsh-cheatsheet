@@ -165,6 +165,77 @@ $PATH.append('/tmp')  # Add last path to $PATH list
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
+# [Aliases](https://xon.sh/tutorial.html#aliases)
+
+## Simple alias
+
+```python
+# Add alias as string
+aliases['g'] = 'git status -sb'
+
+# Add alias as list
+aliases['gp'] = ['git', 'pull']
+
+# Add alias as simple callable lambda
+aliases['banana'] = lambda: "Banana for scale.\n"
+
+# Delete alias
+del aliases['banana']
+
+```
+
+## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
+
+```python
+def _myargs1(args):
+#def _myargs2(args, stdin=None):
+#def _myargs3(args, stdin=None, stdout=None):
+#def _myargs4(args, stdin=None, stdout=None, stderr=None):
+#def _myargs5(args, stdin=None, stdout=None, stderr=None, spec=None):
+#def _myargs6(args, stdin=None, stdout=None, stderr=None, spec=None, stack=None):
+    print(args)
+    
+aliases['args'] = _myargs1
+del _myargs1
+
+args 1 2 3
+#['1', '2', '3']
+```
+or:
+```python
+aliases['args'] = lambda args: print(args)
+
+args 1 2 3
+#['1', '2', '3']
+```
+
+
+# [Globbing](https://xon.sh/tutorial.html#normal-globbing)
+[Normal globbing](https://xon.sh/tutorial.html#normal-globbing):
+```python
+ls *.*
+ls g`*.*`
+
+for f in gp`.*`:          # `p` is to return path instances
+      print(f.exists())
+```
+[Regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing):
+```python
+ls `.*`
+ls r`.*`
+
+for f in rp`.*`:          # `p` is to return path instances
+      print(f.exists())
+```
+[Custom function globbing](https://xon.sh/tutorial.html#custom-path-searches):
+```python
+def foo(s):
+    return [i for i in os.listdir('.') if i.startswith(s)]
+cd /
+@foo`bi`
+#['bin']
+```
+
 # Shell syntax
 
 ## [Input/Output Redirection](https://xon.sh/tutorial.html#input-output-redirection)
@@ -257,76 +328,6 @@ To complete understanding let’s set environment variable `$EVAR` to `1` and lo
 |    `pr"/$EVAR/\'{var}\'"` | `Path("/1/\\'{var}\\'")`  | `/1/\'{var}\'`        | `/1/\'{var}\'`       |
 |    `pf"/$EVAR/\'{var}\'"` | `Path("/1/'2'")`          | `/1/'2'`              | `/1/'2'`             |
 
-
-# [Globbing](https://xon.sh/tutorial.html#normal-globbing)
-[Normal globbing](https://xon.sh/tutorial.html#normal-globbing):
-```python
-ls *.*
-ls g`*.*`
-
-for f in gp`.*`:          # `p` is to return path instances
-      print(f.exists())
-```
-[Regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing):
-```python
-ls `.*`
-ls r`.*`
-
-for f in rp`.*`:          # `p` is to return path instances
-      print(f.exists())
-```
-[Custom function globbing](https://xon.sh/tutorial.html#custom-path-searches):
-```python
-def foo(s):
-    return [i for i in os.listdir('.') if i.startswith(s)]
-cd /
-@foo`bi`
-#['bin']
-```
-
-# [Aliases](https://xon.sh/tutorial.html#aliases)
-
-## Simple alias
-
-```python
-# Add alias as string
-aliases['g'] = 'git status -sb'
-
-# Add alias as list
-aliases['gp'] = ['git', 'pull']
-
-# Add alias as simple callable lambda
-aliases['banana'] = lambda: "Banana for scale.\n"
-
-# Delete alias
-del aliases['banana']
-
-```
-
-## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
-
-```python
-def _myargs1(args):
-#def _myargs2(args, stdin=None):
-#def _myargs3(args, stdin=None, stdout=None):
-#def _myargs4(args, stdin=None, stdout=None, stderr=None):
-#def _myargs5(args, stdin=None, stdout=None, stderr=None, spec=None):
-#def _myargs6(args, stdin=None, stdout=None, stderr=None, spec=None, stack=None):
-    print(args)
-    
-aliases['args'] = _myargs1
-del _myargs1
-
-args 1 2 3
-#['1', '2', '3']
-```
-or:
-```python
-aliases['args'] = lambda args: print(args)
-
-args 1 2 3
-#['1', '2', '3']
-```
 
 # Macros
 
