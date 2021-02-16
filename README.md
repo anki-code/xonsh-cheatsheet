@@ -442,6 +442,8 @@ def dummy_completer(prefix, line, begidx, endidx, ctx):
 Add completer: `completer add <NAME> <FUNC>`
 '''
 completer add dummy dummy_completer
+# Now press Tab key and you'll get {"lou", "carcolh"} in completions
+completer remove dummy
 ```
 
 # Xonsh Script (xsh)
