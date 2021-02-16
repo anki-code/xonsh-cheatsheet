@@ -431,6 +431,9 @@ j['Hello']
 # [Tab-Completion](https://xon.sh/tutorial_completers.html)
 
 ```python
+completer list  # List the active completers
+
+# Create your own completer:
 def dummy_completer(prefix, line, begidx, endidx, ctx):
     '''
     Completes everything with options "lou" and "carcolh",
@@ -438,10 +441,7 @@ def dummy_completer(prefix, line, begidx, endidx, ctx):
     '''
     return {"lou", "carcolh"}
     
-'''
-Add completer: `completer add <NAME> <FUNC>`
-'''
-completer add dummy dummy_completer
+completer add dummy dummy_completer  # Add completer: `completer add <NAME> <FUNC>`
 # Now press Tab key and you'll get {"lou", "carcolh"} in completions
 completer remove dummy
 ```
