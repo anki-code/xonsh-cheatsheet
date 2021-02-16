@@ -210,7 +210,7 @@ args 1 2 3
 ```
 
 
-# [Globbing](https://xon.sh/tutorial.html#normal-globbing)
+# [Globbing](https://xon.sh/tutorial.html#normal-globbing) - get the list of files from path by mask or regexp
 [Normal globbing](https://xon.sh/tutorial.html#normal-globbing):
 ```python
 ls *.*
