@@ -126,6 +126,7 @@ aliases['args'] = lambda args: print(args)
 args @$(echo -e '1\n2\r3 4\r\n5')
 #['1', '2\r3', '4', '5']
 ```
+This is mostly what bash's `$()` operator do.
 
 # Environment Variables
 
