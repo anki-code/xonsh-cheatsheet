@@ -212,8 +212,8 @@ aliases['args'] = lambda args: print(args)
 args 'Supported:' @('string') @(['list','of','strings']) 
 #['Supported:', 'string', 'list', 'of', 'strings']
 
-echo -n '!' | @(lambda args, stdin: 'Callable in the same form as callable aliases'+ stdin.read())
-#Callable in the same form as callable aliases!!!
+echo -n '!' | @(lambda args, stdin: 'Callable' + stdin.read())
+#Callable!
 ```
 
 ### `@$()` - split output of the command by white spaces for arguments list
@@ -238,7 +238,7 @@ ${'V' + 'AR'}     # Get environment variable value by name from expression
 #'value'
 
 print($VAR)
-with ${...}.swap(VAR='another value', NEW_VAR='new value'):   # Change variable for commands block
+with ${...}.swap(VAR='another value', NEW_VAR='new value'):  # Change VAR for commands block
     print($VAR)
 print($VAR)
 #value
