@@ -301,7 +301,7 @@ del _myargs1
 args 1 2 3
 #['1', '2', '3']
 ```
-or:
+The same but as lambda:
 ```python
 aliases['args'] = lambda args: print(args)
 
