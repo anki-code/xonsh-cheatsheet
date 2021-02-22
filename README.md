@@ -8,7 +8,9 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 # Basics
 
-The xonsh language is a superset of Python 3 with additional shell primitives that you are used to from Bash and IPython. As result you can mix shell commands and Python code as easy as possible. Examples:
+The xonsh language is a superset of Python 3 with additional shell primitives that you are used to from Bash and IPython. As result you can mix shell commands and Python code as easy as possible.
+
+Right off the bat examples:
 
 ```python
 cd /tmp && ls
@@ -31,7 +33,103 @@ for file in gp`*.*`:
         du -sh @(file)
 ```
 
-# Operators
+Next read and remember two most major things in xonsh world.
+
+## [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
+
+The first thing you should remember that there is Python and subprocess commands:
+
+```python
+echo -n Hello   # Subprocess command: running `echo` tool with two arguments: `-n` and `Hello`
+2 + 2           # Python command
+import json     # Python command
+
+for i in range(0, 42):  # Python
+    echo @(i)           # Subprocess: running `echo` with the argument that is Python variable called `i`
+    i += 1              # Python
+    ![echo @(i)]        # Explicit way to run subprocess command
+    
+html = $(curl https://xon.sh)  # Python command where called captured subprocess command
+```
+
+## [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
+
+The second thing you should remember that xonsh syntax for subprocess commands is very [self-consistent](https://xon.sh/tutorial_subproc_strings.html) but it's differ than sh-lang. If you use arguments with quotes or brackets you should clearly understand the difference:
+
+ <table style="width:100%">
+  <tr>
+    <th>sh-lang shells</th>
+    <th>xonsh</th>
+  </tr>
+<tr>
+<td>
+1. Have escape character:
+<pre>
+<b>echo 123\ 456</b>
+# 123 456
+</pre>
+</td>
+    <td>
+1. No escape character - use quotes:
+<pre>
+<b>echo "123 456"</b>
+# 123 456
+</pre>
+</td>
+  </tr>
+
+<tr>
+<td>
+2. Open the quotes:
+<pre>
+<b>echo --arg="val"</b>
+# --arg=val<br>
+# and:<br>
+<b>echo --arg "val"</b>
+# --arg val
+
+</pre>
+</td>
+    <td>
+2. Save quotes:
+<pre>
+<b>echo --arg="val"</b>
+# --arg="val"<br>
+# But if argument quoted entirely:<br>
+<b>echo --arg "val"</b>
+# --arg val
+</pre>
+</td>
+  </tr>
+
+<tr>
+<td>
+3. Brackets have no meaning:
+<pre>
+<b>echo {123} [456]</b>
+# {123} [456]<br><br><br>
+</pre>
+</td>
+    <td>
+3. Brackets have meaning:
+<pre>
+<b>echo {123} [456]</b>
+# SyntaxError<br>
+<b>echo "{123}" '[456]'</b>
+# {123} [456]
+</pre>
+</td>
+  </tr>
+</table> 
+
+The golden rule for xonsh: When in doubt in subprocess mode, use quotes!
+
+Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh:
+```python
+bash -c! echo {123}
+```
+
+# [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
 ### `$()` - capture and return output without printing stdout and stderr
 
@@ -40,11 +138,11 @@ Captures stdout and returns output with [universal new lines](https://www.python
 aliases['args'] = lambda args: print(args)
 
 args $(echo -e '1\n2\r3 4\r\n5')       # Subproc mode
-#['1\n2\n3 4\n5\n']
+# ['1\n2\n3 4\n5\n']
 
 output = $(echo -e '1\n2\r3 4\r\n5')   # Python mode 
 output
-#'1\n2\n3 4\n5\n'
+# '1\n2\n3 4\n5\n'
 ```
 
 ### `!()` - capture all and return object without printing stdout and stderr
@@ -162,6 +260,7 @@ $PATH
 
 $PATH.insert(0, '/tmp')  # Add first path to $PATH list
 $PATH.append('/tmp')  # Add last path to $PATH list
+$PATH.remove('/tmp')  # Remove path (first match)
 ```
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
