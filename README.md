@@ -45,7 +45,7 @@ echo -n Hello   # Subprocess command: running `echo` tool with two arguments: `-
 import json     # Python command
 
 for i in range(0, 42):  # Python
-    echo @(i)           # Subprocess: run `echo` with the Python variable called `i` as an argument
+    echo @(i)           # Subprocess: run `echo` with the Python variable `i` as an argument
     i += 1              # Python
     ![echo @(i)]        # Explicit way to run subprocess command
     
@@ -153,14 +153,14 @@ Captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.
 ret = !(echo 123)
 ret
 #CommandPipeline(
-#  pid=404136,                                                                                                     
-#  returncode=0,                                                                                                   
-#  args=['echo', '123'],                                                                                           
-#  alias=None,                                                                                                     
-#  timestamps=[1604742882.1826484, 1604742885.1393967],                                                            
-#  executed_cmd=['echo', '123'],                                                                                   
-#  input='',                                                                                                       
-#  output='123\n',                                                                                                 
+#  pid=404136,
+#  returncode=0,
+#  args=['echo', '123'],
+#  alias=None,
+#  timestamps=[1604742882.1826484, 1604742885.1393967],
+#  executed_cmd=['echo', '123'],
+#  input='',
+#  output='123\n',
 #  errors=None
 #)   
 
@@ -197,7 +197,7 @@ ret = ![echo -e '1\n2\r3 4\r\n5']
 #1
 #3 4
 #5
-ret               # No representation, no return value because it's hidden CommandPipeline object
+ret               # No return value because it's hidden CommandPipeline object
 ret.out           # But it has the properties from CommandPipeline
 '1\n2\r3 4\n5\n'
 ```
