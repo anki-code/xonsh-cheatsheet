@@ -45,7 +45,7 @@ echo -n Hello   # Subprocess command: running `echo` tool with two arguments: `-
 import json     # Python command
 
 for i in range(0, 42):  # Python
-    echo @(i)           # Subprocess: running `echo` with the argument that is Python variable called `i`
+    echo @(i)           # Subprocess: run `echo` with the Python variable called `i` as an argument
     i += 1              # Python
     ![echo @(i)]        # Explicit way to run subprocess command
     
