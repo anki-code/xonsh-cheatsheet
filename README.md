@@ -552,10 +552,11 @@ completer remove dummy
 * `$ARG0`, `$ARG1`, ..., `$ARG9`: Script command line argument at index n.
 * `print_color()` or `printx()`: Print colored message.
 * `exit()`: Exit from the script.
+* [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete) - tab completion of python and xonsh scripts in xonsh shell. 
 
 # Xontrib
 
-Xontrib list: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
+Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
 
 Create xontrib [using cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter):
 ```
