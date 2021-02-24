@@ -569,6 +569,16 @@ completer add dummy dummy_completer  # Add completer: `completer add <NAME> <FUN
 completer remove dummy
 ```
 
+# [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
+
+Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
+
+Create xontrib [using cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter):
+```python
+pip install cookiecutter
+cookiecutter gh:xonsh/xontrib-cookiecutter
+```
+
 # Xonsh Script (xsh)
 
 * `$ARGS`: List of all command line parameter arguments.
@@ -576,16 +586,6 @@ completer remove dummy
 * `print_color()` or `printx()`: Print colored message.
 * `exit()`: Exit from the script.
 * [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete) - tab completion of python and xonsh scripts in xonsh shell. 
-
-# Xontrib
-
-Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
-
-Create xontrib [using cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter):
-```
-pip install cookiecutter
-cookiecutter gh:xonsh/xontrib-cookiecutter
-```
 
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 
