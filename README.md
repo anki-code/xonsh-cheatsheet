@@ -6,6 +6,29 @@ Cheat sheet for xonsh shell with copy-pastable examples. This is a good level of
 If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet now</a>.
 </p>
 
+# Install xonsh or try without installation
+Installation methods:
+```python
+pip install xonsh  # PyPi
+
+conda config --add channels conda-forge && conda install xonsh  # Conda
+
+apt install xonsh    # Debian/Ubuntu
+dnf install xonsh    # Fedora
+pacman -S xonsh      # Arch Linux
+brew install xonsh   # OSX
+```
+Try without installation:
+```python
+docker run -it --rm xonsh/xonsh:slim  # Docker
+```
+```python
+# Linux portable xonsh AppImage
+wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
+chmod +x xonsh
+./xonsh
+```
+
 # Basics
 
 The xonsh language is a superset of Python 3 with additional shell primitives. As result you can mix shell commands and Python code as easy as possible.
