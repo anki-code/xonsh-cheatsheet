@@ -647,7 +647,6 @@ $(cat file.txt)
 
 * [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html)
 * [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
-* [Builtin xontrib bashisms](https://xon.sh/xontribs.html#bashisms) - Enables additional Bash-like syntax while at the command prompt. 
 * `bash -c! echo 123` - the way to run bash command line using macro syntax.
 
 ## Using xonsh wherever you go through the SSH
