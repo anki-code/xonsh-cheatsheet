@@ -581,11 +581,38 @@ cookiecutter gh:xonsh/xontrib-cookiecutter
 
 # Xonsh Script (xsh)
 
-* `$ARGS`: List of all command line parameter arguments.
-* `$ARG0`, `$ARG1`, ..., `$ARG9`: Script command line argument at index n.
-* `print_color()` or `printx()`: Print colored message.
-* `exit()`: Exit from the script.
-* [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete) - tab completion of python and xonsh scripts in xonsh shell. 
+Real life example of xsh script that have: arguments, tab completion for arguments, subprocess calls with checking the result, colorizing the result and exit code:
+```python
+#!/usr/bin/env xonsh
+# PYTHON_ARGCOMPLETE_OK                                  
+import argparse
+import argcomplete  # Tab completion support with xontrib-argcomplete
+from argcomplete.completers import ChoicesCompleter
+
+argp = argparse.ArgumentParser(description=f"Get count of lines in HTML by site address.")
+argp.add_argument('--host', required=True, help="Host").completer=ChoicesCompleter(('xon.sh', 'github.com'))
+argcomplete.autocomplete(argp)
+args = argp.parse_args()
+
+if result := !(curl -s -L @(args.host)):  # Python + Subprocess = ♥
+    lines_count = len(result.out.splitlines())
+    printx(f'{{GREEN}}Count of lines on {{#00FF00}}{args.host}{{GREEN}}: {{YELLOW}}{lines_count}{{RESET}}')  # Colorizing messages
+else:
+    printx(f'{{RED}}Error while reading {{YELLOW}}{args.host}{{RED}}! {{RESET}}')
+    exit(1)  # Exit with code number 1
+```
+Try it in action:
+```python
+xonsh
+pip install argcomplete xontrib-argcomplete
+xontrib load argcomplete
+cd /tmp
+wget https://raw.githubusercontent.com/anki-code/xonsh-cheatsheet/main/examples/host_lines.xsh
+xonsh host_lines.xsh --ho<Tab>
+xonsh host_lines.xsh --host <Tab>
+xonsh host_lines.xsh --host xon.sh
+# Count of lines on xon.sh: 568
+```
 
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 
