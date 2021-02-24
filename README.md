@@ -643,11 +643,11 @@ $(cat file.txt)
 # 'line 1\nline 2\nline 3\n'
 ```
 
-## Bash and xonsh
+## From Bash to Xonsh
 
-* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html)
+* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html) - This is the must read.
 * [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
-* `bash -c! echo 123` - the way to run bash command line using macro syntax.
+* `bash -c! echo 123` - The way to run bash command line using macro syntax.
 
 ## Using xonsh wherever you go through the SSH
 
