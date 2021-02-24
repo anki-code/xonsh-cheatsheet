@@ -334,7 +334,7 @@ args 1 2 3
 
 
 # [Globbing](https://xon.sh/tutorial.html#normal-globbing) - get the list of files from path by mask or regexp
-To [normal globbing](https://xon.sh/tutorial.html#normal-globbing) add `g` before back quotes:
+To [Normal globbing](https://xon.sh/tutorial.html#normal-globbing) add `g` before back quotes:
 ```python
 ls *.*
 ls g`*.*`
@@ -342,7 +342,7 @@ ls g`*.*`
 for f in gp`.*`:          # `p` is to return path instances
       print(f.exists())
 ```
-To [regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing) add `r` before back quotes:
+To [Regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing) add `r` before back quotes:
 ```python
 ls `.*`
 ls r`.*`
@@ -350,7 +350,7 @@ ls r`.*`
 for f in rp`.*`:          # `p` is to return path instances
       print(f.exists())
 ```
-To [custom function globbing](https://xon.sh/tutorial.html#custom-path-searches) add `@` and the function name before back quotes:
+To [Custom function globbing](https://xon.sh/tutorial.html#custom-path-searches) add `@` and the function name before back quotes:
 ```python
 def foo(s):
     return [i for i in os.listdir('.') if i.startswith(s)]
