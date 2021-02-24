@@ -660,4 +660,3 @@ In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an edi
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
-* The first short version of the cheat sheet was made by @AstraLuma. Thanks!
