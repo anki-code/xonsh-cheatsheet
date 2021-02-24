@@ -596,9 +596,9 @@ args = argp.parse_args()
 
 if result := !(curl -s -L @(args.host)):  # Python + Subprocess = ♥
     lines_count = len(result.out.splitlines())
-    printx(f'{{GREEN}}Count of lines on {{#00FF00}}{args.host}{{GREEN}}: {{YELLOW}}{lines_count}{{RESET}}')  # Colorizing messages
+    printx(f'{{GREEN}}Count of lines on {{#00FF00}}{args.host}{{GREEN}}: {{YELLOW}}{lines_count}{{RESET}}')
 else:
-    printx(f'{{RED}}Error while reading {{YELLOW}}{args.host}{{RED}}! {{RESET}}')
+    printx(f'{{RED}}Error while reading {{YELLOW}}{args.host}{{RED}}! {{RESET}}') # Colorizing messages
     exit(1)  # Exit with code number 1
 ```
 Try it in action:
@@ -610,7 +610,7 @@ cd /tmp
 wget https://raw.githubusercontent.com/anki-code/xonsh-cheatsheet/main/examples/host_lines.xsh
 xonsh host_lines.xsh --ho<Tab>
 xonsh host_lines.xsh --host <Tab>
-xonsh host_lines.xsh --host xon.sh
+xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_lines.xsh --host xon.sh
 # Count of lines on xon.sh: 568
 ```
 
