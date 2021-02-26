@@ -56,9 +56,9 @@ for file in gp`*.*`:
         du -sh @(file)
 ```
 
-Next read and remember two most major things in xonsh world.
+Next read and remember three most frequent things that newcomers missed.
 
-## [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
+## 1. [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
 
 The first thing you should remember that there is Python and subprocess commands:
 
@@ -75,7 +75,7 @@ for i in range(0, 42):  # Python
 html = $(curl https://xon.sh)  # Python command where called captured subprocess command
 ```
 
-## [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
+## 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
 The second thing you should remember that xonsh syntax for subprocess commands is very [self-consistent](https://xon.sh/tutorial_subproc_strings.html) but it's differ than sh-lang. If you use arguments with quotes or brackets you should clearly understand the difference:
 
@@ -151,6 +151,14 @@ Most of novices try to copy and paste sh-lang commands that contains special cha
 ```python
 bash -c! echo {123}
 ```
+
+## 3. The process substitution operator `$()` returns string
+
+In sh-compatible shells the [process substitution operator](https://en.wikipedia.org/wiki/Process_substitution) `$()` executes the command and then split the output and use these parts as arguments. The command `echo $(echo -e "1 2\n3")` will have three distinct arguments `1`, `2` and `3` that will passed to the first `echo`. (To make what sh-compatible shells are doing by `$()` operator the xonsh shell has `@$()` operator that will be described in the next chapter.)
+
+In xonsh shell the `$()` operator returns the output of the command. The command `echo $(echo -e "1 2\n3")` will have one argument `1 2\n3\n` that will be passed to the first `echo`.
+
+*Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
