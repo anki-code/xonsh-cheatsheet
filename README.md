@@ -382,7 +382,7 @@ COMMAND > output.txt  or  COMMAND out> output.txt  or  COMMAND o> output.txt  or
 COMMAND err> errors.txt  or  COMMAND e> errors.txt  or  COMMAND 2> errors.txt
 
 # Redirecting all stdout and stderr
-COMMAND all> combined.txt  or  COMMAND a> combined.txt  or  COMMAND &> combined.txt
+COMMAND all> combo.txt  or  COMMAND a> combo.txt  or  COMMAND &> combo.txt
 
 # Merge stderr into stdout - error messages are reported to the same location as regular output
 COMMAND err>out  or  COMMAND err>o  or  COMMAND e>out  or  COMMAND e>o  or  COMMAND 2>&1
