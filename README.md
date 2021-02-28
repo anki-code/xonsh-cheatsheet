@@ -34,22 +34,22 @@ chmod +x xonsh
 The xonsh language is a superset of Python 3 with additional shell support. As result you can mix shell commands and Python code as easy as possible. Right off the bat examples:
 
 ```python
-cd /tmp && ls  # shell commands
+cd /tmp && ls                     # shell commands
 
-21 + 21  # python command
+21 + 21                           # python command
 
-for i in range(0, 42):  # mix python 
-    echo @(i+1)         # and the shell
+for i in range(0, 42):            # mix python 
+    echo @(i+1)                   # and the shell
 
-len($(curl https://xon.sh))  # mix python and the shell
+len($(curl https://xon.sh))       # mix python and the shell
 
-$PATH.append('/tmp')  # using environment variables
+$PATH.append('/tmp')              # using environment variables
 
-for file in gp`*.*`:    # reading the list of files as Path-objects
-    if file.exists():   # using rich functionality of Path-objects
-        du -sh @(file)  # and pass it to the shell command
+for file in gp`*.*`:              # reading the list of files as Path-objects
+    if file.exists():             # using rich functionality of Path-objects
+        du -sh @(file)            # and pass it to the shell command
         
-import json  # python libraries are always at hand
+import json                       # python libraries are always at hand
 if docker_info := $(docker info --format '{{json .}}'):
     print('ContainersRunning:', json.loads(docker_info)['ContainersRunning'])
         
