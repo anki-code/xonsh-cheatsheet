@@ -377,27 +377,16 @@ cd /
 
 ```python
 # Redirect stdout
-COMMAND > output.txt
-COMMAND out> output.txt
-COMMAND o> output.txt
-COMMAND 1> output.txt # included for Bash compatibility
+COMMAND > output.txt  or  COMMAND out> output.txt  or  COMMAND o> output.txt  or  COMMAND 1> output.txt
 
 # Redirecting stderr
-COMMAND err> errors.txt
-COMMAND e> errors.txt
-COMMAND 2> errors.txt # included for Bash compatibility
+COMMAND err> errors.txt  or  COMMAND e> errors.txt  or  COMMAND 2> errors.txt
 
 # Redirecting all stdout and stderr
-COMMAND all> combined.txt
-COMMAND a> combined.txt
-COMMAND &> combined.txt # included for Bash compatibility
+COMMAND all> combined.txt  or  COMMAND a> combined.txt  or  COMMAND &> combined.txt
 
 # Merge stderr into stdout - error messages are reported to the same location as regular output
-COMMAND err>out
-COMMAND err>o
-COMMAND e>out
-COMMAND e>o
-COMMAND 2>&1  # included for Bash compatibility
+COMMAND err>out  or  COMMAND err>o  or  COMMAND e>out  or  COMMAND e>o  or  COMMAND 2>&1
 
 # Merge can be combined with other redirections
 COMMAND err>out | COMMAND2
