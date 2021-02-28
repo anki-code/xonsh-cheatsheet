@@ -56,9 +56,9 @@ for file in gp`*.*`:
         du -sh @(file)
 ```
 
-Next read and remember three most frequent things that newcomers missed.
+## Three most frequent things that newcomers missed
 
-## 1. [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
+### 1. [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
 
 The first thing you should remember that there is Python and subprocess commands:
 
@@ -75,7 +75,7 @@ for i in range(0, 42):  # Python
 html = $(curl https://xon.sh)  # Python command where called captured subprocess command
 ```
 
-## 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
+### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
 The second thing you should remember that xonsh syntax for subprocess commands is very [self-consistent](https://xon.sh/tutorial_subproc_strings.html) but it's differ than sh-lang. If you use arguments with quotes or brackets you should clearly understand the difference:
 
@@ -152,7 +152,7 @@ Most of novices try to copy and paste sh-lang commands that contains special cha
 bash -c! echo {123}
 ```
 
-## 3. The process substitution operator `$()` returns string
+### 3. The process substitution operator `$()` returns string
 
 In sh-compatible shells the [process substitution operator](https://en.wikipedia.org/wiki/Process_substitution) `$()` executes the command and then split the output and use these parts as arguments. The command `echo $(echo -e "1 2\n3")` will have three distinct arguments `1`, `2` and `3` that will passed to the first `echo`.
 
@@ -666,6 +666,13 @@ You stuffed command shell with aliases, tools and colors but you lose it all whe
 ## How to paste and edit the multiple line of code being in interactive mode
 
 In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an editor in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted.
+
+## How to get stack trace without `__amalgam__`?
+
+Run xonsh in debug mode:
+```python 
+XONSH_DEBUG=1 XONSH_SHOW_TRACEBACK=1 xonsh
+```
 
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
