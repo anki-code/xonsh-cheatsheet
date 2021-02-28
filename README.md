@@ -31,29 +31,28 @@ chmod +x xonsh
 
 # Basics
 
-The xonsh language is a superset of Python 3 with additional shell primitives. As result you can mix shell commands and Python code as easy as possible.
-
-Right off the bat examples:
+The xonsh language is a superset of Python 3 with additional shell support. As result you can mix shell commands and Python code as easy as possible. Right off the bat examples:
 
 ```python
-cd /tmp && ls
+cd /tmp && ls  # shell commands
 
-for i in range(0, 42):
-    echo @(i+1)
+21 + 21  # python command
 
-len($(curl https://xon.sh))
+for i in range(0, 42):  # mix python 
+    echo @(i+1)         # and the shell
 
-import json
-docker_network_id = '1c04fa7dbb06'
-network_config = json.loads( $(docker network inspect @(docker_network_id)) )[0]
+len($(curl https://xon.sh))  # mix python and the shell
 
-21 + 21
+$PATH.append('/tmp')  # using environment variables
 
-$PATH.append('/tmp')
-
-for file in gp`*.*`:
-    if file.exists():
-        du -sh @(file)
+for file in gp`*.*`:    # reading the list of files as Path-objects
+    if file.exists():   # using rich functionality of Path-objects
+        du -sh @(file)  # and pass it to the shell command
+        
+import json  # python libraries are always at hand
+if docker_info := $(docker info --format '{{json .}}'):
+    print('ContainersRunning:', json.loads(docker_info)['ContainersRunning'])
+        
 ```
 
 ## Three most frequent things that newcomers missed
