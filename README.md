@@ -75,7 +75,7 @@ for i in range(0, 42):  # Python
 html = $(curl https://xon.sh)  # Python command where called captured subprocess command
 ```
 
-The subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the commands like `echo {1..5}` (brace expansion in bash) is not working and should be implemented using xonsh parser. Most of bash features could be replaced by the Python alternatives and the example before will be solved by `echo @(range(1,6))`.
+The subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the commands like `echo {1..5}` (brace expansion in bash) is not working and should be implemented using xonsh parser. Most of [bash features could be replaced by the Python alternatives](https://xon.sh/bash_to_xsh.html) and the example before will be solved by `echo @(range(1,6))`.
 
 ### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
