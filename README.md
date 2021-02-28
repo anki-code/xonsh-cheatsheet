@@ -614,6 +614,24 @@ xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_line
 # Count of lines on xon.sh: 568
 ```
 
+# [History](https://xon.sh/tutorial_hist.html)
+
+```python
+echo 123
+# 123
+
+__xonsh__.history[-1]
+# HistoryEntry(cmd='echo 123', out='123\n', rtn=0, ts=[1614527550.2158427, 1614527550.2382812])
+
+history info
+# backend: sqlite
+# sessionid: 637e577c-e5c3-4115-a3fd-99026f113464
+# filename: /home/user/.local/share/xonsh/xonsh-history.sqlite
+# session items: 39
+# all items: 8533
+# gc options: (100000, 'commands')
+```
+
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 
 Add `?` (regular help) or `??` (super help) to the command:
