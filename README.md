@@ -643,7 +643,7 @@ json??
 
 # Tips and tricks
 
-## Create file with content from command line
+### Create file with content from command line
 ```python
 echo @("""
 line 1
@@ -655,13 +655,13 @@ $(cat file.txt)
 # 'line 1\nline 2\nline 3\n'
 ```
 
-## From Bash to Xonsh
+### From Bash to Xonsh
 
 * [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html) - This is the must read.
 * [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
 * `bash -c! echo 123` - The way to run bash command line using macro syntax.
 
-## Using xonsh wherever you go through the SSH
+### Using xonsh wherever you go through the SSH
 
 You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
 
@@ -669,7 +669,7 @@ You stuffed command shell with aliases, tools and colors but you lose it all whe
 
 In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an editor in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted.
 
-## How to get stack trace without `__amalgam__`?
+### How to get stack trace without `__amalgam__`?
 
 Run xonsh in debug mode:
 ```python 
