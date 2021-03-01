@@ -76,6 +76,8 @@ html = $(curl https://xon.sh)  # Python command where called captured subprocess
 
 The subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the commands like `echo {1..5}` (brace expansion in bash) is not working and should be implemented using xonsh parser. Most of [bash features could be replaced by the Python alternatives](https://xon.sh/bash_to_xsh.html) and the example before will be solved by `echo @(range(1,6))`. Be calm and ready to the new Python-driven mindset.
 
+*Note: you can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
+
 ### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
 The second thing you should remember that xonsh syntax for subprocess commands is very [self-consistent](https://xon.sh/tutorial_subproc_strings.html) but it's differ than sh-lang. If you use arguments with quotes or brackets you should clearly understand the difference:
@@ -162,7 +164,6 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 *Notes:*
 * *To make what sh-compatible shells are doing by `$()` operator the xonsh shell has `@$()` operator that will be described in the next chapter.*
 * *Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
-* *Also you can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
