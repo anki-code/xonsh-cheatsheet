@@ -162,6 +162,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 *Notes:*
 * *To make what sh-compatible shells are doing by `$()` operator the xonsh shell has `@$()` operator that will be described in the next chapter.*
 * *Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
+* *Also you can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
