@@ -148,8 +148,8 @@ The second thing you should remember that xonsh syntax for subprocess commands i
 
 The golden rule for xonsh: When in doubt in subprocess mode, use quotes!
 
-*Notes: 
-* Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh:*
+*Notes:* 
+* *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh:*
 
     ```python
     bash -c! echo {123}
