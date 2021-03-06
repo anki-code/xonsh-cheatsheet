@@ -156,12 +156,14 @@ The second thing you should remember that xonsh syntax for subprocess commands i
 
 The golden rule for xonsh: When in doubt in subprocess mode, use quotes!
 
-*Note: you can wrap any argument into Python string substitution:*
-```python
-name = 'snail'
-echo @('--name=' + name.upper())
-# --name=SNAIL
-```
+*Note:*
+
+* *You can wrap any argument into Python string substitution:*
+    ```python
+    name = 'snail'
+    echo @('--name=' + name.upper())
+    # --name=SNAIL
+    ```
 
 ### 3. The process substitution operator `$()` returns string
 
