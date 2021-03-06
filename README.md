@@ -74,7 +74,7 @@ for i in range(0, 42):  # Python
 html = $(curl https://xon.sh)  # Python command where called captured subprocess command
 ```
 
-*Notes:* 
+*Note:* 
 * *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh:*
 
     ```python
@@ -171,8 +171,12 @@ In sh-compatible shells the [process substitution operator](https://en.wikipedia
 
 In xonsh shell the `$()` operator returns the output of the command. The command `echo $(echo -e "1 2\n3")` will have one argument `1 2\n3\n` that will be passed to the first `echo`.
 
-*Notes:*
+*Note:*
 * *To make what sh-compatible shells are doing by `$()` operator the xonsh shell has `@$()` operator that will be described in the next chapter.*
+* *To get the arguments list as the output lines you can use [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines) function and the python substitution:*
+    ```
+    echo @($(echo "1\n2 3\n4").splitlines())  # the first echo will get three arguments: "1", "2 3" and "4"
+    ```
 * *Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
