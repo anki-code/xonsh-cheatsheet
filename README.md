@@ -59,7 +59,7 @@ if docker_info := $(docker info --format '{{json .}}'):
 
 ### 1. [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
 
-The first thing you should remember that there is Python and subprocess commands:
+The first thing you should remember that the subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the commands like `echo {1..5}` (brace expansion in bash) is not working and should be implemented using xonsh parser as a feature. Most of [bash features could be replaced by the Python alternatives](https://xon.sh/bash_to_xsh.html) and the example before will be solved by `echo @(range(1,6))`. Be calm and ready to the new Python-driven mindset.
 
 ```python
 echo -n Hello   # Subprocess command: running `echo` tool with two arguments: `-n` and `Hello`
@@ -73,8 +73,6 @@ for i in range(0, 42):  # Python
     
 html = $(curl https://xon.sh)  # Python command where called captured subprocess command
 ```
-
-The subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the commands like `echo {1..5}` (brace expansion in bash) is not working and should be implemented using xonsh parser. Most of [bash features could be replaced by the Python alternatives](https://xon.sh/bash_to_xsh.html) and the example before will be solved by `echo @(range(1,6))`. Be calm and ready to the new Python-driven mindset.
 
 ### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
