@@ -57,7 +57,7 @@ if docker_info := $(docker info --format '{{json .}}'):
 
 ## Three most frequent things that newcomers missed
 
-### 1. [Python and Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
+### 1. [Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode) (shell commands)
 
 The first thing you should remember that the subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the commands like `echo {1..5}` (brace expansion in bash) is not working and should be implemented using xonsh parser as a feature. Most of [bash features could be replaced by the Python alternatives](https://xon.sh/bash_to_xsh.html) and the example before will be solved by `echo @(range(1,6))`. Be calm and ready to the new Python-driven mindset.
 
@@ -73,6 +73,16 @@ for i in range(0, 42):  # Python
     
 html = $(curl https://xon.sh)  # Python command where called captured subprocess command
 ```
+
+*Notes:* 
+* *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh:*
+
+    ```python
+    bash -c! echo {123}
+    ```
+
+    *or you can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
+
 
 ### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
@@ -146,15 +156,12 @@ The second thing you should remember that xonsh syntax for subprocess commands i
 
 The golden rule for xonsh: When in doubt in subprocess mode, use quotes!
 
-*Notes:* 
-* *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh:*
-
-    ```python
-    bash -c! echo {123}
-    ```
-
-    *or you can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
-
+*Note: you can wrap any argument into Python string substitution:*
+```python
+name = 'snail'
+echo @('--name=' + name.upper())
+# --name=SNAIL
+```
 
 ### 3. The process substitution operator `$()` returns string
 
