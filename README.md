@@ -9,7 +9,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 # Install xonsh or try without installation
 Installation methods:
 ```python
-pip install xonsh  # PyPi
+pip install 'xonsh[full]'  # PyPi
 
 conda config --add channels conda-forge && conda install xonsh  # Conda
 
