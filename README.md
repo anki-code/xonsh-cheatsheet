@@ -85,7 +85,7 @@ Be calm and ready to the sane and self-consistent Python-driven mindset.
 
 ### 2. [Strings and arguments in shell commands](https://xon.sh/tutorial_subproc_strings.html)
 
-The second thing comes from the first. To escaping the special charecters, special meaning of braces or passing the string to the arguments [use quotes](https://xon.sh/tutorial_subproc_strings.html). In most of cases use quotes.
+The second thing comes from the first. To escaping the special charecters, special meaning of braces or passing the string to the arguments use quotes. When in doubt, use quotes!
 
 You should clearly understand the difference:
 
