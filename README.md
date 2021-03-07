@@ -624,6 +624,10 @@ xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_line
 
 # [History](https://xon.sh/tutorial_hist.html)
 
+There are two history backends: `json` and `sqlite` which xonsh has by default. The `json` backend creates json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
+
+There is third party history backends that's supplied as xontribs: [xontrib-history-encrypt](https://github.com/anki-code/xontrib-history-encrypt).
+
 ```python
 echo 123
 # 123
