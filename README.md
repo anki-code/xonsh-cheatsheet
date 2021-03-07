@@ -481,34 +481,18 @@ To complete understanding let’s set environment variable `$EVAR` to `1` and lo
 ## [Simple macros](https://xon.sh/tutorial_macros.html#function-macros)
 
 ```python
-def identity(x : str):
+def m(x : str):
     return x
 
 # No macro calls:
-
-identity('me')
-# 'me'
-identity(42)
-# 42
-identity(identity)
-# <function __main__.identity>
+[m('me'), m(42), m(m)]
+# ['me', 42, <function __main__.m>]
 
 # Macro calls:
+[m!('me'), m!(42), m!(identity), m!(42), m!(  42 ), m!(import os)]
+# ["'me'", '42', 'identity', '42', '42', 'import os']
 
-identity!('me')
-# "'me'"
-identity!(42)
-# '42'
-identity!(identity)
-# 'identity'
-identity!(42)
-# '42'
-identity!(  42 )
-# '42'
-identity!(import os)
-# 'import os'
-
-identity!(if True:
+m!(if True:
     pass)
 # 'if True:\n    pass'
 ```
