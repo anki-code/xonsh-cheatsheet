@@ -425,14 +425,20 @@ COMMAND1 e>o < input.txt | COMMAND2 > output.txt e>> errors.txt
 ```python
 # Run command in background 
 sleep 30 &
-sleep 31 &
-sleep 32 &
 
 # List of jobs
 jobs
-# [4]+ running: sleep 32 & & (15644)
-# [3]- running: sleep 31 & & (15640)
 # [2]  running: sleep 30 & & (15636)
+
+__xonsh__.all_jobs
+# {1: {'bg': True,
+#  'cmds': (['sleep', '30'], '&'),
+#  'obj': <PopenThread(Thread-116, started daemon 140301877069376)>,
+#  'pgrp': None,
+#  'pids': [15636],
+#  'pipeline': ,
+#  'started': 1615105246.6757128,
+#  'status': 'running'}}
 ```
 
 # [String Literals in Subprocess-mode](https://xon.sh/tutorial.html#string-literals-in-subprocess-mode)
