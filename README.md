@@ -71,7 +71,7 @@ if docker_info := $(docker info --format '{{json .}}'):
 
 ## Three most frequent things that newcomers missed
 
-### 1. [Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode) (shell commands)
+### 1. [Shell commands as known as subprocess commands](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
 
 The first thing you should remember that the subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the command like `echo {1..5} \;` (brace expansion and escape character in bash) is not working. Most of sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by the sane Python alternatives and the example before will be solved by `echo @(range(1,6)) ';'`. 
 
@@ -83,7 +83,7 @@ Be calm and ready to the sane and self-consistent Python-driven mindset.
 * *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh `bash -c! echo {123}` or use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
 
 
-### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
+### 2. [Strings and arguments in shell commands](https://xon.sh/tutorial_subproc_strings.html)
 
 The second thing comes from the first. To escaping the special charecters, special meaning of braces or passing the string to the arguments [use quotes](https://xon.sh/tutorial_subproc_strings.html). In most of cases use quotes.
 
