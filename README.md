@@ -38,7 +38,7 @@ chmod +x xonsh
 ./xonsh
 
 # Then if you don’t have Python on your host, you may want to get it from AppImage by running:
-$PATH = [f'{$APPDIR}/usr/bin'] + $PATH
+$PATH = [$APPDIR + '/usr/bin'] + $PATH
 python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
 import tqdm
 ```
