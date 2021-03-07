@@ -85,7 +85,9 @@ Be calm and ready to the sane and self-consistent Python-driven mindset.
 
 ### 2. [Strings and arguments in subprocess commands](https://xon.sh/tutorial_subproc_strings.html)
 
-The second thing you should remember that xonsh syntax for subprocess commands is very [self-consistent](https://xon.sh/tutorial_subproc_strings.html) but it's differ than sh-lang. If you use arguments with quotes or brackets you should clearly understand the difference:
+The second thing comes from the first. To escaping the special charecters, special meaning of braces or passing the string to the arguments [use quotes](https://xon.sh/tutorial_subproc_strings.html). In most of cases use quotes.
+
+You should clearly understand the difference:
 
  <table style="width:100%">
   <tr>
@@ -152,8 +154,6 @@ The second thing you should remember that xonsh syntax for subprocess commands i
 </td>
   </tr>
 </table> 
-
-The golden rule for xonsh: When in doubt in subprocess mode, use quotes!
 
 *Note:*
 
