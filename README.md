@@ -73,7 +73,7 @@ if docker_info := $(docker info --format '{{json .}}'):
 
 ### 1. [Shell commands as known as subprocess commands](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
 
-The first thing you should remember that the subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the command like `echo {1..5} \;` (brace expansion and escape character in bash) is not working. Most of sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by the sane Python alternatives and the example before will be solved by `echo @(range(1,6)) ';'`. 
+The first thing you should remember that the shell commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the command like `echo {1..5} \;` (brace expansion and escape character in bash) is not working. Most of sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by the sane Python alternatives and the example before will be solved by `echo @(range(1,6)) ';'`. 
 
 If you think that only xonsh has the sh-uncompatible elements in the parser, you are tend to mistaken. If we compare Bash and Zsh we can found that `pip install package[subpackage]` command will work in Bash but in Zsh the error will be raised because Zsh has special mening for square braces. It's normal to have an evolution in the syntax and features. 
 
