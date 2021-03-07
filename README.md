@@ -73,22 +73,11 @@ if docker_info := $(docker info --format '{{json .}}'):
 
 ### 1. [Subprocess](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode) (shell commands)
 
-The first thing you should remember that the subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the command like `echo {1..5} \;` (brace expansion and escape character in bash) is not working. Most of sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by the sane Python alternatives and the example before will be solved by `echo @(range(1,6)) ';'`. Be calm and ready to the new Python-driven mindset.
-
-```python
-echo -n Hello   # Subprocess command: running `echo` tool with two arguments: `-n` and `Hello`
-2 + 2           # Python command
-import json     # Python command
-
-for i in range(0, 42):  # Python
-    echo @(i)           # Subprocess: run `echo` with the Python variable `i` as an argument
-    i += 1              # Python
-    ![echo @(i)]        # Explicit way to run subprocess command
-    
-html = $(curl https://xon.sh)  # Python command where called captured subprocess command
-```
+The first thing you should remember that the subprocess commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the command like `echo {1..5} \;` (brace expansion and escape character in bash) is not working. Most of sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by the sane Python alternatives and the example before will be solved by `echo @(range(1,6)) ';'`. 
 
 If you think that only xonsh has the sh-uncompatible elements in the parser, you are tend to mistaken. If we compare Bash and Zsh we can found that `pip install package[subpackage]` command will work in Bash but in Zsh the error will be raised because Zsh has special mening for square braces. It's normal to have an evolution in the syntax and features. 
+
+Be calm and ready to the new Python-driven mindset.
 
 *Note:* 
 * *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh `bash -c! echo {123}` or use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
