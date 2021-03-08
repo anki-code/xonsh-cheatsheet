@@ -676,8 +676,18 @@ $(cat file.txt)
 ### From Bash to Xonsh
 
 * [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html) - This is the must read.
-* [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
 * `bash -c! echo 123` - The way to run bash command line using macro syntax.
+* [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
+
+#### [Source environment and functions from bash](https://xon.sh/aliases.html#source-bash)
+```python
+echo "export VAR1='hello'" > /tmp/var.sh
+source-bash /tmp/var.sh
+source-bash "export VAR2='hey'"
+
+$VAR1, $VAR2
+# ('hello', 'hey')
+```
 
 ### Using xonsh wherever you go through the SSH
 
