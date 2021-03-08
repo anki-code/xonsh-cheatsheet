@@ -682,11 +682,14 @@ $(cat file.txt)
 #### [Source environment and functions from bash](https://xon.sh/aliases.html#source-bash)
 ```python
 echo "export VAR1='hello'" > /tmp/var.sh
-source-bash /tmp/var.sh
-source-bash "export VAR2='hey'"
+source-bash /tmp/var.sh                 # from file
+source-bash "export VAR2='hey'"         # from argument
+source-bash $(echo "export VAR3='hi'")  # from output of another tool
 
-$VAR1, $VAR2
-# ('hello', 'hey')
+env | grep VAR
+# VAR1=hello
+# VAR2=hey
+# VAR3=hi
 ```
 
 ### Using xonsh wherever you go through the SSH
