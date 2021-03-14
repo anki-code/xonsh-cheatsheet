@@ -707,6 +707,18 @@ Run xonsh in debug mode:
 XONSH_DEBUG=1 XONSH_SHOW_TRACEBACK=1 xonsh
 ```
 
+### Waiting for the job done
+```python
+sleep 100 &  # job 1
+sleep 100 &  # job 2
+sleep 100 &  # job 3
+
+while $(jobs):
+    time.sleep(1)
+
+print('Job done!')
+```
+
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
