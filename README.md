@@ -721,6 +721,13 @@ while $(jobs):
 print('Job done!')
 ```
 
+### Copy current session commands to clipboard using xclip
+
+```python
+aliases['hist-to-clip'] = lambda: $[echo @('\n\n'.join([h.cmd for h in __xonsh__.history])) | xclip]
+hist-to-clip
+```
+
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
