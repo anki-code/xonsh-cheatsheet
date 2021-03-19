@@ -189,9 +189,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 
 Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
-aliases['args'] = lambda args: print(args)  # helper to show arguments list
-
-args $(echo -e '1\n2\r3 4\r\n5')       # Subproc mode
+showcmd $(echo -e '1\n2\r3 4\r\n5')       # Subproc mode
 # ['1\n2\n3 4\n5\n']
 
 output = $(echo -e '1\n2\r3 4\r\n5')   # Python mode 
@@ -261,9 +259,7 @@ ret.out           # But it has the properties from CommandPipeline
 Evaluates Python and pass the arguments:
 
 ```python
-aliases['args'] = lambda args: print(args)  # helper to show arguments list
-
-args 'Supported:' @('string') @(['list','of','strings']) 
+showcmd 'Supported:' @('string') @(['list','of','strings']) 
 #['Supported:', 'string', 'list', 'of', 'strings']
 
 echo -n '!' | @(lambda args, stdin: 'Callable' + stdin.read())
@@ -273,9 +269,7 @@ echo -n '!' | @(lambda args, stdin: 'Callable' + stdin.read())
 ### `@$()` - split output of the command by white spaces for arguments list
 
 ```python
-aliases['args'] = lambda args: print(args)  # helper to show arguments list
-
-args @$(echo -e '1\n2\r3 4\r\n5')
+showcmd @$(echo -e '1\n2\r3 4\r\n5')
 #['1', '2\r3', '4', '5']
 ```
 This is mostly what bash's `$()` operator do.
@@ -357,9 +351,7 @@ args 1 2 3
 ```
 The same but as lambda:
 ```python
-aliases['args'] = lambda args: print(args)
-
-args 1 2 3
+showcmd 1 2 3
 #['1', '2', '3']
 ```
 
