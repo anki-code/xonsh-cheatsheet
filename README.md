@@ -675,7 +675,9 @@ json??
 
 # Tips and tricks
 
-### Create file with content from command line
+### Using text block in command line
+
+Creating file:
 ```python
 echo @("""
 line 1
@@ -685,6 +687,14 @@ line 3
 
 $(cat file.txt)
 # 'line 1\nline 2\nline 3\n'
+```
+
+Run commands in docker:
+```python
+docker run -it --rm xonsh/xonsh:slim /usr/local/bin/xonsh -c @("""
+pip install lolcat
+echo "We're in docker container now" | lolcat
+""")
 ```
 
 ### From Bash to Xonsh
