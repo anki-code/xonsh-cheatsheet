@@ -615,7 +615,7 @@ history info
 
 When you're in xonsh interactive mode you can register an event i.e.:
 
-```
+```python
 @events.on_chdir
 def mychdir(olddir, newdir, **kw):
     echo Jump from @(olddir) to @(newdir)
