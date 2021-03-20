@@ -692,8 +692,8 @@ $(cat file.txt)
 Run commands in docker:
 ```python
 docker run -it --rm xonsh/xonsh:slim xonsh -c @("""
-pip install lolcat
-echo "We're in docker container now" | lolcat
+pip install --disable-pip-version-check -q lolcat
+echo "We're in docker container now!" | lolcat
 """)
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
