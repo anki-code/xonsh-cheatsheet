@@ -704,6 +704,12 @@ hist-to-clip
 * `bash -c! echo 123` - The way to run bash command line using macro syntax.
 * [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
 
+# Thank you!
+
+Thank you for the reading! This cheatsheet is the tip of the iceberg of the xonsh shell and you can find more in the [official documentation](https://xon.sh/contents.html#guides).
+
+If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet now</a>.
+
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
