@@ -530,7 +530,7 @@ b.lines
 # ['qwe', 'asd', 'zxc', '']
 ```
 
-### Custom JsonBlock
+### Custom JSON block
 ```python
 import json
 
@@ -553,7 +553,7 @@ j['Hello']
 # world!
 ```
 
-### Custom DockerBlock
+### Custom Docker block
 
 ```python
 from xonsh.contexts import Block
