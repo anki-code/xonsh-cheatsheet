@@ -385,6 +385,12 @@ path
 
 [f for f in path.parent.glob('*') if 'xonsh' in f.name]
 # [Path('/home/snail/.xonshrc')]
+
+dir1 = 'hello'
+dir2 = 'world'
+path = p'/tmp' / dir1 / dir2 / 'from/dir' / f'{dir1}'
+path
+# Path('/tmp/hello/world/from/dir/hello')
 ```
 
 # [Globbing](https://xon.sh/tutorial.html#normal-globbing) - get the list of files from path by mask or regexp
