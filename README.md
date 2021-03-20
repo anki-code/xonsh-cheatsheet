@@ -698,12 +698,6 @@ echo "We're in docker container now" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
 
-### From Bash to Xonsh
-
-* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html) - This is the must read.
-* `bash -c! echo 123` - The way to run bash command line using macro syntax.
-* [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
-
 ### Using xonsh wherever you go through the SSH
 
 You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
@@ -737,6 +731,12 @@ print('Job done!')
 aliases['hist-to-clip'] = lambda: $[echo @('\n\n'.join([h.cmd for h in __xonsh__.history])) | xclip]
 hist-to-clip
 ```
+
+### From Bash to Xonsh
+
+* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html) - This is the must read.
+* `bash -c! echo 123` - The way to run bash command line using macro syntax.
+* [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
 
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
