@@ -15,6 +15,8 @@ pip install 'xonsh[full]'  # PyPi
 
 conda config --add channels conda-forge && conda install xonsh  # Conda
 
+# We highly recommend to install xonsh from pip/pipx/conda to get the latest version.
+# But there are also package managers:
 apt install xonsh    # Debian/Ubuntu
 dnf install xonsh    # Fedora
 pacman -S xonsh      # Arch Linux
