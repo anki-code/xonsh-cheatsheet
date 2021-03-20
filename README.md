@@ -700,7 +700,7 @@ hist-to-clip
 
 ### From Bash to Xonsh
 
-* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html) - This is the must read.
+* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html)
 * `bash -c! echo 123` - The way to run bash command line using macro syntax.
 * [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
 
