@@ -611,6 +611,19 @@ history info
 # gc options: (100000, 'commands')
 ```
 
+# [Interactive mode events](https://xon.sh/events.html)
+
+When you're in xonsh interactive mode you can register an event i.e.:
+
+```
+@events.on_chdir
+def mychdir(olddir, newdir, **kw):
+    echo Jump from @(olddir) to @(newdir)
+    
+cd /tmp
+# Jump from /home/snail to /tmp
+```
+
 # [Help](https://xon.sh/tutorial.html#help-superhelp-with)
 
 Add `?` (regular help) or `??` (super help) to the command:
