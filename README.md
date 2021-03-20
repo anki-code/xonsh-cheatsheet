@@ -569,7 +569,7 @@ class Doxer(Block):
 
 
 with! Doxer() as d:
-   pip install --disable-pip-version-check lolcat
+   pip install lolcat
    echo "We're in docker container now!" | lolcat
 ```
 
