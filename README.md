@@ -553,6 +553,26 @@ j['Hello']
 # world!
 ```
 
+### Custom DockerBlock
+
+```python
+from xonsh.contexts import Block
+
+class Doxer(Block):
+    """Run xonsh codeblock in docker container."""
+
+    def __init__(self):
+       self.docker_image = 'xonsh/xonsh:slim'
+
+    def __exit__(self, *a, **kw):
+        $[docker run -it --rm @(self.docker_image) /usr/local/bin/xonsh -c @(self.macro_block)]
+
+
+with! Doxer() as d:
+   pip install --disable-pip-version-check lolcat
+   echo "We're in docker container now!" | lolcat
+```
+
 # [Tab-Completion](https://xon.sh/tutorial_completers.html)
 
 ```python
