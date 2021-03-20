@@ -300,6 +300,18 @@ $VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess comman
 #new value
 ```
 
+Python and subprocess mode:
+```python
+print("my home is $HOME")   # Python mode
+# my home is $HOME
+
+print("my home is " + $HOME)   # Python mode
+# my home is /home/snail
+
+echo "my home is $HOME" as well as '$HOME'     # Subprocess mode
+# my home is /home/snail as well as /home/snail
+```
+
 Work with [`$PATH`](https://xon.sh/envvars.html#path):
 ```python
 $PATH
@@ -358,6 +370,22 @@ showcmd 1 2 3
 #['1', '2', '3']
 ```
 
+# [Path string](https://xon.sh/tutorial.html#advanced-string-literals)
+
+The p-string returns [Path object](https://docs.python.org/3/library/pathlib.html):
+
+```python
+path = p'~/.xonshrc'
+
+path
+# Path('/home/snail/.xonshrc')
+
+[path.name, path.exists(), path.parent, path.parent.glob('*')]
+# ['.xonshrc', True, PosixPath('/home/pc')]
+
+[f for f in path.parent.glob('*') if 'xonsh' in f.name]
+# [Path('/home/snail/.xonshrc')]
+```
 
 # [Globbing](https://xon.sh/tutorial.html#normal-globbing) - get the list of files from path by mask or regexp
 To [Normal globbing](https://xon.sh/tutorial.html#normal-globbing) add `g` before back quotes:
@@ -365,8 +393,12 @@ To [Normal globbing](https://xon.sh/tutorial.html#normal-globbing) add `g` befor
 ls *.*
 ls g`*.*`
 
-for f in gp`.*`:          # `p` is to return path instances
-      print(f.exists())
+for f in gp`/tmp/*.*`:  # `p` is to return path objects
+    print(f.name)
+      
+for f in gp`/tmp/*/**`:  # `**` is to glob subdirectories
+    print(f)
+
 ```
 To [Regular Expression Globbing](https://xon.sh/tutorial.html#regular-expression-globbing) add `r` before back quotes:
 ```python
@@ -384,94 +416,6 @@ cd /
 @foo`bi`
 #['bin']
 ```
-
-# Shell syntax
-
-## [Input/Output Redirection](https://xon.sh/tutorial.html#input-output-redirection)
-
-```python
-# Redirect stdout
-COMMAND > output.txt  or  COMMAND out> output.txt  or  COMMAND o> output.txt  or  COMMAND 1> output.txt
-
-# Redirecting stderr
-COMMAND err> errors.txt  or  COMMAND e> errors.txt  or  COMMAND 2> errors.txt
-
-# Redirecting all stdout and stderr
-COMMAND all> combo.txt  or  COMMAND a> combo.txt  or  COMMAND &> combo.txt
-
-# Merge stderr into stdout - error messages are reported to the same location as regular output
-COMMAND err>out  or  COMMAND err>o  or  COMMAND e>out  or  COMMAND e>o  or  COMMAND 2>&1
-
-# Merge can be combined with other redirections
-COMMAND err>out | COMMAND2
-COMMAND e>o > combined.txt
-
-# Redirecting stdin
-COMMAND < input.txt
-< input.txt COMMAND
-
-# Combining I/O Redirects
-# This line will run COMMAND1 with the contents of input.txt fed in on stdin, 
-# and will pipe all output (stdout and stderr) to COMMAND2; 
-# the regular output of this command will be redirected to output.txt, 
-# and the error output will be appended to errors.txt.
-COMMAND1 e>o < input.txt | COMMAND2 > output.txt e>> errors.txt
-```
-
-## [Background Jobs](https://xon.sh/tutorial.html#background-jobs)
-```python
-# Run command in background 
-sleep 30 &
-
-# List of jobs
-jobs
-# [2]  running: sleep 30 & & (15636)
-
-__xonsh__.all_jobs
-# {1: {'bg': True,
-#  'cmds': (['sleep', '30'], '&'),
-#  'obj': <PopenThread(Thread-116, started daemon 140301877069376)>,
-#  'pgrp': None,
-#  'pids': [15636],
-#  'pipeline': ,
-#  'started': 1615105246.6757128,
-#  'status': 'running'}}
-```
-
-# [String Literals in Subprocess-mode](https://xon.sh/tutorial.html#string-literals-in-subprocess-mode)
-
-Simple example:
-
-```python
-print("my home is $HOME")   # Python mode
-# my home is $HOME
-
-echo "my home is $HOME"     # Subprocess mode
-# my home is /home/snail
-```
-
-For the fine control of environment variables (envvar) substitutions, brace substitutions and backslash escapes there are extended list of literals:
-
-* **`"foo"`**: Regular string: backslash escapes
-* **`f"foo"`**: Formatted string: brace substitutions, backslash escapes
-* **`r"foo"`**: Raw string: unmodified
-* **`p"foo"`**: Path string: backslash escapes, envvar substitutions, returns `Path`
-* **`pr"foo"`**: Raw Path string: envvar substitutions, returns `Path`
-* **`pf"foo"`**: Formatted Path string: backslash escapes, brace substitutions, envvar substitutions, returns `Path`
-* **`fr"foo"`**: Raw Formatted string: brace substitutions
-
-To complete understanding let’s set environment variable `$EVAR` to `1` and local variable `var` to `2` and make a table that shows how literal changes the string in Python- and subprocess-mode:
-
-|         String literal      |      As python object       | print([String literal]) |  echo [String literal] |
-|    ------------------------ |  -------------------------- | ----------------------- | ---------------------  |
-|    `"/$EVAR/\'{var}\'"`   | `"/$EVAR/'{var}'"`        | `/$EVAR/'{var}'`      | `/1/'{var}'`         |
-|    `r"/$EVAR/\'{var}\'"`  | `"/$EVAR/\\'{var}\\'"`    | `/$EVAR/\'{var}\'`    | `/$EVAR/\'{var}\'`   |
-|    `f"/$EVAR/\'{var}\'"`  | `"/$EVAR/'2'"`            | `/$EVAR/'2'`          | `/1/'2'`             |
-|    `fr"/$EVAR/\'{var}\'"` | `"/$EVAR/\\'2\\'"`        | `/$EVAR/\'2\'`        | `/$EVAR/\'2\'`       |
-|    `p"/$EVAR/\'{var}\'"`  | `Path("/1/'{var}'")`      | `/1/'{var}'`          | `/1/'{var}'`         |
-|    `pr"/$EVAR/\'{var}\'"` | `Path("/1/\\'{var}\\'")`  | `/1/\'{var}\'`        | `/1/\'{var}\'`       |
-|    `pf"/$EVAR/\'{var}\'"` | `Path("/1/'2'")`          | `/1/'2'`              | `/1/'2'`             |
-
 
 # Macros
 
