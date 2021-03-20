@@ -21,29 +21,30 @@ pacman -S xonsh      # Arch Linux
 brew install xonsh   # OSX
 ```
 Try without installation:
-```python
-docker run --rm -it xonsh/xonsh:slim  # Docker
+* Docker
+    ```python
+    docker run --rm -it xonsh/xonsh:slim  # Docker
 
-# Docker with certain Python version
-docker run --rm -it python:3.9-slim /bin/bash \
-  -c "pip install 'xonsh[full]' && xonsh"
+    # Docker with certain Python version and latest release of xonsh
+    docker run --rm -it python:3.9-slim /bin/bash \
+    -c "pip install 'xonsh[full]' && xonsh"
 
-# Docker with certain Python version and xonsh from the master branch
-docker run --rm -it python:3.9-slim /bin/bash \
-  -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
+    # Docker with certain Python version and xonsh from the master branch
+    docker run --rm -it python:3.9-slim /bin/bash \
+    -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
-```
-```python
-# Linux portable xonsh AppImage
-wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
-chmod +x xonsh
-./xonsh
+    ```
+* Linux-portable AppImage
+    ```python
+    wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
+    chmod +x xonsh
+    ./xonsh
 
-# Then if you don’t have Python on your host, you may want to get it from AppImage by running:
-$PATH = [$APPDIR + '/usr/bin'] + $PATH
-python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
-import tqdm
-```
+    # Then if you don’t have Python on your host, you may want to get it from AppImage by running:
+    $PATH = [$APPDIR + '/usr/bin'] + $PATH
+    python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
+    import tqdm
+    ```
 
 # Basics
 
