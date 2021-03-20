@@ -380,8 +380,8 @@ path = p'~/.xonshrc'
 path
 # Path('/home/snail/.xonshrc')
 
-[path.name, path.exists(), path.parent, path.parent.glob('*')]
-# ['.xonshrc', True, PosixPath('/home/pc')]
+[path.name, path.exists(), path.parent]
+# ['.xonshrc', True, Path('/home/snail')]
 
 [f for f in path.parent.glob('*') if 'xonsh' in f.name]
 # [Path('/home/snail/.xonshrc')]
