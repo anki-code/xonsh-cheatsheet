@@ -657,22 +657,18 @@ If you're trying to run the pipe `cat file | some_tool` and the captured output 
 
 Sometimes when you're using PyPi or Conda virtual environments you can forget about current version of Python. Try to remember i.e. for Conda:
 ```python
-# Getting current active Python version
-
-python --version
+python --version         # Getting current active Python version
 # Python 3.8.5
 
 which python
 # /opt/miniconda3/bin/python
 
-# Getting the Python version that used to run xonsh
-
 import sys
-sys.executable
+sys.executable           # Getting the Python version that used to run xonsh
 # '/usr/bin/python'
 
 @(sys.executable) --version
-Python 3.9.2
+# Python 3.9.2
 ```
 
 # Tips and tricks
