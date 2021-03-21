@@ -48,7 +48,7 @@ docker run --rm -it python:3.9-slim /bin/bash \
 -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 ```
 
-Linux-portable AppImage:
+Linux-portable AppImage contains both Python 3 and xonsh:
 
 ```python
 wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
