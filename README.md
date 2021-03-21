@@ -9,44 +9,57 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 [Full screen reading](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md)
 
 # Install xonsh or try without installation
-Installation methods:
+
+### Recommended way to install xonsh
+
+Most of the modern operating systems has [Python 3](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that installed by default or you can install it easily. This way is recommended, because you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases) from PyPi:
 ```python
-pip install 'xonsh[full]'  # PyPi
+python -m pip install 'xonsh[full]'
+```
 
-conda config --add channels conda-forge && conda install xonsh  # Conda
+If you're using [Conda](https://docs.conda.io/en/latest/) the package from [Conda-forge](https://conda-forge.org/) is also fresh:
+```
+conda config --add channels conda-forge && conda install xonsh
+```
 
-# We highly recommend to install xonsh from pip/pipx/conda to get the latest version.
-# But there are also package managers:
+### From package managers
+
+```
 apt install xonsh    # Debian/Ubuntu
 dnf install xonsh    # Fedora
 pacman -S xonsh      # Arch Linux
 brew install xonsh   # OSX
 ```
-Try without installation:
-* Docker
-    ```python
-    docker run --rm -it xonsh/xonsh:slim  # Docker
+*Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average release cycle for the xonsh shell is one-two month.*
 
-    # Docker with certain Python version and latest release of xonsh
-    docker run --rm -it python:3.9-slim /bin/bash \
-    -c "pip install 'xonsh[full]' && xonsh"
+### Try without installation
 
-    # Docker with certain Python version and xonsh from the master branch
-    docker run --rm -it python:3.9-slim /bin/bash \
-    -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
+Docker:
 
-    ```
-* Linux-portable AppImage
-    ```python
-    wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
-    chmod +x xonsh
-    ./xonsh
+```python
+docker run --rm -it xonsh/xonsh:slim  # Docker
 
-    # Then if you don’t have Python on your host, you may want to get it from AppImage by running:
-    $PATH = [$APPDIR + '/usr/bin'] + $PATH
-    python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
-    import tqdm
-    ```
+# Docker with certain Python version and latest release of xonsh
+docker run --rm -it python:3.9-slim /bin/bash \
+-c "pip install 'xonsh[full]' && xonsh"
+
+# Docker with certain Python version and xonsh from the master branch
+docker run --rm -it python:3.9-slim /bin/bash \
+-c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
+```
+
+Linux-portable AppImage:
+
+```python
+wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
+chmod +x xonsh
+./xonsh
+
+# Then if you don’t have Python on your host, you may want to get it from AppImage by running:
+$PATH = [$APPDIR + '/usr/bin'] + $PATH
+python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
+import tqdm
+```
 
 # Basics
 
