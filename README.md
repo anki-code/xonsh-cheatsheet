@@ -37,7 +37,7 @@ brew install xonsh   # OSX
 Docker:
 
 ```python
-docker run --rm -it xonsh/xonsh:slim  # Docker
+docker run --rm -it xonsh/xonsh:slim
 
 # Docker with certain Python version and latest release of xonsh
 docker run --rm -it python:3.9-slim /bin/bash \
