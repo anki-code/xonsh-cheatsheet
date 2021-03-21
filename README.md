@@ -644,14 +644,14 @@ json??
 ### Freezed terminal in some apps
 
 If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable threading for this tool:
-```
+```python
 with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
 ```
 
 ### Uncaptured pipe
 
-If you're trying run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
+If you're trying to run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
 
 ### Packages not found
 
