@@ -643,7 +643,7 @@ json??
 
 ### Freezed terminal in some apps
 
-If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable threading for this tool:
+If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs) for this tool:
 ```python
 with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
