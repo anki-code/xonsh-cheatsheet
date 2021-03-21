@@ -18,13 +18,13 @@ python -m pip install 'xonsh[full]'
 ```
 
 If you're using [Conda](https://docs.conda.io/en/latest/) the package from [Conda-forge](https://conda-forge.org/) is also fresh:
-```
+```python
 conda config --add channels conda-forge && conda install xonsh
 ```
 
-### From package managers
+### Install from package managers
 
-```
+```python
 apt install xonsh    # Debian/Ubuntu
 dnf install xonsh    # Fedora
 pacman -S xonsh      # Arch Linux
