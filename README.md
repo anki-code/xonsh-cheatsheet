@@ -647,18 +647,16 @@ Sometimes when you're using PyPi, Conda or virtual environments you can forget a
 
 The example of how to get the path to Python:
 ```python
-python --version         # Getting current active Python version
-# Python 3.8.5
+# Getting current active Python version
+python --version   # Python 3.8.5
+which python       # /opt/miniconda3/bin/python
+pip install tqdm   # Will be installed to /opt/miniconda3/lib
 
-which python
-# /opt/miniconda3/bin/python
-
-import sys
-sys.executable           # Getting the Python version that used to run xonsh
-# '/usr/bin/python'
-
-@(sys.executable) --version
-# Python 3.9.2
+# Getting the Python version that used to run xonsh
+import sys  
+sys.executable                  # '/usr/bin/python'
+@(sys.executable) --version     # Python 3.9.2
+xpip install tqdm               # Will be installed to /usr/lib
 ```
 
 ### Freezed terminal in some apps
