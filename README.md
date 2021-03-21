@@ -639,6 +639,42 @@ json??
 # json module super help
 ```
 
+# Known issues and workaround
+
+### Freezed terminal in some apps
+
+If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable threading for this tool:
+```
+with ${...}.swap(THREAD_SUBPROCS=False):
+      ./tool.sh
+```
+
+### Uncaptured pipe
+
+If you're trying run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
+
+### Packages not found
+
+Sometimes when you're using PyPi or Conda virtual environments you can forget about current version of Python. Try to remember i.e. for Conda:
+```python
+# Getting current active Python version
+
+python --version
+# Python 3.8.5
+
+which python
+# /opt/miniconda3/bin/python
+
+# Getting the Python version that used to run xonsh
+
+import sys
+sys.executable
+# '/usr/bin/python'
+
+@(sys.executable) --version
+Python 3.9.2
+```
+
 # Tips and tricks
 
 ### Using text block in command line
