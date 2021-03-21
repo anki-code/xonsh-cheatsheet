@@ -12,7 +12,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 ### Recommended way to install xonsh
 
-Most of the modern operating systems has [Python 3](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that installed by default or you can install it easily. This way is recommended, because you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases) from PyPi:
+Most of the modern operating systems has [Python 3](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that preinstalled or you can install it easily. This way is recommended, because you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases) from PyPi:
 ```python
 python -m pip install 'xonsh[full]'
 ```
