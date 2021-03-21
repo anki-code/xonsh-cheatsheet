@@ -641,21 +641,11 @@ json??
 
 # Known issues and workaround
 
-### Freezed terminal in some apps
+### ModuleNotFoundError
 
-If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs) for this tool:
-```python
-with ${...}.swap(THREAD_SUBPROCS=False):
-      ./tool.sh
-```
+Sometimes when you're using PyPi, Conda or virtual environments you can forget about current version and location of Python and try to import packages in xonsh with `ModuleNotFoundError` error. Ordinary you installed the package in other environment and didn't realise it. To solve this case there is [`xpip`](https://xon.sh/aliases.html#xpip) alias that you can use to install PyPi packages in the Python environment that was used to run current xonsh session.
 
-### Uncaptured pipe
-
-If you're trying to run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
-
-### Packages not found
-
-Sometimes when you're using PyPi or Conda virtual environments you can forget about current version of Python. Try to remember i.e. for Conda:
+The example of how to get the path to Python:
 ```python
 python --version         # Getting current active Python version
 # Python 3.8.5
@@ -670,6 +660,18 @@ sys.executable           # Getting the Python version that used to run xonsh
 @(sys.executable) --version
 # Python 3.9.2
 ```
+
+### Freezed terminal in some apps
+
+If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs) for this tool:
+```python
+with ${...}.swap(THREAD_SUBPROCS=False):
+      ./tool.sh
+```
+
+### Uncaptured pipe
+
+If you're trying to run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
 
 # Tips and tricks
 
