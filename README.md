@@ -181,6 +181,12 @@ You should clearly understand the difference:
     echo @('--name=' + name.upper())
     # --name=SNAIL
     ```
+* *You can use `showcmd` command to show the arguments list:*    
+    ```python
+    showcmd echo The @('arguments') @(['list', 'is']) $(echo here) "and" --say="hello" to you
+    # ['echo', 'The', 'arguments', 'list', 'is', 'here\n', 'and', '--say="hello"', 'to', 'you']]    
+    ```
+
 
 ### 3. The process substitution operator `$()` returns string
 
