@@ -755,6 +755,21 @@ hist-to-clip
 * `bash -c! echo 123` - The way to run bash command line using macro syntax.
 * [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
 
+# Answers to the holy war questions
+
+### Bash is everywhere! Why xonsh?
+
+Python is also everywhere or on the way to ;)
+
+### Xonsh is slower! Why xonsh?
+
+Significant much more time you spending on Googling and debugging the bash-based solutions as well as significant much more time takes the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
+
+### My fancy prompt in zsh is super duper! Why xonsh?
+
+The fancy and overenergy prompt is the tip of iceberg. You still live in the 90th years with sh-syntax language. We love the xonsh entirely: sane language, extensions, lambdas, history, and more and more :)
+
+
 # Thank you!
 
 Thank you for the reading! This cheatsheet is the tip of the iceberg of the xonsh shell and you can find more in the [official documentation](https://xon.sh/contents.html#guides).
