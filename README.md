@@ -352,18 +352,11 @@ See also the list of [xonsh default environment variables](http://xon.sh/envvars
 ## Simple alias
 
 ```python
-# Add alias as string
-aliases['g'] = 'git status -sb'
-
-# Add alias as list
-aliases['gp'] = ['git', 'pull']
-
-# Add alias as simple callable lambda
-aliases['banana'] = lambda: "Banana for scale.\n"
-
-# Delete alias
-del aliases['banana']
-
+aliases['g'] = 'git status -sb'      # Add alias as string
+aliases['e'] = 'echo @(2+2)'         # Add xonsh executable alias (ExecAlias)
+aliases['gp'] = ['git', 'pull']      # Add alias as list of arguments
+aliases['b'] = lambda: "Banana!\n"   # Add alias as simple callable lambda
+del aliases['banana']                # Delete alias
 ```
 
 ## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
