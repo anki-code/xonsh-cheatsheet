@@ -383,13 +383,12 @@ showcmd 1 2 3
 #['1', '2', '3']
 ```
 
-# [Path string](https://xon.sh/tutorial.html#advanced-string-literals)
+# [Path strings](https://xon.sh/tutorial.html#advanced-string-literals)
 
 The p-string returns [Path object](https://docs.python.org/3/library/pathlib.html):
 
 ```python
 path = p'~/.xonshrc'
-
 path
 # Path('/home/snail/.xonshrc')
 
