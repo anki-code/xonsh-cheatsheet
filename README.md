@@ -741,6 +741,7 @@ In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an edi
 
 Run xonsh in debug mode:
 ```python 
+bash
 XONSH_DEBUG=1 XONSH_SHOW_TRACEBACK=1 xonsh
 ```
 
