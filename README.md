@@ -721,10 +721,10 @@ pip install lolcat
 
 @events.on_transform_command
 def _(cmd, **kw):
-    # Be careful with the condition! The modified command will be passed 
-    # to `on_transform_command` event again and again until the event 
-    # returns the same command. Newbies make a mistakes and facing with looping.
     if cmd.startswith('echo') and 'lolcat' not in cmd:  
+        # Be careful with the condition! The modified command will be passed 
+        # to `on_transform_command` event again and again until the event 
+        # returns the same command. Newbies make a mistakes and facing with looping.
         return cmd.rstrip() + ' | lolcat'
     else:
         return cmd
