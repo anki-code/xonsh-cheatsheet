@@ -754,10 +754,10 @@ hist-to-clip
 Trace with [hunter](https://github.com/ionelmc/python-hunter):
 
 ```python
-pip insatll hunter
+pip install hunter
 $PYTHONHUNTER='depth_lt=10,stdlib=False' $XONSH_DEBUG=1 xonsh -c 'echo 1'
 ```
-Or try [xunter](https://github.com/anki-code/xunter).
+Or try [xunter](https://github.com/anki-code/xunter) for tracing and profiling.
 
 ### From Bash to Xonsh
 
