@@ -767,7 +767,7 @@ Significant much more time you spending on Googling and debugging the bash-based
 
 ### My fancy prompt in zsh is super duper! Why xonsh?
 
-The fancy and overenergy prompt is the tip of iceberg. You still live in the 90th years with sh-syntax language. We love the xonsh entirely: sane language, extensions, lambdas, history, tab completion, and more, and more :)
+The fancy prompt is the tip of iceberg. You still live in the 90th with sh-syntax language. We love the xonsh entirely: sane language, extensions, lambdas, history, tab completion, and more, and more :)
 
 ### Xonsh has an issues! Why xonsh?
 
