@@ -749,6 +749,16 @@ aliases['hist-to-clip'] = lambda: $[echo @('\n\n'.join([h.cmd for h in __xonsh__
 hist-to-clip
 ```
 
+### How to trace the xonsh code?
+
+Trace with [hunter](https://github.com/ionelmc/python-hunter):
+
+```python
+pip insatll hunter
+$PYTHONHUNTER='depth_lt=10,stdlib=False' $XONSH_DEBUG=1 xonsh -c 'echo 1'
+```
+Or try [xunter](https://github.com/anki-code/xunter).
+
 ### From Bash to Xonsh
 
 * [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html)
