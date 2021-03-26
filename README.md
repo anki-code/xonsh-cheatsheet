@@ -712,6 +712,27 @@ Don't forget that `Alt+Enter` can run the command from any place where cursor is
 
 You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
 
+### How to modify command before execute?
+
+To change the command between pressing enter and execution there is [on_transform_command](https://xon.sh/events.html#on-transform-command) event:
+
+```python
+pip install lolcat
+
+@events.on_transform_command
+def _(cmd, **kw):
+    # Be careful with the condition! The modified command will be passed 
+    # to `on_transform_command` event again and again until the event 
+    # returns the same command. Newbies make a mistakes and facing with looping.
+    if cmd.startswith('echo') and 'lolcat' not in cmd:  
+        return cmd.rstrip() + ' | lolcat'
+    else:
+        return cmd
+        
+echo 123456789 # <Enter>
+# Execution: echo 123456789 | lolcat
+```
+
 ### How to paste and edit the multiple line of code being in interactive mode
 
 In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an editor in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted.
