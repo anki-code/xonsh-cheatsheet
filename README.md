@@ -520,6 +520,8 @@ j['Hello']
 
 ### Custom Docker block
 
+The example is from [xontrib-macro-lib](https://github.com/anki-code/xontrib-macro-lib):
+
 ```python
 from xonsh.contexts import Block
 
