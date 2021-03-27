@@ -211,7 +211,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 
 Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
-showcmd $(echo -e '1\n2\r3 4\r\n5')       # Subproc mode
+showcmd $(echo -e '1\n2\r3 4\r\n5')    # Subproc mode
 # ['1\n2\n3 4\n5\n']
 
 output = $(echo -e '1\n2\r3 4\r\n5')   # Python mode 
