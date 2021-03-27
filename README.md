@@ -714,7 +714,7 @@ Don't forget that `Alt+Enter` can run the command from any place where cursor is
 
 You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
 
-### How to modify command before execute?
+### How to modify command before execution?
 
 To change the command between pressing enter and execution there is [on_transform_command](https://xon.sh/events.html#on-transform-command) event:
 
