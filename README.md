@@ -558,6 +558,20 @@ completer add dummy dummy_completer  # Add completer: `completer add <NAME> <FUN
 completer remove dummy
 ```
 
+You can wrap existing completers. For example if you want to remove `../` and `./` from the completion list for the `cd` command add this to `~/.xonshrc`:
+
+```python
+from xonsh.completers.dirs import complete_cd
+def _complete_smart_cd(prefix, line, start, end, ctx, cdpath=True, filtfunc=None):
+    """Completion for "cd" without `../` and `./`."""
+    paths, lprefix = complete_path(prefix, line, start, end, ctx, cdpath, filtfunc)
+    new_paths = {p for p in paths if p not in ['../', './']}
+    return (new_paths, lprefix)
+
+completer add smart_cd _complete_smart_cd ">cd"    # ">cd" means add the completer after the existing `cd` completer
+completer remove cd
+```
+
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
 Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
