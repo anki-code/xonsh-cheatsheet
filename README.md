@@ -562,13 +562,16 @@ You can wrap existing completers. For example if you want to remove `../` and `.
 
 ```python
 from xonsh.completers.dirs import complete_cd
-def _complete_smart_cd(prefix, line, start, end, ctx, cdpath=True, filtfunc=None):
+def _complete_smart_cd(prefix, line, start, end, ctx):
     """Completion for "cd" without `../` and `./`."""
-    paths, lprefix = complete_path(prefix, line, start, end, ctx, cdpath, filtfunc)
+    if comp := complete_cd(prefix, line, start, end, ctx):
+        paths, lprefix = comp
+    else:
+        return
     new_paths = {p for p in paths if p not in ['../', './']}
     return (new_paths, lprefix)
 
-completer add smart_cd _complete_smart_cd ">cd"    # ">cd" means add the completer after the existing `cd` completer
+completer add smart_cd _complete_smart_cd ">cd"  # ">cd" means add the completer after the existing `cd` completer
 completer remove cd
 ```
 
