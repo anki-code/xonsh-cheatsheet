@@ -807,7 +807,7 @@ Python is everywhere as well ;)
 
 ### Xonsh is slower! Why xonsh?
 
-Significant much more time you spending on Googling and debugging the bash-based solutions as well as significant much more time takes the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
+Significant much more time you spending on Googling and debugging the sh-based solutions as well as significant much more time takes the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
 
 ### My fancy prompt in other shell is super duper! Why xonsh?
 
