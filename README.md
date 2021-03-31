@@ -803,7 +803,7 @@ Or try [xunter](https://github.com/anki-code/xunter) for tracing and profiling.
 
 ### Bash is everywhere! Why xonsh?
 
-Python is also everywhere or on the way to ;)
+Python is everywhere as well ;)
 
 ### Xonsh is slower! Why xonsh?
 
