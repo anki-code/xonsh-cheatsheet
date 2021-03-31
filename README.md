@@ -795,9 +795,7 @@ Or try [xunter](https://github.com/anki-code/xunter) for tracing and profiling.
 
 ### From Bash to Xonsh
 
-* [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html)
-* `bash -c! echo 123` - The way to run bash command line using macro syntax.
-* [xontrib-sh](https://github.com/anki-code/xontrib-sh) - Paste and run commands from bash, fish, zsh, tcsh in xonsh shell. 
+Read [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html), run `bash -c! echo 123` or install [xontrib-sh](https://github.com/anki-code/xontrib-sh).
 
 # Answers to the holy war questions
 
