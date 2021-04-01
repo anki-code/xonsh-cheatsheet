@@ -221,7 +221,7 @@ output
 
 ### `!()` - capture all and return object without printing stdout and stderr
 
-Captures stdout and returns [CommandPipeline](http://xon.sh/api/proc.html#xonsh.proc.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
+Captures stdout and returns [CommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
 ```python
 ret = !(echo 123)
@@ -264,7 +264,7 @@ This is the same as `echo 123` but this syntax allows to explicitly run a subpro
 
 ### `![]` - capture all and return hidden object, print stdout and stderr
 
-Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/proc.html#xonsh.proc.HiddenCommandPipeline):
+Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.HiddenCommandPipeline):
 
 ```python
 ret = ![echo -e '1\n2\r3 4\r\n5']
