@@ -199,7 +199,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
     ```python
     echo @$(echo "1\n2 3\n4")  # the first echo will get four arguments: "1", "2", "3", "4"
     ```
-* *To transform lines to the arguments list you can use [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines) function and the python substitution:*
+* *To transform output to the lines for the arguments list you can use [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines) function and the python substitution:*
     ```python
     echo @($(echo "1\n2 3\n4").splitlines())  # the first echo will get three arguments: "1", "2 3", "4"
     ```
