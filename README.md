@@ -684,6 +684,18 @@ with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
 ```
 
+Or another side, if you want to force using the threading:
+```python
+__xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
+
+!(ssh host -T "echo 1")
+#CommandPipeline(
+#  returncode=0,
+#  output='1\n',
+#  errors=None
+#)
+```
+
 ### Uncaptured pipe
 
 If you're trying to run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
