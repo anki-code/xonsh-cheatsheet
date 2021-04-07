@@ -317,6 +317,9 @@ print($VAR)
 
 $VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess command
 #new value
+
+__xonsh__.env.get('VAR', 'novalue')  # the way to call environment using the __xonsh__ builtin
+# 'value'
 ```
 
 Python and subprocess mode:
