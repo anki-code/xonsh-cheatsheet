@@ -77,10 +77,13 @@ len($(curl https://xon.sh))       # mix python and the shell
 
 $PATH.append('/tmp')              # using environment variables
 
+for line in $(cat /etc/passwd).splitlines():  # read the lines from the output
+    echo @(line.split(':')[0])                # prepare line on Python and echo
+
 for file in gp`*.*`:              # reading the list of files as Path-objects
     if file.exists():             # using rich functionality of Path-objects
         du -sh @(file)            # and pass it to the shell command
-        
+
 import json                       # python libraries are always at hand
 if docker_info := $(docker info --format '{{json .}}'):
     print('ContainersRunning:', json.loads(docker_info)['ContainersRunning'])
