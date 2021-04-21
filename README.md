@@ -328,13 +328,13 @@ __xonsh__.env.get('VAR', 'novalue')  # the way to call environment using the __x
 
 Python and subprocess mode:
 ```python
-print("my home is $HOME")   # Python mode
+print("my home is $HOME")                        # Python mode
 # my home is $HOME
 
-print("my home is " + $HOME)   # Python mode
+print("my home is " + $HOME)                     # Python mode
 # my home is /home/snail
 
-echo "my home is $HOME" as well as '$HOME'     # Subprocess mode
+echo "my home is $HOME" as well as '$HOME'       # Subprocess mode
 # my home is /home/snail as well as /home/snail
 ```
 
@@ -347,9 +347,9 @@ $PATH
 #  '/bin']
 # )
 
-$PATH.insert(0, '/tmp')  # Add first path to $PATH list
-$PATH.append('/tmp')  # Add last path to $PATH list
-$PATH.remove('/tmp')  # Remove path (first match)
+$PATH.insert(0, '/tmp')   # Add first path to $PATH list
+$PATH.append('/tmp')      # Add last path to $PATH list
+$PATH.remove('/tmp')      # Remove path (first match)
 ```
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
