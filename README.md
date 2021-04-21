@@ -24,13 +24,14 @@ conda config --add channels conda-forge && conda install xonsh
 
 ### Install from package managers
 
+*Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average release cycle for the xonsh shell is one-two months.*
+
 ```python
 apt install xonsh    # Debian/Ubuntu
 dnf install xonsh    # Fedora
 pacman -S xonsh      # Arch Linux
 brew install xonsh   # OSX
 ```
-*Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average release cycle for the xonsh shell is one-two month.*
 
 ### Try without installation
 
