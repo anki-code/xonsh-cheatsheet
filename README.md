@@ -704,6 +704,10 @@ __xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
 
 If you're trying to run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
 
+### Unexpected issues around the [bashisms xontrib](https://xon.sh/xontribs.html#bashisms)
+
+Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be the cause of unexpected issues. We recommend to avoid using this xontrib. Instead of trying to bring bash into xonsh we recommend to dive into xonsh. In case of you will need some bash syntax the best way is to implement this manually to have the clean understanding of what you do.
+
 # Tips and tricks
 
 ### Using text block in command line
