@@ -727,10 +727,6 @@ If you want to capture the output of the tool but it's not captured there are th
     #)
     ```
 
-### Uncaptured pipe
-
-If you're trying to run the pipe `cat file | some_tool` and the captured output is empty or freez try to add `cat` or `head` to the end of pipe i.e. `cat file | some_tool | head`.
-
 ### [Bad file descriptor](https://github.com/xonsh/xonsh/issues/4224)
 
 In case of using callable aliases in the long loop the error `Bad file descriptor` will be raised. Workaround is to avoid using callable aliases in the loop and move the code from callable alias to the loop.
