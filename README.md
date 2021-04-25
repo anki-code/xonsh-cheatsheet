@@ -680,7 +680,7 @@ sys.executable                  # '/usr/bin/python'
 xpip install tqdm               # Will be installed to /usr/lib
 ```
 
-### Freezed terminal in some apps
+### Freezed terminal in interactive tools
 
 If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs) for this tool:
 ```python
@@ -688,17 +688,44 @@ with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
 ```
 
-Or another side, if you want to force using the threading:
-```python
-__xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
+### Uncaptured output
 
-!(ssh host -T "echo 1")
-#CommandPipeline(
-#  returncode=0,
-#  output='1\n',
-#  errors=None
-#)
-```
+If you want to capture the output of the tool but it's not captured there are three workarounds now:
+
+1. Add the `head` tool at the end of pipe to force using the threadable mode:
+
+    ```python
+    !(echo 123 | head -n 1000)
+    #CommandPipeline(
+    #  returncode=0,
+    #  output='123\n',
+    #  errors=None
+    #)
+    ```
+
+2. Change threading prediction for this tool:
+
+    ```python
+    __xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
+
+    !(ssh host -T "echo 1")
+    #CommandPipeline(
+    #  returncode=0,
+    #  output='1\n',
+    #  errors=None
+    #)
+    ```
+
+3. Wrap the tool into bash subprocess:
+
+    ```python
+    !(bash -c "echo 123")
+    #CommandPipeline(
+    #  returncode=0,
+    #  output='123\n',
+    #  errors=None
+    #)
+    ```
 
 ### Uncaptured pipe
 
