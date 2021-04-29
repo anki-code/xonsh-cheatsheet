@@ -412,10 +412,10 @@ path
 # Path('/tmp/hello/world/from/dir/hello')
 ```
 
-Simple way to read the file content using Path string:
+Simple way to read and write the file content using Path string:
 
 ```python
-echo "Hello world" > /tmp/hello
+text_len = p'/tmp/hello'.write_text('Hello world')
 content = p'/tmp/hello'.read_text()
 content
 # 'Hello world\n'
