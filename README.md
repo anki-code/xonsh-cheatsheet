@@ -412,6 +412,16 @@ path
 # Path('/tmp/hello/world/from/dir/hello')
 ```
 
+Simple way to read the file content using Path string:
+
+```python
+echo "Hello world" > /tmp/hello
+content = p'/tmp/hello'.read_text()
+content
+# 'Hello world\n'
+```
+
+
 # [Globbing](https://xon.sh/tutorial.html#normal-globbing) - get the list of files from path by mask or regexp
 To [Normal globbing](https://xon.sh/tutorial.html#normal-globbing) add `g` before back quotes:
 ```python
