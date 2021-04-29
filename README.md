@@ -300,7 +300,7 @@ showcmd @$(echo -e '1\n2\r3 4\r\n5')
 ```
 This is mostly what bash's `$()` operator do.
 
-# Environment Variables
+# [Environment Variables](https://xon.sh/tutorial.html#environment-variables)
 
 ```python
 $VAR = 'value'    # Set environment variable
