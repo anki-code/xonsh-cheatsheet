@@ -418,7 +418,7 @@ Simple way to read and write the file content using Path string:
 text_len = p'/tmp/hello'.write_text('Hello world')
 content = p'/tmp/hello'.read_text()
 content
-# 'Hello world\n'
+# 'Hello world'
 ```
 
 
