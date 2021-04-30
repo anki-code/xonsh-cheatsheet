@@ -867,3 +867,4 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
 * Most copy-pastable examples prepared by [xontrib-hist-format](https://github.com/anki-code/xontrib-hist-format)
+* The cheat sheet xontrib was created with [xontrib cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter).
