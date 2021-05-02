@@ -697,6 +697,15 @@ If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not 
 with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
 ```
+Or run the tool in uncaptured mode:
+```
+$[./tool.sh]
+```
+Or set the unthreadable predictor for the tool:
+```
+__xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
+./tool.sh
+```
 
 ### Uncaptured output
 
@@ -867,7 +876,7 @@ Also you can install cheatsheet xontrib:
 pip install -U git+https://github.com/anki-code/xonsh-cheatsheet
 xontrib load cheatsheet
 cheatsheet
-Opening: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md
+# Opening: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md
 ```
 
 If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet</a>.
