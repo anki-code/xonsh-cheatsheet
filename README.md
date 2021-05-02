@@ -694,20 +694,27 @@ xpip install tqdm               # Will be installed to /usr/lib
 
 ### Freezed terminal in interactive tools
 
-If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) try to disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs) for this tool:
-```python
-with ${...}.swap(THREAD_SUBPROCS=False):
-      ./tool.sh
-```
-Or run the tool in uncaptured mode:
-```python
-$[./tool.sh]
-```
-Or set the unthreadable predictor for the tool:
-```python
-__xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
-./tool.sh
-```
+If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) this looks like the tool was interpreted as threaded and capturable program but the tool has interactive elements that expect the input from the user. There are three workarounds now:
+
+1. Disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs):
+
+    ```python
+    with ${...}.swap(THREAD_SUBPROCS=False):
+          ./tool.sh
+    ```
+
+2. Run the tool in uncaptured mode:
+
+    ```python
+    $[./tool.sh]
+    ```
+
+3. Set the unthreadable predictor:
+
+    ```python
+    __xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
+    ./tool.sh
+    ```
 
 ### Uncaptured output
 
