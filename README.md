@@ -862,6 +862,14 @@ In comparing with the 15-20 years old shells yeah, xonsh is a 5 years old young 
 
 Thank you for the reading! This cheatsheet is the tip of the iceberg of the xonsh shell and you can find more in the [official documentation](https://xon.sh/contents.html#guides).
 
+Also you can install cheatsheet xontrib:
+```python
+pip install -U git+https://github.com/anki-code/xonsh-cheatsheet
+xontrib load cheatsheet
+cheatsheet
+Opening: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md
+```
+
 If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet</a>.
 
 # Credits
