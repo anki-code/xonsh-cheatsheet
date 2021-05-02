@@ -280,6 +280,8 @@ ret.out           # But it has the properties from CommandPipeline
 '1\n2\r3 4\n5\n'
 ```
 
+This operator is used under the hood to running commands in the interactive xonsh prompt.
+
 ### `@()` - use Python code as an argument or a callable alias
 
 Evaluates Python and pass the arguments:
@@ -698,11 +700,11 @@ with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
 ```
 Or run the tool in uncaptured mode:
-```
+```python
 $[./tool.sh]
 ```
 Or set the unthreadable predictor for the tool:
-```
+```python
 __xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
 ./tool.sh
 ```
