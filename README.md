@@ -743,7 +743,7 @@ In case of using callable aliases in the long loop the error `Bad file descripto
 
 ### Unexpected issues around the [bashisms xontrib](https://xon.sh/xontribs.html#bashisms)
 
-Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be the cause of unexpected issues. We recommend to avoid using this xontrib. Instead of trying to bring bash into xonsh we recommend to dive into xonsh. In case of you will need some bash syntax the best way is to implement this manually to have the clean understanding of what you do.
+Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be the cause of unexpected issues ([4250](https://github.com/xonsh/xonsh/issues/4250)). We recommend to avoid using this xontrib. Instead of trying to bring bash into xonsh we recommend to dive into xonsh. In case of you will need some bash syntax the best way is to implement this manually to have the clean understanding of what you do.
 
 # Tips and tricks
 
