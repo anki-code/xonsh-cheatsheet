@@ -757,7 +757,19 @@ If you want to capture the output of the tool but it's not captured there are th
 
 ### [Bad file descriptor](https://github.com/xonsh/xonsh/issues/4224)
 
-In case of using callable aliases in the long loop the error `Bad file descriptor` will be raised. Workaround is to avoid using callable aliases in the loop and move the code from callable alias to the loop.
+In case of using callable aliases in the long loop the error `Bad file descriptor` will be raised. Workaround is to avoid using callable aliases in the loop and move the code from callable alias to the loop or [mark callable alias as unthreadable](https://xon.sh/tutorial.html#unthreadable-aliases):
+
+```python
+from xonsh.tools import unthreadable
+
+@unthreadable
+def _e():
+    execx('echo -n 1')
+aliases['e'] = _e
+
+for i in range(100):
+      e
+```
 
 ### Unexpected issues around the [bashisms xontrib](https://xon.sh/xontribs.html#bashisms)
 
