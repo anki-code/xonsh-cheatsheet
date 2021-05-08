@@ -224,11 +224,8 @@ By default the xonsh shell has the bash-like appearance for the interactive prom
 
 ```python
 $PROMPT_FIELDS['prompt_end'] = $PROMPT_FIELDS['prompt_end'].replace('$', '{WHITE}@')
-# Now the prompt appearance will be: 
-# user@host ~ @
 ```
-
-This appearance will remind you of what you are in the xonsh shell.
+Now the prompt appearance will be: `user@host ~ @`. This appearance will remind you of what you are in the xonsh shell.
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
