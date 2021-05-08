@@ -22,6 +22,15 @@ If you're using [Conda](https://docs.conda.io/en/latest/) the package from [Cond
 conda config --add channels conda-forge && conda install xonsh
 ```
 
+The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh with certain Python version:
+```python
+# Install python3.8 i.e. for Ubuntu: apt install python3.8
+pip install pipx
+pipx install --python python3.8 xonsh
+pipx run xonsh 
+# or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
+```
+
 ### Install from package managers
 
 *Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average release cycle for the xonsh shell is two months.*
