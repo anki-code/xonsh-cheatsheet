@@ -24,7 +24,7 @@ conda config --add channels conda-forge && conda install xonsh
 
 The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh with certain Python version:
 ```python
-# Install python3.8 i.e. for Ubuntu: apt install python3.8
+# Install Python 3.8 i.e. for Ubuntu: apt install python3.8
 pip install pipx
 pipx install --python python3.8 xonsh
 pipx run xonsh 
