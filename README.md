@@ -218,6 +218,18 @@ In xonsh shell the `$()` operator returns the output of the command. The command
     ```
 * *Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
 
+# Switching from `$` to `@`
+
+By default the xonsh shell has the bash-like appearance for the interactive prompt: `user@host ~ $`. After reading the previous section you can understand that we highly recommended to replace `$` to `@` by adding this line to your `~/.xonshrc` (or use [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar)):
+
+```python
+$PROMPT_FIELDS['prompt_end'] = $PROMPT_FIELDS['prompt_end'].replace('$', '{WHITE}@')
+# Now the prompt appearance will be: 
+# user@host ~ @
+```
+
+This appearance will remind you of what you are in the xonsh shell.
+
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
 ### `$()` - capture and return output without printing stdout and stderr
