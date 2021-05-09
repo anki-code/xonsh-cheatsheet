@@ -646,7 +646,7 @@ xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_line
 
 # [History](https://xon.sh/tutorial_hist.html)
 
-There are two history backends: `json` and `sqlite` which xonsh has by default. The `json` backend creates json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
+There are two history backends: `json` and [`sqlite`](https://xon.sh/tutorial_hist.html#sqlite-history-backend) which xonsh has by default. The `json` backend creates json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
 
 We recommend to use `sqlite` backend because it saves the command on every execution and the querying of the history using SQL is very handy.
 
