@@ -12,7 +12,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 Xonsh that sounds like [conch |kɑːntʃ|](https://www.google.com/search?q=what+is+conch) - is a common name of a number of different medium- to large-sized sea snail or shells, generally those of large snails whose shell has a high spire and a noticeable siphonal canal. In short xonsh is 🐚. Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
 
-# Install xonsh or try without installation
+# Install xonsh
 
 ### Recommended way to install xonsh
 
