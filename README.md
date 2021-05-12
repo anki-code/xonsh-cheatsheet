@@ -8,9 +8,9 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 [Full screen reading](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md)
 
-# What xonsh means?
+# Why "xonsh"?
 
-Xonsh that sounds like [conch |kɑːntʃ|](https://www.google.com/search?q=what+is+conch) - is a common name of a number of different medium- to large-sized sea snail or shells, generally those of large snails whose shell has a high spire and a noticeable siphonal canal. In short xonsh is 🐚. Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
+The "xonsh" word sounds like [conch / kɑːntʃ / 🐚](https://www.google.com/search?q=what+is+conch) - is a common name of a number of different sea snail or shells. Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
 
 # Install xonsh
 
