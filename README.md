@@ -911,6 +911,8 @@ Python is everywhere as well ;)
 
 Significant much more time you spending on Googling and debugging the sh-based solutions as well as significant much more time takes the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
 
+Also read [Guido van Rossum’s Plans for Improving Python Performance](https://thenewstack.io/guido-van-rossums-ambitious-plans-for-improving-python-performance/).
+
 ### My fancy prompt in other shell is super duper! Why xonsh?
 
 The fancy prompt is the tip of the iceberg. You are still living in the 90th with the sh-syntax language. We love the xonsh shell entirely: sane language, powerful aliases, agile extensions, history backends, fully customisable tab completion, magic macro blocks, behaviour customisation via environment variables and more, and more, and more :)
