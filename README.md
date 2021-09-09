@@ -69,7 +69,7 @@ wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppIma
 chmod +x xonsh
 ./xonsh
 
-# Then if you don’t have Python on your host, you may want to get it from AppImage by running:
+# Then if you don’t have Python on your host, you can acccess it from AppImage by running:
 $PATH = [$APPDIR + '/usr/bin'] + $PATH
 python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
 import tqdm
@@ -371,10 +371,31 @@ $PATH
 #  '/bin']
 # )
 
-$PATH.insert(0, '/tmp')   # Add first path to $PATH list
-$PATH.append('/tmp')      # Add last path to $PATH list
-$PATH.remove('/tmp')      # Remove path (first match)
+$PATH.add(p"~/bin", front=True, replace=True))   # Insert path '~/bin' at front of $PATH list and replace existing entries
+$PATH.add(p"~/bin", front=True)                  # Insert path '~/bin' at front of $PATH list
+$PATH.add(p"~/bin", front=False, replace=True))  # Insert path '~/bin' at end of $PATH list and replace existing entries
+$PATH.insert(0, '/tmp')                          # Insert path '/tmp' at front of $PATH list
+$PATH.append('/tmp')                             # Append path '/tmp' at end of $PATH list
+$PATH.remove('/tmp')                             # Remove path '/tmp' (first match)
 ```
+Setup local paths for prepending to path by default via loop in .xonshrc
+```
+import os.path
+from os import path
+$user_bins = [
+f'{$HOME}/.cargo/bin',
+f'{$HOME}/.pyenv/bin',
+f'{$HOME}/.poetry/bin',
+f'{$HOME}/bin',
+f'{$HOME}/local/bin',
+f'{$HOME}/.local/bin', 
+]
+
+for dir in $user_bins:
+	if path.isdir(dir) and path.exists(dir):
+	    $PATH.add(dir,front=True, replace=True)
+```
+
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
