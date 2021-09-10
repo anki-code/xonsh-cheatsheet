@@ -378,22 +378,23 @@ $PATH.insert(0, '/tmp')                          # Insert path '/tmp' at front o
 $PATH.append('/tmp')                             # Append path '/tmp' at end of $PATH list
 $PATH.remove('/tmp')                             # Remove path '/tmp' (first match)
 ```
-Setup local paths for prepending to path by default via loop in .xonshrc
+
+Setup local paths for prepending to path by default via loop in `.xonshrc`:
 ```
 import os.path
 from os import path
 $user_bins = [
-f'{$HOME}/.cargo/bin',
-f'{$HOME}/.pyenv/bin',
-f'{$HOME}/.poetry/bin',
-f'{$HOME}/bin',
-f'{$HOME}/local/bin',
-f'{$HOME}/.local/bin', 
+    f'{$HOME}/.cargo/bin',
+    f'{$HOME}/.pyenv/bin',
+    f'{$HOME}/.poetry/bin',
+    f'{$HOME}/bin',
+    f'{$HOME}/local/bin',
+    f'{$HOME}/.local/bin', 
 ]
 
 for dir in $user_bins:
-	if path.isdir(dir) and path.exists(dir):
-	    $PATH.add(dir,front=True, replace=True)
+    if path.isdir(dir) and path.exists(dir):
+        $PATH.add(dir,front=True, replace=True)
 ```
 
 
