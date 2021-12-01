@@ -328,6 +328,7 @@ This is mostly what bash's `$()` operator do.
 
 ```python
 ${...}            # Get the list of environment variables
+__xonsh__.env     # Get the list of environment variables using Python syntax
 
 $VAR = 'value'    # Set environment variable
 
