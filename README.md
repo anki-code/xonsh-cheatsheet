@@ -383,7 +383,7 @@ $PATH.remove('/tmp')                             # Remove path '/tmp' (first mat
 ```
 
 Setup local paths for prepending to path by default via loop in `.xonshrc`:
-```
+```python
 import os.path
 from os import path
 $user_bins = [
