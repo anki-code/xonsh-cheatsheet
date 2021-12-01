@@ -327,6 +327,8 @@ This is mostly what bash's `$()` operator do.
 # [Environment Variables](https://xon.sh/tutorial.html#environment-variables)
 
 ```python
+${...}            # Get the list of environment variables
+
 $VAR = 'value'    # Set environment variable
 
 'VAR' in ${...}   # Check environment variable exists
