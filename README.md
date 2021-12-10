@@ -53,11 +53,11 @@ Docker:
 ```python
 # Docker with certain Python version and latest release of xonsh
 docker run --rm -it python:3.9-slim /bin/bash \
--c "pip install 'xonsh[full]' && xonsh"
+ -c "pip install 'xonsh[full]' && xonsh"
 
 # Docker with certain Python version and xonsh from the master branch
 docker run --rm -it python:3.9-slim /bin/bash \
--c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
+ -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
 # Official xonsh docker image has a lag on update
 docker run --rm -it xonsh/xonsh:slim
