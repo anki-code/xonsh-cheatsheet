@@ -41,8 +41,8 @@ pipx run xonsh
 
 ```python
 apt install xonsh    # Debian/Ubuntu
-dnf install xonsh    # Fedora
 pacman -S xonsh      # Arch Linux
+dnf install xonsh    # Fedora
 brew install xonsh   # OSX
 ```
 
