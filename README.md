@@ -59,7 +59,7 @@ docker run --rm -it python:3.9-slim /bin/bash \
 docker run --rm -it python:3.9-slim /bin/bash \
  -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
-# Official xonsh docker image has a lag on update
+# Official xonsh docker image has old version
 docker run --rm -it xonsh/xonsh:slim
 ```
 
