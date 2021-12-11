@@ -139,7 +139,7 @@ You should clearly understand the difference:
 </pre>
 </td>
     <td>
-1. No escape character - use quotes:
+1. No escape character. Use quotes:
 <pre>
 <b>echo "123 456"</b>
 # 123 456
