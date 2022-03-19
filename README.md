@@ -225,7 +225,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
     ```
 * *Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
 
-# Switching from `$` to `@`
+# [Switching from `$` to `@`](https://github.com/xonsh/xonsh/issues/4152)
 
 By default the xonsh shell has the bash-like appearance for the interactive prompt: `user@host ~ $`. After reading the previous section you can understand that we highly recommended to replace `$` to `@` by adding this line to your `~/.xonshrc` (or use [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar)):
 
