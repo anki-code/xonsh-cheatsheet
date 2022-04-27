@@ -609,6 +609,10 @@ with! Doxer() as d:
    echo "We're in docker container now!" | lolcat
 ```
 
+### Macro blocks library
+
+See also [xontrib-macro-lib](https://github.com/anki-code/xontrib-macro-lib).
+
 # [Tab-Completion](https://xon.sh/tutorial_completers.html)
 
 ```python
