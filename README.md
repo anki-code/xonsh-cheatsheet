@@ -537,15 +537,16 @@ bash -c! echo "Hello!"
 docker run -it --rm xonsh/xonsh:slim xonsh -c! 2+2
 # 4
 ```
+
 Inside of a macro, all additional munging is turned off:
-```
+
+```python
 
 echo $USER
 # lou
 
 echo! $USER
 # $USER
-
 ```
 
 ## [Macro block](https://xon.sh/tutorial_macros.html#context-manager-macros)
