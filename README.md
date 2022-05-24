@@ -758,7 +758,7 @@ xpip install tqdm               # Will be installed to /usr/lib
 
 ### Freezed terminal in interactive tools
 
-If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) this looks like the tool was interpreted as threaded and capturable program but the tool has interactive elements that expect the input from the user. There are three workarounds now:
+If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) this looks like the tool was interpreted as threaded and capturable program but the tool has interactive elements that expect the input from the user. There are four workarounds now:
 
 1. Disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs):
 
@@ -779,6 +779,8 @@ If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not 
     __xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
     ./tool.sh
     ```
+
+Finally check [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always).
 
 ### Uncaptured output
 
