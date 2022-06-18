@@ -946,7 +946,7 @@ Python is everywhere as well ;)
 
 Significant much more time you spending on Googling and debugging the sh-based solutions as well as significant much more time takes the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
 
-Also read [Guido van Rossum’s Plans for Improving Python Performance](https://thenewstack.io/guido-van-rossums-ambitious-plans-for-improving-python-performance/).
+Also watch [Making Python 5x FASTER with Guido van Rossum](https://www.youtube.com/watch?v=_r6bFhl6wR8).
 
 ### My fancy prompt in other shell is super duper! Why xonsh?
 
