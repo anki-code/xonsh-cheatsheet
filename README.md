@@ -538,7 +538,7 @@ docker run -it --rm xonsh/xonsh:slim xonsh -c! 2+2
 # 4
 ```
 
-Inside of a macro, all additional munging is turned off:
+Inside of a macro, all [additional munging](https://xon.sh/tutorial.html#advanced-string-literals) is turned off:
 
 ```python
 
