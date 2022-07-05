@@ -1,5 +1,7 @@
 <p align="center">
 Cheat sheet for <a href="https://xon.sh">the xonsh shell</a> with copy-pastable examples. This is a good level of knowledge at start.
+<br><br>
+<img src="https://repository-images.githubusercontent.com/310804308/f11fa180-280d-11eb-8fa4-c389308692bd">
 </p>
 
 <p align="center">
