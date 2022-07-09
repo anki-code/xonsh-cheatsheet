@@ -845,6 +845,10 @@ Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be t
 
 # Tips and tricks
 
+### Make your own installable xonsh RC file
+
+Start from fork [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
+
 ### Using text block in command line
 
 Creating file:
