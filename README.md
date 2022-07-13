@@ -443,7 +443,7 @@ Read stdin and write to stdout (real life example - [xontrib-pipeliner](https://
 ```python
 def _exc(args, stdin, stdout):
     for line in stdin.readlines():
-		      print(line.strip() + '!', file=stdout, flush=True)
+        print(line.strip() + '!', file=stdout, flush=True)
 
 aliases['exc'] = _exc
 
