@@ -638,10 +638,13 @@ completer remove dummy
 
 Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
 
-Create xontrib [using cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter):
+Create xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template):
 ```python
-pip install cookiecutter
-cookiecutter gh:xonsh/xontrib-cookiecutter
+pipx install copier
+pipx inject copier jinja2-time
+pipx inject copier cookiecutter
+
+copier gh:xonsh/xontrib-template .
 ```
 
 # Xonsh Script (xsh)
