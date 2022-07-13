@@ -438,11 +438,19 @@ del _myargs1
 args 1 2 3
 #['1', '2', '3']
 ```
-The same but as lambda:
+
+Read stdin and write to stdout (real life example - [xontrib-pipeliner](https://github.com/anki-code/xontrib-pipeliner)):
 ```python
-showcmd 1 2 3
-#['1', '2', '3']
+def _exc(args, stdin, stdout):
+    for line in stdin.readlines():
+		      print(line.strip() + '!', file=stdout, flush=True)
+
+aliases['exc'] = _exc
+
+echo hello | exc
+# hello!
 ```
+
 
 # [Path strings](https://xon.sh/tutorial.html#advanced-string-literals)
 
