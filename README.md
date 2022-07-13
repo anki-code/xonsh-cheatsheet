@@ -636,7 +636,7 @@ completer remove dummy
 
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
-Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [official list](https://xon.sh/xontribs.html).
+Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [awesome-xontribs](https://github.com/xonsh/awesome-xontribs), [xon.sh list](https://xon.sh/xontribs.html).
 
 Create xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template):
 ```python
