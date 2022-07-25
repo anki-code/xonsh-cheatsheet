@@ -410,7 +410,7 @@ See also the list of [xonsh default environment variables](http://xon.sh/envvars
 
 # [Aliases](https://xon.sh/tutorial.html#aliases)
 
-## Simple alias
+## Simple aliases
 
 ```python
 aliases['g'] = 'git status -sb'           # Add alias as string
