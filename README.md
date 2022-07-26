@@ -233,7 +233,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 By default the xonsh shell has the bash-like appearance for the interactive prompt: `user@host ~ $`. After reading the previous section you can understand that we highly recommended to replace `$` to `@` by adding this line to your `~/.xonshrc` (or use [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar)):
 
 ```python
-$PROMPT_FIELDS['prompt_end'] = $PROMPT_FIELDS['prompt_end'].replace('$', '{WHITE}@')
+$PROMPT_FIELDS['prompt_end'] = '@'
 ```
 Now the prompt appearance will be: `user@host ~ @`. This appearance will remind you of what you are in the xonsh shell.
 
