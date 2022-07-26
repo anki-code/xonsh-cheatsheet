@@ -47,6 +47,7 @@ pacman -S xonsh      # Arch Linux
 dnf install xonsh    # Fedora
 brew install xonsh   # OSX
 ```
+Or on any system you can install `python` and then install xonsh from pip i.e. `any_pkg_manager install python && python -m pip install 'xonsh[full]'`.
 
 ### Try without installation
 
