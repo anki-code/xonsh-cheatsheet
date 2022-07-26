@@ -658,7 +658,7 @@ copier gh:xonsh/xontrib-template .
 
 # Xonsh Script (xsh)
 
-Real life example of xsh script that have: arguments, tab completion for arguments, subprocess calls with checking the result, colorizing the result and exit code:
+Real life example of xsh script that have: arguments, tab completion for arguments (using [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete)), subprocess calls with checking the result, colorizing the result and exit code:
 ```python
 #!/usr/bin/env xonsh
 # PYTHON_ARGCOMPLETE_OK                                  
