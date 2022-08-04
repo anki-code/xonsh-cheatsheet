@@ -109,7 +109,7 @@ if docker_info := $(docker info --format '{{json .}}'):
 pip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
 xontrib load prompt_bar          # follow the white rabbit - https://github.com/topics/xontrib
 
-# Finally try https://github.com/anki-code/xontrib-rc-awesome
+# Finally fork https://github.com/anki-code/xontrib-rc-awesome
 # to convert your ~/.xonshrc into pip-installable package 
 # with extesnsions you need on board.
 ```
