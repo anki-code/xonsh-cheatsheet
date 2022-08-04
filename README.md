@@ -942,14 +942,6 @@ echo 123456789 # <Enter>
 
 In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an editor in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted.
 
-### How to get stack trace without `__amalgam__`?
-
-Run xonsh in debug mode:
-```python 
-bash
-XONSH_DEBUG=1 XONSH_SHOW_TRACEBACK=1 xonsh
-```
-
 ### Waiting for the job done
 ```python
 sleep 100 &  # job 1
