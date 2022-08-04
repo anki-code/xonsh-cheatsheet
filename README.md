@@ -645,7 +645,7 @@ completer remove dummy
 
 # Bind hotkeys in prompt toolkit shell
 
-Uncover the power of [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit#python-prompt-toolkit) by [binding the hotkeys](https://xon.sh/tutorial_ptk.html). Run this snippet or add it to `~/.xonshrc`:
+Uncover the power of [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit#python-prompt-toolkit) by [binding](https://xon.sh/tutorial_ptk.html) the [hotkeys](https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/src/prompt_toolkit/keys.py). Run this snippet or add it to `~/.xonshrc`:
 
 ```python
 from prompt_toolkit.keys import Keys
