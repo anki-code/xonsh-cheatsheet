@@ -643,6 +643,29 @@ completer add dummy dummy_completer  # Add completer: `completer add <NAME> <FUN
 completer remove dummy
 ```
 
+# Bind hotkeys in prompt toolkit shell
+
+Uncover the power of [prompt_toolkit](https://github.com/prompt-toolkit/python-prompt-toolkit#python-prompt-toolkit) by [binding the hotkeys](https://xon.sh/tutorial_ptk.html). Run this snippet or add it to `~/.xonshrc`:
+
+```python
+from prompt_toolkit.keys import Keys
+
+@events.on_ptk_create
+def custom_keybindings(bindings, **kw):
+
+    # Press F1 and get the list of files
+    @bindings.add(Keys.F1)
+    def run_ls(event):
+        ls -l
+        event.cli.renderer.erase()
+    
+    # Press F3 to insert the grep command
+    @bindings.add(Keys.F3)
+    def say_hi(event):
+        event.current_buffer.insert_text('| grep -i ')
+        
+```
+
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
 Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [awesome-xontribs](https://github.com/xonsh/awesome-xontribs), [xon.sh list](https://xon.sh/xontribs.html).
