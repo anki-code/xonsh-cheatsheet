@@ -677,7 +677,7 @@ def custom_keybindings(bindings, **kw):
 Xontrib lists: 
 * [Github topic](https://github.com/topics/xontrib)
 * [Github repositories](https://github.com/search?q=xontrib-&type=repositories)
-* [awesome-xontribs](https://github.com/xonsh/awesome-xontribs), [xon.sh list](https://xon.sh/xontribs.html).
+* [awesome-xontribs](https://github.com/xonsh/awesome-xontribs)
 
 Create xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template):
 ```python
