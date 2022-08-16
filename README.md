@@ -940,7 +940,7 @@ echo 123456789 # <Enter>
 
 ### How to paste and edit the multiple line of code being in interactive mode
 
-In some terminals (i.e. Konsole) you can press `ctrl-x ctrl-e` to open up an editor in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted.
+In some terminals (Konsole in Linux or Windows Terminal for WSL) you can press `ctrl-x ctrl-e` to open up an editor (`nano` in Linux) in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted and executed.
 
 ### Waiting for the job done
 ```python
