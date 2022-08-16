@@ -674,7 +674,10 @@ def custom_keybindings(bindings, **kw):
 
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
-Xontrib lists: [github topic](https://github.com/topics/xontrib), [github repos](https://github.com/search?q=xontrib-&type=repositories), [awesome-xontribs](https://github.com/xonsh/awesome-xontribs), [xon.sh list](https://xon.sh/xontribs.html).
+Xontrib lists: 
+* [Github topic](https://github.com/topics/xontrib)
+* [Github repositories](https://github.com/search?q=xontrib-&type=repositories)
+* [awesome-xontribs](https://github.com/xonsh/awesome-xontribs), [xon.sh list](https://xon.sh/xontribs.html).
 
 Create xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template):
 ```python
@@ -991,7 +994,7 @@ Also:
 
 ### My fancy prompt in other shell is super duper! Why xonsh?
 
-The fancy prompt is the tip of the iceberg. We love the xonsh shell entirely: sane language, powerful aliases, agile extensions, history backends, fully customisable tab completion, magic macro blocks, behaviour customisation via environment variables and more, and more, and more :)
+The fancy prompt is the tip of the iceberg. We love the xonsh shell entirely: sane language, [powerful aliases](https://github.com/anki-code/xonsh-cheatsheet#aliases), [agile extensions](https://github.com/anki-code/xonsh-cheatsheet#xontrib---extension-or-plugin-for-xonsh), [history backends](https://github.com/anki-code/xonsh-cheatsheet#history), [fully customisable tab completion](https://github.com/anki-code/xonsh-cheatsheet#tab-completion), [magic macro blocks](https://github.com/anki-code/xonsh-cheatsheet#macro-block), [behaviour customisation via environment variables](https://xon.sh/envvars.html) and [more](https://github.com/anki-code/xonsh-cheatsheet#bind-hotkeys-in-prompt-toolkit-shell), and [more](https://github.com/anki-code/xonsh-cheatsheet#make-your-own-installable-xonsh-rc-file), and [more](https://github.com/anki-code/xonsh-cheatsheet#using-xonsh-wherever-you-go-through-the-ssh) :)
 
 ### Xonsh has an issues! Why xonsh?
 
