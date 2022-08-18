@@ -106,8 +106,8 @@ import json                       # python libraries are always at hand
 if docker_info := $(docker info --format '{{json .}}'):
     print('ContainersRunning:', json.loads(docker_info)['ContainersRunning'])
 
-pip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
-xontrib load prompt_bar          # follow the white rabbit - https://github.com/topics/xontrib
+xpip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
+xontrib load prompt_bar           # follow the white rabbit - https://github.com/topics/xontrib
 
 # Finally fork https://github.com/anki-code/xontrib-rc-awesome
 # to convert your ~/.xonshrc into pip-installable package 
