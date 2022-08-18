@@ -12,7 +12,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 # What does xonsh mean?
 
-The "xonsh" word sounds like [conch / kɑːntʃ](https://www.google.com/search?q=what+is+conch) - is a common name of a number of different sea snail or shells (🐚). Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
+The "xonsh" word sounds like [conch / kɑːntʃ](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snail or shells (🐚). Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
 
 # Install xonsh
 
