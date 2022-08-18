@@ -681,7 +681,7 @@ Xontrib lists:
 
 To install xontribs xonsh has [`xpip`](https://xon.sh/aliases.html?highlight=aliases#xpip) - a predefined alias pointing to the pip command associated with the Python executable running this xonsh. It's the right way to install xontrib via `xpip` to be confident that the xontrib will be installed in the right environment.
 
-Create xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template):
+If you want to create your own xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template) is the best way:
 ```python
 pipx install copier
 pipx inject copier jinja2-time
