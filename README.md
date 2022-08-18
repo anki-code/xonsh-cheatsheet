@@ -430,7 +430,7 @@ del aliases['b']                          # Delete alias
 
 Wrap command arguments using ExecAlias:
 ```python
-aliases['p'] = 'showcmd @($args[1:] if $args and $args[0] == "cutme" else $args)'    # `$args` variable contains the list of arguments of the command
+aliases['p'] = 'showcmd @($args[1:] if $args and $args[0] == "cutme" else $args)'    # `$args` contains the list of arguments
 
 p cutme 1 2 3
 #['1', '2', '3']
