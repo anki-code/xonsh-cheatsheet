@@ -430,9 +430,13 @@ del aliases['b']                          # Delete alias
 
 Wrap command arguments using [ExecAlias](https://xon.sh/tutorial.html#aliases), built-in [`$args`](https://xon.sh/tutorial.html#aliases) variable that contains the list of arguments and handy `"""`-string:
 ```python
-aliases['p'] = """showcmd @($args[1:] if $args and $args[0] == 'cutme' else $args)"""
+aliases['p'] = """showcmd @([a for a in $args if a != 'cutme'])"""
 
-p cutme 1 2 3
+p
+# usage: showcmd [-h|--help|cmd args]
+# Displays the command and arguments as a list ...
+
+p 1 2 cutme 3
 #['1', '2', '3']
 
 p 3 4 5
