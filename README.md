@@ -679,6 +679,8 @@ Xontrib lists:
 * [Github repositories](https://github.com/search?q=xontrib-&type=repositories)
 * [awesome-xontribs](https://github.com/xonsh/awesome-xontribs)
 
+To install xontribs xonsh has [`xpip`](https://xon.sh/aliases.html?highlight=aliases#xpip) - a predefined alias pointing to the pip command associated with the Python executable running this xonsh. It's the right way to install xontrib via `xpip` to be confident that the xontrib will be installed in the right environment.
+
 Create xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template):
 ```python
 pipx install copier
