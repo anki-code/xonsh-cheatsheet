@@ -43,18 +43,22 @@ Following the article "[Installing Python on macOS (without going insane)](https
 ```xsh
 # Install brew from https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install Python via pyenv
 brew install pyenv
 echo 'export PATH="$HOME/.pyenv/shims:$PATH"' >> ~/.zshrc
 # restart zsh
-
 pyenv install --list  # Choose the Python version
 pyenv install 3.8.1
 pyenv global 3.8.1
 
-brew install pipx  # The article recommend to use pipx to install global Python tools
+# The article recommend to use pipx to install global Python tools
+brew install pipx  
 pipx install 'xonsh[full]'
 xonsh
-xpip install xontrib-prompt-bar  # Use `xpip` to install xontribs 
+
+# Use xonsh `xpip` to install xontribs to appropriate packages location
+xpip install xontrib-prompt-bar  
 ```
 
 ### Install from package managers
