@@ -55,9 +55,9 @@ pyenv global 3.8.1
 # The article recommend to use pipx to install global Python tools
 brew install pipx  
 pipx install 'xonsh[full]'
-xonsh
 
 # Use xonsh `xpip` to install xontribs to appropriate packages location
+xonsh
 xpip install xontrib-prompt-bar xontrib-back2dir
 ```
 
