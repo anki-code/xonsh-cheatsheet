@@ -58,7 +58,7 @@ pipx install 'xonsh[full]'
 xonsh
 
 # Use xonsh `xpip` to install xontribs to appropriate packages location
-xpip install xontrib-prompt-bar  
+xpip install xontrib-prompt-bar xontrib-back2dir
 ```
 
 ### Install from package managers
