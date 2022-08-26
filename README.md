@@ -19,17 +19,17 @@ The "xonsh" word sounds like [conch / kɑːntʃ](https://www.google.com/search?q
 ### Recommended way to install xonsh
 
 Most of the modern operating systems has [Python 3](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that preinstalled or you can install it easily. This way is recommended, because you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases) from PyPi:
-```python
+```xsh
 python -m pip install 'xonsh[full]'
 ```
 
 If you're using [Conda](https://docs.conda.io/en/latest/) the package from [Conda-forge](https://conda-forge.org/) is also fresh:
-```python
+```xsh
 conda config --add channels conda-forge && conda install xonsh
 ```
 
 The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh with certain Python version:
-```python
+```xsh
 # Install Python 3.8 i.e. for Ubuntu: apt install python3.8
 pip install pipx
 pipx install --python python3.8 xonsh
@@ -37,7 +37,7 @@ pipx run xonsh
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
 ```
 
-### Install xonsh on Mac OS
+### Install xonsh on Mac OS or Linux
 
 Following the article "[Installing Python on macOS (without going insane)](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
 ```xsh
@@ -60,12 +60,17 @@ pipx install 'xonsh[full]'
 xonsh
 xpip install xontrib-prompt-bar xontrib-back2dir
 ```
+On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software/coreutils/) and add them to [PATH](https://xon.sh/envvars.html#path):
+```xsh
+brew install coreutils
+$PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')
+```
 
 ### Install from package managers
 
 *Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.*
 
-```python
+```xsh
 apt install xonsh    # Debian/Ubuntu
 pacman -S xonsh      # Arch Linux
 dnf install xonsh    # Fedora
@@ -107,7 +112,7 @@ import tqdm
 
 The xonsh language is a superset of Python 3 with additional shell support. As result you can mix shell commands and Python code as easy as possible. Right off the bat examples:
 
-```python
+```xsh
 cd /tmp && ls                     # shell commands
 
 21 + 21                           # python command
