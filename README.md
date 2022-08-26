@@ -41,8 +41,8 @@ pipx run xonsh
 
 Following the article "[Installing Python on macOS (without going insane)](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
 ```xsh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  # Install brew from https://brew.sh/
-
+# Install brew from https://brew.sh/
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install pyenv
 echo 'export PATH="$HOME/.pyenv/shims:$PATH"' >> ~/.zshrc
 # restart zsh
