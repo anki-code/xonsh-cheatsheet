@@ -48,7 +48,7 @@ Following the article "[Installing Python on macOS (without going insane)](https
 brew install pyenv
 echo 'export PATH="$HOME/.pyenv/shims:$PATH"' >> ~/.zshrc
 # restart zsh
-pyenv install --list  # Choose the Python version
+pyenv install --list | grep ' 3.' | tail  # Choose the Python version
 pyenv install 3.10.6
 pyenv global 3.10.6
 
