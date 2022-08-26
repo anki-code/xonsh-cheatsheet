@@ -60,7 +60,7 @@ pipx install 'xonsh[full]'
 xonsh
 xpip install xontrib-prompt-bar xontrib-back2dir
 ```
-On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software/coreutils/) and add them to [PATH](https://xon.sh/envvars.html#path):
+On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software/coreutils/) to use the Linux default tools (i.e. `ls`, `grep`):
 ```xsh
 brew install coreutils
 $PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')
