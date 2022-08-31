@@ -39,7 +39,7 @@ pipx run xonsh
 
 ### Install xonsh on Mac OS or Linux
 
-Following the article "[Installing Python on macOS (without going insane)](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
+Following the article "[Installing Python on macOS without going insane](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
 ```zsh
 zsh  # Default MacOS shell
 
