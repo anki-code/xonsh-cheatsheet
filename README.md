@@ -65,10 +65,10 @@ xpip install xontrib-prompt-bar xontrib-back2dir
 On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software/coreutils/) to use the Linux default tools (i.e. `ls`, `grep`):
 ```xsh
 brew install coreutils
-$PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')
+$PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add this to ~/.xonshrc
 ```
 
-### Install from package managers
+### Install from package managerss
 
 *Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.*
 
