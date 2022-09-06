@@ -991,6 +991,33 @@ echo 123456789 # <Enter>
 # Execution: echo 123456789 | lolcat
 ```
 
+### Comma separated thousands in output
+
+The snippet from [@maxwellfire](https://github.com/maxwellfire):
+
+```xsh
+import xonsh.pretty
+
+def _format_int(int, printer, cycle):
+        printer.text(f'{int:,}')
+
+def _format_float(float, printer, cycle):
+        printer.text(f'{float:,}')
+
+xonsh.pretty.for_type(type(1), _format_int)
+xonsh.pretty.for_type(type(1.0), _format_float)
+
+del _format_float, _format_int
+```
+Result:
+```xsh
+100000
+# 100,000
+
+1000.123
+# 1,000.123
+```
+
 ### How to paste and edit the multiple line of code being in interactive mode
 
 In some terminals (Konsole in Linux or Windows Terminal for WSL) you can press `ctrl-x ctrl-e` to open up an editor (`nano` in Linux) in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted and executed.
