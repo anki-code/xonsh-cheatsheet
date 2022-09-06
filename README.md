@@ -110,7 +110,7 @@ python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.
 import tqdm
 ```
 
-You can [build your own xonsh AppImage](https://xon.sh/appimage.html#building-your-own-xonsh-appimage) in 15 minutes.
+You can [build your own xonsh AppImage](https://xon.sh/appimage.html#building-your-own-xonsh-appimage) with packages you need in 15 minutes.
 
 # Basics
 
