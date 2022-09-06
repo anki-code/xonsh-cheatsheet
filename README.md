@@ -1008,9 +1008,7 @@ xonsh.pretty.for_type(type(1), _format_int)
 xonsh.pretty.for_type(type(1.0), _format_float)
 
 del _format_float, _format_int
-```
-Result:
-```xsh
+
 100000
 # 100,000
 
