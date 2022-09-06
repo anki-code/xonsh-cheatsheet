@@ -97,7 +97,7 @@ docker run --rm -it python:3.9-slim /bin/bash \
 docker run --rm -it xonsh/xonsh:slim
 ```
 
-#### Linux-portable AppImage contains both Python 3 and xonsh in one file
+#### Linux-portable AppImage contains both [Python 3 and xonsh in one file](https://xon.sh/appimage.html)
 
 ```python
 wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
@@ -109,6 +109,8 @@ $PATH = [$APPDIR + '/usr/bin'] + $PATH
 python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
 import tqdm
 ```
+
+You can [build your own xonsh AppImage](https://xon.sh/appimage.html#building-your-own-xonsh-appimage) in 15 minutes.
 
 # Basics
 
