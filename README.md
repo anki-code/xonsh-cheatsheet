@@ -68,7 +68,7 @@ brew install coreutils
 $PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add this to ~/.xonshrc
 ```
 
-### Install from package managerss
+### Install from package managers (not recommended)
 
 *Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.*
 
