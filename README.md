@@ -82,7 +82,7 @@ Or on any system you can install `python` and then install xonsh from pip i.e. `
 
 ### Try without installation
 
-Docker:
+#### Docker
 
 ```python
 # Docker with certain Python version and latest release of xonsh
@@ -97,7 +97,7 @@ docker run --rm -it python:3.9-slim /bin/bash \
 docker run --rm -it xonsh/xonsh:slim
 ```
 
-Linux-portable AppImage contains both Python 3 and xonsh:
+#### Linux-portable AppImage contains both Python 3 and xonsh in one file
 
 ```python
 wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppImage -O xonsh
