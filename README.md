@@ -997,17 +997,8 @@ The snippet from [@maxwellfire](https://github.com/maxwellfire):
 
 ```xsh
 import xonsh.pretty
-
-def _format_int(int, printer, cycle):
-        printer.text(f'{int:,}')
-
-def _format_float(float, printer, cycle):
-        printer.text(f'{float:,}')
-
-xonsh.pretty.for_type(type(1), _format_int)
-xonsh.pretty.for_type(type(1.0), _format_float)
-
-del _format_float, _format_int
+xonsh.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
+xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
 
 100000
 # 100,000
