@@ -1007,6 +1007,33 @@ xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{f
 # 1,000.123
 ```
 
+### chdir [contextmanager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
+
+```xsh
+from contextlib import contextmanager
+
+@contextmanager
+def chdir(adir):
+    old_dir = os.getcwd()
+    os.chdir(adir)
+    yield
+    os.chdir(old_dir)
+	
+# --------------------------------------------
+
+cd /tmp
+mkdir -p dir1
+
+pwd
+with chdir("./dir1"):
+    pwd
+pwd
+
+# /tmp
+# /tmp/dir1
+# /tmp
+```
+
 ### How to paste and edit the multiple line of code being in interactive mode
 
 In some terminals (Konsole in Linux or Windows Terminal for WSL) you can press `ctrl-x ctrl-e` to open up an editor (`nano` in Linux) in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted and executed.
