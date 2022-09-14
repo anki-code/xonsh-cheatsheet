@@ -777,7 +777,7 @@ xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_line
 
 There are two history backends: `json` and [`sqlite`](https://xon.sh/tutorial_hist.html#sqlite-history-backend) which xonsh has by default. The `json` backend creates json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
 
-We recommend to use `sqlite` backend because it saves the command on every execution and the querying of the history using SQL is very handy i.e. [history-search, history-pull snippets](https://github.com/anki-code/xontrib-rc-awesome/blob/dfc9a8fc9a561b511262172c4ee58bd51dfc6b00/xontrib/rc_awesome.xsh#L158-L195).
+We recommend to use `sqlite` backend because it saves the command on every execution and the querying of the history using SQL is very handy i.e. [history-search, history-pull](https://github.com/anki-code/xontrib-rc-awesome/blob/dfc9a8fc9a561b511262172c4ee58bd51dfc6b00/xontrib/rc_awesome.xsh#L158-L195).
 
 ```python
 echo 123
