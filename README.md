@@ -1007,7 +1007,7 @@ xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{f
 # 1,000.123
 ```
 
-### chdir [contextmanager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
+### `chdir` [context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
 
 ```xsh
 from contextlib import contextmanager
