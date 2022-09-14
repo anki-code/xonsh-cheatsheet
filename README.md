@@ -996,14 +996,20 @@ echo 123456789 # <Enter>
 The snippet from [@maxwellfire](https://github.com/maxwellfire):
 
 ```xsh
+50000+50000
+# 100000
+
+500+500.123
+# 1000.123
+
 import xonsh.pretty
 xonsh.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
 xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
 
-100000
+50000+50000
 # 100,000
 
-1000.123
+500+500.123
 # 1,000.123
 ```
 
