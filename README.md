@@ -377,6 +377,12 @@ __xonsh__.env     # Get the list of environment variables using Python syntax
 
 $VAR = 'value'    # Set environment variable
 
+ENV = ${...}                # short typing
+ENV.get('VAR', 'novalue')   # the good practice to have a fallback for missing value
+# 'value'
+ENV.get('VAR2', 'novalue')  # the good practice to have a fallback for missing value
+# 'novalue'
+
 'VAR' in ${...}   # Check environment variable exists
 #True
 
