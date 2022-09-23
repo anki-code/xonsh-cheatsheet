@@ -991,7 +991,7 @@ echo 123456789 # <Enter>
 # Execution: echo 123456789 | lolcat
 ```
 
-### Comma separated thousands in output
+### Comma separated thousands in output (custom formatter)
 
 The snippet from [@maxwellfire](https://github.com/maxwellfire):
 
