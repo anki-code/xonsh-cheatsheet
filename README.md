@@ -181,11 +181,18 @@ You should clearly understand the difference:
 </pre>
 </td>
     <td>
-1. No escape character. Use quotes:
+1. Use quotes:
 <pre>
 <b>echo "123 456"</b>
 # 123 456
 </pre>
+<a href="https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals">Escape character</a> to wrap and so on:
+<pre>
+<b>echo "123\
+456"</b>
+# 123456
+</pre>
+
 </td>
   </tr>
 
