@@ -46,7 +46,7 @@ zsh  # Default MacOS shell
 # Install brew from https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# Install Python via pyenv
+# Install pyenv and then install Python
 brew install pyenv
 echo 'export PATH="$HOME/.pyenv/shims:$PATH"' >> ~/.zshrc
 # restart zsh
