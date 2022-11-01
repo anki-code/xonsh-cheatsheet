@@ -979,6 +979,40 @@ echo "We're in docker container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
 
+### Interactive debugging the script
+
+If you want to have a breakpoint to debug the script use [pdb](https://docs.python.org/3/library/pdb.html):
+
+```xsh
+
+echo @("""
+echo hello
+$VAR = 1
+var = 2
+
+import pdb
+pdb.set_trace()   # interactive debug
+
+echo finish
+""") > /tmp/run.xsh
+
+xonsh /tmp/run.xsh
+
+# hello
+# > /tmp/run.xsh(9)<module>()
+# -> echo finish
+# (Pdb)
+
+var
+# 2
+
+__xonsh__.env['VAR']
+# 1
+
+exit
+# bdb.BdbQuit
+```
+
 ### Using xonsh wherever you go through the SSH
 
 You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
