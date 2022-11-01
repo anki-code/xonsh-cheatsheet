@@ -37,11 +37,11 @@ pipx run xonsh
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
 ```
 
-### Install xonsh on Mac OS or Linux
+### Install xonsh on macOS or Linux
 
 Following the article "[Installing Python on macOS without going insane](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
 ```zsh
-zsh  # Default MacOS shell
+zsh  # Default macOS shell
 
 # Install brew from https://brew.sh/
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
