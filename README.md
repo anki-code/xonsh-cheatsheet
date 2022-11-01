@@ -1021,7 +1021,7 @@ You stuffed command shell with aliases, tools and colors but you lose it all whe
 To change the command between pressing enter and execution there is [on_transform_command](https://xon.sh/events.html#on-transform-command) event:
 
 ```python
-pip install lolcat
+xpip install lolcat
 
 @events.on_transform_command
 def _(cmd, **kw):
