@@ -997,7 +997,6 @@ echo finish
 """) > /tmp/run.xsh
 
 xonsh /tmp/run.xsh
-
 # hello
 # > /tmp/run.xsh(9)<module>()
 # -> echo finish
