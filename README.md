@@ -810,6 +810,10 @@ history info
 sqlite3 $XONSH_HISTORY_FILE  "SELECT inp FROM xonsh_history ORDER BY tsb LIMIT 1;"
 # echo 123
 
+aliases['history-search'] = """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");"""
+history-search "cd /"
+history-search! cd /  # macro call
+
 pip install sqlite_web
 sqlite_web $XONSH_HISTORY_FILE
 # Open the database in the browser
