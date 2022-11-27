@@ -281,7 +281,7 @@ By default the xonsh shell has the bash-like appearance for the interactive prom
 ```python
 $PROMPT_FIELDS['prompt_end'] = '@'
 ```
-Now the prompt appearance will be: `user@host ~ @`. This appearance will remind you of what you are in the xonsh shell.
+Now the prompt appearance will be: `user@host ~ @`. This appearance will remind you of what you are in the xonsh shell. You can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run sh-shell commands.
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
