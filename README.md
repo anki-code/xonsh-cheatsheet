@@ -474,7 +474,7 @@ aliases |= {'a': 'echo a', 'b':'echo b'}  # Add aliases from the list
 del aliases['b']                          # Delete alias
 ```
 
-Wrap command arguments using [ExecAlias](https://xon.sh/tutorial.html#aliases), built-in [`$args`](https://xon.sh/tutorial.html#aliases) variable that contains the list of arguments and handy `"""`-string:
+Wrap command arguments using [ExecAlias](https://xon.sh/tutorial.html#aliases), built-in [`$args`](https://xon.sh/tutorial.html#aliases) (or `$arg0`, `$arg1`, etc) variable that contains the list of arguments and handy `"""`-string:
 ```python
 aliases['p'] = """showcmd @([a for a in $args if a != 'cutme'])"""
 
@@ -484,9 +484,6 @@ p
 
 p 1 2 cutme 3
 #['1', '2', '3']
-
-p 3 4 5
-#['3', '4', '5']
 ```
 
 ## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
