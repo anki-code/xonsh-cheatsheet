@@ -1127,6 +1127,10 @@ Or try [xunter](https://github.com/anki-code/xunter) for tracing and profiling.
 
 Read [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html), run `bash -c! echo 123` or install [xontrib-sh](https://github.com/anki-code/xontrib-sh).
 
+### Xonsh and Windows
+
+We recommend to use [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/about) with [Manjaro](https://github.com/sileshn/ManjaroWSL2) (that supported [rolling release](https://en.wikipedia.org/wiki/Rolling_release)) on Windows. Don't forget to [fix PATH](https://github.com/xonsh/xonsh/issues/3895#issuecomment-713078931).
+
 # Answers to the holy war questions
 
 ### Bash is everywhere! Why xonsh?
