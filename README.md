@@ -487,13 +487,13 @@ $(echo-new -n hello)
 Also with handy `"""`-string to use `"` and `'` without escaping:
 
 ```python
-aliases['p'] = """showcmd @([a for a in $args if a != "cutme"])"""
+aliases['scmd'] = """showcmd @([a for a in $args if a != "cutme"])"""
 
-p
+scmd
 # usage: showcmd [-h|--help|cmd args]
 # Displays the command and arguments as a list ...
 
-p 1 2 cutme 3
+scmd 1 2 cutme 3
 #['1', '2', '3']
 ```
 
