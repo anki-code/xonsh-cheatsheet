@@ -474,7 +474,18 @@ aliases |= {'a': 'echo a', 'b':'echo b'}  # Add aliases from the list
 del aliases['b']                          # Delete alias
 ```
 
-Wrap command arguments using [ExecAlias](https://xon.sh/tutorial.html#aliases), built-in [`$args`](https://xon.sh/tutorial.html#aliases) (or `$arg0`, `$arg1`, etc) variable that contains the list of arguments and handy `"""`-string:
+Easy wrapping a command by using [ExecAlias](https://xon.sh/tutorial.html#aliases) with built-in [`$args`](https://xon.sh/tutorial.html#aliases) (or `$arg0`, `$arg1`, etc) variable:
+
+```python
+aliases['echo-new'] = "echo @($args) new"
+$(echo-new hello)
+# 'hello new\n'
+$(echo-new -n hello)
+# 'hello new'
+```
+
+Also with handy `"""`-string:
+
 ```python
 aliases['p'] = """showcmd @([a for a in $args if a != 'cutme'])"""
 
