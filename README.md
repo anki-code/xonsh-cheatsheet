@@ -18,7 +18,7 @@ The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q
 
 There are three ways to use xonsh:
 
-1. **[Simple xonsh install](#simple-xonsh-install)**. You can install or using system installed Python to install xonsh and dependencies. In this way you don't want to understand about Python version management or Python virtual environments.
+1. **[Simple xonsh install](#simple-xonsh-install)**. You can install or using system installed Python to install xonsh and dependencies. We don't plan to understand Python version or virtual environments.
 2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexible manage Python version, dependencies and virtual environments but because of xonsh is a Python-based shell you have to understand what you're doing and the section below will uncover the cases. 
 3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or Linux AppImage to run and try xonsh.
 
