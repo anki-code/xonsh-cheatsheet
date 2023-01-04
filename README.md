@@ -19,7 +19,9 @@ The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q
 There are three ways to use xonsh:
 
 1. **[Simple xonsh install](#simple-xonsh-install)**. You can install or using system installed Python to install xonsh and dependencies. We don't plan to understand Python version or virtual environments.
+
 2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexible manage Python version, dependencies and virtual environments but because of xonsh is a Python-based shell you have to understand what you're doing and the section below will uncover the cases. 
+
 3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or Linux AppImage to run and try xonsh.
 
 ### Simple xonsh install
@@ -42,9 +44,46 @@ Or on any system you can install `python` and then install xonsh from pip i.e. `
 
 ### Install xonsh with package and environment management system
 
-*THIS SECTION IS DRAFT - WORK IN PROGRESS*
+Because of xonsh is a Python-based shell you have to understand what you're doing and where. The common mistake is to expect that xonsh that was ran in one environment will work in another just after activation the new environment. But let's understand the case step by step.
 
-We will use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to demonstrate but you can carefully use [pipx](https://pypa.github.io/pipx/), [venv](https://docs.python.org/3/library/venv.html), [pyenv](https://github.com/pyenv/pyenv) and others as well. 
+#### How to understand the xonsh location
+
+Before you will install and use xonsh with package manader and virtual environment you should remember how to detect python, xonsh and packages locations from current xonsh instance:
+
+Where is Python:
+```xsh
+which python
+# /opt/homebrew/bin/python
+
+ls -la @$(which python)
+# /opt/homebrew/bin/python -> ../Cellar/python@3.10/3.10.9/bin/python3
+```
+
+Where is xonsh and what version of Python used:
+```xsh
+which xonsh
+# /opt/homebrew/bin/xonsh
+
+head -n1 @$(which xonsh)
+# #!/opt/homebrew/opt/python@3.10/bin/python3.10
+
+python -V
+# 3.10.9
+```
+
+Where is packages:
+```xsh
+import json
+json
+# <module 'json' from '/opt/homebrew/ ... /3.10/lib/python3.10/json/__init__.py'>
+```
+
+### Using xonsh with conda
+
+** THIS SECTION UNDER CONSTRUCTION **
+
+We will use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to demonstrate. You can carefully use [pipx](https://pypa.github.io/pipx/), [venv](https://docs.python.org/3/library/venv.html), [pyenv](https://github.com/pyenv/pyenv) as well. 
+
 
 ### Install xonsh on macOS or Linux
 
