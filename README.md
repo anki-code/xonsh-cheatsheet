@@ -57,6 +57,9 @@ which python
 
 ls -la @$(which python)
 # /opt/homebrew/bin/python -> ../Cellar/python@3.10/3.10.9/bin/python3
+
+python -V
+# 3.10.9
 ```
 
 Where is xonsh and what version of Python used:
@@ -66,9 +69,6 @@ which xonsh
 
 head -n1 @$(which xonsh)
 # #!/opt/homebrew/opt/python@3.10/bin/python3.10
-
-python -V
-# 3.10.9
 ```
 
 Where is packages:
