@@ -16,26 +16,35 @@ The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q
 
 # Install xonsh
 
-### Recommended way to install xonsh
+There are three ways to use xonsh:
 
-Most of the modern operating systems has [Python 3](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that preinstalled or you can install it easily. This way is recommended, because you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases) from PyPi:
+1. **[Simple xonsh install](#simple-xonsh-install)**. You can install or using system installed Python to install xonsh and dependencies. In this way you don't want to understand about Python version management or Python virtual environments.
+2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexible manage Python version, dependencies and virtual environments but because of xonsh is a Python-based shell you have to understand what you're doing and the section below will uncover the cases. 
+3. **[Try xonsh without installation](try-xonsh-without-installation)**. Use Docker or Linux AppImage to run and try xonsh.
+
+### Simple xonsh install
+
+Most of the modern operating systems has [Python 3](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that preinstalled or you can install it easily. By installing from PyPi you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases). We highly recommend to use `full` version of xonsh PyPi-package with [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/) on board:
 ```xsh
 python -m pip install 'xonsh[full]'
 ```
 
-If you're using [Conda](https://docs.conda.io/en/latest/) the package from [Conda-forge](https://conda-forge.org/) is also fresh:
-```xsh
-conda config --add channels conda-forge && conda install xonsh
-```
+Another way is to install from package manager that supplied by operating system. This way is not recommended because in the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest release](https://github.com/xonsh/xonsh/releases/)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.
 
-The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh with certain Python version:
 ```xsh
-# Install Python 3.8 i.e. for Ubuntu: apt install python3.8
-pip install pipx
-pipx install --python python3.8 xonsh
-pipx run xonsh 
-# or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
+# Not recommended but possible
+apt install xonsh     # Debian/Ubuntu
+pacman -S xonsh       # Arch Linux
+dnf install xonsh     # Fedora
+brew install xonsh    # OSX
 ```
+Or on any system you can install `python` and then install xonsh from pip i.e. `any_pkg_manager install python && python -m pip install 'xonsh[full]'` - this is more preferable way.
+
+### Install xonsh with package and environment management system
+
+*THIS SECTION IS DRAFT - WORK IN PROGRESS*
+
+We will use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to demonstrate but you can carefully use [pipx](https://pypa.github.io/pipx/), [venv](https://docs.python.org/3/library/venv.html), [pyenv](https://github.com/pyenv/pyenv) and others as well. 
 
 ### Install xonsh on macOS or Linux
 
@@ -68,19 +77,18 @@ brew install coreutils
 $PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add to ~/.xonshrc
 ```
 
-### Install from package managers (not recommended)
+#### pipx and xonsh
 
-*Note! In the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest release](https://github.com/xonsh/xonsh/releases/)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.*
-
+The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh in case you need certain Python version:
 ```xsh
-apt install xonsh    # Debian/Ubuntu
-pacman -S xonsh      # Arch Linux
-dnf install xonsh    # Fedora
-brew install xonsh   # OSX
+# Install Python before continue
+pip install pipx
+pipx install --python python3.8 xonsh
+pipx run xonsh 
+# or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
 ```
-Or on any system you can install `python` and then install xonsh from pip i.e. `any_pkg_manager install python && python -m pip install 'xonsh[full]'`.
 
-### Try without installation
+### Try xonsh without installation
 
 #### Docker
 
@@ -112,7 +120,7 @@ import tqdm
 
 You can [build your own xonsh AppImage](https://xon.sh/appimage.html#building-your-own-xonsh-appimage) with packages you need in 15 minutes.
 
-# Basics
+# Xonsh basics
 
 The xonsh language is a superset of Python 3 with additional shell support. As result you can mix shell commands and Python code as easy as possible. Right off the bat examples:
 
