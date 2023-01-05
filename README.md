@@ -44,13 +44,13 @@ Or on any system you can install `python` and then install xonsh from pip i.e. `
 
 ### Install xonsh with package and environment management system
 
-Because of xonsh is a Python-based shell you have to understand what you're doing and where. The common mistake is to expect that xonsh that was ran in one environment will work in another just after activation the new environment. But let's understand the case step by step.
+Because of xonsh is a Python-based shell you have to understand what you're doing and where. The common mistake is to expect that xonsh was executed in one environment will work in another just after activation the new environment. But let's understand the case step by step.
 
 #### How to understand the xonsh location
 
-Before you will install and use xonsh with package manader and virtual environment you should remember how to detect python, xonsh and packages locations from current xonsh instance:
+Before you will install and use xonsh with package manager and virtual environment you should remember how to detect python, xonsh and packages locations from current xonsh instance:
 
-Where is Python:
+Where is Python that used for running current xonsh instance:
 ```xsh
 which python
 # /opt/homebrew/bin/python
@@ -62,7 +62,7 @@ python -V
 # 3.10.9
 ```
 
-Where is xonsh and what version of Python used:
+Where is xonsh and what version of Python it is using:
 ```xsh
 which xonsh
 # /opt/homebrew/bin/xonsh
@@ -71,11 +71,13 @@ head -n1 @$(which xonsh)
 # #!/opt/homebrew/opt/python@3.10/bin/python3.10
 ```
 
-Where is packages:
+Where is the packages and what is installed:
 ```xsh
 import json
 json
-# <module 'json' from '/opt/homebrew/ ... /3.10/lib/python3.10/json/__init__.py'>
+# <module 'json' from '/opt/homebrew/./3.10/lib/python3.10/json/__init__.py'>
+
+pip list
 ```
 
 ### Using xonsh with conda
