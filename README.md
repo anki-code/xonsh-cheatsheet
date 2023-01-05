@@ -94,18 +94,22 @@ which xonsh
 # Run xonsh from `base` environment
 xonsh
 
-xpip install ujson  # using `xpip` to install `ujson` to the xonsh location (`base` environment)
+# `xpip` is to install packages to the current xonsh session location (now it's `base` environment)
+xpip install ujson  
 
 # Example of creating the environment with certain version of Python
 conda create -n "py310" python=3.10 xonsh
 
 conda activate py310
+# Now the environment is `py310` but current xonsh session is still in `base` environment
+
 which xonsh
 # /Users/username/miniconda3/envs/py310/bin/xonsh
 
 # Run xonsh that installed in `py310` environment from xonsh runned in `base` environment
 xonsh
 conda activate py310
+# Now xonsh session is in `py310` environment and the current environment is also `py310`
 
 import ujson
 # No module named 'ujson'   # YES because ujson was installed in `base` environment
