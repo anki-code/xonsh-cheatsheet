@@ -84,11 +84,31 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict 
 conda update --all --yes
 
-# Install xonsh using conda
+# Install xonsh to `base` environment
 conda install xonsh
 conda init xonsh
 
+which xonsh
+# /Users/username/miniconda3/bin/xonsh
+
+# Run xonsh from `base` environment
 xonsh
+
+xpip install ujson  # using `xpip` to install `ujson` to the xonsh location (`base` environment)
+
+# Example of creating the environment with certain version of Python
+conda create -n "py310" python=3.10 xonsh
+
+conda activate py310
+which xonsh
+# /Users/username/miniconda3/envs/py310/bin/xonsh
+
+# Run xonsh that installed in `py310` environment from xonsh runned in `base` environment
+xonsh
+conda activate py310
+
+import ujson
+# No module named 'ujson'   # YES because ujson was installed in `base` environment
 ```
 
 #### How to understand the xonsh location
