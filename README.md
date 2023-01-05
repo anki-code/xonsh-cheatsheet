@@ -74,7 +74,7 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 chmod +x Miniconda3-latest-MacOSX-arm64.sh
 ./Miniconda3-latest-MacOSX-arm64.sh
 # Add conda init code that printed to `~/.zshrc` and restart zsh.
-# Or run `/Users/username/miniconda3/bin/conda init zsh` and restart zsh.
+# Or run `/Users/username/miniconda3/bin/conda init zsh` to add init to ~/.zshrc and restart zsh.
 
 # After restart zsh you will see `(base)` in prompt.
 # This means that you're in conda `base` environment.
@@ -86,7 +86,7 @@ conda update --all --yes
 
 # Install xonsh to `base` environment
 conda install xonsh
-conda init xonsh
+conda init xonsh  # add init to ~/.xonshrc
 
 which xonsh
 # /Users/username/miniconda3/bin/xonsh
