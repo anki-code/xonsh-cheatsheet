@@ -107,6 +107,12 @@ conda activate py310
 which xonsh
 # /Users/username/miniconda3/envs/py310/bin/xonsh
 
+which pip
+# /Users/username/miniconda3/envs/py310/bin/pip  # pip from `py310`
+
+which xpip
+# /Users/username/miniconda3/bin/pip  # pip from `base` environment from where xonsh ran
+
 # Run xonsh that installed in `py310` environment from xonsh runned in `base` environment
 xonsh
 conda activate py310
