@@ -269,6 +269,7 @@ Be calm and ready to the sane and self-consistent Python-driven mindset.
 
 *Note:* 
 * *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh `bash -c! echo {123}` or use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
+* *We highly recommend to take a look into the section [Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system).*
 
 
 ### 2. [Strings and arguments in shell commands](https://xon.sh/tutorial_subproc_strings.html)
