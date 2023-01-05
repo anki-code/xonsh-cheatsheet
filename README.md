@@ -44,11 +44,54 @@ Or on any system you can install `python` and then install xonsh from pip i.e. `
 
 ### Install xonsh with package and environment management system
 
-Because of xonsh is a Python-based shell you have to understand what you're doing and where. The common mistake is to expect that xonsh was executed in one environment will work in another just after activation the new environment. But let's understand the case step by step.
+Xonsh is a Python-based shell and to run xonsh you must have Python installed. The Python and the Python packages can be installed and located anywhere: in the operation system directories, as part of virtual environment, as part of user directory or as virtual drive that temporary created from Linux AppImage.
+
+First thing you have to remember that when you execute `import` or any other Python code during xonsh session it will be executed in Python environment that was used to run current instance of xonsh.
+
+In other words you can activate virtual environment during xonsh session (using conda, pyenv, pipx) but current session will use packages from the environment that used to run xonsh. And if you want to run xonsh with the packages from the current activated virtual environment you have to install xonsh in this environment and run it directly. 
+
+Thus the second thing you should remember that when you run xonsh in virtual environment it will try to load RC files (i.e. `~/.xonshrc`) and because of the virtual environment is the different than the environement you ordinary use the loading of RC file will tend to fail because of lack of appropriate set of packages.
+
+#### Install xonsh on macOS or Linux using conda
+
+You can use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to install and use xonsh. 
+
+
+```xsh
+#
+# Install python using brew
+#
+zsh  # Default macOS shell
+# Install brew from https://brew.sh/
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install python  # or `python@3.11`
+
+#
+# Install Miniconda from https://docs.conda.io/en/latest/miniconda.html 
+#
+cd /tmp
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
+chmod +x Miniconda3-latest-MacOSX-arm64.sh
+./Miniconda3-latest-MacOSX-arm64.sh
+# Add conda init code that printed to `~/.zshrc` and restart zsh.
+# Or run `/Users/username/miniconda3/bin/conda init zsh` and restart zsh.
+
+# After restart zsh you will see `(base)` in prompt.
+# This means that you're in conda `base` environment.
+
+# Switch to Conda-forge channel
+conda config --add channels conda-forge
+conda config --set channel_priority strict 
+conda update --all --yes
+
+# Install xonsh using conda
+conda install xonsh
+conda init xonsh
+
+xonsh
+```
 
 #### How to understand the xonsh location
-
-Before you will install and use xonsh with package manager and virtual environment you should remember how to detect python, xonsh and packages locations from current xonsh instance:
 
 Where is Python that used for running current xonsh instance:
 ```xsh
@@ -80,14 +123,18 @@ json
 pip list
 ```
 
-### Using xonsh with conda
+#### pipx and xonsh
 
-** THIS SECTION UNDER CONSTRUCTION **
+The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh in case you need certain Python version:
+```xsh
+# Install Python before continue
+pip install pipx
+pipx install --python python3.8 xonsh
+pipx run xonsh 
+# or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
+```
 
-We will use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to demonstrate. You can carefully use [pipx](https://pypa.github.io/pipx/), [venv](https://docs.python.org/3/library/venv.html), [pyenv](https://github.com/pyenv/pyenv) as well. 
-
-
-### Install xonsh on macOS or Linux
+### pyenv and xonsh
 
 Following the article "[Installing Python on macOS without going insane](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
 ```zsh
@@ -116,17 +163,6 @@ On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software
 ```xsh
 brew install coreutils
 $PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add to ~/.xonshrc
-```
-
-#### pipx and xonsh
-
-The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh in case you need certain Python version:
-```xsh
-# Install Python before continue
-pip install pipx
-pipx install --python python3.8 xonsh
-pipx run xonsh 
-# or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
 ```
 
 ### Try xonsh without installation
