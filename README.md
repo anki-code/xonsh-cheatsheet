@@ -56,7 +56,6 @@ Thus the second thing you should remember that when you run xonsh in virtual env
 
 You can use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to install and use xonsh. 
 
-
 ```xsh
 #
 # Install python using brew
@@ -86,7 +85,7 @@ conda update --all --yes
 
 # Install xonsh to `base` environment
 conda install xonsh
-conda init xonsh  # add init to ~/.xonshrc
+conda init xonsh  # Add init to ~/.xonshrc. You can also add `$CONDA_AUTO_ACTIVATE_BASE='false'` to avoid conda loading at start
 
 which xonsh
 # /Users/username/miniconda3/bin/xonsh
