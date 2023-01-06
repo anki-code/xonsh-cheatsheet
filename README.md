@@ -50,7 +50,7 @@ First thing you have to remember that when you execute `import` or any other Pyt
 
 In other words you can activate virtual environment during xonsh session (using conda, pyenv, pipx) but current session will use packages from the environment that used to run xonsh. And if you want to run xonsh with the packages from the current activated virtual environment you have to install xonsh in this environment and run it directly. 
 
-Thus the second thing you should remember that when you run xonsh in virtual environment it will try to load [xonsh RC files](https://xon.sh/xonshrc.html#run-control-file) (i.e. `~/.xonshrc`) and because of the virtual environment is the different than the environement you ordinary use the loading of RC file will tend to fail because of lack of appropriate set of packages. When you write `~/.xonshrc` it's good practive to check of existing external dependencies before loading them. See also [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
+Thus the second thing you should remember that when you run xonsh in virtual environment it will try to load [xonsh RC files](https://xon.sh/xonshrc.html#run-control-file) (i.e. `~/.xonshrc`) and because of the virtual environment is the different than the environement you ordinary use the loading of RC file will tend to fail because of lack of appropriate set of packages. When you write `~/.xonshrc` it's good practice to check the existing external dependencies before loading them. See also [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
 #### Install xonsh on macOS or Linux using conda
 
