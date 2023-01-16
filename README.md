@@ -243,6 +243,9 @@ len($(curl https://xon.sh))       # mix python and the shell
 
 $PATH.append('/tmp')              # using environment variables
 
+p'/etc/passwd'.read_text().find('root')  # path-string returns Path 
+                                         # (https://docs.python.org/3/library/pathlib.html)
+
 for line in $(cat /etc/passwd).splitlines():  # read the lines from the output
     echo @(line.split(':')[0])                # prepare line on Python and echo
 
