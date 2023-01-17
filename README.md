@@ -123,34 +123,21 @@ import ujson
 
 #### How to understand the xonsh location
 
-Where is Python that used for running current xonsh instance:
+Which xonsh and which Python used to run **current** xonsh session:
+
 ```xsh
-which python
-# /opt/homebrew/bin/python
-
-ls -la @$(which python)
-# /opt/homebrew/bin/python -> ../Cellar/python@3.10/3.10.9/bin/python3
-
-python -V
-# 3.10.9
+import sys
+[sys.argv[0], sys.executable]
+# ['/opt/homebrew/bin/xonsh', '/opt/homebrew/opt/python@3.11/bin/python3.11']
 ```
 
-Where is xonsh that will be started by `xonsh` command and what version of Python it is using:
+Which xonsh and which Python will be used in current session to run **new instance** of `xonsh` or `python` - this depends on the list of directories in `$PATH`:
+
 ```xsh
-which xonsh
-# /opt/homebrew/bin/xonsh
-
-head -n1 @$(which xonsh)
-# #!/opt/homebrew/opt/python@3.10/bin/python3.10
-```
-
-Where is the packages and what is installed:
-```xsh
-import json
-json
-# <module 'json' from '/opt/homebrew/./3.10/lib/python3.10/json/__init__.py'>
-
-pip list
+[$(ls -la @$(which xonsh)), $(ls -la @$(which python)), $(python -V)]
+# ['/home/user/miniconda3/bin/xonsh',
+#  '/home/user/miniconda3/bin/python -> python3.11', 
+#  'Python 3.11.1']
 ```
 
 #### pipx and xonsh
