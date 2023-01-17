@@ -129,6 +129,10 @@ Which xonsh and which Python used to run **current** xonsh session:
 import sys
 [sys.argv[0], sys.executable]
 # ['/opt/homebrew/bin/xonsh', '/opt/homebrew/opt/python@3.11/bin/python3.11']
+
+
+@(sys.executable) -m site
+# Full info about paths
 ```
 
 Which `xonsh` and which `python` will be executed to run **new instances** - this depends on the list of directories in `$PATH` or virtual environment:
@@ -139,6 +143,9 @@ $PATH
 
 [$(ls -la @$(which xonsh)), $(ls -la @$(which python)), $(python -V)]
 # ['/home/user/miniconda3/bin/xonsh', '/home/user/miniconda3/bin/python -> python3.11', 'Python 3.11.1']
+
+python -m site
+# Full info about paths
 ```
 
 #### pipx and xonsh
