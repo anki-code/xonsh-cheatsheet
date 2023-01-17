@@ -131,13 +131,14 @@ import sys
 # ['/opt/homebrew/bin/xonsh', '/opt/homebrew/opt/python@3.11/bin/python3.11']
 ```
 
-Which xonsh and which Python will be used in current session to run **new instance** of `xonsh` or `python` - this depends on the list of directories in `$PATH`:
+Which xonsh and which Python will be executed in current session to run **new instances** - this depends on the list of directories in `$PATH`:
 
 ```xsh
+$PATH
+# ['/home/user/miniconda3/bin', '/opt/homebrew/bin]
+
 [$(ls -la @$(which xonsh)), $(ls -la @$(which python)), $(python -V)]
-# ['/home/user/miniconda3/bin/xonsh',
-#  '/home/user/miniconda3/bin/python -> python3.11', 
-#  'Python 3.11.1']
+# ['/home/user/miniconda3/bin/xonsh', '/home/user/miniconda3/bin/python -> python3.11', 'Python 3.11.1']
 ```
 
 #### pipx and xonsh
