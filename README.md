@@ -131,7 +131,7 @@ import sys
 # ['/opt/homebrew/bin/xonsh', '/opt/homebrew/opt/python@3.11/bin/python3.11']
 ```
 
-Which xonsh and which Python will be executed in current session to run **new instances** - this depends on the list of directories in `$PATH`:
+Which `xonsh` and which `python` will be executed to run **new instances** - this depends on the list of directories in `$PATH`:
 
 ```xsh
 $PATH
