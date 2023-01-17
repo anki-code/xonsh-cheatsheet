@@ -135,7 +135,7 @@ python -V
 # 3.10.9
 ```
 
-Where is xonsh and what version of Python it is using:
+Where is xonsh that will be started by `xonsh` command and what version of Python it is using:
 ```xsh
 which xonsh
 # /opt/homebrew/bin/xonsh
