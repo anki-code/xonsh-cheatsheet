@@ -121,6 +121,12 @@ import ujson
 # No module named 'ujson'   # YES because ujson was installed in `base` environment
 ```
 
+On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software/coreutils/) to use the Linux default tools (i.e. `ls`, `grep`):
+```xsh
+brew install coreutils
+$PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add to ~/.xonshrc
+```
+
 #### How to understand the xonsh location
 
 Which xonsh and which Python used to run **current** xonsh session:
@@ -157,37 +163,6 @@ pip install pipx
 pipx install --python python3.8 xonsh
 pipx run xonsh 
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
-```
-
-### pyenv and xonsh
-
-Following the article "[Installing Python on macOS without going insane](https://eddieantonio.ca/blog/2020/01/26/installing-python-on-macos/)":
-```zsh
-zsh  # Default macOS shell
-
-# Install brew from https://brew.sh/
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-# Install pyenv and then install Python
-brew install pyenv
-echo 'export PATH="$HOME/.pyenv/shims:$PATH"' >> ~/.zshrc
-# restart zsh
-pyenv install --list | grep ' 3.' | tail  # Choose the Python version
-pyenv install 3.10.6
-pyenv global 3.10.6
-
-# The article recommend to use pipx to install global Python tools
-brew install pipx  
-pipx install 'xonsh[full]'
-
-# Use xonsh `xpip` to install xontribs to appropriate packages location
-xonsh
-xpip install xontrib-prompt-bar xontrib-back2dir
-```
-On Mac we also recommend to install [GNU coreutils](https://www.gnu.org/software/coreutils/) to use the Linux default tools (i.e. `ls`, `grep`):
-```xsh
-brew install coreutils
-$PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add to ~/.xonshrc
 ```
 
 ### Try xonsh without installation
