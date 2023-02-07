@@ -416,7 +416,7 @@ for l in ret:
 
 ```
 
-Note! In some cases to get `.output` you need to invoke `.end()` manually or use the `.out`:
+Note! In some cases to get output you need to convert object to string or invoke `.end()` manually or use the `.out`:
 
 ```xsh
 r = !(ls /)
@@ -431,6 +431,11 @@ r = !(ls /)
 r.out                # out is forcing ending
 # 'bin\netc\n...'
 
+r = !(ls /)
+print(r)             # r will be converted to str and the ending will be forced
+# bin
+# etc
+# ...
 ```
 
 ### `$[]` - not capturing (return `None`), print stdout and stderr
