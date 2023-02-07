@@ -416,6 +416,23 @@ for l in ret:
 
 ```
 
+Note! In some cases to get `.output` you need to invoke `.end()` manually or use the `.out`:
+
+```xsh
+r = !(ls /)
+r.output
+# ''
+
+r.end()
+r.output
+# 'bin\netc\n...'
+
+r = !(ls /)
+r.out                # out is forcing ending
+# 'bin\netc\n...'
+
+```
+
 ### `$[]` - not capturing (return `None`), print stdout and stderr
 
 Passes stdout to the screen and returns `None`:
