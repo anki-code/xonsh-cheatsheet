@@ -10,6 +10,10 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 [Full screen reading](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md)
 
+# What is xonsh?
+
+Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all major systems including Linux, OSX, and Windows.
+
 # What does xonsh mean?
 
 The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snail or shells (🐚). Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
