@@ -12,7 +12,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 # What is xonsh?
 
-Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all major systems including Linux, OSX, and Windows.
+Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all major systems including Linux, OSX, and Windows. Try [right off the bat examples](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#xonsh-basics).
 
 # What does xonsh mean?
 
