@@ -239,6 +239,8 @@ xontrib load prompt_bar           # follow the white rabbit - https://github.com
 # with extesnsions you need on board.
 ```
 
+Looks nice? [Install xonsh](#install-xonsh)!
+
 ## Three most frequent things that newcomers missed
 
 ### 1. [Shell commands also known as subprocess commands](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
