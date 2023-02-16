@@ -1,3 +1,4 @@
+"""Cheat sheet for xonsh shell with copy-pastable examples. The best doc for the new users. """
 
 def _cheatsheet():
     import webbrowser
