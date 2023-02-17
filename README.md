@@ -1284,7 +1284,7 @@ Thank you for the reading! This cheatsheet is the tip of the iceberg of the xons
 
 Also you can install cheatsheet xontrib:
 ```python
-xpip install -U git+https://github.com/anki-code/xonsh-cheatsheet
+xpip install xontrib-cheatsheet
 xontrib load cheatsheet
 cheatsheet
 # Opening: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md
