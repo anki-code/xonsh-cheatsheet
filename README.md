@@ -945,8 +945,9 @@ history-search! cd /  # macro call
 # cd /tmp
 
 pip install sqlite_web
-sqlite_web $XONSH_HISTORY_FILE
-# Open the database in the browser
+sqlite_web $XONSH_HISTORY_FILE  # Open the database in the browser
+
+history pull  # Pull the history from parallel sessions and add to the current session.
 ```
 
 There is a third party history backend that's supplied in xontribs: [xontrib-history-encrypt](https://github.com/anki-code/xontrib-history-encrypt).
