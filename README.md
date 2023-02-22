@@ -1,41 +1,41 @@
 <p align="center">
-Cheat sheet for <a href="https://xon.sh">the xonsh shell</a> with copy-pastable examples. This is a good level of knowledge at start.
+Cheat sheet for the <a href="https://xon.sh">xonsh shell</a> with copy-pastable examples. This is a good level of knowledge to start being productive.
 <br><br>
 <img src="https://repository-images.githubusercontent.com/310804308/f11fa180-280d-11eb-8fa4-c389308692bd">
 </p>
 
 <p align="center">
-If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet</a>.
+If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet</a> about it.
 </p>
 
 [Full screen reading](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md)
 
 # What is xonsh?
 
-Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all Python-compatible systems including Linux, OSX, and Windows. Try [right off the bat examples](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#xonsh-basics).
+Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all Python-compatible systems, including Linux, macOS, and Windows. Try [right off the bat examples](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#xonsh-basics).
 
 # What does xonsh mean?
 
-The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snail or shells (🐚). Thus xonsh is the reference to the shell word that commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
+The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snails or shells (🐚). Thus xonsh is the reference to the shell word that is commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
 
 # Install xonsh
 
 There are three ways to use xonsh:
 
-1. **[Simple xonsh install](#simple-xonsh-install)**. You can install or using system installed Python to install xonsh and dependencies. You don't plan to manage Python version or virtual environments.
+1. **[Simple xonsh install](#simple-xonsh-install)**. You can use the system installed Python to install xonsh and dependencies. This is a good option if you don't plan to manage Python versions or virtual environments.
 
-2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexible manage Python version, dependencies and virtual environments but because of xonsh is a Python-based shell you have to understand what you're doing and the section below will uncover the cases. 
+2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexibly manage the Python version, dependencies, and virtual environments, but because xonsh is a Python-based shell you have to understand what you're doing and the section below will provide some guidance.
 
-3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or Linux AppImage to run and try xonsh.
+3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or the Linux AppImage to run and try xonsh.
 
 ### Simple xonsh install
 
-Most of the modern operating systems has [Python](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that preinstalled or you can install it easily. By installing from PyPi you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases). We highly recommend to use `full` version of xonsh PyPi-package with [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/) on board:
+Most modern operating systems have [Python](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that are preinstalled or that can be installed easily. By installing from PyPi you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases). We highly recommend using the `full` version of the xonsh PyPi-package with [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/) on board:
 ```xsh
 python -m pip install 'xonsh[full]'
 ```
 
-Another way is to install from package manager that supplied by operating system. This way is not recommended because in the operating systems without [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest release](https://github.com/xonsh/xonsh/releases/)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.
+Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended because in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest release](https://github.com/xonsh/xonsh/releases/)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.
 
 ```xsh
 # Not recommended but possible
@@ -44,17 +44,18 @@ pacman -S xonsh       # Arch Linux
 dnf install xonsh     # Fedora
 brew install xonsh    # OSX
 ```
-On any system you can install `python` and then install xonsh from pip i.e. `any_pkg_manager install python && python -m pip install 'xonsh[full]'` - this is more preferable way.
+
+On any system you can install `python` and then install xonsh from pip i.e., `any_pkg_manager install python && python -m pip install 'xonsh[full]'` This is the preferable way.
 
 ### Install xonsh with package and environment management system
 
-Xonsh is a Python-based shell and to run xonsh you must have Python installed. The Python and the Python packages can be installed and located anywhere: in the operation system directories, as part of virtual environment, as part of user directory or as virtual drive that temporary created from Linux AppImage.
+Xonsh is a Python-based shell, and to run xonsh you must have Python installed. The Python version and its packages can be installed and located anywhere: in the operating system directories, as part of a virtual environment, as part of the user directory, or as a virtual drive created temporarily behind the scenes by the Linux AppImage.
 
-First thing you have to remember that when you execute `import` or any other Python code during xonsh session it will be executed in Python environment that was used to run current instance of xonsh.
+The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session it will be executed in the Python environment that was used to run current instance of xonsh.
 
-In other words you can activate virtual environment during xonsh session (using conda, pyenv, pipx) but current session will use packages from the environment that used to run xonsh. And if you want to run xonsh with the packages from the current activated virtual environment you have to install xonsh in this environment and run it directly. 
+In other words, you can activate a virtual environment during a xonsh session (using conda, pyenv, pipx) but the current session will continue to use packages from the environment that was used to run xonsh. And if you want to run xonsh with the packages from the currently activated virtual environment you have to install xonsh in that environment and run it directly.
 
-Thus the second thing you should remember that when you run xonsh in virtual environment it will try to load [xonsh RC files](https://xon.sh/xonshrc.html#run-control-file) (i.e. `~/.xonshrc`) and because of the virtual environment is the different than the environement you ordinary use the loading of RC file will tend to fail because of lack of appropriate set of packages. When you write `~/.xonshrc` it's good practice to check the existing external dependencies before loading them. See also [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
+Thus the second thing you should remember is that when you run xonsh in virtual environment it will try to load [xonsh RC files](https://xon.sh/xonshrc.html#run-control-file) (i.e. `~/.xonshrc`) and because the virtual environment is different from the environement you ordinarily use, the loading of the RC file will tend to fail because of the lack of the appropriate set of packages. When you write your `~/.xonshrc` it's good practice to check the existing external dependencies before loading them. See also [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
 #### Install xonsh on macOS or Linux using conda
 
@@ -76,31 +77,31 @@ cd /tmp
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 chmod +x Miniconda3-latest-MacOSX-arm64.sh
 ./Miniconda3-latest-MacOSX-arm64.sh
-# Add conda init code that printed to `~/.zshrc` and restart zsh.
+# Add conda init code that was printed to `~/.zshrc` and restart zsh.
 # Or run `/Users/username/miniconda3/bin/conda init zsh` to add init to ~/.zshrc and restart zsh.
 
-# After restart zsh you will see `(base)` in prompt.
-# This means that you're in conda `base` environment.
+# After restarting zsh you will see `(base)` in prompt.
+# This means that you're in the conda `base` environment.
 
 # Switch to Conda-forge channel
 conda config --add channels conda-forge
 conda config --set channel_priority strict 
 conda update --all --yes
 
-# Install xonsh to `base` environment
+# Install xonsh to the `base` environment
 conda install xonsh
 conda init xonsh  # Add init to ~/.xonshrc. You can also add `$CONDA_AUTO_ACTIVATE_BASE='false'` to avoid conda loading at start
 
 which xonsh
 # /Users/username/miniconda3/bin/xonsh
 
-# Run xonsh from `base` environment
+# Run xonsh from the `base` environment
 xonsh
 
-# `xpip` is to install packages to the current xonsh session location (now it's `base` environment)
+# `xpip` is used to install packages to the current xonsh session location (now it's `base` environment)
 xpip install ujson  
 
-# Example of creating the environment with certain version of Python
+# Example of creating the environment with a certain version of Python
 conda search python | grep 3.10
 conda create -n "py310" python=3.10 xonsh
 
@@ -133,7 +134,7 @@ $PATH.append('/opt/homebrew/opt/coreutils/libexec/gnubin')  # add to ~/.xonshrc
 
 #### How to understand the xonsh location
 
-Which xonsh and which Python used to run **current** xonsh session:
+Which xonsh and which Python used to run the **current** xonsh session:
 
 ```xsh
 import sys
@@ -145,7 +146,7 @@ import sys
 # Full info about paths
 ```
 
-Which `xonsh` and which `python` will be executed to run **new instances** - this depends on the list of directories in `$PATH` or virtual environment:
+Which `xonsh` and which `python` that will be executed to run **new instances** depends on the list of directories in `$PATH` or virtual environment:
 
 ```xsh
 $PATH
@@ -160,13 +161,13 @@ python -m site
 
 #### pipx and xonsh
 
-The [pipx](https://pipxproject.github.io/pipx/) is also good to install xonsh in case you need certain Python version:
+The [pipx](https://pipxproject.github.io/pipx/) tool is also good to install xonsh in case you need certain Python version:
 ```xsh
-# Install Python before continue
+# Install Python before continuing
 pip install pipx
 pipx install --python python3.8 xonsh
 pipx run xonsh 
-# or add /home/$USER/.local/bin to PATH (/etc/shells) to running just `xonsh` command
+# or add /home/$USER/.local/bin to PATH (/etc/shells) to allow running just the `xonsh` command
 ```
 
 ### Try xonsh without installation
@@ -174,15 +175,15 @@ pipx run xonsh
 #### Docker
 
 ```python
-# Docker with certain Python version and latest release of xonsh
+# Docker with specific Python version and latest release of xonsh
 docker run --rm -it python:3.9-slim /bin/bash \
  -c "pip install 'xonsh[full]' && xonsh"
 
-# Docker with certain Python version and xonsh from the master branch
+# Docker with specific Python version and xonsh from the master branch
 docker run --rm -it python:3.9-slim /bin/bash \
  -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
-# Official xonsh docker image has old version
+# Official xonsh docker image has an old version
 docker run --rm -it xonsh/xonsh:slim
 ```
 
@@ -193,17 +194,17 @@ wget https://github.com/xonsh/xonsh/releases/latest/download/xonsh-x86_64.AppIma
 chmod +x xonsh
 ./xonsh
 
-# Then if you don’t have Python on your host, you can acccess it from AppImage by running:
+# Then if you don’t have Python on your host, you can acccess it from the AppImage by running:
 $PATH = [$APPDIR + '/usr/bin'] + $PATH
 python -m pip install tqdm --user  # the `tqdm` package will be installed to ~/.local/
 import tqdm
 ```
 
-You can [build your own xonsh AppImage](https://xon.sh/appimage.html#building-your-own-xonsh-appimage) with packages you need in 15 minutes.
+You can [build your own xonsh AppImage](https://xon.sh/appimage.html#building-your-own-xonsh-appimage) with the packages you need in 15 minutes.
 
 # Xonsh basics
 
-The xonsh language is a superset of Python 3 with additional shell support. As result you can mix shell commands and Python code as easy as possible. Right off the bat examples:
+The xonsh language is a superset of Python 3 with additional shell support. As result you can mix shell commands and Python code as easily as possible. Right off the bat examples:
 
 ```xsh
 cd /tmp && ls                     # shell commands
@@ -235,30 +236,31 @@ xpip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
 xontrib load prompt_bar           # follow the white rabbit - https://github.com/topics/xontrib
 
 # Finally fork https://github.com/anki-code/xontrib-rc-awesome
-# to convert your ~/.xonshrc into pip-installable package 
-# with extesnsions you need on board.
+# to convert your ~/.xonshrc into a pip-installable package 
+# with the extensions you need on board.
 ```
 
 Looks nice? [Install xonsh](#install-xonsh)!
 
-## Three most frequent things that newcomers missed
+## Three most frequent things that newcomers overlook
 
-### 1. [Shell commands also known as subprocess commands](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
+### 1. [Shell commands, also known as subprocess commands](https://xon.sh/tutorial.html#python-mode-vs-subprocess-mode)
 
-The first thing you should remember that the shell commands are not the calls of another shell (i.e. bash). The xonsh has it's own parser implementation for subprocess commands and this is the cause why the command like `echo {1..5} \;` (brace expansion and escape character in bash) is not working. Most of sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by the sane Python alternatives and the example before will be solved by `echo @(range(1,6)) ';'`. 
+The first thing you should remember is that the shell commands are not the calls of another shell (i.e. bash). Xonsh has its own parser implementation for subprocess commands, and this is why a command like `echo {1..5} \;` (brace expansion and escape characters in bash) won't work. Most sh-shell features [can be replaced](https://xon.sh/bash_to_xsh.html) by sane Python alternatives. For example, the earlier command could be expressed as `echo @(range(1,6)) ';'`.
 
-If you think that only xonsh has the sh-uncompatible elements in the parser, you are tend to mistaken. If we compare Bash and Zsh we can found that `pip install package[subpackage]` command will work in Bash but in Zsh the error will be raised because Zsh has special mening for square braces. It's normal to have an evolution in the syntax and features. 
+If you think that only xonsh has the sh-uncompatible elements in its parser, you are mistaken. If we compare Bash and Zsh we will find that `pip install package[subpackage]` command will work in Bash but in Zsh the error will be raised because Zsh has a special meaning for square braces. It's normal to have an evolution in the syntax and features. 
 
-Be calm and ready to the sane and self-consistent Python-driven mindset.
+Be calm and accept the sane and self-consistent Python-driven mindset.
 
-*Note:* 
-* *Most of novices try to copy and paste sh-lang commands that contains special characters and get the syntax error in xonsh. If you want to run environment agnostic sh-lang's command that you copy from the internet page just use macro call in xonsh `bash -c! echo {123}` or use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
-* *We highly recommend to take a look into the section [Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system).*
+*Note:*
+
+* *Most of novice try to copy and paste sh-lang commands that contain special characters and get syntax errors in xonsh. If you want to run environment agnostic sh-lang's commands that you copy from the internet just use the macro call in xonsh `bash -c! echo {123}` or use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run context-free bash commands in xonsh by adding `! ` at the beginning of the command.*
+* *We highly recommend to taking a look at the section [Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system).*
 
 
 ### 2. [Strings and arguments in shell commands](https://xon.sh/tutorial_subproc_strings.html)
 
-The second thing comes from the first. To escaping the special charecters, special meaning of braces or passing the string to the arguments use quotes. When in doubt, use quotes!
+The second potential misunderstanding comes from the first. To escape special charecters, the special meaning of braces, or pass a string as an argument, use quotes. When in doubt, use quotes!
 
 You should clearly understand the difference:
 
@@ -269,7 +271,7 @@ You should clearly understand the difference:
   </tr>
 <tr>
 <td>
-1. Have escape character:
+1. Has an escape character:
 <pre>
 <b>echo 123\ 456</b>
 # 123 456
@@ -343,7 +345,7 @@ You should clearly understand the difference:
     echo @('--name=' + name.upper())
     # --name=SNAIL
     ```
-* *You can use `showcmd` command to show the arguments list:*    
+* *You can use the `showcmd` command to show the arguments list:*    
     ```python
     showcmd echo The @('arguments') @(['list', 'is']) $(echo here) "and" --say="hello" to you
     # ['echo', 'The', 'arguments', 'list', 'is', 'here\n', 'and', '--say="hello"', 'to', 'you']]    
@@ -352,12 +354,13 @@ You should clearly understand the difference:
 
 ### 3. The process substitution operator `$()` returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/)
 
-In sh-compatible shells the [process substitution operator](https://en.wikipedia.org/wiki/Process_substitution) `$()` executes the command and then split the output and use these parts as arguments. The command `echo $(echo -e "1 2\n3")` will have three distinct arguments `1`, `2` and `3` that will passed to the first `echo`.
+In sh-compatible shells, the [process substitution operator](https://en.wikipedia.org/wiki/Process_substitution) `$()` executes the command and then splits the output and uses those parts as arguments. The command `echo $(echo -e "1 2\n3")` will have three distinct arguments, `1`, `2` and `3` that will passed to the first `echo`.
 
-In xonsh shell the `$()` operator returns the output of the command. The command `echo $(echo -e "1 2\n3")` will have one argument `1 2\n3\n` that will be passed to the first `echo`.
+In xonsh shell the `$()` operator returns the output of the command. The command `echo $(echo -e "1 2\n3")` will have one argument, `1 2\n3\n` that will be passed to the first `echo`.
 
 *Note:*
-* *To make what sh-compatible shells are doing by `$()` operator the xonsh shell has `@$()` operator that will be described in the next chapter.*
+
+* *To do what sh-compatible shells are doing with the `$()` operator, the xonsh shell has the `@$()` operator that will be described in the next chapter.*
     ```python
     showcmd echo @$(echo "1\n2 3\n4")
     # ['echo', '1', '2', '3', '4']
@@ -367,16 +370,19 @@ In xonsh shell the `$()` operator returns the output of the command. The command
     showcmd echo @($(echo "1\n2 3\n4").splitlines())  # the first echo will get three arguments: "1", "2 3", "4"
     # ['echo', '1', '2 3', '4']
     ```
-* *Not all xonsh users like this behavior of `$()` operator and in the future this may be changed. There are [the thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
+* *Not all xonsh users like this behavior of `$()` operator, and in the future, this may be changed. There is [a thread to discussing](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
 
 # [Switching from `$` to `@`](https://github.com/xonsh/xonsh/issues/4152)
 
-By default the xonsh shell has the bash-like appearance for the interactive prompt: `user@host ~ $`. After reading the previous section you can understand that we highly recommended to replace `$` to `@` by adding this line to your `~/.xonshrc` (or use [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar)):
+By default, the xonsh shell has a bash-like appearance for its interactive prompt: `user@host ~ $`. After reading the previous section you can understand that we highly recommended replacing `$` with `@` by adding this line to your `~/.xonshrc`:
 
 ```python
 $PROMPT_FIELDS['prompt_end'] = '@'
 ```
-Now the prompt appearance will be: `user@host ~ @`. This appearance will remind you of what you are in the xonsh shell. You can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run sh-shell commands.
+
+(Or use [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar).)
+
+Now the prompt will appear as: `user@host ~ @`. This will remind you that you are in the xonsh shell. You can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run sh-shell commands.
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
@@ -422,7 +428,7 @@ for l in ret:
 
 ```
 
-Note! In some cases to get output you need to convert object to string or invoke `.end()` manually or use the `.out`:
+Note! In some cases, to get the output you need to convert an object to a string or invoke `.end()` manually or use the `.out`:
 
 ```xsh
 r = !(ls /)
@@ -455,7 +461,7 @@ repr(ret)
 'None'
 ```
 
-This is the same as `echo 123` but this syntax allows to explicitly run a subprocess command. 
+This is the same as `echo 123`, but this syntax allows explicitly running a subprocess command.
 
 ### `![]` - capture all and return hidden object, print stdout and stderr
 
@@ -471,11 +477,11 @@ ret.out           # But it has the properties from CommandPipeline
 '1\n2\r3 4\n5\n'
 ```
 
-This operator is used under the hood to running commands in the interactive xonsh prompt.
+This operator is used under the hood for running commands at the interactive xonsh prompt.
 
 ### `@()` - use Python code as an argument or a callable alias
 
-Evaluates Python and pass the arguments:
+Evaluates Python and passes the arguments:
 
 ```python
 showcmd 'Supported:' @('string') @(['list','of','strings']) 
@@ -491,7 +497,7 @@ echo -n '!' | @(lambda args, stdin: 'Callable' + stdin.read())
 showcmd @$(echo -e '1\n2\r3 4\r\n5')
 #['1', '2\r3', '4', '5']
 ```
-This is mostly what bash's `$()` operator do.
+This is mostly what bash's `$()` operator does.
 
 # [Environment Variables](https://xon.sh/tutorial.html#environment-variables)
 
@@ -557,7 +563,7 @@ $PATH.append('/tmp')                             # Append path '/tmp' at end of 
 $PATH.remove('/tmp')                             # Remove path '/tmp' (first match)
 ```
 
-Setup local paths for prepending to path by default via loop in `.xonshrc`:
+Setup local paths by prepending to path via a loop in `.xonshrc`:
 ```python
 import os.path
 from os import path
@@ -574,7 +580,6 @@ for dir in $user_bins:
     if path.isdir(dir) and path.exists(dir):
         $PATH.add(dir,front=True, replace=True)
 ```
-
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
@@ -632,7 +637,7 @@ args 1 2 3
 #['1', '2', '3']
 ```
 
-Read stdin and write to stdout (real life example - [xontrib-pipeliner](https://github.com/anki-code/xontrib-pipeliner)):
+Read stdin and write to stdout (real-life example - [xontrib-pipeliner](https://github.com/anki-code/xontrib-pipeliner)):
 ```python
 def _exc(args, stdin, stdout):
     for line in stdin.readlines():
@@ -667,7 +672,7 @@ path
 # Path('/tmp/hello/world/from/dir/hello')
 ```
 
-Simple way to read and write the file content using Path string:
+A simple way to read and write the file content using Path string:
 
 ```python
 text_len = p'/tmp/hello'.write_text('Hello world')
@@ -865,7 +870,7 @@ Xontrib lists:
 * [Github repositories](https://github.com/search?q=xontrib-&type=repositories)
 * [awesome-xontribs](https://github.com/xonsh/awesome-xontribs)
 
-To install xontribs xonsh has [`xpip`](https://xon.sh/aliases.html?highlight=aliases#xpip) - a predefined alias pointing to the pip command associated with the Python executable running this xonsh. It's the right way to install xontrib via `xpip` to be confident that the xontrib will be installed in the right environment.
+To install xontribs xonsh has [`xpip`](https://xon.sh/aliases.html?highlight=aliases#xpip) - a predefined alias pointing to the pip command associated with the Python executable running this xonsh. Using `xpip` is the right way to install xontrib to be confident that the xontrib will be installed in the right environment.
 
 If you want to create your own xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template) is the best way:
 ```python
@@ -875,7 +880,7 @@ copier gh:xonsh/xontrib-template .
 
 # Xonsh Script (xsh)
 
-Real life example of xsh script that have: arguments, tab completion for arguments (using [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete)), subprocess calls with checking the result, colorizing the result and exit code:
+Real-life example of xsh script that has: arguments, tab completion for arguments (using [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete)), subprocess calls with checking the result, colorizing the result and exit code:
 ```python
 #!/usr/bin/env xonsh
 # PYTHON_ARGCOMPLETE_OK                                  
@@ -910,9 +915,9 @@ xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_line
 
 # [History](https://xon.sh/tutorial_hist.html)
 
-There are two history backends: `json` and [`sqlite`](https://xon.sh/tutorial_hist.html#sqlite-history-backend) which xonsh has by default. The `json` backend creates json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
+There are two history backends: `json` and [`sqlite`](https://xon.sh/tutorial_hist.html#sqlite-history-backend) which xonsh has by default. The `json` backend creates a json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
 
-We recommend to use `sqlite` backend because it saves the command on every execution and the querying of the history using SQL is very handy i.e. [history-search, history-pull](https://github.com/anki-code/xontrib-rc-awesome/blob/dfc9a8fc9a561b511262172c4ee58bd51dfc6b00/xontrib/rc_awesome.xsh#L158-L195).
+We recommend using the `sqlite` backend because it saves the command on every execution, and querying of the history using SQL is very handy i.e. [history-search, history-pull](https://github.com/anki-code/xontrib-rc-awesome/blob/dfc9a8fc9a561b511262172c4ee58bd51dfc6b00/xontrib/rc_awesome.xsh#L158-L195).
 
 ```python
 echo 123
@@ -944,11 +949,11 @@ sqlite_web $XONSH_HISTORY_FILE
 # Open the database in the browser
 ```
 
-There is third party history backends that's supplied as xontribs: [xontrib-history-encrypt](https://github.com/anki-code/xontrib-history-encrypt).
+There is a third party history backend that's supplied in xontribs: [xontrib-history-encrypt](https://github.com/anki-code/xontrib-history-encrypt).
 
 # [Interactive mode events](https://xon.sh/events.html)
 
-When you're in xonsh interactive mode you can register an event i.e.:
+When you're in xonsh interactive mode you can register an event, i.e.:
 
 ```python
 @events.on_chdir
@@ -974,13 +979,13 @@ json??
 # json module super help
 ```
 
-# Known issues and workaround
+# Known issues and workarounds
 
 ### ModuleNotFoundError
 
-Sometimes when you're using PyPi, Conda or virtual environments you can forget about current version and location of Python and try to import packages in xonsh with `ModuleNotFoundError` error. Ordinary you installed the package in other environment and didn't realise it. To solve this case there is [`xpip`](https://xon.sh/aliases.html#xpip) alias that you can use to install PyPi packages in the Python environment that was used to run current xonsh session.
+Sometimes when you're using PyPi, Conda, or virtual environments you can forget about the current version and location of Python and try to import packages in xonsh resulting in a `ModuleNotFoundError` error. Often this means you installed the package in another environment and didn't realise it. To avoid this there is the [`xpip`](https://xon.sh/aliases.html#xpip) alias that you can use to install PyPi packages in the Python environment that was used to run current xonsh session.
 
-The example of how to get the path to Python:
+An example of how to get the path to Python:
 ```python
 # Getting current active Python version
 python --version   # Python 3.8.5
@@ -994,9 +999,9 @@ sys.executable                  # '/usr/bin/python'
 xpip install tqdm               # Will be installed to /usr/lib
 ```
 
-### Freezed terminal in interactive tools
+### Frozen terminal in interactive tools
 
-If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not working) this looks like the tool was interpreted as threaded and capturable program but the tool has interactive elements that expect the input from the user. There are four workarounds now:
+If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not working) this can be that the tool was interpreted as threaded and capturable program but the tool actually has interactive elements that expect the input from the user. There are four workarounds now:
 
 1. Disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs):
 
@@ -1018,13 +1023,13 @@ If you run the console tool and got the freezed terminal (Ctrl+c, Ctrl+d is not 
     ./tool.sh
     ```
 
-Finally check [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always).
+Finally, check [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always).
 
 ### Uncaptured output
 
-If you want to capture the output of the tool but it's not captured there are three workarounds now:
+If you want to capture the output of a tool but it's not captured, there are three workarounds:
 
-1. Add the `head` tool at the end of pipe to force using the threadable mode:
+1. Add the `head` tool at the end of the pipeline to force using the threadable mode:
 
     ```python
     !(echo 123 | head -n 1000)
@@ -1048,7 +1053,7 @@ If you want to capture the output of the tool but it's not captured there are th
     #)
     ```
 
-3. Wrap the tool into bash subprocess:
+3. Wrap the tool into a bash subprocess:
 
     ```python
     !(bash -c "echo 123")
@@ -1061,7 +1066,7 @@ If you want to capture the output of the tool but it's not captured there are th
 
 ### [Bad file descriptor](https://github.com/xonsh/xonsh/issues/4224)
 
-In case of using callable aliases in the long loop the error `Bad file descriptor` will be raised. Workaround is to avoid using callable aliases in the loop and move the code from callable alias to the loop or [mark callable alias as unthreadable](https://xon.sh/tutorial.html#unthreadable-aliases):
+Using callable aliases in a long loop can cause the `Bad file descriptor` error to be raised. The workaround is to avoid using callable aliases in the loop and moving the code from callable alias directly into the loop or [marking the callable alias as unthreadable](https://xon.sh/tutorial.html#unthreadable-aliases):
 
 ```python
 from xonsh.tools import unthreadable
@@ -1077,15 +1082,15 @@ for i in range(100):
 
 ### Unexpected issues around the [bashisms xontrib](https://xon.sh/xontribs.html#bashisms)
 
-Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be the cause of unexpected issues ([4250](https://github.com/xonsh/xonsh/issues/4250)). We recommend to avoid using this xontrib. Instead of trying to bring bash into xonsh we recommend to dive into xonsh. In case of you will need some bash syntax the best way is to implement this manually to have the clean understanding of what you do.
+Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be the cause of unexpected issues ([4250](https://github.com/xonsh/xonsh/issues/4250)). We recommend to avoiding the use of this xontrib. Instead of trying to bring bash into xonsh, we recommend diving into xonsh. In case you find yourself needing some bash syntax the best way is to implement this manually to have a clear understanding of exactly what you are doing.
 
 # Tips and tricks
 
 ### Make your own installable xonsh RC file
 
-Start from fork [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
+Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
-### Using text block in command line
+### Using a text block in the command line
 
 Creating file:
 ```python
@@ -1108,9 +1113,9 @@ echo "We're in docker container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
 
-### Interactive debugging the script
+### Interactively debugging a script
 
-If you want to have a breakpoint to debug the script use [pdb](https://docs.python.org/3/library/pdb.html):
+If you want to have a breakpoint to debug a script, use the standard Python [pdb](https://docs.python.org/3/library/pdb.html):
 
 ```xsh
 
@@ -1143,11 +1148,11 @@ exit
 
 ### Using xonsh wherever you go through the SSH
 
-You stuffed command shell with aliases, tools and colors but you lose it all when using ssh. The mission of [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through the ssh without root access and system installations.
+You've stuffed your command shell with aliases, tools, and colors but you lose it all when using ssh. The mission of the [xxh project](https://github.com/xxh/xxh) is to bring your favorite shell wherever you go through ssh without root access or system installations.
 
-### How to modify command before execution?
+### How to modify a command before execution?
 
-To change the command between pressing enter and execution there is [on_transform_command](https://xon.sh/events.html#on-transform-command) event:
+To change the command between pressing enter and execution there is the [on_transform_command](https://xon.sh/events.html#on-transform-command) event:
 
 ```python
 xpip install lolcat
@@ -1157,7 +1162,8 @@ def _(cmd, **kw):
     if cmd.startswith('echo') and 'lolcat' not in cmd:  
         # Be careful with the condition! The modified command will be passed 
         # to `on_transform_command` event again and again until the event 
-        # returns the same command. Newbies make a mistakes and facing with looping.
+        # returns the same command. Newbies can make a mistake here and
+        # end up with unintended looping.
         return cmd.rstrip() + ' | lolcat'
     else:
         return cmd
@@ -1168,7 +1174,7 @@ echo 123456789 # <Enter>
 
 ### Comma separated thousands in output (custom formatter)
 
-The snippet from [@maxwellfire](https://github.com/maxwellfire):
+Here is a snippet from [@maxwellfire](https://github.com/maxwellfire):
 
 ```xsh
 50000+50000
@@ -1215,7 +1221,7 @@ pwd
 # /tmp
 ```
 
-### How to paste and edit the multiple line of code being in interactive mode
+### How to paste and edit multiple lines of code while in interactive mode
 
 In some terminals (Konsole in Linux or Windows Terminal for WSL) you can press `ctrl-x ctrl-e` to open up an editor (`nano` in Linux) in the terminal session, paste the code there, edit and then quit out. Your multiple line code will be pasted and executed.
 
@@ -1231,14 +1237,14 @@ while $(jobs):
 print('Job done!')
 ```
 
-### Copy current session commands to clipboard using [xclip](https://github.com/astrand/xclip)
+### Copy current session commands to the clipboard using [xclip](https://github.com/astrand/xclip)
 
 ```python
 aliases['hist-to-clip'] = lambda: $[echo @('\n\n'.join([h.cmd for h in __xonsh__.history])) | xclip]
 hist-to-clip
 ```
 
-### How to trace the xonsh code?
+### How to trace xonsh code?
 
 Trace with [hunter](https://github.com/ionelmc/python-hunter):
 
@@ -1246,6 +1252,7 @@ Trace with [hunter](https://github.com/ionelmc/python-hunter):
 pip install hunter
 $PYTHONHUNTER='depth_lt=10,stdlib=False' $XONSH_DEBUG=1 xonsh -c 'echo 1'
 ```
+
 Or try [xunter](https://github.com/anki-code/xunter) for tracing and profiling.
 
 ### From Bash to Xonsh
@@ -1254,7 +1261,7 @@ Read [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html), run `ba
 
 ### Xonsh and Windows
 
-We recommend to use [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/about) with [Manjaro](https://github.com/sileshn/ManjaroWSL2) (that supported [rolling release](https://en.wikipedia.org/wiki/Rolling_release)) on Windows. Don't forget to [fix PATH](https://github.com/xonsh/xonsh/issues/3895#issuecomment-713078931).
+We recommend using [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/about) with [Manjaro](https://github.com/sileshn/ManjaroWSL2) (that maintains a [rolling release](https://en.wikipedia.org/wiki/Rolling_release)) on Windows. Don't forget to [fix PATH](https://github.com/xonsh/xonsh/issues/3895#issuecomment-713078931).
 
 # Answers to the holy war questions
 
@@ -1264,25 +1271,26 @@ Python is everywhere as well ;)
 
 ### Xonsh is slower! Why xonsh?
 
-Significant much more time you spending on Googling and debugging the sh-based solutions as well as significant much more time takes the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
+You can spend significantly more time Googling and debugging sh-based solutions as well as significantly more time to make the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real life tasks :)
 
 Also:
+
 * [Making Python 5x FASTER with Guido van Rossum](https://www.youtube.com/watch?v=_r6bFhl6wR8).
 * [Python 3.11 is up to 10-60% faster than Python 3.10](https://docs.python.org/3.11/whatsnew/3.11.html)
 
-### My fancy prompt in other shell is super duper! Why xonsh?
+### My fancy prompt in another shell is super duper! Why xonsh?
 
-The fancy prompt is the tip of the iceberg. We love the xonsh shell entirely: [sane language](https://github.com/anki-code/xonsh-cheatsheet#basics), [powerful aliases](https://github.com/anki-code/xonsh-cheatsheet#aliases), [agile extensions](https://github.com/anki-code/xonsh-cheatsheet#xontrib---extension-or-plugin-for-xonsh), [history backends](https://github.com/anki-code/xonsh-cheatsheet#history), [fully customisable tab completion](https://github.com/anki-code/xonsh-cheatsheet#tab-completion), [magic macro blocks](https://github.com/anki-code/xonsh-cheatsheet#macro-block), [behaviour customisation via environment variables](https://xon.sh/envvars.html) and [more](https://github.com/anki-code/xonsh-cheatsheet#bind-hotkeys-in-prompt-toolkit-shell), and [more](https://github.com/anki-code/xonsh-cheatsheet#make-your-own-installable-xonsh-rc-file), and [more](https://github.com/anki-code/xonsh-cheatsheet#using-xonsh-wherever-you-go-through-the-ssh) :)
+The fancy prompt is the tip of the iceberg. Xonsh shell brings other important features to love: [sane language](https://github.com/anki-code/xonsh-cheatsheet#basics), [powerful aliases](https://github.com/anki-code/xonsh-cheatsheet#aliases), [agile extensions](https://github.com/anki-code/xonsh-cheatsheet#xontrib---extension-or-plugin-for-xonsh), [history backends](https://github.com/anki-code/xonsh-cheatsheet#history), [fully customisable tab completion](https://github.com/anki-code/xonsh-cheatsheet#tab-completion), [magic macro blocks](https://github.com/anki-code/xonsh-cheatsheet#macro-block), [behaviour customisation via environment variables](https://xon.sh/envvars.html), and [more](https://github.com/anki-code/xonsh-cheatsheet#bind-hotkeys-in-prompt-toolkit-shell), and [more](https://github.com/anki-code/xonsh-cheatsheet#make-your-own-installable-xonsh-rc-file), and [more](https://github.com/anki-code/xonsh-cheatsheet#using-xonsh-wherever-you-go-through-the-ssh) :)
 
-### Xonsh has an issues! Why xonsh?
+### Xonsh has issues! Why xonsh?
 
-In comparing with the 15-20 years old shells yeah, xonsh is a 5 years old young man. But we use it for this 5 years day by day to solve our tasks with success and happiness :)
+Compared to 15-20 year old shells, yeah, xonsh is a 5 year old youngster. But we've used it over these 5 years day by day to solve our tasks with success and happiness :)
 
 # Thank you!
 
-Thank you for the reading! This cheatsheet is the tip of the iceberg of the xonsh shell and you can find more in the [official documentation](https://xon.sh/contents.html#guides).
+Thank you for reading! This cheatsheet is the tip of the iceberg of the xonsh shell and you can find more in the [official documentation](https://xon.sh/contents.html#guides).
 
-Also you can install cheatsheet xontrib:
+Also you can install the cheatsheet xontrib:
 ```python
 xpip install xontrib-cheatsheet
 xontrib load cheatsheet
@@ -1290,7 +1298,7 @@ cheatsheet
 # Opening: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md
 ```
 
-If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet</a>.
+If you like the cheatsheet, click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20cheat%20sheet.&url=https://github.com/anki-code/xonsh-cheatsheet" target="_blank">tweet</a>.
 
 # Credits
 * [Xonsh Tutorial](https://xon.sh/tutorial.html)
