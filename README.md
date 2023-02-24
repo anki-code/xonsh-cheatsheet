@@ -177,11 +177,11 @@ pipx run xonsh
 
 ```python
 # Docker with specific Python version and latest release of xonsh
-docker run --rm -it python:3.9-slim /bin/bash \
+docker run --rm -it python:3.11-slim /bin/bash \
  -c "pip install 'xonsh[full]' && xonsh"
 
 # Docker with specific Python version and xonsh from the master branch
-docker run --rm -it python:3.9-slim /bin/bash \
+docker run --rm -it python:3.11-slim /bin/bash \
  -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
 # Official xonsh docker image has an old version
