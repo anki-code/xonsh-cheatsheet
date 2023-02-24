@@ -72,6 +72,7 @@ brew install python  # or `python@3.11`
 
 #
 # Install Miniconda from https://docs.conda.io/en/latest/miniconda.html 
+# (example for Mac, use the link for your platform)
 #
 cd /tmp
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
