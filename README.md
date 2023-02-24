@@ -1239,13 +1239,6 @@ while $(jobs):
 print('Job done!')
 ```
 
-### Copy current session commands to the clipboard using [xclip](https://github.com/astrand/xclip)
-
-```python
-aliases['hist-to-clip'] = lambda: $[echo @('\n\n'.join([h.cmd for h in __xonsh__.history])) | xclip]
-hist-to-clip
-```
-
 ### How to trace xonsh code?
 
 Trace with [hunter](https://github.com/ionelmc/python-hunter):
