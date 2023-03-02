@@ -35,7 +35,7 @@ Most modern operating systems have [Python](https://www.python.org/) and [PyPi (
 python -m pip install 'xonsh[full]'
 ```
 
-Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended because in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest release](https://github.com/xonsh/xonsh/releases/)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is two months.
+Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended because in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest release](https://github.com/xonsh/xonsh/releases/)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is quarter.
 
 ```xsh
 # Not recommended but possible
