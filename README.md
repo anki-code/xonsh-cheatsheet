@@ -381,9 +381,7 @@ By default, the xonsh shell has a bash-like appearance for its interactive promp
 $PROMPT_FIELDS['prompt_end'] = '@'
 ```
 
-(Or use [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar).)
-
-Now the prompt will appear as: `user@host ~ @`. This will remind you that you are in the xonsh shell. You can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run sh-shell commands.
+Or by using [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar). Now the prompt will appear as: `user@host ~ @`. This will remind you that you are in the xonsh shell. You can use [xontrib-sh](https://github.com/anki-code/xontrib-sh) to run sh-shell commands.
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
