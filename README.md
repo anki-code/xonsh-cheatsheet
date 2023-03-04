@@ -1199,16 +1199,7 @@ xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{f
 ### `chdir` [context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
 
 ```xsh
-from contextlib import contextmanager
-
-@contextmanager
-def chdir(adir):
-    old_dir = os.getcwd()
-    os.chdir(adir)
-    yield
-    os.chdir(old_dir)
-	
-# --------------------------------------------
+from xonsh.tools import chdir
 
 cd /tmp
 mkdir -p dir1
@@ -1222,6 +1213,20 @@ pwd
 # /tmp/dir1
 # /tmp
 ```
+
+### Juggling of exit code using python substitution
+
+cd-ing into directory and if count of files less then 100 run `ls`:
+
+```xsh
+aliases['cdls'] = "cd @($arg0) && @(lambda: 1 if len(g`./*`) > 100 else 0) && ls"
+cdls / && pwd
+# bin dev etc ...
+# /
+cdls /usr/sbin && pwd
+# /usr/sbin
+```
+
 
 ### How to paste and edit multiple lines of code while in interactive mode
 
