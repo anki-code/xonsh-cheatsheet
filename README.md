@@ -498,7 +498,7 @@ echo -n '!' | @(lambda args, stdin: 'Callable' + stdin.read())
 showcmd @$(echo -e '1\n2\r3 4\r\n5')
 #['1', '2\r3', '4', '5']
 ```
-This is mostly what bash's `$()` operator does.
+This is mostly [what bash's `$()` operator does](https://www.gnu.org/software/bash/manual/html_node/Command-Substitution.html).
 
 # [Environment Variables](https://xon.sh/tutorial.html#environment-variables)
 
