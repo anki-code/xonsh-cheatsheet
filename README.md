@@ -102,7 +102,7 @@ which xonsh
 xonsh
 ```
 How to work and understand the environments in conda:
-```
+```xsh
 # `xpip` is used to install packages to the current xonsh session location (now it's `base` environment)
 xpip install ujson  
 
