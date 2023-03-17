@@ -1117,6 +1117,34 @@ echo "We're in docker container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
 
+### From the shell to REST API for one step
+
+If you have shell commands and you want to call them from REST API you can write a wrapper for example on [flask](https://flask.palletsprojects.com/):
+```xsh
+xpip install flask
+cd /tmp
+
+echo @("""
+
+import json
+from flask import Flask
+app = Flask(__name__)
+@app.route('/list')
+def index():
+    result = $(echo -n hello from echo)  # run subprocess command
+    return json.dumps({'result': result})
+app.run()
+
+""") > myapi.xsh
+chmod +x myapi.xsh
+
+./myapi.xsh
+# Running on http://127.0.0.1:5000
+
+curl http://127.0.0.1:5000/list
+# {"result": "hello from echo"}
+```
+
 ### Interactively debugging a script
 
 If you want to have a breakpoint to debug a script, use the standard Python [pdb](https://docs.python.org/3/library/pdb.html):
@@ -1228,7 +1256,6 @@ cdls / && pwd
 cdls /usr/sbin && pwd
 # /usr/sbin
 ```
-
 
 ### How to paste and edit multiple lines of code while in interactive mode
 
