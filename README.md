@@ -595,7 +595,7 @@ aliases['g'] = 'git status -sb'           # Add alias as string
 aliases['e'] = 'echo @(2+2)'              # Add xonsh executable alias (ExecAlias)
 aliases['gp'] = ['git', 'pull']           # Add alias as list of arguments
 aliases['b'] = lambda: "Banana!\n"        # Add alias as simple callable lambda
-aliases |= {'a': 'echo a', 'b':'echo b'}  # Add aliases from the list
+aliases |= {'a': 'echo a', 'b':'echo b'}  # Add aliases from the dict
 del aliases['b']                          # Delete alias
 ```
 
