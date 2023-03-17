@@ -1129,7 +1129,7 @@ echo @("""
 import json
 from flask import Flask
 app = Flask(__name__)
-@app.route('/list')
+@app.route('/echo')
 def index():
     result = $(echo -n hello from echo)  # run subprocess command
     return json.dumps({'result': result})
@@ -1141,7 +1141,7 @@ chmod +x myapi.xsh
 ./myapi.xsh
 # Running on http://127.0.0.1:5000
 
-curl http://127.0.0.1:5000/list
+curl http://127.0.0.1:5000/echo
 # {"result": "hello from echo"}
 ```
 
