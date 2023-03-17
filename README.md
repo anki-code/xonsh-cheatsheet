@@ -1144,6 +1144,7 @@ chmod +x myapi.xsh
 curl http://127.0.0.1:5000/echo
 # {"result": "hello from echo"}
 ```
+Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/latest/#basic-authentication-examples).
 
 ### Interactively debugging a script
 
