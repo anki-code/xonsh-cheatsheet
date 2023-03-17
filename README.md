@@ -640,6 +640,16 @@ args 1 2 3
 #['1', '2', '3']
 ```
 
+Simple definition with [decorator](https://wiki.python.org/moin/PythonDecorators#What_is_a_Python_Decorator):
+```xsh
+@aliases.register("hello")
+def __hello():
+    echo world
+    
+hello
+# world
+```
+
 Read stdin and write to stdout (real-life example - [xontrib-pipeliner](https://github.com/anki-code/xontrib-pipeliner)):
 ```python
 def _exc(args, stdin, stdout):
