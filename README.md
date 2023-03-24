@@ -661,7 +661,25 @@ aliases['exc'] = _exc
 echo hello | exc
 # hello!
 ```
+## Abbrevs
 
+There is [xontrib-abbrevs](https://github.com/xonsh/xontrib-abbrevs) as alternative to aliases. You can create abbrev and set the position of editing:
+```xsh
+xpip install xontrib-abbrevs
+xontrib load abbrevs
+
+abbrevs['gst'] = 'git status'
+gst  # Once you hit <space> or <return> 'gst' gets expanded to 'git status'.
+
+abbrevs['gp'] = "git push <edit> --force"  # Set the edit position.
+abbrevs['@'] = "@(<edit>)"  # Make shortcut.
+abbrevs['...'] = "cd ../.."  # Workaround for syntax intersections with Python i.e. `elepsis` object from Python here.
+
+# You can set a callback that receives current command buffer and word that triggered abbrev
+abbrevs['*'] = lambda buffer, word: "asterisk" if buffer.text.startswith('echo') else word
+ls *  # will stay
+echo *  # will be transformed to `echo asterisk`
+```
 
 # [Path strings](https://xon.sh/tutorial.html#advanced-string-literals)
 
