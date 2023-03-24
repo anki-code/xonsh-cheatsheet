@@ -1169,11 +1169,11 @@ echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoam
 If you have shell commands and you want to call them from REST API you can write a wrapper for example on [flask](https://flask.palletsprojects.com/):
 ```xsh
 xpip install flask xontrib-macro
-xontrib load macro
 
 cd /tmp
 
-with! macro.data.Write('myapi.xsh', chmod=0o700):
+from xontrib.macro.data import Write
+with! Write('myapi.xsh', chmod=0o700):
     import json
     from flask import Flask
     app = Flask(__name__)
