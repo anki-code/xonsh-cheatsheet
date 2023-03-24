@@ -1196,17 +1196,18 @@ Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/lates
 If you want to have a breakpoint to debug a script, use the standard Python [pdb](https://docs.python.org/3/library/pdb.html):
 
 ```xsh
+xpip install xontrib-macro
+from xontrib.macro.data import Write
+with! Write('/tmp/run.xsh', chmod=0o700, replace=True, makedir=True):
+    echo hello
+    $VAR = 1
+    var = 2
 
-echo @("""
-echo hello
-$VAR = 1
-var = 2
+    import pdb
+    pdb.set_trace()   # interactive debug
 
-import pdb
-pdb.set_trace()   # interactive debug
+    echo finish
 
-echo finish
-""") > /tmp/run.xsh
 
 xonsh /tmp/run.xsh
 # hello
