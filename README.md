@@ -1031,6 +1031,41 @@ sys.executable                  # '/usr/bin/python'
 xpip install tqdm               # Will be installed to /usr/lib
 ```
 
+### Intersection of console tools or shell syntax with Python builtins
+
+In case of names or syntax intersection try to use aliases or [abbrevs](https://github.com/xonsh/xontrib-abbrevs) to resolve the conflict.
+
+The case with `elepsis`:
+
+```xsh
+aliases['...'] = 'cd ../..'  # looks nice, but
+...
+# Elepsis
+
+del aliases['...']
+abbrevs['...'] = 'cd ../..'
+...  # becomes `cd ../..`
+```
+
+The case with `import`:
+
+```xsh
+cd /tmp
+$PATH.append('/tmp')
+echo 'echo I am import' > import && chmod +x import
+
+import  # Run subprocess `./import`
+# I am import
+
+import args  # Run Python import of `args` module
+# ModuleNotFoundError: No module named 'args'
+
+aliases['imp'] = "@('import')"  # using Python substitution in ExecAlias to tell parser that we call import in subprocess mode
+imp
+# I am import
+```
+
+
 ### Frozen terminal in interactive tools
 
 If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not working) this can be that the tool was interpreted as threaded and capturable program but the tool actually has interactive elements that expect the input from the user. There are four workarounds now:
