@@ -1060,7 +1060,7 @@ import  # Run subprocess `./import`
 import args  # Run Python import of `args` module
 # ModuleNotFoundError: No module named 'args'
 
-aliases['imp'] = "@('import')"  # using Python substitution in ExecAlias to tell parser that we call import in subprocess mode
+aliases['imp'] = "import"
 imp
 # I am import
 ```
