@@ -1133,16 +1133,16 @@ Don't forget that `Alt+Enter` can run the command from any place where cursor is
 from prompt_toolkit import PromptSession
 from prompt_toolkit.completion import WordCompleter
 
-def ask(arg : str, completions : list):
+def ask(arg : str, completions : list = []):
     completer = WordCompleter(completions)
     session = PromptSession(completer=completer)
     user_input = session.prompt(f'{arg}: ')
     return user_input
 
 
-echo I'm saying @(ask('What to say'))
+echo I am saying @(ask('What to say'))
 # What to say: hello
-# I'm saying hello
+# I am saying hello
 
 echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoami).strip()]))
 # Fruit: <Tab>
