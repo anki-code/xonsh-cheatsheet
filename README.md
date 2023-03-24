@@ -1138,7 +1138,12 @@ def ask(arg : str, completions : list):
     session = PromptSession(completer=completer)
     user_input = session.prompt(f'{arg}: ')
     return user_input
-    
+
+
+echo I'm saying @(ask('What to say'))
+# What to say: hello
+# I'm saying hello
+
 echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoami).strip()]))
 # Fruit: <Tab>
 # Fruit: apple
