@@ -1127,6 +1127,26 @@ echo "We're in docker container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
 
+### Ask to input argument and with autocomplete
+
+```xsh
+from prompt_toolkit import PromptSession
+from prompt_toolkit.completion import WordCompleter
+
+def ask(arg : str, completions : list):
+    completer = WordCompleter(completions)
+    session = PromptSession(completer=completer)
+    user_input = session.prompt(f'{arg}: ')
+    return user_input
+    
+echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoami).strip()]))
+# Fruit: <Tab>
+# Fruit: apple
+# To: <Tab>
+# To: user
+# Give apple to user
+```
+
 ### From the shell to REST API for one step
 
 If you have shell commands and you want to call them from REST API you can write a wrapper for example on [flask](https://flask.palletsprojects.com/):
