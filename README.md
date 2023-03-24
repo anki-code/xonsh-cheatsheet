@@ -1106,8 +1106,8 @@ Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-aw
 
 ### Using a text block in the command line
 
-Creating file:
-```python
+The first way is to use multiline strings:
+```xsh
 echo @("""
 line 1
 line 2
@@ -1116,6 +1116,18 @@ line 3
 
 $(cat file.txt)
 # 'line 1\nline 2\nline 3\n'
+```
+The second way is to use xonsh macro block via [xontrib-macro](https://github.com/anki-code/xontrib-macro):
+```xsh
+xpip install xontrib-macro
+
+from xontrib.macro.data import Write
+
+with! Write('/tmp/t/hello.xsh', chmod=0o700, replace=True, makedir=True, verbose=True):
+    echo world
+    
+/tmp/t/hello.xsh
+# world
 ```
 
 Run commands in docker:
@@ -1156,22 +1168,20 @@ echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoam
 
 If you have shell commands and you want to call them from REST API you can write a wrapper for example on [flask](https://flask.palletsprojects.com/):
 ```xsh
-xpip install flask
+xpip install flask xontrib-macro
+xontrib load macro
+
 cd /tmp
 
-echo @("""
-
-import json
-from flask import Flask
-app = Flask(__name__)
-@app.route('/echo')
-def index():
-    result = $(echo -n hello from echo)  # run subprocess command
-    return json.dumps({'result': result})
-app.run()
-
-""") > myapi.xsh
-chmod +x myapi.xsh
+with! macro.data.Write('myapi.xsh', chmod=0o700):
+    import json
+    from flask import Flask
+    app = Flask(__name__)
+    @app.route('/echo')
+    def index():
+        result = $(echo -n hello from echo)  # run subprocess command
+        return json.dumps({'result': result})
+    app.run()
 
 ./myapi.xsh
 # Running on http://127.0.0.1:5000
