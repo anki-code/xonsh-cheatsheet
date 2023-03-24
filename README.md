@@ -1166,7 +1166,7 @@ echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoam
 
 ### From the shell to REST API for one step
 
-If you have shell commands and you want to call them from REST API you can write a wrapper for example on [flask](https://flask.palletsprojects.com/):
+If you want to run shell commands from REST API you can create a [flask](https://flask.palletsprojects.com/) wrapper using [xontrib-macro](https://github.com/anki-code/xontrib-macro):
 ```xsh
 xpip install flask xontrib-macro
 
