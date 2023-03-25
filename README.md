@@ -1015,21 +1015,7 @@ json??
 
 ### ModuleNotFoundError
 
-Sometimes when you're using PyPi, Conda, or virtual environments you can forget about the current version and location of Python and try to import packages in xonsh resulting in a `ModuleNotFoundError` error. Often this means you installed the package in another environment and didn't realise it. To avoid this there is the [`xpip`](https://xon.sh/aliases.html#xpip) alias that you can use to install PyPi packages in the Python environment that was used to run current xonsh session.
-
-An example of how to get the path to Python:
-```python
-# Getting current active Python version
-python --version   # Python 3.8.5
-which python       # /opt/miniconda3/bin/python
-pip install tqdm   # Will be installed to /opt/miniconda3/lib
-
-# Getting the Python version that used to run xonsh
-import sys  
-sys.executable                  # '/usr/bin/python'
-@(sys.executable) --version     # Python 3.9.2
-xpip install tqdm               # Will be installed to /usr/lib
-```
+Sometimes when you're using PyPi, Conda, or virtual environments you can forget about the current version and location of Python and try to import packages in xonsh resulting in a `ModuleNotFoundError` error. Often this means you installed the package in another environment and didn't realise it. To avoid this read the section about xonsh installation above.
 
 ### Intersection of console tools or shell syntax with Python builtins
 
@@ -1090,7 +1076,7 @@ If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not worki
     ./tool.sh
     ```
 
-Finally, check [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always).
+4. Finally, check [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) value.
 
 ### Uncaptured output
 
@@ -1146,10 +1132,6 @@ aliases['e'] = _e
 for i in range(100):
       e
 ```
-
-### Unexpected issues around the [bashisms xontrib](https://xon.sh/xontribs.html#bashisms)
-
-Sometimes [the bashisms xontrib](https://xon.sh/xontribs.html#bashisms) can be the cause of unexpected issues ([4250](https://github.com/xonsh/xonsh/issues/4250)). We recommend to avoiding the use of this xontrib. Instead of trying to bring bash into xonsh, we recommend diving into xonsh. In case you find yourself needing some bash syntax the best way is to implement this manually to have a clear understanding of exactly what you are doing.
 
 # Tips and tricks
 
