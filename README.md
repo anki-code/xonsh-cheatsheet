@@ -882,13 +882,13 @@ from prompt_toolkit.keys import Keys
 def custom_keybindings(bindings, **kw):
 
     # Press F1 and get the list of files
-    @bindings.add(Keys.F1)
+    @bindings.add(Keys.F1)  # or for Mac try `@bindings.add("c-k")  # control+k`
     def run_ls(event):
         ls -l
         event.cli.renderer.erase()
     
     # Press F3 to insert the grep command
-    @bindings.add(Keys.F3)
+    @bindings.add(Keys.F3)  # or for Mac try `@bindings.add("c-k")  # control+k`
     def say_hi(event):
         event.current_buffer.insert_text('| grep -i ')
         
