@@ -1176,6 +1176,14 @@ Don't forget that `Alt+Enter` can run the command from any place where cursor is
 
 ### Ask to input argument and with autocomplete
 
+Ask simple input:
+```xsh
+echo @(input('Text: '))
+# Text: hello
+# hello
+```
+
+Ask input with completion:
 ```xsh
 from prompt_toolkit import PromptSession
 from prompt_toolkit.completion import WordCompleter
