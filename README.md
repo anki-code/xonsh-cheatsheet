@@ -1382,9 +1382,10 @@ Read [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html), run `ba
 
 First of all we recommend using [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/about) with [Manjaro](https://github.com/sileshn/ManjaroWSL2) (that maintains a [rolling release](https://en.wikipedia.org/wiki/Rolling_release)) on Windows. Don't forget to [fix PATH](https://github.com/xonsh/xonsh/issues/3895#issuecomment-713078931).
 
-But if you want to use xonsh in Windows environment take a look on:
-* [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils), [cmdix](https://github.com/jaraco/cmdix), [pycoreutils](https://github.com/davidfischer/pycoreutils) - a pure Python implementation of the UNIX coreutils i.e. `echo`, `cat`, `pwd`,`ls`, etc.
-* [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows)
+But if you want to use xonsh in Windows environment:
+* Install [Windows Terminal](https://github.com/microsoft/terminal) - the modern terminal emulator for Windows.
+* Install [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils), [cmdix](https://github.com/jaraco/cmdix), [pycoreutils](https://github.com/davidfischer/pycoreutils) - a pure Python implementation of the UNIX coreutils i.e. `echo`, `cat`, `pwd`,`ls`, etc.
+* Read [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows).
 
 # Answers to the holy war questions
 
