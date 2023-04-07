@@ -1174,6 +1174,20 @@ echo "We're in docker container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where cursor is.
 
+### Using the name of the alias in alias logic
+```xsh
+@aliases.register(",")
+@aliases.register(",,")
+@aliases.register(",,,")
+@aliases.register(",,,,")
+def _superdot():
+    cd @("../" * len($__ALIAS_NAME))
+    
+,    # cd ../
+,,   # cd ../../
+,,,  # cd ../../../
+```
+
 ### Ask to input argument and with autocomplete
 
 Ask simple input:
