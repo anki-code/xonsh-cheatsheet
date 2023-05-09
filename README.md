@@ -1401,6 +1401,20 @@ But if you want to use xonsh in Windows environment:
 * Install [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils), [cmdix](https://github.com/jaraco/cmdix), [pycoreutils](https://github.com/davidfischer/pycoreutils) - a pure Python implementation of the UNIX coreutils i.e. `echo`, `cat`, `pwd`,`ls`, etc.
 * Read [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows).
 
+# Recipes
+
+### Using many profiles with AWS CLI and xonsh aliases
+
+```xsh
+aws configure --profile p1
+aws configure --profile p2
+
+aliases['aws-p1'] = "$AWS_DEFAULT_PROFILE='p1' @('aws') @($args)"
+aliases['aws-p2'] = "$AWS_DEFAULT_PROFILE='p2' @('aws') @($args)"
+
+aws-p2 s3 ls s3://my-profile1-bucket/  # The same as `aws s3 ls --profile p2 s3://my-profile1-bucket/`
+```
+
 # Answers to the holy war questions
 
 ### Bash is everywhere! Why xonsh?
