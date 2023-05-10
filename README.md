@@ -1195,6 +1195,11 @@ Ask simple input:
 echo @(input('Text: '))
 # Text: hello
 # hello
+
+$ENV_NAME = input('Name: ')  # Use input to set and reuse env variable
+echo Name is $ENV_NAME
+# Name: Alex
+# Name is Alex
 ```
 
 Ask input with completion:
