@@ -944,6 +944,17 @@ xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_line
 # Count of lines on xon.sh: 568
 ```
 
+### How to get the script path
+
+Get the script path from `$ARGS[0]`:
+
+```xsh
+echo @("""echo This script is in @(pf"{$ARGS[0]}".parent)""") > /tmp/getpath.xsh
+chmod +x /tmp/getpath.xsh
+/tmp/getpath.xsh
+# This script is in /tmp
+```
+
 # [History](https://xon.sh/tutorial_hist.html)
 
 There are two history backends: `json` and [`sqlite`](https://xon.sh/tutorial_hist.html#sqlite-history-backend) which xonsh has by default. The `json` backend creates a json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
