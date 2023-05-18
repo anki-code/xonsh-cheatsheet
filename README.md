@@ -379,7 +379,7 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 
 # [Switching from `$` to `@`](https://github.com/xonsh/xonsh/issues/4152)
 
-By default, the xonsh shell has a bash-like appearance for its interactive prompt: `user@host ~ $`. After reading the previous section you can understand that we highly recommended replacing `$` with `@` by adding this line to your `~/.xonshrc`:
+~By default, the xonsh shell has a bash-like appearance for its interactive prompt: `user@host ~ $`~ (In xonsh 0.14 the prompt end will be changed to `@`). After reading the previous section you can understand that we highly recommended replacing `$` with `@` by adding this line to your `~/.xonshrc`:
 
 ```python
 $PROMPT_FIELDS['prompt_end'] = '@'  # or '\n@' to have fixed position of the command typing
