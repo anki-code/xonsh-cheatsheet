@@ -1225,6 +1225,9 @@ echo Give @(ask('Fruit', ['apple', 'banana', 'orange'])) to @(ask('To', [$(whoam
 # To: <Tab>
 # To: user
 # Give apple to user
+
+$MY_DIR = ask('Dir', $(ls /).splitlines())
+# Dir: <Tab> 
 ```
 
 ### From the shell to REST API for one step
