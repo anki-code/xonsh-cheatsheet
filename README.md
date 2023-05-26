@@ -458,6 +458,8 @@ This is the same as `echo 123`, but this syntax allows explicitly running a subp
 
 ### `![]` - capture all and return hidden object, print stdout and stderr
 
+Note! The behavior may be different if [`$XONSH_CAPTURE_ALWAYS = False`](https://xon.sh/envvars.html#xonsh-capture-always) (default).
+
 Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.HiddenCommandPipeline):
 
 ```python
