@@ -451,9 +451,9 @@ Passes stdout to the screen and returns `None`:
 
 ```python
 ret = $[echo 123]
-#123
+# 123
 repr(ret)
-'None'
+# 'None'
 ```
 
 This is the same as `echo 123`, but this syntax allows explicitly running a subprocess command.
