@@ -379,6 +379,8 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
+*Note! The behavior may be different if [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) is True or False (default).*
+
 ### `$()` - capture and return output without printing stdout and stderr
 
 Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
@@ -457,8 +459,6 @@ repr(ret)
 This is the same as `echo 123`, but this syntax allows explicitly running a subprocess command.
 
 ### `![]` - capture all and return hidden object, print stdout and stderr
-
-Note! The behavior may be different if [`$XONSH_CAPTURE_ALWAYS = False`](https://xon.sh/envvars.html#xonsh-capture-always) (default).
 
 Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.HiddenCommandPipeline):
 
