@@ -930,9 +930,10 @@ pip install argcomplete xontrib-argcomplete
 xontrib load argcomplete
 cd /tmp
 wget https://raw.githubusercontent.com/anki-code/xonsh-cheatsheet/main/examples/host_lines.xsh
-xonsh host_lines.xsh --ho<Tab>
-xonsh host_lines.xsh --host <Tab>
-xonsh host_lines.xsh --host xon.sh  # OR: chmod +x host_lines.xsh && ./host_lines.xsh --host xon.sh
+chmod +x host_lines.xsh
+./host_lines.xsh --ho<Tab>
+./host_lines.xsh --host <Tab>
+./host_lines.xsh --host xon.sh
 # Count of lines on xon.sh: 568
 ```
 
