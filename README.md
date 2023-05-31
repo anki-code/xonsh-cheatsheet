@@ -914,7 +914,7 @@ import argparse
 import argcomplete  # Tab completion support with xontrib-argcomplete
 from argcomplete.completers import ChoicesCompleter
 
-$RAISE_SUBPROC_ERROR = True  # Raise an error if a subprocess (captured or uncaptured) returns a non-zero exit status
+$RAISE_SUBPROC_ERROR = True  # Raise an error if a subprocess returns a non-zero exit status.
                              # Read more: https://xon.sh/envvars.html#raise-subproc-error
 
 argp = argparse.ArgumentParser(description=f"Get count of lines in HTML by site address.")
