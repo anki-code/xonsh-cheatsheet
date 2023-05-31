@@ -849,8 +849,11 @@ See also [xontrib-macro-lib](https://github.com/anki-code/xontrib-macro-lib).
 
 ```python
 completer list  # List the active completers
+```
+Take a look into [xontrib-fish-completer](https://github.com/xonsh/xontrib-fish-completer) - it provides more rich completion than default bash completer.
 
-# Create your own completer:
+Create your own completer:
+```
 def dummy_completer(prefix, line, begidx, endidx, ctx):
     '''
     Completes everything with options "lou" and "carcolh",
