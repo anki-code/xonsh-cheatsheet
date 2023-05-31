@@ -940,6 +940,8 @@ chmod +x host_lines.xsh
 # Count of lines on xon.sh: 568
 ```
 
+To make the interaction with script more awesome [use `click`, `typer` and `rich`](https://betterprogramming.pub/designing-beautiful-command-line-applications-with-python-72bd2f972ea).
+
 ### How to get the script path
 
 Get the script path from `$ARGS[0]`:
