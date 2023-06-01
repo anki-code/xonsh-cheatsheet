@@ -421,7 +421,7 @@ for l in ret:
 
 ```
 
-Note! In some cases, to get the output you need to convert an object to a string or invoke `.end()` manually or use the `.out`:
+Note! In some cases, to get the output you need to convert an object to a string or invoke [`.end()`](https://github.com/xonsh/xonsh/blob/6d58fb5bf7c62fa5c56721b62f40b214f83822eb/xonsh/procs/pipelines.py#L450-L459) manually or use the `.out`:
 
 ```xsh
 r = !(ls /)
