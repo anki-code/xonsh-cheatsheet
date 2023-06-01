@@ -188,7 +188,7 @@ docker run --rm -it python:3.11-slim /bin/bash \
 docker run --rm -it python:3.11-slim /bin/bash \
  -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
-# Official xonsh docker image has an old version
+# Official xonsh docker image may has an old version
 docker run --rm -it xonsh/xonsh:slim
 ```
 
