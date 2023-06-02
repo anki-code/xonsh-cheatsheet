@@ -465,10 +465,10 @@ Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/a
 ```python
 with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=True):
     ret = ![echo -e '1\n2\r3 4\r\n5']
-    # 1
+    # 1               # Stream output of the command
     # 3 4
     # 5
-    ret               # No return value because it's hidden CommandPipeline object
+    ret               # No return value because it's HiddenCommandPipeline object
     ret.out           # But it has the properties from CommandPipeline
     # '1\n2\r3 4\n5\n'
 ```
