@@ -984,6 +984,9 @@ def cli(ctx, debug):
 @click.option("--use-print", default=False, is_flag=True, envvar='PROJECT_HELLO_PRINT', help="Use print() function.")
 @click.pass_obj
 def hello(ctx, use_print):
+    if ctx.debug:
+        print('debug: run hello')
+
     if use_print:
         print('world')
     else:
