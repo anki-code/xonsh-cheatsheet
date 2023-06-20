@@ -967,7 +967,7 @@ class CliCtx:
             pprint(vars(self))
 
 
-@click.group(cls=OrderCommands)
+@click.group(cls=OrderCommands)  # The list of commands in `--help` will be the same as the functions declarations order.
 @click.option("--debug", default=False, is_flag=True, envvar='PROJECT_DEBUG', help="Debug mode.")
 @click.pass_context
 def cli(ctx, debug):
