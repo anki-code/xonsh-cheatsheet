@@ -944,7 +944,63 @@ chmod +x host_lines.xsh
 # Count of lines on xon.sh: 568
 ```
 
-To make the interaction with script more awesome [use `click`, `typer` and `rich`](https://betterprogramming.pub/designing-beautiful-command-line-applications-with-python-72bd2f972ea).
+To make the interaction with script more awesome [use `click`, `typer` and `rich`](https://betterprogramming.pub/designing-beautiful-command-line-applications-with-python-72bd2f972ea):
+
+```xsh
+"""Example of CLI application."""
+
+import click
+
+class OrderCommands(click.Group):
+  def list_commands(self, ctx: click.Context) -> list[str]:
+    return list(self.commands)
+
+
+class CliCtx:
+    """CLI application sharable context."""
+    def __init__(self, debug):
+        self.debug = debug
+
+        if self.debug:
+            # Show arguments in debug mode.
+            from pprint import pprint
+            pprint(vars(self))
+
+
+@click.group(cls=OrderCommands)
+@click.option("--debug", default=False, is_flag=True, envvar='PROJECT_DEBUG', help="Debug mode.")
+@click.pass_context
+def cli(ctx, debug):
+    """
+    Description of the CLI app.
+    """
+    ctx.obj = CliCtx(debug)
+
+    if debug:
+        $XONSH_TRACE_SUBPROC = True
+
+
+@cli.command()
+@click.option("--use-print", default=False, is_flag=True, envvar='PROJECT_HELLO_PRINT', help="Use print() function.")
+@click.pass_obj
+def hello(ctx, use_print):
+    if use_print:
+        print('world')
+    else:
+        echo world
+
+
+if __name__ == "__main__":
+    cli()
+```
+Save this to `./cli.xsh` and run:
+```xsh
+chdmo +x ./cli.xsh
+./cli.xsh --debug hello --use-print
+# {'debug': True}
+# world
+```
+
 
 ### How to get the script path
 
