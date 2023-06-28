@@ -645,6 +645,7 @@ hello
 
 Read stdin and write to stdout (real-life example - [xontrib-pipeliner](https://github.com/anki-code/xontrib-pipeliner)):
 ```xsh
+# Add an exclamation point to each line
 def _exc(args, stdin, stdout):
     for line in stdin.readlines():
         print(line.strip() + '!', file=stdout, flush=True)
