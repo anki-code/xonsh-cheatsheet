@@ -653,6 +653,16 @@ aliases['exc'] = _exc
 
 echo hello | exc
 # hello!
+
+# Convert json to yaml
+@aliases.register("j2y")
+def __j2y(args, stdin, stdout):
+    import yaml, sys, json
+    print(yaml.dump(json.loads(stdin.read())), file=stdout)
+
+echo '{"hello":{"world":"42"}}' | j2y
+# hello:
+#   world: 42
 ```
 ## Abbrevs
 
