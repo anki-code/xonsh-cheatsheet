@@ -656,15 +656,28 @@ echo hello | exc
 # hello!
 ```
 ```xsh
-# Convert json to yaml
+# JSON to YAML
 @aliases.register("j2y")
 def __j2y(args, stdin, stdout):
     import yaml, sys, json
     print(yaml.dump(json.loads(stdin.read())), file=stdout)
 
+# YAML to JSON
+@aliases.register("y2j")
+def __y2j(args, stdin, stdout):
+    import yaml, json
+    json.dump(yaml.safe_load(stdin), stdout, indent=4)
+
 echo '{"hello":{"world":"42"}}' | j2y
 # hello:
 #   world: 42
+
+echo 'hello:\n  world: 42' | y2j
+# {
+#     "hello": {
+#         "world": "42"
+#     }
+# }
 ```
 ## Abbrevs
 
