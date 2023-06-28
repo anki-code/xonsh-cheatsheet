@@ -659,7 +659,7 @@ echo hello | exc
 # JSON to YAML
 @aliases.register("j2y")
 def __j2y(args, stdin, stdout):
-    import yaml, sys, json
+    import json, yaml
     print(yaml.dump(json.loads(stdin.read())), file=stdout)
 
 # YAML to JSON
