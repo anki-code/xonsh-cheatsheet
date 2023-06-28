@@ -644,7 +644,7 @@ hello
 ```
 
 Read stdin and write to stdout (real-life example - [xontrib-pipeliner](https://github.com/anki-code/xontrib-pipeliner)):
-```python
+```xsh
 def _exc(args, stdin, stdout):
     for line in stdin.readlines():
         print(line.strip() + '!', file=stdout, flush=True)
@@ -653,7 +653,8 @@ aliases['exc'] = _exc
 
 echo hello | exc
 # hello!
-
+```
+```xsh
 # Convert json to yaml
 @aliases.register("j2y")
 def __j2y(args, stdin, stdout):
