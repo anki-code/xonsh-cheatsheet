@@ -49,7 +49,7 @@ brew install xonsh    # OSX
 Arch Linux *is* a rolling release system, so you are fine using that:
 
 ```xsh
-pacman -S xonsh       # Arch Linux
+pacman -S xonsh && python-prompt_toolkit  # Arch Linux
 ```
 
 On any system you can install `python` and then install xonsh from pip i.e., `any_pkg_manager install python && python -m pip install 'xonsh[full]'` This is the preferable way.
