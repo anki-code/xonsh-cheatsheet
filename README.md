@@ -1241,6 +1241,15 @@ for i in range(100):
 
 Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
+### Triple quotes
+
+To avoid escape character (i.e. `echo "\"hello\""`) and make string more elegant use triple quotes:
+
+```xsh
+echo """{"hello":'world'}"""
+# {"hello":'world'}
+```
+
 ### Using a text block in the command line
 
 The first way is to use multiline strings:
