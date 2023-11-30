@@ -1184,7 +1184,7 @@ If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not worki
 
 If you want to capture the output of a tool but it's not captured, there are three workarounds:
 
-1. Add the `head` tool at the end of the pipeline to force using the threadable mode:
+1. Add the `head` or `cat` tool at the end of the pipeline to force using the threadable mode:
 
     ```python
     !(echo 123 | head -n 1000)
