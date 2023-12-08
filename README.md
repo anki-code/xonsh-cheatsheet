@@ -920,6 +920,8 @@ def custom_keybindings(bindings, **kw):
         
 ```
 
+See also: [More about key bindings](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/key_bindings.html).
+
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
 Xontrib lists: 
