@@ -175,7 +175,7 @@ The [pipx](https://pipxproject.github.io/pipx/) tool is also good to install xon
 ```xsh
 # Install Python before continuing
 pip install pipx
-pipx install --python python3.8 xonsh
+pipx install --python python3.8 xonsh  # Here `python3.8` is the path to installed python. 
 pipx run xonsh 
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to allow running just the `xonsh` command
 ```
