@@ -1255,8 +1255,11 @@ echo """{"hello":'world'}"""
 ### Python warlus operator in subprocess mode
 
 ```xsh
-echo I am @(name := 'Mike')
-echo Hello @(name)
+echo Hello @(name := input('Name: '))
+echo Hello again @(name)
+# Name: Mike
+# Hello Mike
+# Hello again Mike
 ```
 
 ### Using a text block in the command line
@@ -1315,6 +1318,12 @@ Ask simple input:
 echo @(input('Text: '))
 # Text: hello
 # hello
+
+echo Hello @(name := input('Name: '))
+echo Hello again @(name)
+# Name: Mike
+# Hello Mike
+# Hello again Mike
 
 $ENV_NAME = input('Name: ')  # Use input to set and reuse env variable
 echo Name is $ENV_NAME
