@@ -1252,6 +1252,13 @@ echo """{"hello":'world'}"""
 # {"hello":'world'}
 ```
 
+### Python warlus operator in subprocess mode
+
+```xsh
+echo I am @(name := 'Mike')
+echo Hello @(name)
+```
+
 ### Using a text block in the command line
 
 The first way is to use multiline strings:
