@@ -1255,8 +1255,8 @@ echo """{"hello":'world'}"""
 ### Python warlus operator in subprocess mode
 
 ```xsh
-echo Hello @(name := input('Name: '))
-echo Hello again @(name)
+echo Hello @(_name := input('Name: '))  # Use `_` to keep env clean.
+echo Hello again @(_name)
 # Name: Mike
 # Hello Mike
 # Hello again Mike
@@ -1319,8 +1319,8 @@ echo @(input('Text: '))
 # Text: hello
 # hello
 
-echo Hello @(name := input('Name: '))
-echo Hello again @(name)
+echo Hello @(_name := input('Name: '))  # Use `_` to keep env clean.
+echo Hello again @(_name)
 # Name: Mike
 # Hello Mike
 # Hello again Mike
