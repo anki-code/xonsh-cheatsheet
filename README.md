@@ -112,8 +112,8 @@ How to work and understand the environments in conda:
 xpip install ujson  
 
 # Example of creating the environment with a certain version of Python
-conda search python | grep 3.11
-conda create -n "py311" python=3.11 xonsh
+conda search python | grep 3.10
+conda create -n "py310" python=3.10 xonsh
 
 conda activate py310
 # Now the environment is `py310` but current xonsh session is still in `base` environment
