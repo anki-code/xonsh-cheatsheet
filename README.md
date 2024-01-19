@@ -58,7 +58,7 @@ On any system you can install `python` and then install xonsh from pip i.e., `an
 
 Xonsh is a Python-based shell, and to run xonsh you must have Python installed. The Python version and its packages can be installed and located anywhere: in the operating system directories, as part of a virtual environment, as part of the user directory, or as a virtual drive created temporarily behind the scenes by the Linux AppImage.
 
-The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session it will be executed in the Python environment that was used to run current instance of xonsh.
+The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session it will be executed in the Python environment that was used to run current instance of xonsh. Use the [xc alias](https://github.com/anki-code/xontrib-rc-awesome/blob/c643e4cbc5cdb88c72a0389c03c62fd5407363d2/xontrib/rc_awesome.xsh#L87) to check the xonsh context.
 
 In other words, you can activate a virtual environment during a xonsh session (using conda, pyenv, pipx) but the current session will continue to use packages from the environment that was used to run xonsh. And if you want to run xonsh with the packages from the currently activated virtual environment you have to install xonsh in that environment and run it directly.
 
