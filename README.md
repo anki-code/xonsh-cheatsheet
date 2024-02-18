@@ -915,12 +915,17 @@ def custom_keybindings(bindings, **kw):
     
     # Press F3 to insert the grep command
     @bindings.add(Keys.F3)  # or for Mac try `@bindings.add("c-k")  # control+k`
-    def say_hi(event):
+    def add_grep(event):
         event.current_buffer.insert_text('| grep -i ')
+
+    # Clear line by pressing `Escape` key
+    @bindings.add("escape")
+    def clear_line(event):
+        event.current_buffer.delete_before_cursor(1000)
         
 ```
 
-See also: [More about key bindings](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/key_bindings.html).
+See also: [more about key bindings](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/key_bindings.html), [event.current_buffer](https://python-prompt-toolkit.readthedocs.io/en/stable/pages/reference.html#prompt_toolkit.buffer.Buffer).
 
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
