@@ -9,7 +9,7 @@ except (IOError, OSError):
 
 setuptools.setup(
     name='xontrib-cheatsheet',
-    version='0.4.2',
+    version='0.4.4',
     license='MIT',
     author='anki-code',
     author_email='no@no.no',
