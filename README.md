@@ -684,6 +684,7 @@ echo 'hello:\n  world: 42' | y2j
 #     }
 # }
 ```
+
 ## Abbrevs
 
 There is [xontrib-abbrevs](https://github.com/xonsh/xontrib-abbrevs) as alternative to aliases. You can create abbrev and set the position of editing:
@@ -1266,6 +1267,10 @@ echo Hello again @(_name)
 # Hello Mike
 # Hello again Mike
 ```
+
+## From aliases to CLI apps
+
+If you realize that your alias becomes the app it's time to look at [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app).
 
 ### Using a text block in the command line
 
