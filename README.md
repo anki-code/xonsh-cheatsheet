@@ -1325,7 +1325,7 @@ def _superdot():
 
 ```xsh
 # Run it or add to ~/.xonshrc
-imp = type('MyClass', (object,), {'__getattr__':lambda self, name: __import__(name) })()
+imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
 # Use `imp` as inline import sugar
 imp.json.loads('{"a":1}')
@@ -1334,6 +1334,36 @@ imp.datetime.datetime.now().isoformat()
 # '2024-02-12T15:29:57.125696'
 imp.hashlib.md5(b'Hello world').hexdigest()
 # '3e25960a79dbc69b674cd4ec67a72c62'
+```
+
+### Transparent callable environment variables
+
+For example you want to have current timestamp in every command but instead of nesting like `@(timestamp())` you want sugar:
+
+```xsh
+class TimestampCl:
+    def __repr__(self):
+        from datetime import datetime
+        return str(datetime.now().isoformat())
+
+$dt = TimestampCl()
+
+echo $dt
+sleep 1
+echo $dt
+# 2024-03-05T23:34:50.188014
+# 2024-03-05T23:34:51.259861
+```
+If you want more sugar use `imp` from the previous trick:
+```xsh
+imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
+$dt = type('TimeCl', (object,), {'__repr__':lambda self: str(imp.datetime.datetime.now().isoformat()) })()
+
+echo $dt
+sleep 1
+echo $dt
+# 2024-03-05T23:34:50.188014
+# 2024-03-05T23:34:51.259861
 ```
 
 ### Ask to input argument and with autocomplete
