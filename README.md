@@ -1338,7 +1338,7 @@ imp.hashlib.md5(b'Hello world').hexdigest()
 
 ### Transparent callable environment variables
 
-For example you want to have current timestamp in every command but instead of nesting like `@(timestamp())` you want sugar:
+For example you want to have current timestamp in every command but instead of nesting like `@(dt())` you want sugar:
 
 ```xsh
 class TimestampCl:
