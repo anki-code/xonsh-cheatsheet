@@ -1054,6 +1054,10 @@ chmod +x /tmp/getpath.xsh
 # This script is in /tmp
 ```
 
+# Unit tests with xonsh and pytest
+
+Start here: [How do I write unit tests?](https://github.com/xonsh/xonsh/discussions/5303#discussioncomment-8786332).
+
 # [History](https://xon.sh/tutorial_hist.html)
 
 There are two history backends: `json` and [`sqlite`](https://xon.sh/tutorial_hist.html#sqlite-history-backend) which xonsh has by default. The `json` backend creates a json file with commands history on every xonsh session. The `sqlite` backend has one file with SQL-database.
