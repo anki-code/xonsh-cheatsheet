@@ -490,6 +490,16 @@ with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=True):
     r.returncode
     # 0
 ```
+Elegant checking the result of the command using walrus operator:
+```xsh
+if r := ![ls NO]:
+    print(f'It works! Return code: {r.returncode}')
+else:
+    print(f'It fails! Return code: {r.returncode}')
+
+# ls: cannot access 'NO': No such file or directory
+# It fails! Return code: 2
+```
 
 This operator is used under the hood for running commands at the interactive xonsh prompt.
 
