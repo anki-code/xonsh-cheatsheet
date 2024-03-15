@@ -461,7 +461,7 @@ repr(ret)
 
 This is the same as `echo 123`, but this syntax allows explicitly running a subprocess command.
 
-### `![]` - capture all and return hidden object, print stdout and stderr
+### `![]` - print stdout/stderr and return hidden object
 
 *Note! The behavior may be different if [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) is True or False (default).*
 
