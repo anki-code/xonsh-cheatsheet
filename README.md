@@ -468,14 +468,27 @@ This is the same as `echo 123`, but this syntax allows explicitly running a subp
 Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.HiddenCommandPipeline):
 
 ```python
-with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=True):
-    ret = ![echo -e '1\n2\r3 4\r\n5']
+with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=False):  # Default.
+    r = ![echo -e '1\n2\r3 4\r\n5']
     # 1               # Stream output of the command
     # 3 4
     # 5
-    ret               # No return value because it's HiddenCommandPipeline object
-    ret.out           # But it has the properties from CommandPipeline
+    r               # No return value because it's HiddenCommandPipeline object
+    r.out           
+    # ''            # Empty because `$XONSH_CAPTURE_ALWAYS = False`.
+    r.returncode
+    # 0
+
+with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=True):
+    r = ![echo -e '1\n2\r3 4\r\n5']
+    # 1               # Stream output of the command
+    # 3 4
+    # 5
+    r               # No return value because it's HiddenCommandPipeline object
+    r.out           # But it has the properties from CommandPipeline
     # '1\n2\r3 4\n5\n'
+    r.returncode
+    # 0
 ```
 
 This operator is used under the hood for running commands at the interactive xonsh prompt.
