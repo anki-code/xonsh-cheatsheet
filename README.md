@@ -18,7 +18,7 @@ Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and comman
 
 The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snails or shells (🐚). Thus xonsh is the reference to the "shell" word that is commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
 
-Over time the replacing letter in the words to "x" became the way to create unique names for xonsh related solutions e.g. [xontrib](https://xon.sh/tutorial_xontrib.html#overview) (contribution), [xpip](https://xon.sh/aliases.html#xpip), [xonfig](https://xon.sh/aliases.html#xonfig), [xunter](https://github.com/anki-code/xunter).
+Over time the replacing letter in the words to "x" became the way to create unique names for xonsh related solutions e.g. [xontrib](https://xon.sh/tutorial_xontrib.html#overview), [xpip](https://xon.sh/aliases.html#xpip), [xonfig](https://xon.sh/aliases.html#xonfig), [xunter](https://github.com/anki-code/xunter).
 
 # Install xonsh
 
