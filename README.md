@@ -1419,14 +1419,15 @@ while 1:
     cat /etc/passwd | grep --color -i @(input('\nusername: '))
 ```
 
-Ask for input with completion:
+Ask for input with completion and history:
 ```xsh
 from prompt_toolkit import PromptSession
 from prompt_toolkit.completion import WordCompleter
 
 def ask(arg : str, completions : list = []):
     completer = WordCompleter(completions)
-    session = PromptSession(completer=completer)
+    history = FileHistory('/tmp/ask_history.txt')
+    session = PromptSession(completer=completer, history=history)
     user_input = session.prompt(f'{arg}: ')
     return user_input
 
