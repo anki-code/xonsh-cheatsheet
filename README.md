@@ -1413,6 +1413,10 @@ $ENV_NAME = input('Name: ')  # Use input to set and reuse env variable
 echo Name is $ENV_NAME
 # Name: Alex
 # Name is Alex
+
+# The way to have continuous interactive search.
+while 1:
+    cat /etc/passwd | grep --color -i @(input('\nusername: '))
 ```
 
 Ask for input with completion:
