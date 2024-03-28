@@ -1011,7 +1011,7 @@ chmod +x host_lines.xsh
 # Count of lines on xon.sh: 568
 ```
 
-To make the interaction with scripts more awesome see also [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app) and [articles around `click`, `typer` and `rich`](https://betterprogramming.pub/designing-beautiful-command-line-applications-with-python-72bd2f972ea).
+To make the interaction with scripts more awesome see also [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app) and articles around [click](https://click.palletsprojects.com/en/8.1.x/), [rich](https://github.com/Textualize/rich), [typer](https://typer.tiangolo.com/), etc.
 
 ### How to get the script path
 
