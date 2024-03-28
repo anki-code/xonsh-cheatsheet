@@ -1360,8 +1360,7 @@ echo Name is $ENV_NAME
 # Name is Alex
 
 # The way to have continuous interactive search.
-while 1:
-    cat /etc/passwd | grep --color -i @(input('\nusername: '))
+while 1: ![cat /etc/passwd | grep --color -i @(input('\nUsername: '))]
 ```
 
 Ask for input with completion and history:
