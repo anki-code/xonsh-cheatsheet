@@ -968,7 +968,9 @@ xpip install copier jinja2-time cookiecutter
 copier copy --trust gh:xonsh/xontrib-template .
 ```
 
-Note! You can integrate python tools into xonsh context and environment e.g. see [fstrider](https://github.com/anki-code/fstrider/) [xontrib](https://github.com/anki-code/fstrider/?tab=readme-ov-file#xonsh-xontrib) where xontrib allows to inject xonsh context into file system navigation tool.
+### Xontrib as a bridge
+
+You can integrate python tools into xonsh context and environment using xontrib e.g. see [fstrider](https://github.com/anki-code/fstrider/) [xontrib](https://github.com/anki-code/fstrider/?tab=readme-ov-file#xonsh-xontrib) where xontrib allows to inject xonsh context into file system navigation tool.
 
 # Xonsh Script (xsh)
 
