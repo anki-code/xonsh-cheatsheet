@@ -965,8 +965,10 @@ To install xontribs xonsh has [`xpip`](https://xon.sh/aliases.html?highlight=ali
 If you want to create your own xontrib [using xontrib-template](https://github.com/xonsh/xontrib-template) is the best way:
 ```python
 xpip install copier jinja2-time cookiecutter
-copier gh:xonsh/xontrib-template .
+copier copy --trust gh:xonsh/xontrib-template .
 ```
+
+Note! You can integrate python tools into xonsh context and environment e.g. see [fstrider](https://github.com/anki-code/fstrider/) [xontrib](https://github.com/anki-code/fstrider/?tab=readme-ov-file#xonsh-xontrib) where xontrib allows to inject xonsh context into file system navigation tool.
 
 # Xonsh Script (xsh)
 
