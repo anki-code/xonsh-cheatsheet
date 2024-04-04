@@ -1367,12 +1367,14 @@ Ask for input with completion and history:
 ```xsh
 from prompt_toolkit import PromptSession
 from prompt_toolkit.completion import WordCompleter
+from prompt_toolkit.history import FileHistory
 
-def ask(arg : str, completions : list = []):
+def ask(title : str, completions : list = []):
+    filename = ''.join(c for c in title if c.isalpha())
+    history = FileHistory($XONSH_DATA_DIR + f'/ask_{filename}.txt')
     completer = WordCompleter(completions)
-    history = FileHistory('/tmp/ask_history.txt')
     session = PromptSession(completer=completer, history=history)
-    user_input = session.prompt(f'{arg}: ')
+    user_input = session.prompt(f'{title}: ')
     return user_input
 
 
