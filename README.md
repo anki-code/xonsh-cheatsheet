@@ -63,13 +63,13 @@ Xonsh is a Python-based shell, and to run xonsh you must have Python installed. 
 
 The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session, it will be executed in the Python environment that was used to run the current instance of xonsh. Use the [xc alias](https://github.com/anki-code/xontrib-rc-awesome/blob/c643e4cbc5cdb88c72a0389c03c62fd5407363d2/xontrib/rc_awesome.xsh#L87) to check the xonsh context.
 
-In other words, you can activate a virtual environment during a xonsh session (using conda, pyenv, pipx) but the current session will continue to use packages from the environment that was used to run xonsh. And if you want to run xonsh with the packages from the currently activated virtual environment you have to install xonsh in that environment and run it directly.
+In other words, you can activate a virtual environment during a xonsh session (using mamba, conda, [rye](https://github.com/xonsh/xonsh/discussions/5290), pyenv, pipx) but the current session will continue to use packages from the environment that was used to run xonsh. And if you want to run xonsh with the packages from the currently activated virtual environment you have to install xonsh in that environment and run it directly. Keep in mind current `$PATH` and as result `which xonsh` when running something.
 
 Thus the second thing you should remember is that when you run xonsh in a virtual environment it will try to load [xonsh RC files](https://xon.sh/xonshrc.html#run-control-file) (i.e. `~/.xonshrc`) and because the virtual environment is different from the environment you ordinarily use, the loading of the RC file will tend to fail because of the lack of the appropriate set of packages. When you write your `~/.xonshrc` it's good practice to check the existing external dependencies before loading them. See also [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome) and [xonsh context alias](https://github.com/anki-code/xontrib-rc-awesome/blob/f5724fdcd5fee883305ab237de5a61fb4508a4ee/xontrib/rc_awesome.xsh#L89-L102).
 
 #### Install xonsh on macOS or Linux using conda
 
-You can use [Conda](https://docs.conda.io/en/latest/) with [Conda-forge](https://conda-forge.org/) to install and use xonsh. 
+You can use [Conda](https://docs.conda.io/en/latest/) (or faster replacement - [mamba](https://mamba.readthedocs.io/en/latest/)) with [Conda-forge](https://conda-forge.org/) to install and use xonsh. 
 
 ```xsh
 #
@@ -181,6 +181,36 @@ pip install pipx
 pipx install --python python3.8 xonsh  # Here `python3.8` is the path to installed python. 
 pipx run xonsh 
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to allow running just the `xonsh` command
+```
+
+#### DRAFT: The strategy of installation xonsh using virtual environment managers
+
+*Draft! Sad but now I have no full example of commands for this strategy. But after reading the section above you will have the base to start and PR is welcome!*
+
+We want to install xonsh in stable environment to be confident that no experiments around python and packages will not break the shell. How to achieve this:
+
+1. Create completely isolated virtual environment where python included in environment to avoid any external changes. For this `mamba` or `conda` can help.
+2. Create symlink to run xonsh from this environment on top of `$PATH`.
+3. Use environment related way to manage packages i.e. `xpip` and shell hook for `mamba`.
+4. Need more tests here: Keep in mind your `$PATH` and `which xonsh` before running new instances of xonsh.
+
+Draft:
+
+```xsh
+# Draft!
+# Draft!
+# Draft!
+
+micromamba create --prefix ~/xonsh-env python=3.12 xonsh
+ln -s /usr/local/bin/xonsh ~/xonsh-env/bin/xonsh
+echo $PATH
+# /usr/local/bin:...
+which xonsh
+# ~/xonsh-env/bin/xonsh
+xonsh
+which xpip
+# ~/xonsh-env/bin/python3.12 -m pip
+__xonsh__.execer.exec($(micromamba shell hook --shell xonsh))
 ```
 
 ### Try xonsh without installation
