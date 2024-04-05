@@ -202,7 +202,7 @@ Draft:
 # Draft!
 
 micromamba create --prefix ~/xonsh-env python=3.12 xonsh
-ln -s /usr/local/bin/xonsh ~/xonsh-env/bin/xonsh
+ln -s ~/xonsh-env/bin/xonsh /usr/local/bin/xonsh
 echo $PATH
 # /usr/local/bin:...
 which xonsh
