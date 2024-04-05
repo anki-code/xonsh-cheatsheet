@@ -42,16 +42,11 @@ python -m pip install 'xonsh[full]'
 Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest xonsh release](https://github.com/xonsh/xonsh/releases/) or [versions of xonsh across platforms](https://repology.org/project/xonsh/versions)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is quarter.
 
 ```xsh
-# Not recommended but possible
+# Not recommended (old version, maybe not full dependencies installed) but possible:
 apt install xonsh     # Debian/Ubuntu
 dnf install xonsh     # Fedora
 brew install xonsh    # OSX
-```
-
-Arch Linux *is* a rolling release system, so you are fine using that:
-
-```xsh
-pacman -S xonsh python-prompt_toolkit  # Arch Linux
+pacman -S xonsh       # Arch Linux
 ```
 
 On any system you can install `python` and then install xonsh from pip i.e., `any_pkg_manager install python && python -m pip install 'xonsh[full]'` This is the preferable way.
