@@ -655,6 +655,7 @@ def _myargs1(args):
 #def _myargs5(args, stdin=None, stdout=None, stderr=None, spec=None):
 #def _myargs6(args, stdin=None, stdout=None, stderr=None, spec=None, stack=None):
     print(args)
+    # print(args, file=stdout)  # Using stdout directly is the best practice to support pipes/tests/future.
     
 aliases['args'] = _myargs1
 del _myargs1
