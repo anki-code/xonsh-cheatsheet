@@ -44,6 +44,7 @@ On any system you can install `python` and then install xonsh from pip i.e., `an
 If you have `python` but no `pip` just install it using [`ensurepip`](https://docs.python.org/3/library/ensurepip.html):
 ```xsh
 python -m ensurepip --upgrade
+pip -V
 ```
 
 Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest xonsh release](https://github.com/xonsh/xonsh/releases/) or [versions of xonsh across platforms](https://repology.org/project/xonsh/versions)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is quarter.
