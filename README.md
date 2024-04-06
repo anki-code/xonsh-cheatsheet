@@ -239,6 +239,7 @@ xonsh
 xpip install xontrib-prompt-bar
 xmamba install numpy
 ```
+*Note! This was draft section. This example is still in testing.*
 
 ### Try xonsh without installation
 
