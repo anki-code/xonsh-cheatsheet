@@ -199,7 +199,7 @@ Here is draft of the example based on [`mamba`](https://mamba.readthedocs.io/) f
 ```zsh
 zsh  # MacOS
 
-export XONSH_ENV_DIR=/tmp/xonsh-env
+export XONSH_ENV_DIR=$HOME/.local/xonsh-env
 
 mkdir -p $XONSH_ENV_DIR $XONSH_ENV_DIR/xbin
 cd $XONSH_ENV_DIR
