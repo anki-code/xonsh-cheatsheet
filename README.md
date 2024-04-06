@@ -221,7 +221,7 @@ $XONSH_ENV_DIR/bin/python -m pip install 'xonsh[full]'
 
 cat <<EOF >./xbin/xonsh
 #!/usr/bin/env bash
-export PATH=$XONSH_ENV_DIR/xbin:$PATH
+export PATH=$XONSH_ENV_DIR/xbin:\$PATH
 $XONSH_ENV_DIR/bin/xonsh "\$@"
 EOF
 chmod +x ./xbin/xonsh
