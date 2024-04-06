@@ -183,37 +183,58 @@ pipx run xonsh
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to allow running just the `xonsh` command
 ```
 
-#### DRAFT: The strategy of installation xonsh using virtual environment managers
+#### DRAFT: The strategy of the best way to install xonsh
 
-*Draft! Sad but now I have no full example of commands for this strategy. But after reading the section above you will have the base to start and PR is welcome!*
+*Note! This is draft.*
 
-We want to install xonsh in stable environment to be confident that no experiments around python and packages will not break the shell. How to achieve this:
+We want to install xonsh in stable environment to be confident that no experiments around system python and packages will not break the shell.
 
 1. Create completely isolated virtual environment where python included in environment to avoid any external changes. For this `mamba` or `conda` can help.
 2. Create symlink to run xonsh from this environment on top of `$PATH`.
 3. Use environment related way to manage packages i.e. `xpip` and shell hook for `mamba`.
 4. Need more tests here: Keep in mind your `$PATH` and `which xonsh` before running new instances of xonsh.
 
-Draft:
+Here is draft of the example based on [`mamba`](https://mamba.readthedocs.io/) for MacOS:
 
 ```zsh
 zsh  # MacOS
+
 export XONSH_ENV_DIR=/tmp/xonsh-env
-mkdir -p $XONSH_ENV_DIR
+
+mkdir -p $XONSH_ENV_DIR $XONSH_ENV_DIR/xbin
 cd $XONSH_ENV_DIR
 
-# https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
+# Choose your link on https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
 curl -Ls https://micro.mamba.pm/api/micromamba/osx-arm64/latest | tar -xvj
 
-$XONSH_ENV_DIR/bin/micromamba create --prefix $XONSH_ENV_DIR/env python=3.12
-$XONSH_ENV_DIR/env/bin/python -m pip install 'xonsh[full]'
-$XONSH_ENV_DIR/env/bin/xonsh
+cat <<EOF >./xbin/xmamba
+#!/usr/bin/env bash
+export MAMBA_ROOT_PREFIX="$XONSH_ENV_DIR"
+eval "\$($XONSH_ENV_DIR/bin/micromamba shell hook --shell bash)"
+which micromamba
+micromamba activate base
+micromamba "\$@"
+micromamba deactivate
+EOF
+chmod +x ./xbin/xmamba
 
-# Use `xpip` to install packages or activate mamba:
-$MAMBA_ROOT_PREFIX=$XONSH_ENV_DIR
-__xonsh__.execer.exec($($XONSH_ENV_DIR/bin/micromamba shell hook --shell xonsh))
-micromamba create -n myenv
-micromamba activate myenv
+./xbin/xmamba install python=3.12
+$XONSH_ENV_DIR/bin/python -m pip install 'xonsh[full]'
+
+cat <<EOF >./xbin/xonsh
+#!/usr/bin/env bash
+export PATH=$XONSH_ENV_DIR/xbin:$PATH
+$XONSH_ENV_DIR/bin/xonsh "\$@"
+EOF
+chmod +x ./xbin/xonsh
+
+$XONSH_ENV_DIR/xbin/xonsh
+
+# Now you can use `xpip` and `xmamba` to manage packages.
+xpip install xontrib-prompt-bar
+xmamba install numpy
+which xonsh
+# /tmp/xonsh-env/xbin/xonsh
 ```
 
 ### Try xonsh without installation
