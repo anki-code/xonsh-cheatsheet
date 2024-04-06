@@ -185,7 +185,7 @@ pipx run xonsh
 
 #### DRAFT: The strategy of the best way to install xonsh
 
-*Note! This is draft.*
+*Note! This is draft. To understand this section you need to read all described above.*
 
 We want to install xonsh in isolated stable environment where we can choose the python version and have an ability to manage packages without affect on the rest of the system.
 
