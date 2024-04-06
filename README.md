@@ -187,12 +187,12 @@ pipx run xonsh
 
 *Note! This is draft.*
 
-We want to install xonsh in stable environment to be confident that no experiments around system python and packages will not break the shell.
+We want to install xonsh in isolated stable environment where we can choose the python version and have an ability to manage packages without affect on the rest of the system.
 
-1. Create completely isolated virtual environment where python included in environment to avoid any external changes. For this `mamba` or `conda` can help.
-2. Create symlink to run xonsh from this environment on top of `$PATH`.
-3. Use environment related way to manage packages i.e. `xpip` and shell hook for `mamba`.
-4. Need more tests here: Keep in mind your `$PATH` and `which xonsh` before running new instances of xonsh.
+Base strategy:
+
+1. Create completely isolated virtual environment where python included in environment to avoid any external changes e.g. using `mamba`.
+2. Create `xmamba` and `xonsh` executables on top of the `$PATH` to have an isolated way to install packages and run xonsh.
 
 Here is draft of the example based on [`mamba`](https://mamba.readthedocs.io/) for MacOS:
 
