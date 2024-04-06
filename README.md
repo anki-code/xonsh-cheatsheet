@@ -192,7 +192,7 @@ We want to install xonsh in isolated stable environment where we can choose the 
 Base strategy:
 
 1. Create completely isolated virtual environment where python included in environment to avoid any external changes e.g. using `mamba`.
-2. Create `xmamba` and `xonsh` executables on top of the `$PATH` to have an isolated way to install packages and run xonsh.
+2. Create `xmamba` and `xonsh` executables to the top of the `$PATH` to have an isolated way to install packages and run xonsh.
 
 Here is draft of the example based on [`mamba`](https://mamba.readthedocs.io/) for MacOS:
 
@@ -226,13 +226,18 @@ $XONSH_ENV_DIR/bin/xonsh "\$@"
 EOF
 chmod +x ./xbin/xonsh
 
-$XONSH_ENV_DIR/xbin/xonsh
+# Finally add path to `xbin` to the top of the PATH.
+echo "export PATH=$XONSH_ENV_DIR/xbin:\$PATH" >> ~/.zshrc
+
+# Restart the zsh session.
+
+which xonsh
+# /tmp/xonsh-env/xbin/xonsh
+xonsh
 
 # Now you can use `xpip` and `xmamba` to manage packages.
 xpip install xontrib-prompt-bar
 xmamba install numpy
-which xonsh
-# /tmp/xonsh-env/xbin/xonsh
 ```
 
 ### Try xonsh without installation
