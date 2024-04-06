@@ -226,7 +226,7 @@ $XONSH_ENV_DIR/bin/xonsh "\$@"
 EOF
 chmod +x ./xbin/xonsh
 
-# Finally add path to `xbin` to the top of the PATH.
+# Finally add `xbin` path to the top of the `$PATH`.
 echo "export PATH=$XONSH_ENV_DIR/xbin:\$PATH" >> ~/.zshrc
 
 # Restart the zsh session.
