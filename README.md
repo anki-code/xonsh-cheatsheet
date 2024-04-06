@@ -211,10 +211,8 @@ cat <<EOF >./xbin/xmamba
 #!/usr/bin/env bash
 export MAMBA_ROOT_PREFIX="$XONSH_ENV_DIR"
 eval "\$($XONSH_ENV_DIR/bin/micromamba shell hook --shell bash)"
-which micromamba
 micromamba activate base
 micromamba "\$@"
-micromamba deactivate
 EOF
 chmod +x ./xbin/xmamba
 
