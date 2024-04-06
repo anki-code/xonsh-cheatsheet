@@ -229,8 +229,10 @@ chmod +x ./xbin/xonsh
 # Finally add `xbin` path to the top of the `$PATH`.
 echo "export PATH=$XONSH_ENV_DIR/xbin:\$PATH" >> ~/.zshrc
 
-# Restart the zsh session.
-
+# Installation complete. Restart the zsh session.
+```
+After restart session you have isolated xonsh environment:
+```
 which xonsh
 # /tmp/xonsh-env/xbin/xonsh
 xonsh
@@ -238,6 +240,16 @@ xonsh
 # Now you can use `xpip` and `xmamba` to manage packages.
 xpip install xontrib-prompt-bar
 xmamba install numpy
+```
+Example of [xc](https://github.com/anki-code/xontrib-rc-awesome/blob/4a45e503348b29ac5e982e5fdf0ae934490048cb/xontrib/rc_awesome.xsh#L87-L102) output:
+```xsh
+xc
+# xonsh: /Users/user/.local/xonsh-env/xbin/xonsh
+# xpython: /Users/user/.local/xonsh-env/bin/python # Python 3.12.2
+# xpip: /Users/user/.local/xonsh-env/bin/python -m pip
+# 
+# python: /opt/homebrew/bin/python # Python 3.11.6
+# pip: /opt/homebrew/bin/pip
 ```
 *Note! This was draft section. This example is still in testing.*
 
