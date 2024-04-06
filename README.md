@@ -196,21 +196,24 @@ We want to install xonsh in stable environment to be confident that no experimen
 
 Draft:
 
-```xsh
-# Draft!
-# Draft!
-# Draft!
+```zsh
+zsh  # MacOS
+export XONSH_ENV_DIR=/tmp/xonsh-env
+mkdir -p $XONSH_ENV_DIR
+cd $XONSH_ENV_DIR
 
-micromamba create --prefix ~/xonsh-env python=3.12 xonsh
-ln -s ~/xonsh-env/bin/xonsh /usr/local/bin/xonsh
-echo $PATH
-# /usr/local/bin:...
-which xonsh
-# ~/xonsh-env/bin/xonsh
-xonsh
-which xpip
-# ~/xonsh-env/bin/python3.12 -m pip
-__xonsh__.execer.exec($(micromamba shell hook --shell xonsh))
+# https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
+curl -Ls https://micro.mamba.pm/api/micromamba/osx-arm64/latest | tar -xvj
+
+$XONSH_ENV_DIR/bin/micromamba create --prefix $XONSH_ENV_DIR/env python=3.12
+$XONSH_ENV_DIR/env/bin/python -m pip install 'xonsh[full]'
+$XONSH_ENV_DIR/env/bin/xonsh
+
+# Use `xpip` to install packages or activate mamba:
+$MAMBA_ROOT_PREFIX=$XONSH_ENV_DIR
+__xonsh__.execer.exec($($XONSH_ENV_DIR/bin/micromamba shell hook --shell xonsh))
+micromamba create -n myenv
+micromamba activate myenv
 ```
 
 ### Try xonsh without installation
