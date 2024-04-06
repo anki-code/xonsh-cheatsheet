@@ -191,8 +191,8 @@ We want to install xonsh in isolated stable environment where we can choose the 
 
 Base strategy:
 
-1. Create completely isolated virtual environment where python included in environment to avoid any external changes e.g. using `mamba`.
-2. Create `xmamba` and `xonsh` executables to the top of the `$PATH` to have an isolated way to install packages and run xonsh.
+1. Create completely isolated virtual environment where python included in environment to avoid any external changes.
+2. Create xonsh environment related executables to the top of the `$PATH` to have an isolated way to install packages and run xonsh.
 
 Here is draft of the example based on [`mamba`](https://mamba.readthedocs.io/) for MacOS:
 
