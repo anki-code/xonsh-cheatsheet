@@ -232,7 +232,7 @@ echo "export PATH=$XONSH_ENV_DIR/xbin:\$PATH" >> ~/.zshrc
 # Installation complete. Restart the zsh session.
 ```
 After restart session you have isolated xonsh environment:
-```
+```xsh
 which xonsh
 # /tmp/xonsh-env/xbin/xonsh
 xonsh
