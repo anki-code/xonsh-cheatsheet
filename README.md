@@ -32,6 +32,8 @@ There are three ways to use xonsh:
 
 3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or the Linux AppImage to run and try xonsh.
 
+4. **[The best way to install xonsh as core shell](#)**. You must read the previous sections before using this.
+
 ### Simple xonsh install
 
 Most modern operating systems have [Python](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that are preinstalled or that can be installed easily. By installing from PyPi you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases). We highly recommend using the `full` version of the xonsh PyPi-package with [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/) on board:
@@ -183,77 +185,9 @@ pipx run xonsh
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to allow running just the `xonsh` command
 ```
 
-#### DRAFT: The strategy of the best way to install xonsh
+#### The best way to install xonsh as core shell
 
-*Note! This is draft. To understand this section you need to read all described above.*
-
-We want to install xonsh in isolated stable environment where we can choose the python version and have an ability to manage packages without affect on the rest of the system.
-
-Base strategy:
-
-1. Create completely isolated virtual environment where python included in environment to avoid any external changes.
-2. Create xonsh environment related executables to the top of the `$PATH` to have an isolated way to install packages and run xonsh.
-
-Here is draft of the example based on [`mamba`](https://mamba.readthedocs.io/) for MacOS:
-
-```zsh
-zsh  # MacOS
-
-export XONSH_ENV_DIR=$HOME/.local/xonsh-env
-
-mkdir -p $XONSH_ENV_DIR $XONSH_ENV_DIR/xbin
-cd $XONSH_ENV_DIR
-
-# Choose your link on https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html
-curl -Ls https://micro.mamba.pm/api/micromamba/osx-arm64/latest | tar -xvj
-
-cat <<EOF >./xbin/xmamba
-#!/usr/bin/env bash
-export MAMBA_ROOT_PREFIX="$XONSH_ENV_DIR"
-eval "\$($XONSH_ENV_DIR/bin/micromamba shell hook --shell bash)"
-micromamba activate base
-micromamba "\$@"
-EOF
-chmod +x ./xbin/xmamba
-
-./xbin/xmamba install python=3.12
-$XONSH_ENV_DIR/bin/python -m pip install 'xonsh[full]'
-
-cat <<EOF >./xbin/xonsh
-#!/usr/bin/env bash
-export PATH=$XONSH_ENV_DIR/xbin:\$PATH
-$XONSH_ENV_DIR/bin/xonsh "\$@"
-EOF
-chmod +x ./xbin/xonsh
-
-# Finally add `xbin` path to the top of the `$PATH`.
-echo "export PATH=$XONSH_ENV_DIR/xbin:\$PATH" >> ~/.zshrc
-
-# Installation complete. Restart the zsh session.
-```
-After restart session you have isolated xonsh environment:
-```xsh
-which xonsh
-# /tmp/xonsh-env/xbin/xonsh
-xonsh
-
-# Now you can use `xpip` and `xmamba` to manage packages.
-xpip install xontrib-prompt-bar
-xmamba install numpy
-
-xmamba clean -a  # Delete mamba cache to have disk space..
-```
-Example of [xc](https://github.com/anki-code/xontrib-rc-awesome/blob/4a45e503348b29ac5e982e5fdf0ae934490048cb/xontrib/rc_awesome.xsh#L87-L102) output:
-```xsh
-xc
-# xonsh: /Users/user/.local/xonsh-env/xbin/xonsh
-# xpython: /Users/user/.local/xonsh-env/bin/python # Python 3.12.2
-# xpip: /Users/user/.local/xonsh-env/bin/python -m pip
-# 
-# python: /opt/homebrew/bin/python # Python 3.11.6
-# pip: /opt/homebrew/bin/pip
-```
-*Note! This was draft section. This example is still in testing.*
+When xonsh becomes a core shell it's needed to keep python environment with xonsh stable, predictable and independent of any changes in the system. To forget about the cases where manipulations around python and packages break the shell unintended you can install xonsh with [`mamba-install-xonsh.sh`](https://github.com/anki-code/xonsh-install/tree/main).
 
 ### Try xonsh without installation
 
