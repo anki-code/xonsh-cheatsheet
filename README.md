@@ -240,6 +240,8 @@ xonsh
 # Now you can use `xpip` and `xmamba` to manage packages.
 xpip install xontrib-prompt-bar
 xmamba install numpy
+
+xmamba clean -a  # Delete mamba cache to have disk space..
 ```
 Example of [xc](https://github.com/anki-code/xontrib-rc-awesome/blob/4a45e503348b29ac5e982e5fdf0ae934490048cb/xontrib/rc_awesome.xsh#L87-L102) output:
 ```xsh
