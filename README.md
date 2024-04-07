@@ -32,7 +32,7 @@ There are three ways to use xonsh:
 
 3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or the Linux AppImage to run and try xonsh.
 
-4. **[The best way to install xonsh as core shell](#)**. You must read the previous sections before using this.
+4. **[The best way to install xonsh as core shell](#the-best-way-to-install-xonsh-as-core-shell)**. You must read the previous sections before using this.
 
 ### Simple xonsh install
 
