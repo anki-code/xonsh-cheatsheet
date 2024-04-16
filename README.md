@@ -1187,6 +1187,9 @@ If you want to capture the output of a tool but it's not captured, there are thr
 
 2. Change threading prediction for this tool:
 
+    Basically `ssh` return the remote terminal that should be unthredable and uncapturable.
+    But if you use it for getting the data from remote host you would like to capture it.
+
     ```python
     __xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
 
@@ -1198,7 +1201,7 @@ If you want to capture the output of a tool but it's not captured, there are thr
     #)
     ```
 
-3. Wrap the tool into a bash subprocess:
+4. Wrap the tool into a bash subprocess:
 
     ```python
     !(bash -c "echo 123")
