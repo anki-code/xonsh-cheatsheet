@@ -760,6 +760,8 @@ path
 # Path('/tmp/hello/world/from/dir/hello')
 ```
 
+The best description of how string literlas is working is [in the table from tutorial](https://xon.sh/tutorial.html#advanced-string-literals).
+
 A simple way to read and write the file content using Path string:
 
 ```python
