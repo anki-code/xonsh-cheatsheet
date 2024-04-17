@@ -1163,7 +1163,7 @@ If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not worki
     $[./tool.sh]
     ```
 
-3. Set the unthreadable predictor:
+3. Set the unthreadable predictor (or use [unthreadable](https://github.com/xonsh/xonsh/issues/4214#issuecomment-830776107) alias):
 
     ```python
     __xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
@@ -1191,6 +1191,7 @@ If you want to capture the output of a tool but it's not captured, there are thr
 
     Basically `ssh` return the remote terminal that should be unthredable and uncapturable.
     But if you use it for getting the data from remote host you would like to capture it.
+    You can modify the commands cache or use [unthreadable](https://github.com/xonsh/xonsh/issues/4214#issuecomment-830776107) alias.
 
     ```python
     __xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
