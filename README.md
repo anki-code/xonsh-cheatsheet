@@ -592,6 +592,7 @@ $PATH.add(p"~/bin", front=True, replace=True))   # Insert path '~/bin' at front 
 $PATH.add(p"~/bin", front=True)                  # Insert path '~/bin' at front of $PATH list
 $PATH.add(p"~/bin", front=False, replace=True))  # Insert path '~/bin' at end of $PATH list and replace existing entries
 $PATH.insert(0, '/tmp')                          # Insert path '/tmp' at front of $PATH list
+# $PATH.prepend('/tmp')                          # (xonsh>0.15.1) Insert path '/tmp' at front of $PATH list
 $PATH.append('/tmp')                             # Append path '/tmp' at end of $PATH list
 $PATH.remove('/tmp')                             # Remove path '/tmp' (first match)
 ```
