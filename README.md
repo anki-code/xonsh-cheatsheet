@@ -597,7 +597,7 @@ $PATH.add(p"~/bin", front=True, replace=True))   # Insert path '~/bin' at front 
 $PATH.add(p"~/bin", front=True)                  # Insert path '~/bin' at front of $PATH list
 $PATH.add(p"~/bin", front=False, replace=True))  # Insert path '~/bin' at end of $PATH list and replace existing entries
 ```
-Note! Starting from xonsh 0.15.1 the logic was improved.
+Note! Starting from xonsh 0.15.2 the logic was improved.
 
 Setup local paths by prepending to path via a loop in `.xonshrc`:
 ```python
