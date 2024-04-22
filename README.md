@@ -187,7 +187,7 @@ pipx run xonsh
 
 #### The best way to install xonsh as core shell
 
-When xonsh becomes a core shell it's needed to keep python environment with xonsh stable, predictable and independent of any changes in the system. To forget about the cases where manipulations around python and packages break the shell unintended you can install xonsh with [`mamba-install-xonsh.sh`](https://github.com/anki-code/xonsh-install/tree/main).
+When xonsh becomes a core shell it's needed to keep python environment with xonsh stable, predictable and independent of any changes in the system. To forget about the cases where manipulations around python and packages break the shell unintended you can install xonsh with [`xonsh-install`](https://github.com/anki-code/xonsh-install/tree/main).
 
 ### Try xonsh without installation
 
