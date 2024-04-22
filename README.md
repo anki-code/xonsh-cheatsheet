@@ -1642,9 +1642,9 @@ The easiest way to start contribute to xonsh core:
     Create project based on xonsh code directory.
     Click "Run" - "Run..." - "Edit Configurations"
     Click "+" and choose "Python". Set:
-        Name: "xonsh"
-        Run (choose module): "xonsh"
-        Script parameters: "--no-rc"
+        Name: "xonsh".
+        Run: choose "module" and write "xonsh".
+        Script parameters: "--no-rc".
         Modify options: click "Emulate terminal in output console".
     Save settings.
     
