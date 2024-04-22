@@ -12,7 +12,7 @@ If you like the cheatsheet click ⭐ on the repo and <a href="https://twitter.co
 
 # What is xonsh?
 
-Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all Python-compatible systems, including Linux, macOS, and Windows. 
+Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all Python-compatible systems, including Linux, macOS, and Windows. The xonsh shell is developed by a community of 300+ volunteers and the xonsh philosophy based on the principle of cooperation.
 
 If you don't want to learn step by step jump to [demo examples](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#xonsh-basics).
 
@@ -1629,6 +1629,35 @@ The fancy prompt is the tip of the iceberg. Xonsh shell brings other important f
 ### Xonsh has issues! Why xonsh?
 
 Compared to 15-20-year-old shells, yeah, xonsh is a 5-year-old youngster. But we've used it over these 5 years day by day to solve our tasks with success and happiness :)
+
+# Become a xonsh contributor
+
+The easiest way to start contribute to xonsh core:
+
+1. Install IDE e.g. [PyCharm](https://www.jetbrains.com/pycharm/).
+2. Fork https://github.com/xonsh/xonsh and open in IDE.
+3. Install dev dependencies: `pip install '.[dev]'`.
+4. Setup IDE e.g. PyCharm:
+    ```
+    Create project based on xonsh code directory.
+    Click "Run" - "Run..." - "Edit Configurations"
+    Click "+" and choose "Python". Set:
+        Name: "xonsh"
+        Run (choose module): "xonsh"
+        Script parameters: "--no-rc"
+        Modify options: click "Emulate terminal in output console".
+    Save settings.
+    
+    Open `xonsh/procs/specs.py` and `def run_subproc` function.
+    Put breakpoint to `specs = cmds_to_specs` code. See also: https://www.jetbrains.com/help/pycharm/using-breakpoints.html
+    Click "Run" - "Debug..." - "xonsh". Now you can see xonsh prompt.
+    Run `echo 1` and now you're in the debug mode on the breakpoint.
+    Press F8 to step forward. Good luck!
+    ```
+5. Create git branch and solve [good first issue](https://github.com/xonsh/xonsh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+sort%3Areactions-%2B1-desc) or [popular issue](https://github.com/xonsh/xonsh/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc).
+6. Create pull request to xonsh.
+
+See also: [Xonsh Developer’s Guide](https://xon.sh/devguide.html).
 
 # Thank you!
 
