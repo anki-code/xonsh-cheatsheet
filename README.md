@@ -1645,6 +1645,7 @@ The easiest way to start contribute to xonsh core:
         Name: "xonsh".
         Run: choose "module" and write "xonsh".
         Script parameters: "--no-rc".
+        Environment variables: add ";XONSH_SHOW_TRACEBACK=1"
         Modify options: click "Emulate terminal in output console".
     Save settings.
     
