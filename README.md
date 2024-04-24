@@ -395,6 +395,8 @@ In xonsh shell the `$()` operator returns the output of the command. The command
 
 ### `$()` - capture and return output without printing stdout and stderr
 
+*Technical name of this operator: captured stdout.*
+
 Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
 showcmd $(echo -e '1\n2\r3 4\r\n5')    # Subproc mode
@@ -406,6 +408,8 @@ output
 ```
 
 ### `!()` - capture all and return object without printing stdout and stderr
+
+*Technical name of this operator: captured object or full capturing.*
 
 Captures stdout and returns [CommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
@@ -457,7 +461,11 @@ print(r)             # r will be converted to str and the ending will be forced
 # ...
 ```
 
+Note! When you're using full capturing the stdout and stderr will be captured and there will be no terminal (tty) connected. You can use this operator only for non interactive tools running. If you will do `!(ls | fzf)` or `!(python -c "input()")` the executed command will be suspended by POSIX OS ([1](https://www.linusakesson.net/programming/tty/), [2](http://curiousthing.org/sigttin-sigttou-deep-dive-linux)) because the process is waiting for input in background. Use uncaptured operators for interactive tools and read the futher materials around unthreadable mode to do things right.
+
 ### `$[]` - not capturing (return `None`), print stdout and stderr
+
+*Technical name of this operator: uncaptured mode.*
 
 Passes stdout to the screen and returns `None`:
 
@@ -471,6 +479,8 @@ repr(ret)
 This is the same as `echo 123`, but this syntax allows explicitly running a subprocess command.
 
 ### `![]` - print stdout/stderr and return hidden object
+
+*Technical name of this operator: uncaptured hidden object.*
 
 *Note! The behavior may be different if [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) is True or False (default).*
 
