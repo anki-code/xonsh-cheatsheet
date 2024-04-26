@@ -1640,7 +1640,9 @@ The fancy prompt is the tip of the iceberg. Xonsh shell brings other important f
 
 Compared to 15-20-year-old shells, yeah, xonsh is a 5-year-old youngster. But we've used it over these 5 years day by day to solve our tasks with success and happiness :)
 
-# Become a xonsh contributor
+# Become a xonsh developer and contributor
+
+## Setting up IDE
 
 The easiest way to start contribute to xonsh core:
 
@@ -1668,7 +1670,11 @@ The easiest way to start contribute to xonsh core:
 5. Create git branch and solve [good first issue](https://github.com/xonsh/xonsh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+sort%3Areactions-%2B1-desc) or [popular issue](https://github.com/xonsh/xonsh/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc).
 6. Create pull request to xonsh.
 
-See also: [Xonsh Developer’s Guide](https://xon.sh/devguide.html).
+## Docs for xonsh developer (draft)
+
+* Start from the setting up the IDE it's make development process much faster.
+* [Xonsh Developer’s Guide](https://xon.sh/devguide.html) has many words. In fact to start making PRs you just need to create a branch, make changes and create news file in `news` directory.
+* A bunch of tools and pointers to understand how to trace processes in [this comment](https://github.com/xonsh/xonsh/pull/5361#issuecomment-2078826181).
 
 # Thank you!
 
