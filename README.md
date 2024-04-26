@@ -1438,7 +1438,7 @@ with! Write('myapi.xsh', chmod=0o700):
     def index():
         result = $(echo -n hello from echo)  # run subprocess command
         return json.dumps({'result': result})
-    app.run()
+    app.run(host="127.0.0.1", port=5000)  # debug=True
 
 ./myapi.xsh
 # Running on http://127.0.0.1:5000
