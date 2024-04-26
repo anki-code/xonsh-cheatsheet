@@ -1444,8 +1444,8 @@ with! Write('myapi.xsh', chmod=0o700):
 ./myapi.xsh
 # Running on http://127.0.0.1:5000
 
-curl http://127.0.0.1:5000/echo
-# {"result": "hello from echo"}
+curl 'http://127.0.0.1:5000/echo?say=cow'
+# {"result": "cow"}
 ```
 Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/latest/#basic-authentication-examples).
 
