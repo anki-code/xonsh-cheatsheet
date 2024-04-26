@@ -1432,11 +1432,12 @@ cd /tmp
 from xontrib.macro.data import Write
 with! Write('myapi.xsh', chmod=0o700):
     import json
-    from flask import Flask
+    from flask import Flask, request
     app = Flask(__name__)
-    @app.route('/echo')
+    @app.route('/echo', methods=['GET'])
     def index():
-        result = $(echo -n hello from echo)  # run subprocess command
+        say = request.args.get('say')
+        result = $(echo -n @(say))  # run subprocess command
         return json.dumps({'result': result})
     app.run(host="127.0.0.1", port=5000)  # debug=True
 
