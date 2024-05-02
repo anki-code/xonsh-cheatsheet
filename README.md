@@ -375,7 +375,10 @@ You should clearly understand the difference:
 
 In sh-compatible shells, the [process substitution operator](https://en.wikipedia.org/wiki/Process_substitution) `$()` executes the command and then splits the output and uses those parts as arguments. The command `echo $(echo -e "1 2\n3")` will have three distinct arguments, `1`, `2` and `3` that will passed to the first `echo`.
 
-In xonsh shell the `$()` operator returns the output of the command. The command `echo $(echo -e "1 2\n3")` will have one argument, `1 2\n3\n` that will be passed to the first `echo`.
+In xonsh shell the `$()` operator is smarter (xonsh > 0.16.0):
+* Return the line if it's single line e.g. `$(whoami)` will return `'user'`.
+* Return [universal new lines](https://www.python.org/dev/peps/pep-0278/) for multiple line e.g. `$(ls)` will return `'1\n2\n3\n'`.
+* Finally you can switch the retult to lines completely by setting `$XONSH_SUBPROC_OUTPUT_FORMAT='list_lines'` or set your lambda function to process the lines.
 
 *Note:*
 
@@ -384,12 +387,11 @@ In xonsh shell the `$()` operator returns the output of the command. The command
     showcmd echo @$(echo "1\n2 3\n4")
     # ['echo', '1', '2', '3', '4']
     ```
-* *To transform the output to the lines for the arguments list you can use [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines) function and the python substitution:*
+* *To transform the output you can use python substitution e.g. use [splitlines](https://docs.python.org/3/library/stdtypes.html#str.splitlines):*
     ```python
     showcmd echo @($(echo "1\n2 3\n4").splitlines())  # the first echo will get three arguments: "1", "2 3", "4"
     # ['echo', '1', '2 3', '4']
     ```
-* *Not all xonsh users like this behavior of `$()` operator, and in the future, this may be changed. There is [a thread to discuss](https://github.com/xonsh/xonsh/issues/3924) this and the [Xonsh Enhancement Proposal #2](https://github.com/anki-code/xonsh-operators-proposal/blob/main/XEP-2.rst).*
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
