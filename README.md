@@ -1253,7 +1253,7 @@ for i in range(100):
 Ordinarily we have inherited environment and RC files when run `xonsh`. To rid of all of this run:
 
 ```xsh
-xonsh --no-rc --no-env  # Optionally add `-st readline` to use simple readline shell instead of huge prompt-toolkit.
+xonsh --no-rc --no-env  # Optionally add `-st readline` to use simple shell instead of huge prompt-toolkit.
 ```
 
 ### Make your own installable xonsh RC file
