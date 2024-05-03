@@ -1248,6 +1248,14 @@ for i in range(100):
 
 # Tips and tricks
 
+### Run super clean xonsh
+
+Ordinarily we have inherited environment and RC files when run `xonsh`. To rid of all of this run:
+
+```xsh
+xonsh --no-rc --no-env  # Optionally add `-st readline` to use simple readline shell instead of huge prompt-toolkit.
+```
+
 ### Make your own installable xonsh RC file
 
 Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
