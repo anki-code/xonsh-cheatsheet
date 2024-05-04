@@ -404,6 +404,9 @@ Captures stdout and returns single line or miltiline output with [universal new 
 $(whoami)    # Python mode
 # 'user'
 
+id $(whoami)  # Subproc mode
+# uid=501(user) gid=20(staff)
+
 showcmd $(echo -e '1\n2\r3 4\r\n5')    # Subproc mode
 # ['1\n2\n3 4\n5\n']
 
