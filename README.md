@@ -414,7 +414,7 @@ output
 
 You can change the behavior by setting `$XONSH_SUBPROC_OUTPUT_FORMAT` (xonsh > 0.16.0):
 
-```
+```xsh
 $XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'
 
 $(ls /)
