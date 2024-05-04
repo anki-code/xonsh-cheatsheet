@@ -367,7 +367,7 @@ You should clearly understand the difference:
 * *You can use the `showcmd` command to show the arguments list:*    
     ```python
     showcmd echo The @('arguments') @(['list', 'is']) $(echo here) "and" --say="hello" to you
-    # ['echo', 'The', 'arguments', 'list', 'is', 'here\n', 'and', '--say="hello"', 'to', 'you']]    
+    # ['echo', 'The', 'arguments', 'list', 'is', 'here', 'and', '--say="hello"', 'to', 'you']]    
     ```
 
 
@@ -399,14 +399,26 @@ In xonsh shell the `$()` operator is smarter (xonsh > 0.16.0):
 
 *Technical name of this operator: captured stdout.*
 
-Captures stdout and returns output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
+Captures stdout and returns single line or miltiline output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
+$(whoami)    # Python mode
+# 'user'
+
 showcmd $(echo -e '1\n2\r3 4\r\n5')    # Subproc mode
 # ['1\n2\n3 4\n5\n']
 
 output = $(echo -e '1\n2\r3 4\r\n5')   # Python mode 
 output
 # '1\n2\n3 4\n5\n'
+```
+
+You can change the behavior by setting `$XONSH_SUBPROC_OUTPUT_FORMAT` (xonsh > 0.16.0):
+
+```
+$XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'
+
+$(ls /)
+# ['/bin', '/etc', '/home']
 ```
 
 ### `!()` - capture all and return object without printing stdout and stderr
