@@ -401,6 +401,8 @@ In xonsh shell the `$()` operator is smarter (xonsh > 0.16.0):
 
 Captures stdout and returns single line or miltiline output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
+# xonsh > 0.16.0
+
 $(whoami)    # Python mode
 # 'user'
 
