@@ -1265,14 +1265,6 @@ for i in range(100):
 
 # Tips and tricks
 
-### Run super clean xonsh
-
-Ordinarily we have inherited environment and RC files when run `xonsh`. To rid of all of this run:
-
-```xsh
-xonsh --no-rc --no-env  # Optionally add `-st readline` to use simple shell instead of huge prompt-toolkit.
-```
-
 ### Make your own installable xonsh RC file
 
 Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
@@ -1475,6 +1467,15 @@ curl 'http://127.0.0.1:5000/echo?say=cow'
 # {"result": "cow"}
 ```
 Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/latest/#basic-authentication-examples).
+
+### Run pure xonsh engine
+
+Basically xonsh session loads RC files, inherit environment, uses dynamic colors, git callbacks in prompt, saves commands to history and more. Most of this features are disables in not interactive mode (`xonsh -c`). But in some cases you can want to rid of all features to reduce overhead on running completely. Here is the path: 
+
+```xsh
+xonsh --no-rc --no-env -DCOLOR_OUTPUT=0 -DCOLOR_INPUT=0 -DPROMPT=@ -DXONSH_HISTORY_BACKEND=dummy
+```
+Optionally add `-st readline` to use simpler shell instead of prompt-toolkit.
 
 ### Interactively debugging a script
 
