@@ -1706,6 +1706,11 @@ The easiest way to start contribute to xonsh core:
 * [Xonsh Developer’s Guide](https://xon.sh/devguide.html) has many words. In fact to start making PRs you just need to create a branch, make changes and create news file in `news` directory.
 * A bunch of tools and pointers to understand how to trace processes in [this comment](https://github.com/xonsh/xonsh/pull/5361#issuecomment-2078826181).
 
+## Pointers for developer
+
+* The main loop for interactive prompt: `main.py` -> `shell.shell.cmdloop()`.
+* The main function to run subprocess: `procs/specs.py` -> `run_subproc`.
+
 # Thank you!
 
 Thank you for reading! This cheatsheet is just the tip of the iceberg of the xonsh shell; you can find more in the [official documentation](https://xon.sh/contents.html#guides).
