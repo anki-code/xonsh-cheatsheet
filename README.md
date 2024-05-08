@@ -1686,7 +1686,7 @@ The easiest way to start contribute to xonsh core:
     Click "+" and choose "Python". Set:
         Name: "xonsh".
         Run: choose "module" and write "xonsh".
-        Script parameters: "--no-rc -DPYCHARM=1" (here "-D..." will help to identify process using ps).
+        Script parameters: "--no-rc -DPPP=1" (here "PPP" will help to identify process using `ps ax | grep PPP`).
         Environment variables: add ";XONSH_SHOW_TRACEBACK=1"
         Modify options: click "Emulate terminal in output console".
     Save settings.
