@@ -563,10 +563,19 @@ This is mostly [what bash's `$()` operator does](https://www.gnu.org/software/ba
 
 # [Environment Variables](https://xon.sh/tutorial.html#environment-variables)
 
+Three ways to get environment:
 ```python
-${...}            # Get the list of environment variables
-__xonsh__.env     # Get the list of environment variables using Python syntax
+${...}  # Get the list of environment variables.
 
+# Get the list of environment variables using Python syntax:
+__xonsh__.env  # Get the list of environment variables using builtin reference to xonsh session (__xonsh__)
+
+# Recommended for Python code and xontribs:
+from xonsh.built_ins import XSH  # Import current xonsh session.
+XSH.env  # Get the list of environment variables using xonsh session (XSH).
+```
+Operating with environment variables:
+```python
 $VAR = 'value'    # Set environment variable
 
 ENV = ${...}                # short typing
@@ -575,7 +584,7 @@ ENV.get('VAR', 'novalue')   # the good practice to have a fallback for missing v
 ENV.get('VAR2', 'novalue')  # the good practice to have a fallback for missing value
 # 'novalue'
 
-'VAR' in ${...}   # Check environment variable exists
+'VAR' in ENV   # Check environment variable exists
 #True
 
 ${'V' + 'AR'}     # Get environment variable value by name from expression
@@ -618,8 +627,8 @@ $PATH
 # )
 
 $PATH.append('/tmp')                             # Append path '/tmp' at end of $PATH list
-$PATH.insert(0, '/tmp')                          # Insert path '/tmp' at front of $PATH list
-# $PATH.prepend('/tmp')                          # (xonsh>0.15.1) Insert path '/tmp' at front of $PATH list
+$PATH.prepend('/tmp')                            # (xonsh>0.15.1) Insert path '/tmp' at front of $PATH list
+$PATH.insert(0, '/tmp')                          # Insert path '/tmp' to appropriate position of $PATH list
 $PATH.remove('/tmp')                             # Remove path '/tmp' (first match)
 
 $PATH.add(p"~/bin", front=True, replace=True))   # Insert path '~/bin' at front of $PATH list and replace existing entries
