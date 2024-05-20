@@ -863,6 +863,19 @@ m!(if True:
     pass)
 # 'if True:\n    pass'
 ```
+Real life example:
+```xsh
+def from_json(cmd):
+    import json
+    return json.loads(evalx(f"$({cmd})"))
+
+o = from_json!(echo '{"a":1}')
+
+o
+#{'a': 1}
+type(o)
+# dict
+```
 
 ## [Subprocess Macros](https://xon.sh/tutorial_macros.html#subprocess-macros)
 
