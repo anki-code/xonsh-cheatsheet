@@ -428,7 +428,7 @@ $(ls /)
 
 ### `!()` - capture all and return object without printing stdout and stderr
 
-*Technical name of this operator: captured object or full capturing.*
+*Technical name of this operator: captured object or full capturing with non blocking mode.*
 
 Captures stdout and returns [CommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
@@ -458,7 +458,7 @@ for l in ret:
 
 ```
 
-Note! In some cases, to get the output you need to convert an object to a string or invoke [`.end()`](https://github.com/xonsh/xonsh/blob/6d58fb5bf7c62fa5c56721b62f40b214f83822eb/xonsh/procs/pipelines.py#L450-L459) manually or use the `.out`:
+Note! This is non blocking operator: no waiting for enging output. In some cases, to get the output you need to convert an object to a string, invoke [`.end()`](https://github.com/xonsh/xonsh/blob/6d58fb5bf7c62fa5c56721b62f40b214f83822eb/xonsh/procs/pipelines.py#L450-L459) or use the `.out` to force ending the process and reat output from internal buffers:
 
 ```xsh
 r = !(ls /)
