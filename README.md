@@ -865,12 +865,8 @@ m!(if True:
 ```
 Real life example:
 ```xsh
-def from_json(cmd):
-    import json
-    return json.loads(evalx(f"$({cmd})"))
-
+from_json = lambda cmd: __import__("json").loads(evalx(f"$({cmd})"))
 o = from_json!(echo '{"a":1}')
-
 o
 #{'a': 1}
 type(o)
