@@ -781,6 +781,8 @@ echo 'hello:\n  world: 42' | y2j
 # }
 ```
 
+*Note! Callable alias is not bring magic in your life (yet). Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
+
 ## Abbrevs
 
 There is [xontrib-abbrevs](https://github.com/xonsh/xontrib-abbrevs) as an alternative to aliases. You can create abbrev and set the position of editing:
