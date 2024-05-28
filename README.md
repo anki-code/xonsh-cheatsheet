@@ -397,7 +397,7 @@ In xonsh shell the `$()` operator is smarter (xonsh > 0.16.0):
 
 Xonsh runs subprocess commands or callable aliases using threading prediction mechanism that simply called "threading" or "(un)threadable" words. This threading prediction was introduced to have an ability to capture any output from processes that are completely non interactive e.g. `echo` or `grep`. When you run `!(echo 1)` the `echo` process will be predicted as thredable and current terminal will be detached and stdout, stderr and everything will be captured.
 
-This threading prediction mechanism requires has two issues:
+The threading prediction mechanism:
 * It requires the clear understanding of how it works from the developer who want to use capturable operators with complex tasks.
 * It has edge cases and some expectations can't be realised without improving the xonsh core logic - it's mostly related to mixing callable aliases with subprocess command.
 
