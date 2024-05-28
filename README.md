@@ -480,7 +480,7 @@ for l in ret:
 
 ```
 
-Note! This is non blocking operator: no waiting for enging output. In some cases, to get the output you need to convert an object to a string, invoke [`.end()`](https://github.com/xonsh/xonsh/blob/6d58fb5bf7c62fa5c56721b62f40b214f83822eb/xonsh/procs/pipelines.py#L450-L459) or use the `.out` to force ending the process and reat output from internal buffers:
+Note! This is non blocking operator: no waiting for enging output. To get the output you need to convert an object to a string, invoke [`.end()`](https://github.com/xonsh/xonsh/blob/6d58fb5bf7c62fa5c56721b62f40b214f83822eb/xonsh/procs/pipelines.py#L450-L459), ask for `.rtn` or use the `.out` to force ending the process and read output from internal buffers:
 
 ```xsh
 r = !(ls /)
