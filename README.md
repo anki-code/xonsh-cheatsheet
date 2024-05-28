@@ -781,7 +781,7 @@ echo 'hello:\n  world: 42' | y2j
 # }
 ```
 
-*Note! Callable alias is not bring magic in your life (yet). Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
+*Note! Callable alias is not bringing magic in your life (yet). Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
 
 ## Abbrevs
 
