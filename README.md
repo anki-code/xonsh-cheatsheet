@@ -1219,75 +1219,37 @@ imp
 # I am import
 ```
 
+### Uncaptured output
+
+If you want to capture the output from a tool that basically interactive but has captured mode.
+For example basically `ssh` return the remote terminal that should be unthredable and uncapturable.
+But if you use it for getting the data from remote host you would like to capture it.
+There are three workarounds:
+
+```xsh
+!(xthread ssh host -T "echo 1")  # switch to thread - xonsh > 0.16.0
+#CommandPipeline(returncode=0, output='1\n')
+
+!(echo 123 | head)  # stream to captured
+#CommandPipeline(returncode=0, output='123\n')
+
+!(bash -c "echo 123")  # wrap to capturable tool
+#CommandPipeline(returncode=0, output='123\n')
+```
 
 ### Frozen terminal in interactive tools
 
-If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not working), this can be that the tool was interpreted as a threaded and capturable program but the tool actually has interactive elements that expect input from the user. There are four workarounds:
+If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not working), this can be that the tool was interpreted as a threaded and capturable program but the tool actually has interactive elements that expect input from the user. There are bunch of workarounds:
 
-1. Disable [THREAD_SUBPROCS](https://xon.sh/envvars.html#thread-subprocs):
+```xsh
+xunthread ./tool.sh
 
-    ```python
-    with ${...}.swap(THREAD_SUBPROCS=False):
-          ./tool.sh
-    ```
+with ${...}.swap(THREAD_SUBPROCS=False):
+      ./tool.sh
 
-2. Run the tool in uncaptured mode:
+$[./tool.sh]
+```
 
-    ```python
-    $[./tool.sh]
-    ```
-
-3. Set the unthreadable predictor (or use [unthreadable](https://github.com/xonsh/xonsh/issues/4214#issuecomment-830776107) alias):
-
-    ```python
-    __xonsh__.commands_cache.threadable_predictors['tool.sh'] = lambda *a, **kw: False  # use the pure name of the tool
-    ./tool.sh
-    ```
-
-4. Finally, check [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) value.
-
-### Uncaptured output
-
-If you want to capture the output of a tool but it's not captured, there are three workarounds:
-
-1. Add the `head` or `cat` tool at the end of the pipeline to force using the threadable mode:
-
-    ```python
-    !(echo 123 | head -n 1000)
-    #CommandPipeline(
-    #  returncode=0,
-    #  output='123\n',
-    #  errors=None
-    #)
-    ```
-
-2. Change threading prediction for this tool:
-
-    Basically `ssh` return the remote terminal that should be unthredable and uncapturable.
-    But if you use it for getting the data from remote host you would like to capture it.
-    You can modify the commands cache or use [unthreadable](https://github.com/xonsh/xonsh/issues/4214#issuecomment-830776107) alias.
-
-    ```python
-    __xonsh__.commands_cache.threadable_predictors['ssh'] = lambda *a, **kw: True
-
-    !(ssh host -T "echo 1")
-    #CommandPipeline(
-    #  returncode=0,
-    #  output='1\n',
-    #  errors=None
-    #)
-    ```
-
-4. Wrap the tool into a bash subprocess:
-
-    ```python
-    !(bash -c "echo 123")
-    #CommandPipeline(
-    #  returncode=0,
-    #  output='123\n',
-    #  errors=None
-    #)
-    ```
 
 # Tips and tricks
 
