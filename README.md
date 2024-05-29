@@ -375,7 +375,7 @@ You should clearly understand the difference:
 
 In sh-compatible shells, the [process substitution operator](https://en.wikipedia.org/wiki/Process_substitution) `$()` executes the command and then splits the output and uses those parts as arguments. The command `echo $(echo -e "1 2\n3")` will have three distinct arguments, `1`, `2` and `3` that will passed to the first `echo`.
 
-In xonsh shell the `$()` operator is smarter (xonsh > 0.16.0):
+In xonsh shell the `$()` operator is smarter (xonsh >= 0.17.0):
 * Return the line if it's single line e.g. `$(whoami)` will return `'user'`.
 * Return [universal new lines](https://www.python.org/dev/peps/pep-0278/) for multiple lines e.g. `$(ls)` will return `'1\n2\n3\n'`.
 * Finally you can switch the retult to lines completely by setting `$XONSH_SUBPROC_OUTPUT_FORMAT='list_lines'` or set your lambda to process the lines.
@@ -423,7 +423,7 @@ How to change the predicted value you can find below :)
 
 Captures stdout and returns single line or miltiline output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
-# xonsh > 0.16.0
+# xonsh >= 0.17.0
 
 $(whoami)    # Python mode
 # 'user'
@@ -439,7 +439,7 @@ output
 # '1\n2\n3 4\n5\n'
 ```
 
-You can change the behavior by setting `$XONSH_SUBPROC_OUTPUT_FORMAT` (xonsh > 0.16.0):
+You can change the behavior by setting `$XONSH_SUBPROC_OUTPUT_FORMAT` (xonsh >= 0.17.0):
 
 ```xsh
 $XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'
@@ -1227,7 +1227,7 @@ But if you use it for getting the data from remote host you would like to captur
 There are three workarounds:
 
 ```xsh
-!(xthread ssh host -T "echo 1")  # switch to thread - xonsh > 0.16.0
+!(xthread ssh host -T "echo 1")  # switch to thread - xonsh >= 0.17.0
 #CommandPipeline(returncode=0, output='1\n')
 
 !(echo 123 | head)  # stream to captured
