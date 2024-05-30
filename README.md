@@ -781,7 +781,9 @@ echo 'hello:\n  world: 42' | y2j
 # }
 ```
 
-*Note! Callable alias is not bringing magic in your life (yet). Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
+*Note! Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
+
+*Calambur! The callable alias could be shortanized to Callias. The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
 ## Abbrevs
 
