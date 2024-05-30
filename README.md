@@ -783,7 +783,7 @@ echo 'hello:\n  world: 42' | y2j
 
 *Note! Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
 
-*Calambur! The CALLable alIAS could be shortanized to Callias. The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
+*Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
 ## Abbrevs
 
