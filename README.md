@@ -1685,6 +1685,7 @@ The easiest way to start contribute to xonsh core:
         Name: "xonsh".
         Run: choose "module" and write "xonsh".
         Script parameters: "--no-rc -DPPP=1" (here "PPP" will help to identify process using `ps ax | grep PPP`).
+        Working directory: "/tmp"  # to avoid corrupting the source code during experiments
         Environment variables: add ";XONSH_SHOW_TRACEBACK=1"
         Modify options: click "Emulate terminal in output console".
     Save settings.
