@@ -1676,7 +1676,7 @@ The easiest way to start contribute to xonsh core:
 
 1. Install IDE e.g. [PyCharm](https://www.jetbrains.com/pycharm/).
 2. Fork https://github.com/xonsh/xonsh and open in IDE.
-3. Install dev dependencies: `pip install '.[dev]'` (you need pip >= 24).
+3. Install dev dependencies: `pip install '.[dev]'` (you need pip >= 24, update it: `python -m pip install -U pip`).
 4. Setup IDE e.g. PyCharm:
     ```
     Create project based on xonsh code directory.
