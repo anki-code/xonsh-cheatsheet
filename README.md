@@ -781,7 +781,26 @@ echo 'hello:\n  world: 42' | y2j
 # }
 ```
 
-*Note! Do not expect that if you wrap the uncapturable and unthreadable process into callable alias it becomes capturable and threadable. Read notes about threading above.*
+Capturing:
+
+Callable aliases tend to be capturable. Only the explicitly denoted uncaptured subprocess operator `$[]` is uncapturable, and the subprocess's stdout passes directly through xonsh to the screen.
+
+```xsh
+@aliases.register('hunter')
+def _hunter():
+    print('catch me')
+    echo if
+    $[echo you]
+    ![echo can]
+hunter
+# catch me
+# if
+# you
+# can
+$(hunter)
+# you
+# 'catch me\nif\ncan\n'
+```
 
 *Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
