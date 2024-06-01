@@ -736,8 +736,8 @@ args 1 2 3
 
 Simple definition with [decorator](https://wiki.python.org/moin/PythonDecorators#What_is_a_Python_Decorator):
 ```xsh
-@aliases.register("hello")
-def __hello():
+@aliases.register
+def _hello():
     echo world
     
 hello
@@ -786,7 +786,7 @@ Capturing:
 Callable aliases tend to be capturable. Only the explicitly denoted uncaptured subprocess operator `$[]` is uncapturable, and the subprocess's stdout passes directly through xonsh to the screen.
 
 ```xsh
-@aliases.register('hunter')
+@aliases.register
 def _hunter():
     print('catch me')
     echo if
