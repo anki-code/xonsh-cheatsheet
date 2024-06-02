@@ -702,6 +702,21 @@ $(echo-new -n hello)
 # 'hello new'
 ```
 
+Easy switch environment using alias:
+
+```xsh
+aliases['lines'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
+aliases['stream'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'stream_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
+lines
+# list_lines
+$(ls)
+# ['file1', 'file2', 'file3']
+stream
+# stream_lines
+$(ls)
+# 'file1\nfile2\nfile3\n'
+```
+
 Also with handy `"""`-string to use `"` and `'` without escaping:
 
 ```python
