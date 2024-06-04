@@ -417,7 +417,13 @@ How to change the predicted value you can find below :)
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
-### Overview
+### Short overview
+
+Short description:
+* `$()` is to run processes and capture the stdout. Almost the same as in traditional shells.
+* `!()` is to run asynchronous threadable (capturable) processes.
+* `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you write plain commands in the terminal.
+* `$[]` is to run processes without any capturing and any catching the result.
 
 | Operator | `$()` | `!()` | `![]` | `$[]` |
 | -------- | ----- | ----- | ------------ | ---- |
