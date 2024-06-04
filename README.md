@@ -421,7 +421,7 @@ How to change the predicted value you can find below :)
 
 Short description:
 * `$()` is to run processes and capture the stdout. Almost the same as in traditional shells.
-* `!()` is to run asynchronous threadable (capturable) processes.
+* `!()` is to run sync or async threadable (capturable) processes. The terminal is detached for the process in this mode to deliver non-blocking behavior.
 * `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you write plain commands in the terminal.
 * `$[]` is to run processes without any capturing and any catching the result.
 
