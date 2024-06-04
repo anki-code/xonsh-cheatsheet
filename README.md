@@ -433,7 +433,7 @@ if ![ls @(file)]:
     head @(file)
 
 worker1 = !(sleep 3)  # non-blocking
-echo Something is happening while worker1 is working.
+echo 'Something is happening while worker1 is working.'
 if worker1.rtn == 0:  # blocking
     echo worker1 is done
 
