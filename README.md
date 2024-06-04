@@ -423,7 +423,7 @@ Operators:
 * `$()` is to run processes and capture the stdout. Almost the same as in traditional shells.
 * `!()` is to run sync or async threadable (capturable) processes. The terminal is detached for the process in this mode to deliver non-blocking behavior.
 * `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you run plain commands in the terminal.
-* `$[]` is to run processes without any capturing and any catching the result.
+* `$[]` is to run processes without any capturing and any catching the result. Use it if you want to explicitly write the subprocess command.
 
 ```xsh
 id $(whoami)  # xonsh >= 0.17.0
