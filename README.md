@@ -417,9 +417,25 @@ How to change the predicted value you can find below :)
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
+```xsh
+id $(whoami)  # xonsh >= 0.17.0
+
+file = p'~/.xonshrc'
+if ![ls @(file)]:
+    head @(file)
+
+worker1 = !(sleep 3)
+echo Now worker2 is doing job while worker1 is sleeping.
+worker2 = $(echo job)
+if worker1.rtn == 0:
+    echo worker1 is ready
+
+$[vim ~/.xonshrc]
+```
+
 ### Short overview
 
-Short description:
+Operators:
 * `$()` is to run processes and capture the stdout. Almost the same as in traditional shells.
 * `!()` is to run sync or async threadable (capturable) processes. The terminal is detached for the process in this mode to deliver non-blocking behavior.
 * `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you run plain commands in the terminal.
