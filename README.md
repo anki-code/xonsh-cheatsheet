@@ -451,8 +451,8 @@ From tech side:
 | Return | stdout lines | CommandPipeline | CommandPipeline | `None` |
 
 Here:
-* Threadable (capturable) process is the process without any interaction with user.
-* Capturing "strict no" means that stream will be passed to the main terminal in any case.
+* Threadable (capturable) process is the process without any interaction with user. Note that if unthreadable process will run with detached terminal it will be suspended by OS automatically.
+* Capturing "strict no" means that stream will be passed to the main terminal from any place of calling.
 
 ### `$()` - capture and return output without printing stdout and stderr
 
