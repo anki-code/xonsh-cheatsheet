@@ -417,6 +417,20 @@ How to change the predicted value you can find below :)
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
+### Overview
+
+| Operator | `$()` | `!()` | `![]` | `$[]` |
+| -------- | ----- | ----- | ------------ | ---- |
+| Blocking | yes | no | yes | yes |
+| Capture stdout | yes | yes for threadable | no | strict no |
+| Capture stderr | no | yes for threadable | no | strict no |
+| Attach TTY | yes | no | yes | yes |
+| Return | stdout lines | CommandPipeline | CommandPipeline | `None` |
+
+Here:
+* Threadable (capturable) process is the process without any interaction with user.
+* Capturing "strict no" means that stream will be passed to the main terminal in any case.
+
 ### `$()` - capture and return output without printing stdout and stderr
 
 *Technical name of this operator: captured stdout.*
