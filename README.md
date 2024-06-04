@@ -432,10 +432,10 @@ file = p'~/.xonshrc'
 if ![ls @(file)]:
     head @(file)
 
-worker1 = !(sleep 3)
+worker1 = !(sleep 3)  # non-blocking
 echo Now worker2 is doing job while worker1 is sleeping.
 worker2 = $(echo job)
-if worker1.rtn == 0:
+if worker1.rtn == 0:  # blocking
     echo worker1 is ready
 
 $[vim ~/.xonshrc]
