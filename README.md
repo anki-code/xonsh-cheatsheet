@@ -1747,45 +1747,7 @@ Compared to 15-20-year-old shells, yeah, xonsh is a 5-year-old youngster. But we
 
 # Become a xonsh developer and contributor
 
-## Setting up IDE
-
-The easiest way to start contribute to xonsh core:
-
-1. Install IDE e.g. [PyCharm](https://www.jetbrains.com/pycharm/).
-2. Fork https://github.com/xonsh/xonsh and open in IDE.
-3. Install dev dependencies: `pip install '.[dev]'` (you need pip >= 24, update it: `python -m pip install -U pip`).
-4. Setup IDE e.g. PyCharm:
-    ```
-    Create project based on xonsh code directory.
-    Click "Run" - "Run..." - "Edit Configurations"
-    Click "+" and choose "Python". Set:
-        Name: "xonsh".
-        Run: choose "module" and write "xonsh".
-        Script parameters: "--no-rc -DPPP=1" (here "PPP" will help to identify process using `ps ax | grep PPP`).
-        Working directory: "/tmp"  # to avoid corrupting the source code during experiments
-        Environment variables: add ";XONSH_SHOW_TRACEBACK=1"
-        Modify options: click "Emulate terminal in output console".
-    Save settings.
-    
-    Open `xonsh/procs/specs.py` and `def run_subproc` function.
-    Put breakpoint to `specs = cmds_to_specs` code. See also: https://www.jetbrains.com/help/pycharm/using-breakpoints.html
-    Click "Run" - "Debug..." - "xonsh". Now you can see xonsh prompt.
-    Run `echo 1` and now you're in the debug mode on the breakpoint.
-    Press F8 to step forward. Good luck!
-    ```
-5. Create git branch and solve [good first issue](https://github.com/xonsh/xonsh/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+sort%3Areactions-%2B1-desc) or [popular issue](https://github.com/xonsh/xonsh/issues?q=is%3Aissue+is%3Aopen+sort%3Areactions-%2B1-desc).
-6. Create pull request to xonsh.
-
-## Docs for xonsh developer (draft)
-
-* Start from the setting up the IDE it's make development process much faster.
-* [Xonsh Developer’s Guide](https://xon.sh/devguide.html) has many words. In fact to start making PRs you just need to create a branch, make changes and create news file in `news` directory.
-* A bunch of tools and pointers to understand how to trace processes in [this comment](https://github.com/xonsh/xonsh/pull/5361#issuecomment-2078826181).
-
-## Pointers for developer
-
-* The main loop for interactive prompt: `main.py` -> `shell.shell.cmdloop()`.
-* The main function to run subprocess: `procs/specs.py` -> `run_subproc`.
+Moved to [xonsh-developer-toolkit](https://github.com/anki-code/xonsh-developer-toolkit).
 
 # Thank you!
 
