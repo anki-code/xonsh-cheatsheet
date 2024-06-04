@@ -423,7 +423,7 @@ Operators:
 
 * `$()` is to run processes and capture the stdout. Almost the same as in traditional shells.
 
-* `!()` is to run sync or async threadable (capturable) processes. The terminal is detached for the process in this mode to deliver non-blocking behavior.
+* `!()` is to run sync or async threadable (capturable) processes. The terminal is detached for the process in this mode to deliver non-blocking behavior. To block the process and wait for result use `.end()`, `.out`, `.rtn` and other attributes that forces getting the result.
 
 * `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you run plain commands in the terminal.
 
@@ -434,9 +434,9 @@ Examples:
 ```xsh
 id $(whoami)  # xonsh >= 0.17.0
 
-worker1 = !(sleep 3)  # non-blocking
+worker1 = !(sleep 3)  # Non-blocking.
 echo 'Something is happening while worker1 is working.'
-if worker1.rtn == 0:  # blocking
+if worker1.rtn == 0:  # Blocking. The `.rtn` attribute call has `.end()` under the hood.
     echo worker1 is done
 
 file = p'~/.xonshrc'
