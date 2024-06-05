@@ -453,7 +453,8 @@ From tech side:
 | Blocking | yes | no | yes | yes |
 | Capture stdout | yes | yes for threadable | no | strict no |
 | Capture stderr | no | yes for threadable | no | strict no |
-| Attach TTY | yes | no | yes | yes |
+| Attach TTY input | yes | no | yes | yes |
+| Attach TTY output | no for threadable | no for threadable | no for threadable | yes |
 | Return | stdout lines | CommandPipeline | CommandPipeline | `None` |
 
 Here:
