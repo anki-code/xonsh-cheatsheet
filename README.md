@@ -446,7 +446,7 @@ if ![ls @(file)]:
 $[vim ~/.xonshrc]
 ```
 
-From tech side:
+From tech side (most of the behavior is dictated by OS):
 
 | Operator | `$()` | `!()` | `![]` | `$[]` |
 | -------- | ----- | ----- | ------------ | ---- |
