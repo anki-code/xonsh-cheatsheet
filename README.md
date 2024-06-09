@@ -776,6 +776,8 @@ scmd 1 2 cutme 3
 
 ## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
 
+*Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
+
 ```python
 def _myargs1(args):
 #def _myargs2(args, stdin=None):
@@ -861,11 +863,15 @@ $(hunter)
 # 'catch me\nif\ncan\n'
 ```
 
-Note:
-* Do not use callable alias in the loops. Callable alias is not the right choice for doing work in cycles. Instead of this create python function.
-* Avoid using callable aliases in pipes. Callable aliases mostly created to run work one time from prompt.
+Note that callable aliases are not recommended for doing hard work and the main use case for callable alias is group the commands to reuse in command prompt. So:
 
-*Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
+* Do not use callable alias in the loops. Instead of this create python function.
+
+* Avoid using callable alias in pipes. If you need pipe use `stdout` provided as argument in callable alias to print output.
+
+* If you notices that callable alias is growing think about convert it to executable script.
+
+These strong recommendations are based on how things work. We hope that the logic behind callable aliases will improve in future releases.
 
 ## Abbrevs
 
