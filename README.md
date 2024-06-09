@@ -861,6 +861,10 @@ $(hunter)
 # 'catch me\nif\ncan\n'
 ```
 
+Note:
+* Do not use callable alias in the loops. Callable alias is not the right choice for doing work in cycles. Instead of this create python function.
+* Avoid using callable aliases in pipes. Callable aliases mostly created to run work one time from prompt.
+
 *Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
 ## Abbrevs
