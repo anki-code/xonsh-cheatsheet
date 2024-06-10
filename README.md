@@ -1357,9 +1357,31 @@ echo Hello again @(_name)
 # Hello again Mike
 ```
 
-### From aliases to CLI apps
+### Jump from aliases to CLI apps
 
 If you realize that your alias becomes the app it's time to look at [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app).
+
+### Make interruption tolerant transactions
+
+When you have group of commands (transaction) it's good to use `DisableInterrupt` from [xontrib-macro](https://github.com/anki-code/xontrib-macro):
+
+```xsh
+from xontrib.macro.signal import DisableInterrupt
+
+echo start
+with! DisableInterrupt():
+    echo 'sleep start'
+    sleep 10
+    echo 'sleep end'
+echo finish
+
+# start
+# sleep start
+# [Press Ctrl+C]
+# KeyboardInterrupt will be raised at the end of current transaction.
+# sleep end
+# Exception KeyboardInterrupt: KeyboardInterrupt was received during transaction.
+```
 
 ### Using a text block in the command line
 
