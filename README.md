@@ -778,7 +778,7 @@ scmd 1 2 cutme 3
 
 ## Function as an alias for group of commands
 
-Just write the function like you're doing this in Python:
+Ordinarily "alias" word refers to a subprogram that has exit code and arguments for subprocess mode. In xonsh you can group commands and reuse it as Python functions or classes:
 
 ```xsh
 def hello(name):
