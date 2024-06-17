@@ -787,6 +787,16 @@ def hello(name):
 hello('Alex')
 # hello Alex
 ```
+or class:
+```xsh
+class my:
+    @classmethod
+    def hello(cls, name):
+        echo hello @(name)
+
+my.hello('Alex')
+# hello Alex
+```
 
 ## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
 
