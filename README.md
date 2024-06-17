@@ -776,6 +776,18 @@ scmd 1 2 cutme 3
 #['1', '2', '3']
 ```
 
+## Function as an alias for group of commands
+
+Just write the function like you're doing this in Python:
+
+```xsh
+def hello(name):
+    echo hello @(name)
+
+hello('Alex')
+# hello Alex
+```
+
 ## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
 
 ```python
