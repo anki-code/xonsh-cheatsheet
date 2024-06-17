@@ -465,7 +465,7 @@ Here:
 
 ### `$()` - capture and return output without printing stdout and stderr
 
-*Technical name of this operator: captured stdout.*
+*Technical name of this operator: captured stdout. Python call: `__xonsh__.subproc_captured_stdout()`.*
 
 Captures stdout and returns single line or miltiline output with [universal new lines](https://www.python.org/dev/peps/pep-0278/):
 ```python
@@ -496,7 +496,7 @@ $(ls /)
 
 ### `!()` - capture all and return object without printing stdout and stderr
 
-*Technical name of this operator: captured object or full capturing with non blocking mode.*
+*Technical name of this operator: captured object or full capturing with non blocking mode. Python call: `__xonsh__.subproc_captured_object()`*
 
 Captures stdout and returns [CommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.CommandPipeline). Truthy if successful (returncode == 0), compares to, iterates over lines of stdout:
   
@@ -552,7 +552,7 @@ Note! When you're using full capturing the stdout and stderr will be captured an
 
 ### `$[]` - not capturing (return `None`), print stdout and stderr
 
-*Technical name of this operator: uncaptured mode.*
+*Technical name of this operator: uncaptured mode. Python call: `__xonsh__.subproc_uncaptured()`.*
 
 Passes stdout to the screen and returns `None`:
 
@@ -567,7 +567,7 @@ This is the same as `echo 123`, but this syntax allows explicitly running a subp
 
 ### `![]` - print stdout/stderr and return hidden object
 
-*Technical name of this operator: uncaptured hidden object.*
+*Technical name of this operator: uncaptured hidden object. Python call: `__xonsh__.subproc_captured_hiddenobject()`*
 
 *Note! The behavior may be different if [`$XONSH_CAPTURE_ALWAYS`](https://xon.sh/envvars.html#xonsh-capture-always) is True or False (default).*
 
@@ -622,6 +622,8 @@ echo -n '!' | @(lambda args, stdin: 'Callable' + stdin.read())
 ```
 
 ### `@$()` - split output of the command by white spaces for arguments list
+
+*Technical name: captured inject output. API call: `__xonsh__.subproc_captured_inject()`*
 
 ```python
 showcmd @$(echo -e '1\n2\r3 4\r\n5')
