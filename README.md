@@ -457,7 +457,7 @@ From tech side (most of the behavior is dictated by OS):
 | Capture stderr | no | yes for threadable | no | strict no |
 | Attach TTY input | yes | no | yes | yes |
 | Attach TTY output | no for threadable | no for threadable | no for threadable | yes |
-| Return | stdout | CommandPipeline | CommandPipeline | `None` |
+| Return | stdout | CommandPipeline | HiddenCommandPipeline | `None` |
 
 Here:
 * Threadable (capturable) process is the process without any interaction with user. Note that if unthreadable process will run with detached terminal it will be suspended by OS automatically.
