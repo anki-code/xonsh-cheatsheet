@@ -427,9 +427,9 @@ Operators:
 
 * `!()` is to run sync or async threadable (capturable) processes. The terminal is detached for the process in this mode to deliver non-blocking behavior. To block the process and wait for result use `.end()`, `.out`, `.rtn` and other attributes that forces getting the result.
 
-* `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you run plain commands in the terminal.
+* `![]` is to run processes without any capturing but return CommandPipeline with base info: pid, return code, timinig, etc. This operator is working when you run plain commands e.g. just `echo hello`.
 
-* `$[]` is to run processes without any capturing and any catching the result. Use it if you want to explicitly write the subprocess command.
+* `$[]` is to run processes without any capturing and any catching the result. Use it for uncapturable processes (e.g. `vim`) if you want to stream output directly to the terminal and without any capturing.
 
 Examples:
 
