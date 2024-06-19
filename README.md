@@ -892,6 +892,36 @@ $(hunter)
 
 *Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
+### Specification Modifier Aliases
+
+`SpecAttrModifierAlias` changes command specification before execution:
+
+```xsh
+from xonsh.procs.specs import SpecAttrModifierAlias
+aliases['xlines'] = SpecAttrModifierAlias({"output_format": 'list_lines'}, "Set `list_lines` output format.")
+aliases['xnoerr'] = SpecAttrModifierAlias({"raise_subproc_error": False}, "Set `raise_subproc_error` to False.")
+
+$(xlines ls /)
+# ['/bin', '/etc', '/home']
+
+$RAISE_SUBPROC_ERROR = True
+if ![xnoerr ls nononofile]:  # Do not raise exception in case of error.
+    echo file 
+```
+Using `SpecModifierAlias` and callable `output_format` you can create transformer:
+```xsh
+from xonsh.procs.specs import SpecModifierAlias
+class SpecModifierOutputJsonAlias(SpecModifierAlias):
+    def on_modifer_added(self, spec):
+        def lines_to_json(lines):
+            import json
+            return json.loads('\n'.join(lines))
+        spec.output_format = lines_to_json
+aliases['xjson'] = SpecModifierOutputJsonAlias()
+
+$(xjson echo '{"a":1}')  # Try with `curl`.
+# {"a":1}
+```
 
 ## Abbrevs
 
