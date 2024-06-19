@@ -921,7 +921,7 @@ class SpecModifierOutputJsonAlias(SpecModifierAlias):
 aliases['xjson'] = SpecModifierOutputJsonAlias()
 
 $(xjson echo '{"a":1}')  # Try with `curl`.
-# {"a":1}
+# dict({"a":1})
 ```
 
 ## Abbrevs
