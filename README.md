@@ -910,13 +910,14 @@ if ![xnoerr ls nononofile]:  # Do not raise exception in case of error.
 ```
 Using `SpecModifierAlias` and callable `output_format` you can create transformer:
 ```xsh
+import json
 from xonsh.procs.specs import SpecModifierAlias
 class SpecModifierOutputJsonAlias(SpecModifierAlias):
+    @staticmethod
+    def lines_to_json(lines):
+        return json.loads('\n'.join(lines))
     def on_modifer_added(self, spec):
-        def lines_to_json(lines):
-            import json
-            return json.loads('\n'.join(lines))
-        spec.output_format = lines_to_json
+        spec.output_format = self.lines_to_json
 aliases['xjson'] = SpecModifierOutputJsonAlias()
 
 $(xjson echo '{"a":1}')  # Try with `curl`.
