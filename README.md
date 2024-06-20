@@ -898,14 +898,14 @@ $(hunter)
 
 ```xsh
 from xonsh.procs.specs import SpecAttrModifierAlias
-aliases['xlines'] = SpecAttrModifierAlias({"output_format": 'list_lines'}, "Set `list_lines` output format.")
-aliases['xnoerr'] = SpecAttrModifierAlias({"raise_subproc_error": False}, "Set `raise_subproc_error` to False.")
+aliases['@lines'] = SpecAttrModifierAlias({"output_format": 'list_lines'}, "Set `list_lines` output format.")
+aliases['@noerr'] = SpecAttrModifierAlias({"raise_subproc_error": False}, "Set `raise_subproc_error` to False.")
 
-$(xlines ls /)
+$(@lines ls /)
 # ['/bin', '/etc', '/home']
 
 $RAISE_SUBPROC_ERROR = True
-if ![xnoerr ls nononofile]:  # Do not raise exception in case of error.
+if ![@noerr ls nononofile]:  # Do not raise exception in case of error.
     echo file 
 ```
 Using `SpecModifierAlias` and callable `output_format` you can create transformer:
@@ -922,18 +922,18 @@ class SpecModifierReturnObjAlias(SpecModifierAlias):
         spec.output_format = self.f
 
 # Eggs
-aliases['xjson'] = SpecModifierReturnObjAlias(lambda lines: imp.json.loads('\n'.join(lines)))
-aliases['xpath'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'.join(lines)))
+aliases['@json'] = SpecModifierReturnObjAlias(lambda lines: imp.json.loads('\n'.join(lines)))
+aliases['@path'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'.join(lines)))
 
 # Cookies:
 
-$(xjson echo '{"a":1}')  # Try with `curl` ;)
+$(@json echo '{"a":1}')  # Try with `curl` ;)
 # dict({"a":1})
 
-$(xpath which xonsh)
+$(@path which xonsh)
 # Path('/path/to/xonsh')
 
-$(xpath which xonsh).parent
+$(@path which xonsh).parent
 # Path('/path/to')
 ```
 
