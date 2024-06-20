@@ -1780,7 +1780,23 @@ print('Job done!')
 
 ### Do asynchronous task in interactive prompt
 
-For example you can continuously [pulling history from other sessions](https://github.com/xonsh/xonsh/issues/1467#issuecomment-2180645180).
+For example you can continuously [pulling history from other sessions](https://github.com/xonsh/xonsh/issues/1467#issuecomment-2180645180) or just run this in xonsh to print every second:
+
+```
+$SHELL_TYPE
+# 'prompt_toolkit'
+
+import asyncio
+from prompt_toolkit.shortcuts import print_formatted_text
+
+async def print_and_sleep():
+    while True:
+        print_formatted_text('hey!')        
+        await asyncio.sleep(2)
+
+loop = asyncio.get_event_loop()
+loop.create_task(print_and_sleep())
+```
 
 ### How to trace xonsh code?
 
