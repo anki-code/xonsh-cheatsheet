@@ -927,7 +927,7 @@ aliases['xpath'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'
 
 # Cookies:
 
-$(xjson echo '{"a":1}')  # Try with `curl`.
+$(xjson echo '{"a":1}')  # Try with `curl` ;)
 # dict({"a":1})
 
 $(xpath which xonsh)
