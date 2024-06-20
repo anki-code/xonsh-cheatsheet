@@ -913,7 +913,7 @@ Using `SpecModifierAlias` and callable `output_format` you can create transforme
 # Sugar
 imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
-# Egg
+# Flour
 from xonsh.procs.specs import SpecModifierAlias
 class SpecModifierReturnObjAlias(SpecModifierAlias):
     def __init__(self, f):
@@ -921,7 +921,7 @@ class SpecModifierReturnObjAlias(SpecModifierAlias):
     def on_modifer_added(self, spec):
         spec.output_format = self.f
 
-# Flour
+# Eggs
 aliases['xjson'] = SpecModifierReturnObjAlias(lambda lines: imp.json.loads('\n'.join(lines)))
 aliases['xpath'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'.join(lines)))
 
