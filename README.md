@@ -925,7 +925,8 @@ class SpecModifierReturnObjAlias(SpecModifierAlias):
 aliases['xjson'] = SpecModifierReturnObjAlias(lambda lines: imp.json.loads('\n'.join(lines)))
 aliases['xpath'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'.join(lines)))
 
-# Cookies
+# Cookies:
+
 $(xjson echo '{"a":1}')  # Try with `curl`.
 # dict({"a":1})
 
