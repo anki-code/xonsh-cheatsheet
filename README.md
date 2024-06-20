@@ -910,18 +910,30 @@ if ![xnoerr ls nononofile]:  # Do not raise exception in case of error.
 ```
 Using `SpecModifierAlias` and callable `output_format` you can create transformer:
 ```xsh
-import json
-from xonsh.procs.specs import SpecModifierAlias
-class SpecModifierOutputJsonAlias(SpecModifierAlias):
-    @staticmethod
-    def lines_to_json(lines):
-        return json.loads('\n'.join(lines))
-    def on_modifer_added(self, spec):
-        spec.output_format = self.lines_to_json
-aliases['xjson'] = SpecModifierOutputJsonAlias()
+# Sugar
+imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
+# Egg
+from xonsh.procs.specs import SpecModifierAlias
+class SpecModifierReturnObjAlias(SpecModifierAlias):
+    def __init__(self, f):
+        self.f = f
+    def on_modifer_added(self, spec):
+        spec.output_format = self.f
+
+# Flour
+aliases['xjson'] = SpecModifierReturnObjAlias(lambda lines: imp.json.loads('\n'.join(lines)))
+aliases['xpath'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'.join(lines)))
+
+# Cookies
 $(xjson echo '{"a":1}')  # Try with `curl`.
 # dict({"a":1})
+
+$(xpath which xonsh)
+# Path('/path/to/xonsh')
+
+$(xpath which xonsh).parent
+# Path('/path/to')
 ```
 
 ## Abbrevs
