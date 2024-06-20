@@ -1778,6 +1778,10 @@ while $(jobs):
 print('Job done!')
 ```
 
+### Do asynchronous task in interactive prompt
+
+For example you can [pull history from other sessions](https://github.com/xonsh/xonsh/issues/1467#issuecomment-2180645180).
+
 ### How to trace xonsh code?
 
 Trace with [hunter](https://github.com/ionelmc/python-hunter):
