@@ -896,14 +896,10 @@ $(hunter)
 
 Using `SpecModifierAlias` and callable `output_format` you can create transformer:
 ```xsh
-
-# Flour
 from xonsh.procs.specs import SpecAttrModifierAlias
 
-# Sugar
 imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
-# Eggs
 aliases['@noerr'] = SpecAttrModifierAlias({"raise_subproc_error": False},
                                            "Set `raise_subproc_error` to False.")
 aliases['@lines'] = SpecAttrModifierAlias({"output_format": 'list_lines'},
@@ -914,8 +910,9 @@ aliases['@path'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.pat
                                            "Set `path` output format.")
 aliases['@yaml'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.yaml.safe_load('\n'.join(lines))},
                                            "Set `yaml` output format.")
-# Cookies:
-
+```
+Now you can:
+```xsh
 $(@lines ls /)
 # ['/bin', '/etc', '/home']
 
