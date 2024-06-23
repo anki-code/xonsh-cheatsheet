@@ -894,38 +894,30 @@ $(hunter)
 
 ### Specification Modifier Aliases
 
-`SpecAttrModifierAlias` changes command specification before execution:
-
-```xsh
-from xonsh.procs.specs import SpecAttrModifierAlias
-aliases['@lines'] = SpecAttrModifierAlias({"output_format": 'list_lines'}, "Set `list_lines` output format.")
-aliases['@noerr'] = SpecAttrModifierAlias({"raise_subproc_error": False}, "Set `raise_subproc_error` to False.")
-
-$(@lines ls /)
-# ['/bin', '/etc', '/home']
-
-$RAISE_SUBPROC_ERROR = True
-if ![@noerr ls nononofile]:  # Do not raise exception in case of error.
-    echo file 
-```
 Using `SpecModifierAlias` and callable `output_format` you can create transformer:
 ```xsh
+
+# Flour
+from xonsh.procs.specs import SpecAttrModifierAlias
+
 # Sugar
 imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
-# Flour
-from xonsh.procs.specs import SpecModifierAlias
-class SpecModifierReturnObjAlias(SpecModifierAlias):
-    def __init__(self, f):
-        self.f = f
-    def on_modifer_added(self, spec):
-        spec.output_format = self.f
-
 # Eggs
-aliases['@json'] = SpecModifierReturnObjAlias(lambda lines: imp.json.loads('\n'.join(lines)))
-aliases['@path'] = SpecModifierReturnObjAlias(lambda lines: imp.pathlib.Path(':'.join(lines)))
-
+aliases['@noerr'] = SpecAttrModifierAlias({"raise_subproc_error": False},
+                                           "Set `raise_subproc_error` to False.")
+aliases['@lines'] = SpecAttrModifierAlias({"output_format": 'list_lines'},
+                                           "Set `list_lines` output format.")
+aliases['@json'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.json.loads('\n'.join(lines))},
+                                           "Set `json` output format.")
+aliases['@path'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.pathlib.Path(':'.join(lines))},
+                                           "Set `path` output format.")
+aliases['@yaml'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.yaml.safe_load('\n'.join(lines))},
+                                           "Set `yaml` output format.")
 # Cookies:
+
+$(@lines ls /)
+# ['/bin', '/etc', '/home']
 
 $(@json echo '{"a":1}')  # Try with `curl` ;)
 # dict({"a":1})
@@ -935,6 +927,17 @@ $(@path which xonsh)
 
 $(@path which xonsh).parent
 # Path('/path/to')
+
+
+aliases['ydig'] = '@yaml dig +yaml'  # Update `dig` via `brew install bind` to have `+yaml`.
+y = $(ydig google.com)
+y[0]['type']
+# 'MESSAGE'
+
+
+$RAISE_SUBPROC_ERROR = True
+if ![@noerr ls nononofile]:  # Do not raise exception in case of error.
+    echo file 
 ```
 
 ## Abbrevs
