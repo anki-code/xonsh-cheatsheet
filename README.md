@@ -939,6 +939,7 @@ $RAISE_SUBPROC_ERROR = True
 if ![@noerr ls nononofile]:  # Do not raise exception in case of error.
     echo file 
 ```
+See also [xontrib-spec-mod](https://github.com/anki-code/xontrib-spec-mod).
 
 ## Abbrevs
 
