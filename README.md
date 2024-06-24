@@ -237,6 +237,9 @@ for i in range(0, 42):            # mix python
 
 len($(curl https://xon.sh))       # mix python and the shell
 
+y = $(@yaml dig +yaml google.com) # convert output into object
+y[0]['message']['query_time']
+
 $PATH.append('/tmp')              # using environment variables
 
 p'/etc/passwd'.read_text().find('root')  # path-string returns Path 
