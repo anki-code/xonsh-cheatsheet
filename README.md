@@ -905,7 +905,8 @@ $(hunter)
 
 Using `SpecModifierAlias` and callable `output_format` you can create transformer:
 ```xsh
-from xonsh.procs.specs import SpecAttrModifierAlias
+from xonsh.procs.specs import SpecAttrModifierAlias  # xonsh 0.17.0
+# from xonsh.procs.specs import SpecAttrDecoratorAlias  # future xonsh 0.18.0
 
 imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
