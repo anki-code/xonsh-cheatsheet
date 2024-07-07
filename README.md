@@ -71,6 +71,8 @@ Thus the second thing you should remember is that when you run xonsh in a virtua
 
 #### Install xonsh on macOS or Linux using conda
 
+*Here is the real life example but mostly created for educational reasons. See the best way to install xonsh in the next section.*
+
 You can use [Conda](https://docs.conda.io/en/latest/) (or faster replacement - [mamba](https://mamba.readthedocs.io/en/latest/)) with [Conda-forge](https://conda-forge.org/) to install and use xonsh. 
 
 ```xsh
