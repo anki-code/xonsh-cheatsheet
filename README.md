@@ -1392,7 +1392,7 @@ But if you use it for getting the data from remote host you would like to captur
 There are three workarounds:
 
 ```xsh
-!(xthread ssh host -T "echo 1")  # switch to thread - xonsh >= 0.17.0
+!(xthread ssh host -T "echo 1")  # switch to thread (xonsh >= 0.17.0), `@thread` in the future
 #CommandPipeline(returncode=0, output='1\n')
 
 !(echo 123 | head)  # stream to captured
@@ -1407,7 +1407,7 @@ There are three workarounds:
 If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not working), this can be that the tool was interpreted as a threaded and capturable program but the tool actually has interactive elements that expect input from the user. There are bunch of workarounds:
 
 ```xsh
-xunthread ./tool.sh
+xunthread ./tool.sh  # `@unthread` in the future
 
 with ${...}.swap(THREAD_SUBPROCS=False):
       ./tool.sh
