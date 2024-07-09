@@ -1649,7 +1649,7 @@ Basically xonsh session loads RC files, inherit environment, uses dynamic colors
 
 ```xsh
 xonsh --no-rc --no-env -DCOLOR_INPUT=0 -DCOLOR_RESULTS=0 -DPROMPT='@ ' \
-      -DXONSH_HISTORY_BACKEND=dummy -DXONTRIBS_AUTOLOAD_DISABLED=0 -st rl
+      -DXONSH_HISTORY_BACKEND=dummy -DXONTRIBS_AUTOLOAD_DISABLED=1 -st rl
 ```
 Here:
 * `--no-rc` to prevent loading RC files.
@@ -1658,7 +1658,7 @@ Here:
 * `-DCOLOR_RESULTS=0` to disable colors in output.
 * `-DPROMPT='@ '` to disable prompt with gitstatus and other complex fields.
 * `-DXONSH_HISTORY_BACKEND=dummy` to disable history backend.
-* `-DXONTRIBS_AUTOLOAD_DISABLED=0` to avoid loading xontribs.
+* `-DXONTRIBS_AUTOLOAD_DISABLED=1` to avoid loading xontribs.
 * `-st rl` to use cheapest shell backend (readline).
 
 ### Interactively debugging a script
