@@ -812,6 +812,36 @@ my.hello('Alex')
 # hello Alex
 ```
 
+## Alias that returns command
+
+If you need to transform command use `@aliases.return_command`:
+
+```xsh
+@aliases.register
+@aliases.return_command
+def _xsudo(args):
+    """Sudo with expanding aliases."""
+    return ['sudo', '--', *aliases.eval_alias(args)]
+
+aliases['install'] = "apt install cowsay"
+xsudo install
+# Password:
+# Install cowsay
+
+@aliases.register
+@aliases.return_command
+def _vi(args):
+    """Universal vi editor."""
+    if $(which vim 2>/dev/null):
+        return ['vim'] + args
+    else:
+        return ['vi'] + args
+
+vi /etc/hosts
+```
+
+Note! Using alias that returns command is much more preferable than callable alias if you need to just change the command. Callable alias is a complex process wrapper and in case of choice between return command alias and callable alias the right choice is the first one.
+
 ## [Callable aliases](https://xon.sh/tutorial.html#callable-aliases)
 
 ```python
