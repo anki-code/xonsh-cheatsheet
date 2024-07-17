@@ -903,23 +903,22 @@ $(hunter)
 
 ### Specification Modifier Aliases
 
-Using `SpecModifierAlias` and callable `output_format` you can create transformer:
+Using `DecoratorAlias` and callable `output_format` you can create transformer:
 ```xsh
-from xonsh.procs.specs import SpecAttrModifierAlias  # xonsh 0.17.0
-# from xonsh.procs.specs import SpecAttrDecoratorAlias  # future xonsh 0.18.0
+from xonsh.procs.specs import SpecAttrDecoratorAlias as dalias  # xonsh >= 0.18.0
 
 imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
-aliases['@noerr'] = SpecAttrModifierAlias({"raise_subproc_error": False},
-                                           "Set `raise_subproc_error` to False.")
-aliases['@lines'] = SpecAttrModifierAlias({"output_format": 'list_lines'},
-                                           "Set `list_lines` output format.")
-aliases['@json'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.json.loads('\n'.join(lines))},
-                                           "Set `json` output format.")
-aliases['@path'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.pathlib.Path(':'.join(lines))},
-                                           "Set `path` output format.")
-aliases['@yaml'] = SpecAttrModifierAlias({"output_format": lambda lines: imp.yaml.safe_load('\n'.join(lines))},
-                                           "Set `yaml` output format.")
+aliases['@noerr'] = dalias({"raise_subproc_error": False},
+                            "Set `raise_subproc_error` to False.")
+aliases['@lines'] = dalias({"output_format": 'list_lines'},
+                            "Set `list_lines` output format.")
+aliases['@json'] = dalias({"output_format": lambda lines: imp.json.loads('\n'.join(lines))},
+                           "Set `json` output format.")
+aliases['@path'] = dalias({"output_format": lambda lines: imp.pathlib.Path(':'.join(lines))},
+                           "Set `path` output format.")
+aliases['@yaml'] = dalias({"output_format": lambda lines: imp.yaml.safe_load('\n'.join(lines))},
+                           "Set `yaml` output format.")
 ```
 Now you can:
 ```xsh
