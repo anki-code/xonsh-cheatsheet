@@ -1531,6 +1531,22 @@ echo "We're in the docker container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where the cursor is.
 
+### Use `prompt` instead of `input` for multiline input
+
+In python there is `input` function but it has no support of multiline pasting. Use `prompt`:
+
+```xsh
+from prompt_toolkit import prompt
+
+echo @(prompt('Content:\n')) > /tmp/myfile
+# Content:
+# <Paste multiline text "1\n\2\n" from clipboard>
+
+cat /tmp/myfile
+# 1
+# 2
+```
+
 ### Using the name of the alias in alias logic
 ```xsh
 @aliases.register(",")
