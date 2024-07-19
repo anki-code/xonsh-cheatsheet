@@ -1546,6 +1546,10 @@ cat /tmp/myfile
 # 1
 # 2
 ```
+One line version using inline importer (`__xonsh__.imp`):
+```xsh
+echo @(__xonsh__.imp.prompt_toolkit.prompt("Content:\n")) > /tmp/myfile
+```
 
 ### Using the name of the alias in alias logic
 ```xsh
