@@ -30,7 +30,7 @@ There are three ways to use xonsh:
 
 2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexibly manage the Python version, dependencies, and virtual environments, but because xonsh is a Python-based shell you have to understand what you're doing and the section below will provide some guidance.
 
-3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use Docker or the Linux AppImage to run and try xonsh.
+3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use xonsh container or the Linux AppImage to run and try xonsh.
 
 4. **[The best way to install xonsh as core shell](#the-best-way-to-install-xonsh-as-core-shell)**. You must read the previous sections before using this.
 
@@ -195,19 +195,21 @@ Note! We do not recommend to use xonsh as a default login shell if you are not f
 
 ### Try xonsh without installation
 
-#### Docker
+#### Container
+
+Using open source Podman is recommended but docker also ok.
 
 ```python
-# Docker with specific Python version and latest release of xonsh
-docker run --rm -it python:3.11-slim /bin/bash \
+# Container with specific Python version and latest release of xonsh
+podman run --rm -it python:3.11-slim /bin/bash \
  -c "pip install 'xonsh[full]' && xonsh"
 
-# Docker with specific Python version and xonsh from the master branch
-docker run --rm -it python:3.11-slim /bin/bash \
+# Container with specific Python version and xonsh from the master branch
+podman run --rm -it python:3.11-slim /bin/bash \
  -c "apt update && apt install -y git && pip install -U git+https://github.com/xonsh/xonsh && xonsh"
 
-# Official xonsh docker image may have an old version
-docker run --rm -it xonsh/xonsh:slim
+# Official xonsh container image may have an old version
+podman run --rm -it xonsh/xonsh:slim
 ```
 
 #### Linux-portable AppImage contains both [Python 3 and xonsh in one file](https://xon.sh/appimage.html)
@@ -243,7 +245,7 @@ len($(curl https://xon.sh))       # mix python and the shell
 y = $(@yaml dig +yaml google.com)  # convert output into object
 y[0]['message']['query_time']
 
-docker exec -it @($(@json docker ps --format json)['ID']) bash
+podman exec -it @($(@json podman ps --format json)['ID']) bash
 
 
 $PATH.append('/tmp')              # using environment variables
@@ -259,8 +261,8 @@ for file in gp`*.*`:              # reading the list of files as Path-objects
         du -sh @(file)            # and pass it to the shell command
 
 import json                       # python libraries are always at hand
-if docker_info := $(docker info --format '{{json .}}'):
-    print('ContainersRunning:', json.loads(docker_info)['ContainersRunning'])
+if info := $(podman info --format '{{json .}}'):
+    print('ContainersRunning:', json.loads(info)['ContainersRunning'])
 
 xpip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
 xontrib load prompt_bar           # follow the white rabbit - https://github.com/topics/xontrib
@@ -1100,7 +1102,7 @@ echo! "Hello!"
 bash -c! echo "Hello!"
 # Hello!
 
-docker run -it --rm xonsh/xonsh:slim xonsh -c! 2+2
+podman run -it --rm xonsh/xonsh:slim xonsh -c! 2+2
 # 4
 ```
 
@@ -1154,26 +1156,26 @@ j['Hello']
 # world!
 ```
 
-### Custom Docker block
+### Custom Podman block
 
 The example is from [xontrib-macro-lib](https://github.com/anki-code/xontrib-macro-lib):
 
 ```python
 from xonsh.contexts import Block
 
-class Doxer(Block):
-    """Run xonsh codeblock in a docker container."""
+class Container(Block):
+    """Run xonsh codeblock in a container."""
 
     def __init__(self):
-       self.docker_image = 'xonsh/xonsh:slim'
+       self.image = 'xonsh/xonsh:slim'
 
     def __exit__(self, *a, **kw):
-        $[docker run -it --rm @(self.docker_image) /usr/local/bin/xonsh -c @(self.macro_block)]
+        $[podman run -it --rm @(self.image) /usr/local/bin/xonsh -c @(self.macro_block)]
 
 
-with! Doxer() as d:
+with! Container() as d:
    pip install lolcat
-   echo "We're in the docker container now!" | lolcat
+   echo "We're in the container now!" | lolcat
 ```
 
 ### Macro blocks library
@@ -1522,11 +1524,11 @@ with! Write('/tmp/t/hello.xsh', chmod=0o700, replace=True, makedir=True, verbose
 # world
 ```
 
-Run commands in docker:
+Run commands in a container:
 ```python
-docker run -it --rm xonsh/xonsh:slim xonsh -c @("""
+podman run -it --rm xonsh/xonsh:slim xonsh -c @("""
 pip install --disable-pip-version-check -q lolcat
-echo "We're in the docker container now!" | lolcat
+echo "We're in the podman container now!" | lolcat
 """)
 ```
 Don't forget that `Alt+Enter` can run the command from any place where the cursor is.
