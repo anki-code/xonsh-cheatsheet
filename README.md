@@ -426,7 +426,7 @@ __xonsh__.commands_cache.predict_threadable(['echo'])
 __xonsh__.commands_cache.predict_threadable(['ssh'])
 # False
 ```
-How to change the predicted value you can find below :)
+How to change the predicted value using `@thread` and `@unthread` aliases you can find below :)
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
