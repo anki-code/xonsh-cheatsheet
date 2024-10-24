@@ -22,7 +22,7 @@ The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q
 
 Over time the replacing letter in the words to "x" became the way to create unique names for xonsh related solutions e.g. [xontrib](https://xon.sh/tutorial_xontrib.html#overview), [xpip](https://xon.sh/aliases.html#xpip), [xonfig](https://xon.sh/aliases.html#xonfig), [xunter](https://github.com/anki-code/xunter).
 
-Fun fact: when you run xonsh in the home directory the default prompt looks like `user@host ~ @` - it's the nice visual metaphor of snail (`~`) that lives in the conch (`@`) and the conch is the home for snail.
+Fun fact: when you run xonsh in the home directory the default prompt looks like `user@host ~ @` - it's a nice visual metaphor of snail (`~`) that lives in the conch (`@`) and the conch is the home for snail.
 
 # Install xonsh
 
