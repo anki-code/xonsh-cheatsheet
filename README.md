@@ -243,7 +243,7 @@ for i in range(0, 42):            # mix python
 
 len($(curl https://xon.sh))       # mix python and the shell
 
-
+xpip install xontrib-dalias && xontrib load dalias
 y = $(@yaml dig +yaml google.com)  # convert output into object
 y[0]['message']['query_time']
 
