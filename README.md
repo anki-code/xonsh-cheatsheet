@@ -381,8 +381,8 @@ You should clearly understand the difference:
     ```
 * *You can use the `showcmd` command to show the arguments list:*    
     ```python
-    showcmd echo The @('arguments') @(['list', 'is']) $(echo here) "and" --say="hello" to you
-    # ['echo', 'The', 'arguments', 'list', 'is', 'here', 'and', '--say="hello"', 'to', 'you']]    
+    showcmd echo The @('args') @(['list', 'is']) $(echo here) "and" --say="hello" to @([]) you
+    # ['echo', 'The', 'args', 'list', 'is', 'here', 'and', '--say="hello"', 'to', 'you']]    
     ```
 
 
