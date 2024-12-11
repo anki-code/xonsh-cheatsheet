@@ -1584,7 +1584,7 @@ imp.hashlib.md5(b'Hello world').hexdigest()
 # '3e25960a79dbc69b674cd4ec67a72c62'
 ```
 
-*In the xonsh > 0.18.0 this will be accessible in xonsh core: `@.imp` and `__xonsh__.imp`*
+*In the xonsh > 0.18.0 this will be accessible in xonsh core: `__xonsh__.imp`.*
 
 ### Transparent callable environment variables
 
