@@ -935,7 +935,7 @@ $(hunter)
 
 *Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
-### Specification Modifier Aliases
+### Decorator Alias
 
 Using `DecoratorAlias` and callable `output_format` you can create transformer:
 ```xsh
@@ -979,7 +979,7 @@ $RAISE_SUBPROC_ERROR = True
 if ![@noerr ls nononofile]:  # Do not raise exception in case of error.
     echo file 
 ```
-See also [xontrib-spec-mod](https://github.com/anki-code/xontrib-spec-mod).
+See also [xontrib-dalias](https://github.com/anki-code/xontrib-dalias).
 
 ## Abbrevs
 
