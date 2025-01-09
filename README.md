@@ -24,6 +24,8 @@ Over time the replacing letter in the words to "x" became the way to create uniq
 
 Fun fact: when you run xonsh on *nix in the home directory the default prompt looks like `user@host ~ @` - it's a nice visual metaphor of snail (`~`) that lives in the conch (`@`) and the conch is the home for snail.
 
+You can find more visuals around xonsh in [xonsh-logo](https://github.com/anki-code/xonsh-logo) repository.
+
 # Install xonsh
 
 There are three ways to use xonsh:
