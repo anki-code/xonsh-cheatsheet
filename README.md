@@ -1448,6 +1448,9 @@ with ${...}.swap(THREAD_SUBPROCS=False):
 $[./tool.sh]
 ```
 
+### New python version
+
+Because of xonsh syntax was based on Python syntax you can face with parser issues if you install the new Python version and run xonsh. Check that you're specifying certain version of Python when you're using xonsh in your projects and there is no situation when python can be updated witout testing.
 
 # Tips and tricks
 
