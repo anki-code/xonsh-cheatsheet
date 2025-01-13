@@ -455,6 +455,7 @@ worker1 = !(sleep 3)  # Non-blocking.
 echo 'Something is happening while worker1 is working.'
 if worker1.rtn == 0:  # Blocking. The `.rtn` attribute call has `.end()` under the hood.
     echo 'worker1 is done'
+# Note. There is issue with this case that will be fixed in xonsh > 0.19.0.
 
 file = p'~/.xonshrc'
 if ![ls @(file)]:
