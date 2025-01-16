@@ -1575,22 +1575,18 @@ def _superdot():
 ,,,  # cd ../../../
 ```
 
-### Python sugar: inline import
+### Xonsh sugar: inline import
+
+Use `__xonsh__.imp` as inline importer (xonsh >= 0.18.2):
 
 ```xsh
-# Run it or add to ~/.xonshrc
-imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
-
-# Use `imp` as inline import sugar
-imp.json.loads('{"a":1}')
+__xonsh__.imp.json.loads('{"a":1}')
 # {'a': 1}
-imp.datetime.datetime.now().isoformat()
+__xonsh__.imp.datetime.datetime.now().isoformat()
 # '2024-02-12T15:29:57.125696'
-imp.hashlib.md5(b'Hello world').hexdigest()
+__xonsh__.imp.hashlib.md5(b'Hello world').hexdigest()
 # '3e25960a79dbc69b674cd4ec67a72c62'
 ```
-
-*In the xonsh > 0.18.0 this will be accessible in xonsh core: `__xonsh__.imp`.*
 
 ### Transparent callable environment variables
 
