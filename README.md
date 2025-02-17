@@ -1483,14 +1483,23 @@ echo """{"hello":'world'}"""
 # {"hello":'world'}
 ```
 
-### Python walrus operator in subprocess mode
+### Python walrus operator in action
 
+Use in subprocess:
 ```xsh
 echo Hello @(_name := input('Name: '))  # Use `_` to keep env clean.
 echo Hello again @(_name)
 # Name: Mike
 # Hello Mike
 # Hello again Mike
+```
+
+Use with commands:
+
+```xsh
+(servers := $(@json echo '["srv1", "srv2"]'))
+# list(['srv1', 'srv2'])
+echo @(servers[0])
 ```
 
 ### Jump from aliases to CLI apps
