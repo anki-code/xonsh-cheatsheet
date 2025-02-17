@@ -1500,6 +1500,7 @@ Use with commands:
 (servers := $(@json echo '["srv1", "srv2"]'))
 # list(['srv1', 'srv2'])
 echo @(servers[0])
+# srv1
 ```
 
 ### Jump from aliases to CLI apps
