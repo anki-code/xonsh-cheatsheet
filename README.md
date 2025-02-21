@@ -20,7 +20,7 @@ If you don't want to learn step by step jump to [demo examples](https://github.c
 
 The "xonsh" word sounds like [conch [kɑːntʃ]](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snails or shells (🐚, `@`). Thus "xonsh" is the reference to the "shell" word that is commonly used to name [command shells](https://en.wikipedia.org/wiki/Shell_(computing)).
 
-Over time the replacing letter in the words to "x" became the way to create unique names for xonsh related solutions e.g. [xontrib](https://xon.sh/tutorial_xontrib.html#overview), [xpip](https://xon.sh/aliases.html#xpip), [xonfig](https://xon.sh/aliases.html#xonfig), [xunter](https://github.com/anki-code/xunter).
+Over time the approach to replace a letter in the words to "x" and pronounce as short [`/k/`](https://dictionary.cambridge.org/pronunciation/english/k) when used with vowels (e.g. "xat" sounds like "cat" `[kæt]`) became the way to create unique names for xonsh related solutions e.g. [xontrib](https://xon.sh/tutorial_xontrib.html#overview), [xpip](https://xon.sh/aliases.html#xpip), [xonfig](https://xon.sh/aliases.html#xonfig), [xunter](https://github.com/anki-code/xunter).
 
 Fun fact: when you run xonsh on *nix in the home directory the default prompt looks like `user@host ~ @` - it's a nice visual metaphor of snail (`~`) that lives in the conch (`@`) and the conch is the home for snail.
 
