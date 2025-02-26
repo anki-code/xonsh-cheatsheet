@@ -1390,18 +1390,6 @@ Sometimes when you're using PyPi, Conda, or virtual environments you can forget 
 
 In case of name or syntax collision try to use aliases or [abbrevs](https://github.com/xonsh/xontrib-abbrevs) to resolve the conflict.
 
-The case with `ellipsis`:
-
-```xsh
-aliases['...'] = 'cd ../..'  # looks nice, but
-...
-# Elepsis
-
-del aliases['...']
-abbrevs['...'] = 'cd ../..'
-...  # becomes `cd ../..`
-```
-
 The case with `id` or `zip`:
 
 ```xsh
@@ -1415,6 +1403,18 @@ ZIP
 # zip [-options] [-b path] ...
 Zip
 # zip [-options] [-b path] ...
+```
+
+The case with `ellipsis`:
+
+```xsh
+aliases['...'] = 'cd ../..'  # looks nice, but
+...
+# Elepsis
+
+del aliases['...']
+abbrevs['...'] = 'cd ../..'
+...  # becomes `cd ../..`
 ```
 
 The case with `import`:
