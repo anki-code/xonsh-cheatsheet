@@ -1413,6 +1413,8 @@ zip
 # zip builtin
 ZIP
 # zip [-options] [-b path] ...
+Zip
+# zip [-options] [-b path] ...
 ```
 
 The case with `import`:
