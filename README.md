@@ -1386,7 +1386,7 @@ json??
 
 Sometimes when you're using PyPi, Conda, or virtual environments you can forget about the current version and location of Python and try to import packages in xonsh resulting in a `ModuleNotFoundError` error. Often this means you installed the package in another environment and didn't realise it. To avoid this read the section about xonsh installation above.
 
-### Collision of console tools or shell syntax with Python builtins
+### Shadowing of console tools or shell syntax with Python builtins
 
 In case of name or syntax collision try to use aliases or [abbrevs](https://github.com/xonsh/xontrib-abbrevs) to resolve the conflict.
 
@@ -1400,6 +1400,19 @@ aliases['...'] = 'cd ../..'  # looks nice, but
 del aliases['...']
 abbrevs['...'] = 'cd ../..'
 ...  # becomes `cd ../..`
+```
+
+The case with `id` or `zip`:
+
+```xsh
+id
+# <function id>
+ID
+# uid=501(user) gid=20(staff) groups=20(staff) ...
+zip
+# zip builtin
+ZIP
+# zip [-options] [-b path] ...
 ```
 
 The case with `import`:
