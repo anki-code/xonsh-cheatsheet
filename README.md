@@ -395,7 +395,7 @@ In sh-compatible shells, the [process substitution operator](https://en.wikipedi
 In xonsh shell the `$()` operator is smarter (xonsh >= 0.17.0):
 * Return the line if it's single line e.g. `$(whoami)` will return `'user'`.
 * Return [universal new lines](https://www.python.org/dev/peps/pep-0278/) for multiple lines e.g. `$(ls)` will return `'1\n2\n3\n'`.
-* Finally you can switch the retult to lines completely by setting `$XONSH_SUBPROC_OUTPUT_FORMAT='list_lines'` or set your lambda to process the lines.
+* Finally you can use [xontrib-dalias](https://github.com/anki-code/xontrib-dalias) to have a list of lines e.g. `l = $(@lines cat file)`.
 
 *Note:*
 
