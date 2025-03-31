@@ -1727,7 +1727,7 @@ Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/lates
 
 ### Run pure xonsh engine
 
-Basically xonsh session loads RC files, inherit environment, uses dynamic colors, git callbacks in prompt, saves commands to history and more. Most of this features are disabled in not interactive mode (`xonsh -c`). But in some cases you can want to rid of all features to reduce overhead on running completely. Here is the path: 
+Basically xonsh session loads RC files, inherit environment, uses dynamic colors, git callbacks in prompt, saves commands to history and more. Most of this features are disabled in not interactive mode (`xonsh -c 'echo 1'`). But in some cases you can want to rid of all features to reduce overhead on running completely. Here is the path: 
 
 ```xsh
 xonsh --no-rc --no-env -DCOLOR_INPUT=0 -DCOLOR_RESULTS=0 -DPROMPT='@ ' \
