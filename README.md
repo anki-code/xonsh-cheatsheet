@@ -654,6 +654,7 @@ This is mostly [what bash's `$()` operator does](https://www.gnu.org/software/ba
 
 Three ways to get environment:
 ```python
+# Xonsh has this construction but personally I'm not using it because it looks too complicated to write and read.
 ${...}  # Get the list of environment variables.
 
 # Get the list of environment variables using Python syntax:
@@ -667,20 +668,20 @@ Operating with environment variables:
 ```python
 $VAR = 'value'    # Set environment variable
 
-ENV = ${...}                # short typing
-ENV.get('VAR', 'novalue')   # the good practice to have a fallback for missing value
+env = __xonsh__.env         # short typing
+env.get('VAR', 'novalue')   # the good practice to have a fallback for missing value
 # 'value'
-ENV.get('VAR2', 'novalue')  # the good practice to have a fallback for missing value
+env.get('VAR2', 'novalue')  # the good practice to have a fallback for missing value
 # 'novalue'
 
-'VAR' in ENV   # Check environment variable exists
+'VAR' in env   # Check environment variable exists
 #True
 
 ${'V' + 'AR'}     # Get environment variable value by name from expression
 #'value'
 
 print($VAR)
-with ${...}.swap(VAR='another value', NEW_VAR='new value'):  # Change VAR for commands block
+with __xonsh__.env.swap(VAR='another value', NEW_VAR='new value'):  # Change VAR for commands block
     print($VAR)
 print($VAR)
 #value
@@ -1460,7 +1461,7 @@ If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not worki
 ```xsh
 @unthread ./tool.sh  # xonsh >= 0.18.3
 
-with ${...}.swap(THREAD_SUBPROCS=False):
+with __xonsh__.env.swap(THREAD_SUBPROCS=False):
       ./tool.sh
 
 $[./tool.sh]
