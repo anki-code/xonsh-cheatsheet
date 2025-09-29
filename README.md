@@ -466,14 +466,12 @@ $[vim ~/.xonshrc]
 
 From tech side (most of the behavior is dictated by OS):
 
-| Operator | `$()` | `!()` | `![]` | `$[]` |
-| -------- | ----- | ----- | ------------ | ---- |
-| Blocking | yes | no | yes | yes |
-| Capture stdout | yes | yes for threadable | no | strict no |
-| Capture stderr | no | yes for threadable | no | strict no |
-| Attach TTY input | yes | no | yes | yes |
-| Attach TTY output | no for threadable | no for threadable | no for threadable | yes |
-| Return | stdout | CommandPipeline | HiddenCommandPipeline | `None` |
+| Operator           | Blocking | Capture stdout        | Capture stderr        | Attach TTY input | Attach TTY output      | Return                 |
+| ------------------ | -------- | --------------------- | --------------------- | ---------------- | ---------------------- | ---------------------- |
+| `$()`              | yes      | yes                   | no                    | yes              | no for threadable      | stdout                 |
+| `!()`              | no       | yes for threadable    | yes for threadable    | no               | no for threadable      | CommandPipeline        |
+| `![]`              | yes      | no                    | no                    | yes              | no for threadable      | HiddenCommandPipeline  |
+| `$[]`              | yes      | strict no             | no                    | yes              | yes                    | `None`                 |
 
 Here:
 * Threadable (capturable) process is the process without any interaction with user. Note that if unthreadable process will run with detached terminal it will be suspended by OS automatically.
