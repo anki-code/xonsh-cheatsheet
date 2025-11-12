@@ -1478,7 +1478,7 @@ Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-aw
 Use `__xonsh__.imp` as inline importer (xonsh >= 0.18.2):
 
 ```xsh
-__xonsh__.imp.json.loads('{"a":1}')
+__xonsh__.imp.json.loads($(echo '{"a":1}'))
 # {'a': 1}
 __xonsh__.imp.datetime.datetime.now().isoformat()
 # '2024-02-12T15:29:57.125696'
