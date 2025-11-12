@@ -1525,10 +1525,8 @@ If you realize that your alias becomes the app it's time to look at [xonsh-aweso
 When you have group of commands (transaction) it's good to use `DisableInterrupt` from [xontrib-macro](https://github.com/anki-code/xontrib-macro):
 
 ```xsh
-from xontrib.macro.signal import DisableInterrupt
-
 echo start
-with! DisableInterrupt():
+with! __xonsh__.imp.xontrib.macro.signal.DisableInterrupt():
     echo 'sleep start'
     sleep 10
     echo 'sleep end'
@@ -1618,21 +1616,11 @@ For example, you want to have the current timestamp in every command but instead
 ```xsh
 class TimestampCl:
     def __repr__(self):
-        from datetime import datetime
-        return str(datetime.now().isoformat())
+        return str(__xonsh__.imp.datetime.datetime.now().isoformat())
 
 $dt = TimestampCl()
-
-echo $dt
-sleep 1
-echo $dt
-# 2024-03-05T23:34:50.188014
-# 2024-03-05T23:34:51.259861
-```
-If you want more sugar use `imp` from the previous trick:
-```xsh
-imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
-$dt = type('TimeCl', (object,), {'__repr__':lambda self: str(imp.datetime.datetime.now().isoformat()) })()
+# or one-liner:
+# $dt = type('TimeCl', (object,), {'__repr__':lambda self: str(__xonsh__.imp.datetime.datetime.now().isoformat()) })()
 
 echo $dt
 sleep 1
