@@ -1485,6 +1485,7 @@ __xonsh__.imp.datetime.datetime.now().isoformat()
 __xonsh__.imp.hashlib.md5(b'Hello world').hexdigest()
 # '3e25960a79dbc69b674cd4ec67a72c62'
 ```
+Don't forget about autocompletion (xonsh > 0.19.9) e.g. `__xonsh__.imp.date<tab>`.
 
 ### Triple quotes
 
