@@ -1629,6 +1629,17 @@ echo $dt
 # 2024-03-05T23:34:51.259861
 ```
 
+### Use env context manager to keep command and namespace clean
+
+```xsh
+with __xonsh__.env.swap(START=$(date -d "30 days ago" +%Y-%m-%d), END=$(date +%Y-%m-%d)):
+    aws ce get-cost-and-usage \
+        --time-period 'Start=$START,End=$END' \
+        --granularity DAILY \
+        --metrics "UnblendedCost" \
+        --group-by 'Type=DIMENSION,Key=SERVICE'
+```
+
 ### Ask to input argument and with autocomplete
 
 Ask simple input:
