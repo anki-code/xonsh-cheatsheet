@@ -1631,6 +1631,7 @@ echo $dt
 
 ### Use env context manager to keep command and namespace clean
 
+Using AWS CLI to extract cost:
 ```xsh
 with __xonsh__.env.swap(START=$(date -d "30 days ago" +%Y-%m-%d), END=$(date +%Y-%m-%d)):
     aws ce get-cost-and-usage \
@@ -1638,6 +1639,13 @@ with __xonsh__.env.swap(START=$(date -d "30 days ago" +%Y-%m-%d), END=$(date +%Y
         --granularity DAILY \
         --metrics "UnblendedCost" \
         --group-by 'Type=DIMENSION,Key=SERVICE'
+```
+
+PostgreSQL connect with password input:
+```xsh
+with __xonsh__.env.swap(PGPASSWORD=__xonsh__.imp.getpass.getpass('pgpass:')):
+    for db in ['db1', 'db2']:
+      psql postgresql://user@host:5439/@(db) -c 'select 1'
 ```
 
 ### Ask to input argument and with autocomplete
