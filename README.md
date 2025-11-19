@@ -1645,7 +1645,7 @@ PostgreSQL connect with password input:
 ```xsh
 with __xonsh__.env.swap(PGPASSWORD=__xonsh__.imp.getpass.getpass('pgpass:')):
     for db in ['db1', 'db2']:
-      psql postgresql://user@host:5439/@(db) -c 'select 1'
+        psql postgresql://user@host:5439/@(db) -c 'select 1'
 ```
 
 ### Ask to input argument and with autocomplete
