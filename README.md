@@ -1456,10 +1456,12 @@ If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not worki
 
 ```xsh
 @unthread ./tool.sh  # xonsh >= 0.18.3
-
+```
+```xsh
 with __xonsh__.env.swap(THREAD_SUBPROCS=False):
       ./tool.sh
-
+```
+```xsh
 $[./tool.sh]
 ```
 
