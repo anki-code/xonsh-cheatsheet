@@ -1737,18 +1737,19 @@ Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/lates
 Basically xonsh session loads RC files, inherit environment, uses dynamic colors, git callbacks in prompt, saves commands to history and more. Most of this features are disabled in not interactive mode (`xonsh -c 'echo 1'`). But in some cases you can want to rid of all features to reduce overhead on running completely. Here is the path: 
 
 ```xsh
-xonsh --no-rc --no-env -DCOLOR_INPUT=0 -DCOLOR_RESULTS=0 -DPROMPT='@ ' \
-      -DXONSH_HISTORY_BACKEND=dummy -DXONTRIBS_AUTOLOAD_DISABLED=1 -st rl
+xonsh --no-rc --no-env --shell-type readline \
+      -DCOLOR_INPUT=0 -DCOLOR_RESULTS=0 -DPROMPT='@ ' \
+      -DXONSH_HISTORY_BACKEND=dummy -DXONTRIBS_AUTOLOAD_DISABLED=1
 ```
 Here:
 * `--no-rc` to prevent loading RC files.
 * `--no-env` to prevent inheriting the environment.
+* `--shell-type readline` to use cheapest shell backend ([readline](https://docs.python.org/3/library/readline.html)).
 * `-DCOLOR_INPUT=0` to disable colors and file completer that can read files to choose the right color.
 * `-DCOLOR_RESULTS=0` to disable colors in output.
 * `-DPROMPT='@ '` to disable prompt with gitstatus and other complex fields.
 * `-DXONSH_HISTORY_BACKEND=dummy` to disable history backend.
 * `-DXONTRIBS_AUTOLOAD_DISABLED=1` to avoid loading xontribs.
-* `-st rl` to use cheapest shell backend (readline).
 
 ### Interactively debugging a script
 
