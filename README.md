@@ -268,6 +268,8 @@ import json                       # python libraries are always at hand
 if info := $(podman info --format '{{json .}}'):
     print('ContainersRunning:', json.loads(info)['ContainersRunning'])
 
+__xonsh__.imp.json.loads($(echo '{"a":1}'))  # xonsh inline importer
+
 xpip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
 xontrib load prompt_bar           # follow the white rabbit - https://github.com/topics/xontrib
 
@@ -1836,13 +1838,10 @@ xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{f
 ### Builtin `chdir` [context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
 
 ```xsh
-from xonsh.tools import chdir
-
-cd /tmp
-mkdir -p dir1
+cd /tmp && mkdir -p dir1
 
 pwd
-with chdir("./dir1"):
+with __xonsh__.imp.xonsh.chdir("./dir1"):
     pwd
 pwd
 
