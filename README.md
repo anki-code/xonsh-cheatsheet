@@ -1477,8 +1477,9 @@ Because of xonsh syntax was based on Python syntax you can face with parser issu
 
 Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
-### Inline import
+### Inline scripting
 
+#### Inline import
 Use `__xonsh__.imp` as inline importer (xonsh >= 0.18.2):
 
 ```xsh
@@ -1490,6 +1491,17 @@ __xonsh__.imp.hashlib.md5(b'Hello world').hexdigest()
 # '3e25960a79dbc69b674cd4ec67a72c62'
 ```
 Don't forget about autocompletion (xonsh > 0.19.9) e.g. `__xonsh__.imp.date<tab>`.
+
+#### Inline statements
+
+Use `$[]` to have inline statements:
+```xsh
+for i in range(1,5): $[echo @(i)]
+if $(which vim): $[echo vim]
+$[echo vim] if $(which vim) else $[echo vi]
+with __xonsh__.env.swap(QWE=1): $[bash -c 'echo $QWE']
+$A=1 $B=2 bash -c 'echo $A $B'
+```
 
 ### Triple quotes
 
