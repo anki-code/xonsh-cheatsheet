@@ -677,9 +677,6 @@ env.get('VAR2', 'novalue')  # the good practice to have a fallback for missing v
 'VAR' in env   # Check environment variable exists
 #True
 
-${'V' + 'AR'}     # Get environment variable value by name from expression
-#'value'
-
 print($VAR)
 with __xonsh__.env.swap(VAR='another value', NEW_VAR='new value'):  # Change VAR for commands block
     print($VAR)
