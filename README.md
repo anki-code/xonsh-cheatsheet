@@ -268,7 +268,7 @@ import json                       # python libraries are always at hand
 if info := $(podman info --format '{{json .}}'):
     print('ContainersRunning:', json.loads(info)['ContainersRunning'])
 
-__xonsh__.imp.json.loads($(echo '{"a":1}'))  # xonsh inline importer
+@.imp.json.loads($(echo '{"a":1}'))  # xonsh inline importer
 
 xpip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
 xontrib load prompt_bar           # follow the white rabbit - https://github.com/topics/xontrib
@@ -593,7 +593,7 @@ This is the same as `echo 123`, but this syntax allows explicitly running a subp
 Passes stdout to the screen and returns [HiddenCommandPipeline](https://xon.sh/api/procs/pipelines.html#xonsh.procs.pipelines.HiddenCommandPipeline):
 
 ```python
-with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=False):  # Default.
+with @.env.swap(XONSH_CAPTURE_ALWAYS=False):  # Default.
     r = ![echo -e '1\n2\r3 4\r\n5']
     # 1               # Stream output of the command
     # 3 4
@@ -604,7 +604,7 @@ with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=False):  # Default.
     r.returncode
     # 0
 
-with __xonsh__.env.swap(XONSH_CAPTURE_ALWAYS=True):
+with @.env.swap(XONSH_CAPTURE_ALWAYS=True):
     r = ![echo -e '1\n2\r3 4\r\n5']
     # 1               # Stream output of the command
     # 3 4
@@ -654,11 +654,8 @@ This is mostly [what bash's `$()` operator does](https://www.gnu.org/software/ba
 
 Three ways to get environment:
 ```python
-# Xonsh has this construction but personally I'm not using it because it looks too complicated to write and read.
-${...}  # Get the list of environment variables.
-
-# Get the list of environment variables using Python syntax:
-__xonsh__.env  # Get the list of environment variables using builtin reference to xonsh session (__xonsh__)
+# Get the list of environment variables
+@.env
 
 # Recommended for Python code and xontribs:
 from xonsh.built_ins import XSH  # Import current xonsh session.
@@ -668,7 +665,7 @@ Operating with environment variables:
 ```python
 $VAR = 'value'    # Set environment variable
 
-env = __xonsh__.env         # short typing
+env = @.env         # short typing
 env.get('VAR', 'novalue')   # the good practice to have a fallback for missing value
 # 'value'
 env.get('VAR2', 'novalue')  # the good practice to have a fallback for missing value
@@ -678,7 +675,7 @@ env.get('VAR2', 'novalue')  # the good practice to have a fallback for missing v
 #True
 
 print($VAR)
-with __xonsh__.env.swap(VAR='another value', NEW_VAR='new value'):  # Change VAR for commands block
+with @.env.swap(VAR='another value', NEW_VAR='new value'):  # Change VAR for commands block
     print($VAR)
 print($VAR)
 #value
@@ -688,7 +685,7 @@ print($VAR)
 $VAR='new value' xonsh -c r'echo $VAR'   # Change variable for subprocess command
 #new value
 
-__xonsh__.env.get('VAR', 'novalue')  # the way to call environment using the __xonsh__ builtin
+@.env.get('VAR', 'novalue')  # the way to get env variable with default value
 # 'value'
 ```
 
@@ -946,11 +943,11 @@ aliases['@noerr'] = dalias({"raise_subproc_error": False},
                             "Set `raise_subproc_error` to False.")
 aliases['@lines'] = dalias({"output_format": 'list_lines'},
                             "Set `list_lines` output format.")
-aliases['@json'] = dalias({"output_format": lambda lines: __xonsh__.imp.json.loads('\n'.join(lines))},
+aliases['@json'] = dalias({"output_format": lambda lines: @.imp.json.loads('\n'.join(lines))},
                            "Set `json` output format.")
-aliases['@path'] = dalias({"output_format": lambda lines: __xonsh__.imp.pathlib.Path(':'.join(lines))},
+aliases['@path'] = dalias({"output_format": lambda lines: @.imp.pathlib.Path(':'.join(lines))},
                            "Set `path` output format.")
-aliases['@yaml'] = dalias({"output_format": lambda lines: __xonsh__.imp.yaml.safe_load('\n'.join(lines))},
+aliases['@yaml'] = dalias({"output_format": lambda lines: @.imp.yaml.safe_load('\n'.join(lines))},
                            "Set `yaml` output format.")
 ```
 Now you can:
@@ -1322,6 +1319,9 @@ echo 123
 __xonsh__.history[-1]
 # HistoryEntry(cmd='echo 123', out='123\n', rtn=0, ts=[1614527550.2158427, 1614527550.2382812])
 
+history -2
+# echo 123
+
 history info
 # backend: sqlite
 # sessionid: 637e577c-e5c3-4115-a3fd-99026f113464
@@ -1454,11 +1454,10 @@ There are three workarounds:
 If you run a console tool and get a frozen terminal (Ctrl+c, Ctrl+d is not working), this can be that the tool was interpreted as a threaded and capturable program but the tool actually has interactive elements that expect input from the user. There are bunch of workarounds:
 
 ```xsh
-@unthread ./tool.sh  # xonsh >= 0.18.3
+@unthread ./tool.sh
 ```
 ```xsh
-with __xonsh__.env.swap(THREAD_SUBPROCS=False):
-      ./tool.sh
+with @.env.swap(THREAD_SUBPROCS=False): $[./tool.sh]
 ```
 ```xsh
 $[./tool.sh]
@@ -1477,17 +1476,17 @@ Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-aw
 ### Inline scripting
 
 #### Inline import
-Use `__xonsh__.imp` as inline importer (xonsh >= 0.18.2):
+Use `@.imp` as inline importer (xonsh >= 0.18.2):
 
 ```xsh
-__xonsh__.imp.json.loads($(echo '{"a":1}'))
+@.imp.json.loads($(echo '{"a":1}'))
 # {'a': 1}
-__xonsh__.imp.datetime.datetime.now().isoformat()
+@.imp.datetime.datetime.now().isoformat()
 # '2024-02-12T15:29:57.125696'
-__xonsh__.imp.hashlib.md5(b'Hello world').hexdigest()
+@.imp.hashlib.md5(b'Hello world').hexdigest()
 # '3e25960a79dbc69b674cd4ec67a72c62'
 ```
-Don't forget about autocompletion (xonsh > 0.19.9) e.g. `__xonsh__.imp.date<tab>`.
+Don't forget about autocompletion e.g. `@.imp.date<tab>`.
 
 #### Inline statements
 
@@ -1496,7 +1495,7 @@ Use `$[]` to have inline statements:
 for i in range(1,5): $[echo @(i)]
 if $(which vim): $[echo vim]
 $[echo vim] if $(which vim) else $[echo vi]
-with __xonsh__.env.swap(QWE=1): $[bash -c 'echo $QWE']
+with @.env.swap(QWE=1): $[bash -c 'echo $QWE']
 $A=1 $B=2 bash -c 'echo $A $B'
 ```
 
@@ -1539,7 +1538,7 @@ When you have group of commands (transaction) it's good to use `DisableInterrupt
 
 ```xsh
 echo start
-with! __xonsh__.imp.xontrib.macro.signal.DisableInterrupt():
+with! @.imp.xontrib.macro.signal.DisableInterrupt():
     echo 'sleep start'
     sleep 10
     echo 'sleep end'
@@ -1603,9 +1602,9 @@ cat /tmp/myfile
 # 1
 # 2
 ```
-One line version using inline importer (`__xonsh__.imp`):
+One line version using inline importer (`@.imp`):
 ```xsh
-echo @(__xonsh__.imp.prompt_toolkit.prompt("Content:\n")) > /tmp/myfile
+echo @(@.imp.prompt_toolkit.prompt("Content:\n")) > /tmp/myfile
 ```
 
 ### Using the name of the alias in alias logic
@@ -1629,11 +1628,11 @@ For example, you want to have the current timestamp in every command but instead
 ```xsh
 class TimestampCl:
     def __repr__(self):
-        return str(__xonsh__.imp.datetime.datetime.now().isoformat())
+        return str(@.imp.datetime.datetime.now().isoformat())
 
 $dt = TimestampCl()
 # or one-liner:
-# $dt = type('TimeCl', (object,), {'__repr__':lambda self: str(__xonsh__.imp.datetime.datetime.now().isoformat()) })()
+# $dt = type('TimeCl', (object,), {'__repr__':lambda self: str(@.imp.datetime.datetime.now().isoformat()) })()
 
 echo $dt
 sleep 1
@@ -1646,7 +1645,7 @@ echo $dt
 
 Using AWS CLI to extract cost:
 ```xsh
-with __xonsh__.env.swap(START=$(date -d "30 days ago" +%Y-%m-%d), END=$(date +%Y-%m-%d)):
+with @.env.swap(START=$(date -d "30 days ago" +%Y-%m-%d), END=$(date +%Y-%m-%d)):
     aws ce get-cost-and-usage \
         --time-period 'Start=$START,End=$END' \
         --granularity DAILY \
@@ -1656,7 +1655,7 @@ with __xonsh__.env.swap(START=$(date -d "30 days ago" +%Y-%m-%d), END=$(date +%Y
 
 PostgreSQL connect with password input:
 ```xsh
-with __xonsh__.env.swap(PGPASSWORD=__xonsh__.imp.getpass.getpass('pgpass:')):
+with @.env.swap(PGPASSWORD=@.imp.getpass.getpass('pgpass:')):
     for db in ['db1', 'db2']:
         psql postgresql://user@host:5439/@(db) -c 'select 1'
 ```
@@ -1789,7 +1788,7 @@ xonsh /tmp/run.xsh
 var
 # 2
 
-__xonsh__.env['VAR']
+@.env['VAR']
 # 1
 
 exit
@@ -1844,18 +1843,18 @@ xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{f
 # 1,000.123
 ```
 
-### Builtin `chdir` [context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
+### Builtin change directory [context manager](https://docs.python.org/3/library/contextlib.html#contextlib.contextmanager) for scripting
 
 ```xsh
-cd /tmp && mkdir -p dir1
+cd /tmp
 
 pwd
-with __xonsh__.imp.xonsh.chdir("./dir1"):
+with p"./a/b".mkdir(mode=0o777, parents=True, exist_ok=True).cd():
     pwd
 pwd
 
 # /tmp
-# /tmp/dir1
+# /tmp/a/b
 # /tmp
 ```
 
