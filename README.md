@@ -129,16 +129,17 @@ conda create -n "py310" python=3.10 xonsh
 conda activate py310
 # Now the environment is `py310` but current xonsh session is still in `base` environment
 
-which xonsh
-# /Users/username/miniconda3/envs/py310/bin/xonsh
+xcontext  # xonsh >= 0.22.0
+# [Current xonsh session]
+# xpython: /Users/username/miniconda3/bin/python  # `which xpython`: xonsh ran from `base` environment
+# xpip: /Users/username/miniconda3/bin/pip  # `which xpip`: pip from `base` environment from where xonsh ran
+#
+# [Current commands environment]
+# xonsh: /Users/username/miniconda3/envs/py310/bin/xonsh  # `which xonsh`: xonsh installed in `py310` environment
+# python: /Users/username/miniconda3/envs/py310/bin/python # `which python`: `py310` environment
+# pip: /Users/username/miniconda3/envs/py310/bin/pip  # `which pip`: `py310` environment
 
-which pip
-# /Users/username/miniconda3/envs/py310/bin/pip  # pip from `py310`
-
-which xpip
-# /Users/username/miniconda3/bin/pip  # pip from `base` environment from where xonsh ran
-
-# Run xonsh that installed in `py310` environment from xonsh run in `base` environment
+# Run xonsh that installed in `py310` environment from xonsh session run in `base` environment
 xonsh
 conda activate py310
 # Now xonsh session is in `py310` environment and the current environment is also `py310`
