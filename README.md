@@ -126,10 +126,20 @@ xpip install ujson
 conda search python | grep 3.10
 conda create -n "py310" python=3.10 xonsh
 
+xcontext  # xonsh >= 0.22.0
+# [Current xonsh session]
+# xpython: /Users/username/miniconda3/bin/python  # `which xpython`: xonsh ran from `base` environment
+# xpip: /Users/username/miniconda3/bin/pip  # `which xpip`: pip from `base` environment from where xonsh ran
+#
+# [Current commands environment]
+# xonsh: /Users/username/miniconda3/bin/xonsh  # `which xonsh`: xonsh installed in `base` environment
+# python: /Users/username/miniconda3/bin/python # `which python`: `base` environment
+# pip: /Users/username/miniconda3/bin/pip  # `which pip`: `base` environment
+
 conda activate py310
 # Now the environment is `py310` but current xonsh session is still in `base` environment
 
-xcontext  # xonsh >= 0.22.0
+xcontext
 # [Current xonsh session]
 # xpython: /Users/username/miniconda3/bin/python  # `which xpython`: xonsh ran from `base` environment
 # xpip: /Users/username/miniconda3/bin/pip  # `which xpip`: pip from `base` environment from where xonsh ran
@@ -143,6 +153,16 @@ xcontext  # xonsh >= 0.22.0
 xonsh
 conda activate py310
 # Now xonsh session is in `py310` environment and the current environment is also `py310`
+
+xcontext
+# [Current xonsh session]
+# xpython: /Users/username/miniconda3/envs/py310/bin/python  # `which xpython`: xonsh ran from `py310` environment
+# xpip: /Users/username/miniconda3/envs/py310/bin/pip  # `which xpip`: pip from `py310` environment from where xonsh ran
+#
+# [Current commands environment]
+# xonsh: /Users/username/miniconda3/envs/py310/bin/xonsh  # `which xonsh`: xonsh installed in `py310` environment
+# python: /Users/username/miniconda3/envs/py310/bin/python # `which python`: `py310` environment
+# pip: /Users/username/miniconda3/envs/py310/bin/pip  # `which pip`: `py310` environment
 
 import ujson
 # No module named 'ujson'   # YES because ujson was installed in `base` environment
