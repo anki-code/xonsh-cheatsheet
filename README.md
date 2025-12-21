@@ -266,14 +266,15 @@ for i in range(0, 42):            # mix python
 
 len($(curl https://xon.sh))       # mix python and the shell
 
-xpip install xontrib-dalias && xontrib load dalias
-y = $(@yaml dig +yaml google.com)  # convert output into object
-y[0]['message']['query_time']
+$CONCH='snail' ls                 # shell style setting env variable for command
 
-podman exec -it @($(@json podman ps --format json)['ID']) bash
+with @.env.swap(CONCH='snail'):   # or using context manager
+    echo $CONCH
 
+with p'/tmp/dir'.mkdir().cd():    # make directory
+    touch tmpfile.txt             # and operate inside
 
-$PATH.append('/tmp')              # using environment variables
+$PATH.append('/tmp')              # PATH is list
 
 p'/etc/passwd'.read_text().find('root')  # path-string returns Path 
                                          # (https://docs.python.org/3/library/pathlib.html)
@@ -291,8 +292,12 @@ if info := $(podman info --format '{{json .}}'):
 
 @.imp.json.loads($(echo '{"a":1}'))  # xonsh inline importer
 
-xpip install xontrib-prompt-bar   # xonsh has huge amount of powerful extensions
-xontrib load prompt_bar           # follow the white rabbit - https://github.com/topics/xontrib
+xpip install xontrib-dalias && xontrib load dalias
+y = $(@yaml dig +yaml google.com)  # convert output into object
+y[0]['message']['query_time']
+
+podman exec -it @($(@json podman ps --format json)['ID']) bash
+
 
 # Finally fork https://github.com/anki-code/xontrib-rc-awesome
 # to convert your ~/.xonshrc into a pip-installable package 
