@@ -446,7 +446,7 @@ The threading prediction mechanism:
 * It requires the clear understanding of how it works from the developer who want to use capturable operators with complex tasks.
 * It has edge cases and some expectations can't be realised without improving the xonsh core logic - it's mostly related to mixing callable aliases with subprocess command.
 
-In the nuthesll when you try to run unthredable and uncapturable process (e.g. `vim`, `ssh`) in complex callable allias you can face with that callable alias is thredable by default and wrapping interactive tools into it ledas to cases where you need to have ninja knowledge about how it works in the xonsh core. If you have no this knowledge you will have stuck output as well as freezed and suspended processes at the end. But in more simpler cases it's needed to just add `@unthredable` to callable alias or change the operator from capturable to uncapturable.
+In the nutshell when you try to run unthredable and uncapturable process (e.g. `vim`, `ssh`) in complex callable allias you can face with that callable alias is thredable by default and wrapping interactive tools into it ledas to cases where you need to have ninja knowledge about how it works in the xonsh core. If you have no this knowledge you will have stuck output as well as freezed and suspended processes at the end. But in more simpler cases it's needed to just add `@unthredable` to callable alias or change the operator from capturable to uncapturable.
 
 The xonsh core team want to rid of threading prediction in the future but it's not so trivial task that requires to understand more about process management.
 
