@@ -440,25 +440,7 @@ In xonsh shell the `$()` operator is smarter (xonsh >= 0.17.0):
 
 ### 4. Threading
 
-Xonsh runs subprocess commands or callable aliases using threading prediction mechanism that simply called "threading" or "(un)threadable" words. This threading prediction was introduced to have an ability to capture any output from processes that are completely non interactive e.g. `echo` or `grep`. When you run `!(echo 1)` the `echo` process will be predicted as thredable and current terminal will be detached and stdout, stderr and everything will be captured.
-
-The threading prediction mechanism:
-* It requires the clear understanding of how it works from the developer who want to use capturable operators with complex tasks.
-* It has edge cases and some expectations can't be realised without improving the xonsh core logic - it's mostly related to mixing callable aliases with subprocess command.
-
-In the nutshell when you try to run unthredable and uncapturable process (e.g. `vim`, `ssh`) in complex callable allias you can face with that callable alias is thredable by default and wrapping interactive tools into it ledas to cases where you need to have ninja knowledge about how it works in the xonsh core. If you have no this knowledge you will have stuck output as well as freezed and suspended processes at the end. But in more simpler cases it's needed to just add `@unthredable` to callable alias or change the operator from capturable to uncapturable.
-
-The xonsh core team want to rid of threading prediction in the future but it's not so trivial task that requires to understand more about process management.
-
-Finally here is the way of how to predict threading:
-```xsh
-__xonsh__.commands_cache.predict_threadable(['echo'])
-# True
-
-__xonsh__.commands_cache.predict_threadable(['ssh'])
-# False
-```
-How to change the predicted value using `@thread` and `@unthread` aliases you can find below :)
+Xonsh runs subprocess commands or callable aliases using threading prediction mechanism that simply called "threading" or "(un)threadable" words. This threading prediction was introduced to have an ability to capture any output from processes that are completely non interactive e.g. `echo` or `grep`. When you run `!(echo 1)` the `echo` process will be predicted as thredable and current terminal will be detached and stdout, stderr and everything will be captured. How to change the predicted threading value using `@thread` and `@unthread` aliases you can find below.
 
 # [Operators](https://xon.sh/tutorial.html#captured-subprocess-with-and)
 
@@ -1473,6 +1455,16 @@ There are three workarounds:
 
 !(bash -c "echo 123")  # wrap to capturable tool
 #CommandPipeline(returncode=0, output='123\n')
+```
+
+How to check the predictor result:
+
+```xsh
+__xonsh__.commands_cache.predict_threadable(['echo'])
+# True
+
+__xonsh__.commands_cache.predict_threadable(['ssh'])
+# False
 ```
 
 ### Frozen terminal in interactive tools
