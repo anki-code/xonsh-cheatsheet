@@ -67,7 +67,7 @@ pacman -S xonsh       # Arch Linux
 
 Xonsh is a Python-based shell, and to run xonsh you must have Python installed. The Python version and its packages can be installed and located anywhere: in the operating system directories, as part of a virtual environment, as part of the user directory, or as a virtual drive created temporarily behind the scenes by the Linux AppImage.
 
-The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session, it will be executed in the Python environment that was used to run the current instance of xonsh. Use the `xcontext` to check the xonsh context.
+The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session, it will be executed in the Python environment that was used to run the current instance of xonsh. Use the [`xcontext`](https://xon.sh/aliases.html#xcontext) builtin alias to check the xonsh context.
 
 In other words, you can activate a virtual environment during a xonsh session (using mamba, conda, [rye](https://github.com/xonsh/xonsh/discussions/5290), pyenv, pipx) but the current session will continue to use packages from the environment that was used to run xonsh. And if you want to run xonsh with the packages from the currently activated virtual environment you have to install xonsh in that environment and run it directly. Keep in mind current `$PATH` and as result `which xonsh` when running something.
 
