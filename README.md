@@ -56,7 +56,10 @@ pip -V
 Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest xonsh release](https://github.com/xonsh/xonsh/releases/) or [versions of xonsh across platforms](https://repology.org/project/xonsh/versions)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is quarter.
 
 ```xsh
-# Not recommended (old version, maybe not full dependencies installed) but possible:
+# NOT RECOMMENDED but possible:
+#  * Has old version.
+#  * Has dependency on system python and can be broken after python update.
+#  * May contain an incorrect set of packages.
 apt install xonsh     # Debian/Ubuntu
 dnf install xonsh     # Fedora
 brew install xonsh    # OSX
