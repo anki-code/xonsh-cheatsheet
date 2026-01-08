@@ -1949,8 +1949,6 @@ But if you want to use xonsh in a Windows environment:
 * Install [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils), [cmdix](https://github.com/jaraco/cmdix), [pycoreutils](https://github.com/davidfischer/pycoreutils) - a pure Python implementation of the UNIX coreutils i.e. `echo`, `cat`, `pwd`,`ls`, etc.
 * Read [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows).
 
-# Recipes
-
 ### Using many profiles with AWS CLI and xonsh aliases
 
 ```xsh
@@ -1962,6 +1960,37 @@ aliases['aws-p2'] = "$AWS_DEFAULT_PROFILE='p2' @('aws') @($args)"
 
 aws-p2 s3 ls s3://my-profile1-bucket/  # The same as `aws s3 ls --profile p2 s3://my-profile1-bucket/`
 ```
+
+### Expert level: How to inject wrapper into xonsh code?
+
+There is an approach that was introduced in [xontrib-free-cwd](https://github.com/xonsh/xontrib-free-cwd) that allows [to wrap a function from internal component](https://github.com/xonsh/xontrib-free-cwd/blob/825f8b7d955f87cc0b5e4762a10b509f2bdff1b8/xontrib/free_cwd.py#L87). For example using this technique and `functools.wraps()` we can wrap prompt-toolkit private `prompt()` function to set `default` argument and fill the text of next command in the prompt:
+    
+```xsh
+# ~/.xonshrc
+@events.on_ptk_create
+def _setup_next_cmd_default(prompter, history, completer, bindings, **kw):
+    """Add wrapper for `prompter.prompt`."""
+    def _inject_default_wrapper(func):
+        if hasattr(func, "_orgfunc"):  # already wrapped
+            return func
+
+        @@.imp.functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            if "default" not in kwargs:
+                kwargs["default"] = @.env.get("XONSH_PROMPT_NEXT_CMD", "")
+                $XONSH_PROMPT_NEXT_CMD = ""
+            return func(*args, **kwargs)
+
+        wrapper._orgfunc = func  # mark that wrapper applied
+        return wrapper
+
+    prompter.prompt = _inject_default_wrapper(prompter.prompt)
+```
+```xsh
+$XONSH_PROMPT_NEXT_CMD="2+2"
+# 2+2<coursor>
+```
+This feature was implemented in xonsh in [xonsh/6037](https://github.com/xonsh/xonsh/pull/6037).
 
 # Answers to the holy war questions
 
