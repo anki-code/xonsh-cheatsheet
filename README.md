@@ -730,24 +730,19 @@ $PATH.add(p"~/bin", front=True, replace=True))   # Insert path '~/bin' at front 
 $PATH.add(p"~/bin", front=True)                  # Insert path '~/bin' at front of $PATH list
 $PATH.add(p"~/bin", front=False, replace=True))  # Insert path '~/bin' at end of $PATH list and replace existing entries
 ```
-Note! Starting from xonsh 0.15.2 the logic was improved.
 
 Setup local paths by prepending to path via a loop in `.xonshrc`:
 ```python
-import os.path
-from os import path
-$user_bins = [
-    f'{$HOME}/.cargo/bin',
-    f'{$HOME}/.pyenv/bin',
-    f'{$HOME}/.poetry/bin',
-    f'{$HOME}/bin',
-    f'{$HOME}/local/bin',
-    f'{$HOME}/.local/bin', 
+user_bins = [
+    p'~/.cargo/bin',
+    p'~/.pyenv/bin',
+    p'~/.poetry/bin',
+    p'~/.local/bin', 
 ]
 
-for dir in $user_bins:
-    if path.isdir(dir) and path.exists(dir):
-        $PATH.add(dir,front=True, replace=True)
+for dir in user_bins:
+    if dir.is_dir() and dir.exists():
+        $PATH.add(dir, front=True, replace=True)
 ```
 
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
