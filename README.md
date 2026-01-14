@@ -1507,6 +1507,16 @@ echo @(servers[0])
 # srv1
 ```
 
+### Set next command or suggest one
+
+```xsh
+$XONSH_PROMPT_NEXT_CMD = 'echo hello'
+# Prompt has `echo hello`.
+
+$XONSH_PROMPT_NEXT_CMD_SUGGESTION = 'echo hello'
+# Prompt suggests `echo hello`.
+```
+
 ### Jump from aliases to CLI apps
 
 If you realize that your alias becomes the app it's time to look at [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app).
