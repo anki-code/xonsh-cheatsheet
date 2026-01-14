@@ -1256,55 +1256,18 @@ copier copy --trust gh:xonsh/xontrib-template .
 
 You can integrate python tools into xonsh context and environment using xontrib e.g. see [fstrider](https://github.com/anki-code/fstrider/) [xontrib](https://github.com/anki-code/fstrider/?tab=readme-ov-file#xonsh-xontrib) where xontrib allows to inject xonsh context into file system navigation tool.
 
-# Xonsh Script (xsh)
+# Xonsh CLI app
 
-Real-life example of xsh script that has: arguments, tab completion for arguments (using [xontrib-argcomplete](https://github.com/anki-code/xontrib-argcomplete)), subprocess calls with checking the result, colorizing the result and exit code:
-```python
-#!/usr/bin/env xonsh
-# PYTHON_ARGCOMPLETE_OK                                  
-import argparse
-import argcomplete  # Tab completion support with xontrib-argcomplete
-from argcomplete.completers import ChoicesCompleter
-
-$RAISE_SUBPROC_ERROR = True  # Raise an error if a subprocess returns a non-zero exit status.
-                             # Read more: https://xon.sh/envvars.html#raise-subproc-error
-
-argp = argparse.ArgumentParser(description=f"Get count of lines in HTML by site address.")
-argp.add_argument('--host', required=True, help="Host").completer=ChoicesCompleter(('xon.sh', 'github.com'))
-argcomplete.autocomplete(argp)
-args = argp.parse_args()
-
-if result := !(curl -s -L @(args.host)):  # Python + Subprocess = ♥
-    lines_count = len(result.out.splitlines())
-    printx(f'{{GREEN}}Count of lines on {{#00FF00}}{args.host}{{GREEN}}: {{YELLOW}}{lines_count}{{RESET}}')
-else:
-    printx(f'{{RED}}Error while reading {{YELLOW}}{args.host}{{RED}}! {{RESET}}') # Colorizing messages
-    exit(1)  # Exit with code number 1
-```
-Try it in action:
-```python
-xonsh
-pip install argcomplete xontrib-argcomplete
-xontrib load argcomplete
-cd /tmp
-wget https://raw.githubusercontent.com/anki-code/xonsh-cheatsheet/main/examples/host_lines.xsh
-chmod +x host_lines.xsh
-./host_lines.xsh --ho<Tab>
-./host_lines.xsh --host <Tab>
-./host_lines.xsh --host xon.sh
-# Count of lines on xon.sh: 568
-```
-
-To make the interaction with scripts more awesome see also [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app) and articles around [click](https://click.palletsprojects.com/en/8.1.x/), [rich](https://github.com/Textualize/rich), [typer](https://typer.tiangolo.com/), etc.
+To create full-featured xonsh app with CLI, debug and tests try [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app) and articles around [click](https://click.palletsprojects.com/en/8.1.x/), [rich](https://github.com/Textualize/rich), [typer](https://typer.tiangolo.com/), etc.
 
 ### How to get the script path
 
-Get the script path from `$ARGS[0]`:
+Get the script path from `$ARG0`:
 
 ```xsh
-echo @("""echo This script is in @(pf"{$ARGS[0]}".parent)""") > /tmp/getpath.xsh
+echo @("""echo This script is in @(p"$ARG0".parent)""") > /tmp/getpath.xsh
 chmod +x /tmp/getpath.xsh
-/tmp/getpath.xsh
+xonsh /tmp/getpath.xsh
 # This script is in /tmp
 ```
 
