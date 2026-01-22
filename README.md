@@ -181,11 +181,14 @@ pipx run xonsh
 # or add /home/$USER/.local/bin to PATH (/etc/shells) to allow running just the `xonsh` command
 ```
 
-#### The best way to install xonsh as core shell
+#### If you have `python` but no `pip` on your system
 
-When xonsh becomes a core shell it's needed to keep python environment with xonsh stable, predictable and independent of any changes in the system. To forget about the cases where manipulations around python and packages break the shell unintended you can install xonsh with [`xonsh-install`](https://github.com/anki-code/xonsh-install/tree/main).
-
-Note! We do not recommend to use xonsh as a default login shell if you are not feel you strong and experienced. Because of most tools are waiting that login shell is POSIX-compliant you can face with issues when some tool is trying to run sh commands in xonsh.
+If you have `python` but no `pip` just install it using [`ensurepip`](https://docs.python.org/3/library/ensurepip.html):
+```xsh
+python -m ensurepip --upgrade
+pip -V
+pip install 'xonsh[full]'
+```
 
 ### Try xonsh without installation
 
