@@ -28,43 +28,9 @@ You can find more visuals around xonsh in [xonsh-logo](https://github.com/anki-c
 
 # Install xonsh
 
-There are three ways to use xonsh:
+### The right way
 
-1. **[Simple xonsh install](#simple-xonsh-install)**. You can use the system installed Python to install xonsh and dependencies. This is a good option if you don't plan to manage Python versions or virtual environments.
-
-2. **[Install xonsh with package and environment management system](#install-xonsh-with-package-and-environment-management-system)**. In this way you can flexibly manage the Python version, dependencies, and virtual environments, but because xonsh is a Python-based shell you have to understand what you're doing and the section below will provide some guidance.
-
-3. **[Try xonsh without installation](#try-xonsh-without-installation)**. Use xonsh container or the Linux AppImage to run and try xonsh.
-
-4. **[The best way to install xonsh as core shell](#the-best-way-to-install-xonsh-as-core-shell)**. You must read the previous sections before using this.
-
-### Simple xonsh install
-
-Most modern operating systems have [Python](https://www.python.org/) and [PyPi (pip)](https://packaging.python.org/tutorials/installing-packages/) that are preinstalled or that can be installed easily. By installing from PyPi you will get [the latest version of the xonsh shell](https://github.com/xonsh/xonsh/releases). We highly recommend using the `full` version of the xonsh PyPi-package with [prompt-toolkit](https://python-prompt-toolkit.readthedocs.io/en/master/) on board:
-```xsh
-python -m pip install 'xonsh[full]'
-```
-
-On any system you can install `python` and then install xonsh from pip i.e., `any_pkg_manager install python && python -m pip install 'xonsh[full]'`. This is the preferable way.
-
-If you have `python` but no `pip` just install it using [`ensurepip`](https://docs.python.org/3/library/ensurepip.html):
-```xsh
-python -m ensurepip --upgrade
-pip -V
-```
-
-Another way is to install xonsh from the package manager that is supplied by the operating system. This way is _not_ recommended in operating systems without the [rolling release concept](https://en.wikipedia.org/wiki/Rolling_release) the xonsh shell version may be very old ([check latest xonsh release](https://github.com/xonsh/xonsh/releases/) or [versions of xonsh across platforms](https://repology.org/project/xonsh/versions)) because the average [release cycle for the xonsh shell](https://github.com/xonsh/xonsh/releases) is quarter.
-
-```xsh
-# NOT RECOMMENDED but possible:
-#  * Has old version.
-#  * Has dependency on system python and can be broken after python update.
-#  * May contain an incorrect set of packages.
-apt install xonsh     # Debian/Ubuntu
-dnf install xonsh     # Fedora
-brew install xonsh    # OSX
-pacman -S xonsh       # Arch Linux
-```
+Before xonsh 0.22.2 here was the section about installation. But now xonsh has [Xonsh Installation General Guide](https://xon.sh/install.html) that is awesome start. Below we just have a talk about understanding the environment.
 
 ### Install xonsh with package and environment management system
 
