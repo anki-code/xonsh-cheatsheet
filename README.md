@@ -739,7 +739,7 @@ $(echo-new -n hello)
 # 'hello new'
 ```
 
-Easy switch environment using alias:
+Easy switch environment using alias (using [xontrib-dalias](https://github.com/anki-code/xontrib-dalias) is the right path):
 
 ```xsh
 aliases['lines'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
