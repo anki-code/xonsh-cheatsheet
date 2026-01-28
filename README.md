@@ -1318,7 +1318,7 @@ json??
 
 ### ModuleNotFoundError
 
-Sometimes when you're using PyPi, Conda, or virtual environments you can forget about the current version and location of Python and try to import packages in xonsh resulting in a `ModuleNotFoundError` error. Often this means you installed the package in another environment and didn't realise it. To avoid this read the section about xonsh installation above.
+Sometimes when you're using virtual environments you can forget about the current version and location of Python and try to import packages in xonsh resulting in a `ModuleNotFoundError` error. Often this means you installed the package in another environment and didn't realise it. Use `xcontext` to understand the environment and `xpip` to install packages in xonsh environment.
 
 ### Shadowing of console tools or shell syntax with Python builtins
 
