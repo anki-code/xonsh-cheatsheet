@@ -1994,7 +1994,7 @@ The fancy prompt is the tip of the iceberg. Xonsh shell brings other important f
 
 ### Xonsh has issues! Why xonsh?
 
-Compared to 15-20-year-old shells, yeah, xonsh is a 5-year-old youngster. But we've used it over these 5 years day by day to solve our tasks with success and happiness :)
+Compared to 20-40-year-old shells, yeah, xonsh is a 10-year-old youngster. But we've used it day by day to solve our tasks with success and happiness :)
 
 # Become a xonsh developer and contributor
 
