@@ -1909,7 +1909,7 @@ But if you want to use xonsh in a Windows environment:
 
 `man` case:
 ```xsh
-aliases['mans'] = 'man -P @("less -p " + $arg1 + " " + @.env.get("MANS_ARGS","")) $arg0'
+aliases['mans'] = '''man -P @("less -p '" + $arg1 + "' " + @.env.get("MANS_ARGS","")) $arg0'''
 aliases['mansn'] = '$MANS_ARGS="-N" mans @($args)'
 
 mans ls dir  # search "dir" on `man ls` page
