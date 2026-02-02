@@ -1721,7 +1721,7 @@ Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/lates
 Sometimes you want to experiment with commands but don't want to affect history or state on main terminal env:
 
 ```xsh
-xonsh --no-rc --no-env  # yes, but you can have error about TTY or HOME
+xonsh --no-rc --no-env  # yes, but you can have warning about no TTY or no HOME
 aliases['xonsh-no-env'] = 'xonsh --no-rc --no-env -DPATH=$PATH -DTERM=$TERM -DHOME=$HOME'  # nice
 xonsh-no-env
 ```
