@@ -1913,7 +1913,7 @@ aliases['mans'] = '''man -P @("less -p '" + $arg1 + "' " + @.env.get("MANS_ARGS"
 aliases['mansn'] = '$MANS_ARGS="-N" mans @($args)'
 
 mans ls dir  # search "dir" on `man ls` page
-mansn ls dir  # search "dir" on `man ls` page and show line numbers
+mansn ls 'long list'  # search "long list" on `man ls` page and show line numbers
 ```
 
 AWS CLI case:
