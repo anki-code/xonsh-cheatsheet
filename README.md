@@ -1716,6 +1716,16 @@ curl 'http://127.0.0.1:5000/echo?say=cow'
 ```
 Don't forget [about API security](https://flask-httpauth.readthedocs.io/en/latest/#basic-authentication-examples).
 
+### Run xonsh with clean environment
+
+Sometimes you want to experiment with commands but don't want to affect history or state on main terminal env:
+
+```xsh
+xonsh --no-rc --no-env  # yes, but you can have error about TTY or HOME
+aliases['xonsh-no-env'] = 'xonsh --no-rc --no-env -DPATH=$PATH -DTERM=$TERM -DHOME=$HOME'  # nice
+xonsh-no-env
+```
+
 ### Run pure xonsh engine
 
 Basically xonsh session loads RC files, inherit environment, uses dynamic colors, git callbacks in prompt, saves commands to history and more. Most of this features are disabled in not interactive mode (`xonsh -c 'echo 1'`). But in some cases you can want to rid of all features to reduce overhead on running completely. Here is the path: 
