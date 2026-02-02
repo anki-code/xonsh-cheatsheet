@@ -1905,8 +1905,18 @@ But if you want to use xonsh in a Windows environment:
 * Install [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils), [cmdix](https://github.com/jaraco/cmdix), [pycoreutils](https://github.com/davidfischer/pycoreutils) - a pure Python implementation of the UNIX coreutils i.e. `echo`, `cat`, `pwd`,`ls`, etc.
 * Read [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows).
 
-### Using many profiles with AWS CLI and xonsh aliases
+### Using env variables with with inline ExecAlias
 
+`man` case:
+```xsh
+aliases['mans'] = 'man -P @("less -p " + $arg1 + " " + @.env.get("MANS_ARGS","")) $arg0'
+aliases['mansn'] = '$MANS_ARGS="-N" mans @($args)'
+
+mans ls dir  # search "dir" on `man ls` page
+mansn ls dir  # search "dir" on `man ls` page and show line numbers
+```
+
+AWS CLI case:
 ```xsh
 aws configure --profile p1
 aws configure --profile p2
