@@ -1722,7 +1722,7 @@ Sometimes you want to experiment with commands but don't want to affect history 
 
 ```xsh
 xonsh --no-rc --no-env  # yes, but you can have warning about no TTY or no HOME
-aliases['xonsh-no-env'] = 'xonsh --no-rc --no-env -DPATH=$PATH -DTERM=$TERM -DHOME=$HOME'  # nice
+aliases['xonsh-no-env'] = 'xonsh --no-rc --no-env -DPATH -DTERM -DHOME'  # nice (xonsh >= 0.22.2)
 xonsh-no-env
 ```
 
