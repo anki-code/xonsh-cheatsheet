@@ -1421,22 +1421,6 @@ Because of xonsh syntax was based on Python syntax you can face with parser issu
 
 Start by forking [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
-### Check the command
-
-The `showcmd` builtin have `-e` argument that can uncover a command:
-```xsh
-aliases['a'] = 'echo a'
-aliases['b'] = 'a b'
-aliases['c'] = 'b c'
-c d
-# a b c d
-
-showcmd c d
-['c', 'd']
-showcmd -e c d  # -e, --expand-alias
-['echo', 'a', 'b', 'c', 'd']
-```
-
 ### Inline scripting
 
 #### Inline import
@@ -1491,6 +1475,31 @@ Use with commands:
 echo @(servers[0])
 # srv1
 ```
+
+### Pack anything into conch
+
+```xsh
+@.snail = '_'
+@.sqrt = @.imp.math.sqrt
+answer = @.sqrt(len(@.snail))
+```
+
+### Check the command
+
+The `showcmd` builtin have `-e` argument that can uncover a command:
+```xsh
+aliases['a'] = 'echo a'
+aliases['b'] = 'a b'
+aliases['c'] = 'b c'
+c d
+# a b c d
+
+showcmd c d
+['c', 'd']
+showcmd -e c d  # -e, --expand-alias
+['echo', 'a', 'b', 'c', 'd']
+```
+
 
 ### Set next command or suggest one
 
