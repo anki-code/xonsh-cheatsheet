@@ -1482,6 +1482,9 @@ echo @(servers[0])
 @.snail = '_'
 @.sqrt = @.imp.math.sqrt
 answer = @.sqrt(len(@.snail))
+
+@.myproject = @.imp.types.SimpleNamespace()
+@.myproject.key = '424242'
 ```
 
 ### Check the command
