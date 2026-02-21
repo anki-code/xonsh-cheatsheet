@@ -1992,6 +1992,7 @@ You can spend significantly more time Googling and debugging sh-based solutions 
 
 Also, take a look:
 
+* [CinderX](https://github.com/facebookincubator/cinderx) - a Python extension that improves the performance of the Python runtime.
 * [Python 3.12: A Game-Changer in Performance and Efficiency](https://python.plainenglish.io/python-3-12-a-game-changer-in-performance-and-efficiency-8dfaaa1e744c)
 * [Python 3.11 is up to 10-60% faster than Python 3.10](https://docs.python.org/3.11/whatsnew/3.11.html)
 * [Making Python 5x FASTER with Guido van Rossum](https://www.youtube.com/watch?v=_r6bFhl6wR8).
