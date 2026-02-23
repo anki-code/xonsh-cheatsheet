@@ -1204,7 +1204,7 @@ def custom_keybindings(bindings, **kw):
         
 ```
 
-See also: [more about key bindings](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/key_bindings.html), [event.current_buffer](https://python-prompt-toolkit.readthedocs.io/en/stable/pages/reference.html#prompt_toolkit.buffer.Buffer).
+See also: [discussions about prompt-toolkit](https://github.com/xonsh/xonsh/discussions?discussions_q=is%3Aopen+label%3Aprompt-toolkit), [more about key bindings](https://python-prompt-toolkit.readthedocs.io/en/master/pages/advanced_topics/key_bindings.html), [event.current_buffer](https://python-prompt-toolkit.readthedocs.io/en/stable/pages/reference.html#prompt_toolkit.buffer.Buffer).
 
 # [Xontrib](https://xon.sh/tutorial_xontrib.html) - extension or plugin for xonsh
 
