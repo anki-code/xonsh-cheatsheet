@@ -1503,6 +1503,26 @@ showcmd -e c d  # -e, --expand-alias
 ['echo', 'a', 'b', 'c', 'd']
 ```
 
+### Run Xonsh as if it’s the first launch
+
+```xsh
+xonsh --save-origin-env  # Save current environment
+# ...
+# Changing environment, activating virtual envs, doing things.
+# ...
+xonsh --load-origin-env
+# The xonsh session will be like it was when you did `xonsh --save-origin-env`.
+```
+For example you have `project.xsh` in your `~/projects/myproject/` that full of settings for the project: env variables, virtual envs, aliases, prompt style, history file setting, etc. Use case:
+```xsh
+xonsh --save-origin-env
+# You're working in your general session.
+cd ~/projects/myproject/
+xonsh --load-origin-env --rc ~/.xonshrc project.xsh
+# Now you work in a project-specific environment without pulling the environment from the parent session.
+exit
+# Back to parent session.
+```
 
 ### Set next command or suggest one
 
