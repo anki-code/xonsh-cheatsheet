@@ -722,10 +722,15 @@ See also the list of [xonsh default environment variables](http://xon.sh/envvars
 
 ```python
 aliases['g'] = 'git status -sb'           # Add alias as string
-aliases['e'] = 'echo @(2+2)'              # Add xonsh executable alias (ExecAlias)
 aliases['gp'] = ['git', 'pull']           # Add alias as list of arguments
+aliases['e'] = 'echo @(2+2)'              # Add xonsh executable alias (ExecAlias)
 aliases['b'] = lambda: "Banana!\n"        # Add alias as simple callable lambda
-aliases |= {'a': 'echo a', 'b':'echo b'}  # Add aliases from the dict
+
+aliases |= {  # Add aliases from the dict (recommended)
+    'a': 'echo a',
+    'b': 'echo b',
+}
+
 del aliases['b']                          # Delete alias
 ```
 
