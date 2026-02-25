@@ -1925,6 +1925,8 @@ while $(jobs):
 print('Job done!')
 ```
 
+Nice combination with [xontrib-cmd-durations](https://github.com/jnoortheen/xontrib-cmd-durations) that can show desktop notification when the command is done.
+
 ### Do asynchronous task in interactive prompt
 
 For example you can continuously [pulling history from other sessions](https://github.com/xonsh/xonsh/issues/1467#issuecomment-2180645180) or just run this in xonsh to print every second:
