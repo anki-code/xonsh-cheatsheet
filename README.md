@@ -714,6 +714,18 @@ for dir in user_bins:
         $PATH.add(dir, front=True, replace=True)
 ```
 
+
+Register your variables:
+```xsh
+@.env.register('MY_VAR1', type='int', default=0, doc='This is a demo variable 1')
+@.env.register('MY_VAR2', type='int', default=0, doc='This is a demo variable 2')
+$MY_<Tab>
+# MY_VAR1 -> This is a demo variable 1
+# MY_VAR1 -> This is a demo variable 2
+$MY_VAR1
+# 0
+```
+
 See also the list of [xonsh default environment variables](http://xon.sh/envvars.html).
 
 # [Aliases](https://xon.sh/tutorial.html#aliases)
