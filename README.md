@@ -1368,6 +1368,7 @@ aliases['...'] = 'cd ../..'  # looks nice, but
 # Elepsis
 
 del aliases['...']
+xpip install xontrib-abbrevs && xontrib load abbrevs
 abbrevs['...'] = 'cd ../..'
 ...  # becomes `cd ../..`
 ```
