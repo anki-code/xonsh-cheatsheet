@@ -731,6 +731,10 @@ aliases |= {  # Add aliases from the dict (recommended)
     'b': 'echo b',
 }
 
+aliases['e'] = 'echo @($arg0) @($args[2:])'  # Use `$argN` in ExecAlias
+e 1 2 3 4
+# 1 3 4
+
 del aliases['b']                          # Delete alias
 ```
 
