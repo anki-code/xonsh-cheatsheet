@@ -937,12 +937,14 @@ from xonsh.procs.specs import SpecAttrDecoratorAlias as dalias  # xonsh >= 0.18.
 
 aliases['@noerr'] = dalias({"raise_subproc_error": False},
                             "Set `raise_subproc_error` to False.")
+aliases['@path'] = dalias({"output_format": lambda lines: @.imp.pathlib.Path(':'.join(lines))},
+                           "Set `path` output format.")
+
+# Already in xonsh core (xonsh >= 0.22.7)
 aliases['@lines'] = dalias({"output_format": 'list_lines'},
                             "Set `list_lines` output format.")
 aliases['@json'] = dalias({"output_format": lambda lines: @.imp.json.loads('\n'.join(lines))},
                            "Set `json` output format.")
-aliases['@path'] = dalias({"output_format": lambda lines: @.imp.pathlib.Path(':'.join(lines))},
-                           "Set `path` output format.")
 aliases['@yaml'] = dalias({"output_format": lambda lines: @.imp.yaml.safe_load('\n'.join(lines))},
                            "Set `yaml` output format.")
 ```
