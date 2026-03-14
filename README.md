@@ -264,7 +264,6 @@ if info := $(podman info --format '{{json .}}'):
 
 @.imp.json.loads($(echo '{"a":1}'))  # xonsh inline importer
 
-xpip install xontrib-dalias && xontrib load dalias
 y = $(@yaml dig +yaml google.com)  # convert output into object
 y[0]['message']['query_time']
 
