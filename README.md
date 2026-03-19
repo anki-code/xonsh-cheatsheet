@@ -1655,6 +1655,17 @@ def _superdot():
 Using [jc](https://github.com/kellyjonbrazil/jc):
 
 ```xsh
+brew install jc
+$(ps -ax | head -n1 | @json jc --ps)
+# [{'pid': 536,
+#  'tty': 'ttys011',
+#  'time': '0:04.84',
+#  'cmd': '~/.local/xonsh-env/xbin/xonsh --no-rc --no-env'}]
+```
+
+Using jc as a command decorator:
+
+```xsh
 xpip install jc
 
 class jcCommandDecorator(@.imp.xonsh.procs.specs.DecoratorAlias):
@@ -1683,6 +1694,8 @@ $(@jc ps -ax)
 #  'tty': 'ttys011',
 #  'time': '0:04.84',
 #  'cmd': '~/.local/xonsh-env/xbin/xonsh --no-rc --no-env'}]
+
+$(ps -ax | @json head 1)
 ```
 
 ### Transparent callable environment variables
