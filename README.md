@@ -1650,6 +1650,41 @@ def _superdot():
 ,,,  # cd ../../../
 ```
 
+### Turn command output into object
+
+Using [jc](https://github.com/kellyjonbrazil/jc):
+
+```xsh
+xpip install jc
+
+class jcCommandDecorator(@.imp.xonsh.procs.specs.DecoratorAlias):
+    """Decorator that applies `jc` tool on command output."""
+    def decorate_spec(self, spec):
+        jc = @.imp.jc
+        cmd0 = spec.cmd[1] if len(spec.cmd) > 1 else None
+        if cmd0:
+            parsers = getattr(jc, 'parsers', None)
+            parsers = dir(parsers) if parsers else [p['name'] for p in jc.all_parser_info()]
+            spec.output_format = lambda lines: @.imp.jc.parse(cmd0, ''.join(lines).rstrip())
+    
+aliases['@jc'] = jcCommandDecorator()
+```
+Now:
+```xsh
+$(@jc uname -a)
+# {'machine': 'Darwin',
+#  'kernel_name': 'Darwin',
+#  'node_name': 'pc',
+#  'kernel_release': '25',
+#  'kernel_version': 'Darwin Kernel Version 25'}
+
+$(@jc ps -ax)
+# [{'pid': 536,
+#  'tty': 'ttys011',
+#  'time': '0:04.84',
+#  'cmd': '~/.local/xonsh-env/xbin/xonsh --no-rc --no-env'}]
+```
+
 ### Transparent callable environment variables
 
 For example, you want to have the current timestamp in every command but instead of nesting like `@(dt())` you want sugar:
