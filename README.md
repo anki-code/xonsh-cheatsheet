@@ -1698,6 +1698,37 @@ $(@jc ps -ax)
 $(ps -ax | @json head 1)
 ```
 
+### Turn any object into CLI tool
+
+Using [Fire](https://github.com/google/python-fire):
+
+```xsh
+@aliases.register
+def _fire(args, stdout):
+    """Alias that turns any object into CLI."""
+    def fixed_fire():
+        """Fix https://github.com/google/python-fire/issues/188"""
+        import fire
+        fire.core.Display = lambda lines, out: stdout.write("\n".join(lines) + "\n")
+        return fire
+    with @.env.swap(UPDATE_OS_ENVIRON=True, PAGER='-'):
+        fixed_fire().Fire(evalx(args[0]), command=args[1:], name=args[0])
+```
+Now:
+```xsh
+fire @ --help
+# @ - Xonsh Session Interface
+
+fire @.env get USER - upper
+# PC
+
+fire aliases get ls
+# ls -G
+
+fire __xonsh__ sessionid
+# 55ba21148ecf
+```
+
 ### Transparent callable environment variables
 
 For example, you want to have the current timestamp in every command but instead of nesting like `@(dt())` you want sugar:
