@@ -1712,7 +1712,7 @@ def _fire(args, stdout):
         fire.core.Display = lambda lines, out: stdout.write("\n".join(lines) + "\n")
         return fire
     with @.env.swap(UPDATE_OS_ENVIRON=True, PAGER='-'):
-        fixed_fire().Fire(evalx(args[0]), command=args[1:], name=args[0])
+        fixed_fire().Fire(eval(args[0]), command=args[1:], name=args[0])
 ```
 Now:
 ```xsh
