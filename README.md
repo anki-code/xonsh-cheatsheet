@@ -1705,25 +1705,53 @@ Using [Fire](https://github.com/google/python-fire):
 ```xsh
 @aliases.register
 def _fire(args, stdout):
-    """Alias that turns any object into CLI."""
+    """Turns any object into a CLI tool using Fire in the xonsh shell."""
+    if len(args) == 0:
+        print('Usage: fire <object name> [args|--help]', file=stderr)
+        print('Example: fire @ --help', file=stderr)
+        return 1
     def fixed_fire():
         """Fix https://github.com/google/python-fire/issues/188"""
         import fire
         fire.core.Display = lambda lines, out: stdout.write("\n".join(lines) + "\n")
         return fire
-    with @.env.swap(UPDATE_OS_ENVIRON=True, PAGER='-'):
-        fixed_fire().Fire(eval(args[0]), command=args[1:], name=args[0])
+    try:
+        obj = eval(args[0])
+    except:
+        obj = evalx(args[0])
+    with __xonsh__.env.swap(UPDATE_OS_ENVIRON=True, PAGER='-'):
+        fixed_fire().Fire(obj, command=args[1:], name=args[0])
 ```
 Now:
 ```xsh
+type(@)
+# xonsh.built_ins.XonshSessionInterface
 fire @ --help
 # @ - Xonsh Session Interface
 
+obj = {'var': 'val'}
+fire obj var
+# val
+
+type(@.env)
+# xonsh.environ.Env
 fire @.env get USER - upper
 # PC
 
+type(aliases)
+# xonsh.aliases.Aliases
 fire aliases get ls
-# ls -G
+# ls
+# -G
+
+type(@.imp)
+# xonsh.built_ins.InlineImporter
+fire @.imp.json dumps --help
+# @.imp.json dumps OBJ <flags>
+fire @.imp.json dumps '{"a":1}' --indent 4
+# {
+#    "a": 1
+# }
 
 fire __xonsh__ sessionid
 # 55ba21148ecf
