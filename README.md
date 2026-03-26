@@ -928,26 +928,10 @@ $(hunter)
 
 *Calambur! The "callable alias" could be shortanized to "callias". The name Callias is primarily a gender-neutral name of Greek origin that means Beauty.*
 
-### Decorator Alias
+### Command Decorators
 
-Using `DecoratorAlias` and callable `output_format` you can create transformer:
-```xsh
-from xonsh.procs.specs import SpecAttrDecoratorAlias as dalias  # xonsh >= 0.18.0
+Builtin command decorators:
 
-aliases['@noerr'] = dalias({"raise_subproc_error": False},
-                            "Set `raise_subproc_error` to False.")
-aliases['@path'] = dalias({"output_format": lambda lines: @.imp.pathlib.Path(':'.join(lines))},
-                           "Set `path` output format.")
-
-# Already in xonsh core (xonsh >= 0.22.7)
-aliases['@lines'] = dalias({"output_format": 'list_lines'},
-                            "Set `list_lines` output format.")
-aliases['@json'] = dalias({"output_format": lambda lines: @.imp.json.loads('\n'.join(lines))},
-                           "Set `json` output format.")
-aliases['@yaml'] = dalias({"output_format": lambda lines: @.imp.yaml.safe_load('\n'.join(lines))},
-                           "Set `yaml` output format.")
-```
-Now you can:
 ```xsh
 $(@lines ls /)
 # ['/bin', '/etc', '/home']
@@ -955,18 +939,28 @@ $(@lines ls /)
 $(@json echo '{"a":1}')  # Try with `curl` ;)
 # dict({"a":1})
 
+aliases['ydig'] = '@yaml dig +yaml'  # Update `dig` via `brew install bind` to have `+yaml`.
+y = $(ydig google.com)
+y[0]['type']
+# 'MESSAGE'
+```
+
+Using `DecoratorAlias` and callable `output_format` you can create any transformer:
+```xsh
+from xonsh.procs.specs import SpecAttrDecoratorAlias as dalias  # xonsh >= 0.18.0
+
+aliases['@noerr'] = dalias({"raise_subproc_error": False},
+                            "Set `raise_subproc_error` to False.")
+aliases['@path'] = dalias({"output_format": lambda lines: @.imp.pathlib.Path(':'.join(lines))},
+                           "Set `path` output format.")
+```
+Now you can:
+```xsh
 $(@path which xonsh)
 # Path('/path/to/xonsh')
 
 $(@path which xonsh).parent
 # Path('/path/to')
-
-
-aliases['ydig'] = '@yaml dig +yaml'  # Update `dig` via `brew install bind` to have `+yaml`.
-y = $(ydig google.com)
-y[0]['type']
-# 'MESSAGE'
-
 
 $RAISE_SUBPROC_ERROR = True
 if ![@noerr ls nononofile]:  # Do not raise exception in case of error.
@@ -1470,13 +1464,27 @@ with @.env.swap(QWE=1): $[bash -c 'echo $QWE']
 $A=1 $B=2 bash -c 'echo $A $B'
 ```
 
-### Triple quotes
+### String tricks
+
+##### Triple quotes
 
 To avoid escape characters (i.e. `echo "\"hello\""`) and make strings more elegant use triple quotes:
 
 ```xsh
 echo """{"hello":'world'}"""
 # {"hello":'world'}
+```
+
+##### f-strings in the command
+
+```xsh
+# Yes, you can do:
+echo @(f'Hello {$HOME}')  # xonsh >= 0.23.0
+# Hello /home/snail
+
+# But f-strings are working just fine by itself:
+echo f'Hello {$HOME}'  # xonsh >= 0.23.0
+# Hello /home/snail
 ```
 
 ### Python walrus operator in action
@@ -1524,6 +1532,19 @@ showcmd c d
 ['c', 'd']
 showcmd -e c d  # -e, --expand-alias
 ['echo', 'a', 'b', 'c', 'd']
+```
+
+### Command decorators can be useful with prefix/suffix
+
+```xsh
+showcmd echo $(echo '1\n2')
+# ['echo', '1\n2\n']
+
+showcmd echo $(@lines echo '1\n2')
+# ['echo', '1', '2']
+
+showcmd echo /tmp/$(@lines echo '1\n2').txt
+# ['echo', '/tmp/1.txt', '/tmp/2.txt']
 ```
 
 ### Run Xonsh as if it’s the first launch
