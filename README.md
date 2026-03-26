@@ -2109,15 +2109,6 @@ Or try [xunter](https://github.com/anki-code/xunter) for tracing and profiling.
 
 Read [Bash to Xonsh Translation Guide](https://xon.sh/bash_to_xsh.html), run `bash -c! echo 123` or install [xontrib-sh](https://github.com/anki-code/xontrib-sh).
 
-### Xonsh and Windows
-
-First of all we recommend using [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/about) with [Manjaro](https://github.com/sileshn/ManjaroWSL2) (that maintains a [rolling release](https://en.wikipedia.org/wiki/Rolling_release)) on Windows. Don't forget to [fix PATH](https://github.com/xonsh/xonsh/issues/3895#issuecomment-713078931).
-
-But if you want to use xonsh in a Windows environment:
-* Install [Windows Terminal](https://github.com/microsoft/terminal) - the modern terminal emulator for Windows.
-* Install [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils), [cmdix](https://github.com/jaraco/cmdix), [pycoreutils](https://github.com/davidfischer/pycoreutils) - a pure Python implementation of the UNIX coreutils i.e. `echo`, `cat`, `pwd`,`ls`, etc.
-* Read [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows).
-
 ### Using env variables with with inline ExecAlias
 
 `man` case:
@@ -2170,6 +2161,26 @@ $XONSH_PROMPT_NEXT_CMD="2+2"
 # 2+2<coursor>
 ```
 This feature was implemented in xonsh in [xonsh/6037](https://github.com/xonsh/xonsh/pull/6037).
+
+# Xonsh and Windows
+
+## WSL
+First of all we recommend using [WSL 2](https://learn.microsoft.com/en-us/windows/wsl/about) with [Manjaro](https://github.com/sileshn/ManjaroWSL2) (that maintains a [rolling release](https://en.wikipedia.org/wiki/Rolling_release)) on Windows. Don't forget to [fix PATH](https://github.com/xonsh/xonsh/issues/3895#issuecomment-713078931).
+
+## Windows Environment
+
+If you want to use xonsh in a Windows environment:
+* Install [Windows Terminal](https://github.com/microsoft/terminal) - the modern terminal emulator for Windows.
+* Choose your GNU-like tools (i.e. `echo`, `cat`, `pwd`,`ls`):
+  * [MSYS2](https://www.msys2.org/)
+  * [xontrib coreutils](https://xon.sh/api/_autosummary/xontribs/xontrib.coreutils.html#module-xontrib.coreutils)
+  * [cmdix](https://github.com/jaraco/cmdix)
+  * [pycoreutils](https://github.com/davidfischer/pycoreutils)
+* Read [Windows-specific tips and tricks](https://xon.sh/platform-issues.html#windows).
+
+## Known issues with Windows
+
+* The `echo` command is the most insidious thing in Windows. It can be implemented as `cmd.exe /c echo` or `echo.exe` from MSYS2 and every implementation has it's own issues.
 
 # Answers to the holy war questions
 
