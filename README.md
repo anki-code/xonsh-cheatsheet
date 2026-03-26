@@ -2181,6 +2181,7 @@ If you want to use xonsh in a Windows environment:
 ## Known issues with Windows
 
 * The `echo` command is the most insidious thing in Windows. It can be implemented as `cmd.exe /c echo` or `echo.exe` from MSYS2 and every implementation has it's own [issues](https://github.com/xonsh/xonsh/issues/6175).
+* Some things is working slow on Windows e.g. there is [xontrib-pygitstatus](https://github.com/Spitfire1900/xontrib-pygitstatus) that was build to show git status faster on Windows.
 
 # Answers to the holy war questions
 
