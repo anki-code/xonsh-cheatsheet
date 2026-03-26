@@ -1536,6 +1536,8 @@ showcmd -e c d  # -e, --expand-alias
 
 ### Command decorators can be useful with prefix/suffix
 
+xonsh >= 0.23.0
+
 ```xsh
 showcmd echo $(echo '1\n2')
 # ['echo', '1\n2\n']
