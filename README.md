@@ -1616,6 +1616,22 @@ echo "We're in the podman container now!" | lolcat
 ```
 Don't forget that `Alt+Enter` can run the command from any place where the cursor is.
 
+### Using semicolon and logical in captured subprocess
+
+Xonsh can run `echo 1 ; echo 2` but it is not supporting `$(echo 1 ; echo 2)` but it has parser logic that interpret `()` as `xonsh -c` so:
+
+```xsh
+(echo -n 1; echo -n 2)  # xonsh -c 'echo 1 ; echo 2'
+# 12
+$(echo -n 1; echo -n 2)
+# '1; echo -n 2'
+
+$((echo -n 1; echo -n 2))
+# '12'
+$((echo -n 1 or echo -n 2))
+# '1'
+```
+
 ### Use `prompt` instead of `input` for multiline input
 
 In python there is `input` function but it has no support of multiline pasting. Use `prompt`:
