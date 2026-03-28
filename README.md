@@ -2094,7 +2094,7 @@ loop = asyncio.get_event_loop()
 loop.create_task(print_and_sleep())
 ```
 
-### How to review xonsh code instantly?
+### How to review the code instantly?
 
 Use superhelp with `??`:
 ```xsh
@@ -2105,6 +2105,14 @@ Use superhelp with `??`:
 #        if name.startswith("__"):
 #            return getattr(super(), name)
 #        return __import__(name)
+
+@.imp.pandas.read_csv??
+# def read_csv(
+#    filepath_or_buffer: FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str],
+#    *,
+#    sep: str | None | lib.NoDefault = lib.no_default,
+#    delimiter: str | None | lib.NoDefault = None,
+# ...
 ```
 
 ### How to trace xonsh code?
