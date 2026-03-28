@@ -2094,6 +2094,19 @@ loop = asyncio.get_event_loop()
 loop.create_task(print_and_sleep())
 ```
 
+### How to review xonsh code instantly?
+
+Use superhelp with `??`:
+```xsh
+@.imp??
+# class InlineImporter:
+#    """Inline importer allows to import and use module attribute or function in one line."""
+#    def __getattr__(self, name):
+#        if name.startswith("__"):
+#            return getattr(super(), name)
+#        return __import__(name)
+```
+
 ### How to trace xonsh code?
 
 Trace with [hunter](https://github.com/ionelmc/python-hunter):
