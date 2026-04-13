@@ -1458,6 +1458,7 @@ Don't forget about autocompletion e.g. `@.imp.date<tab>`.
 Use `$[]` to have inline statements:
 ```xsh
 for i in range(1,5): $[echo @(i)]
+[$[echo @(i)] for i in range(1,5)]
 if $(which vim): $[echo vim]
 $[echo vim] if $(which vim) else $[echo vi]
 with @.env.swap(QWE=1): $[bash -c 'echo $QWE']
