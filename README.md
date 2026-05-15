@@ -30,7 +30,7 @@ You can find more visuals around xonsh in [xonsh-logo](https://github.com/anki-c
 
 ### The right way
 
-Before xonsh 0.22.2 here was the section about installation. But now xonsh has [Xonsh Installation General Guide](https://xon.sh/install.html) that is awesome start. Below we just have a talk about understanding the environment.
+Before xonsh 0.22.2 here was the section about installation. But now xonsh has [Xonsh Installation Guide](https://xon.sh/install.html) that is awesome start. Below we just have a talk about understanding the environment.
 
 ### Install xonsh with package and environment management system
 
