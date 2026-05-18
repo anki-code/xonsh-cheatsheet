@@ -1,5 +1,5 @@
 <p align="center">
-Cheat sheet for the <a href="https://xon.sh">xonsh shell</a> with copy-pastable examples. This is a good level of knowledge to start being productive.
+Cheat sheet for the <a href="https://xon.sh">Xonsh shell</a> with copy-pastable examples. This is a good level of knowledge to start being productive.
 <br><br>
 <img src="https://repository-images.githubusercontent.com/310804308/01f73a1d-3eaf-43a2-9aec-f9e92e28c78a">
 </p>
@@ -10,39 +10,39 @@ If you like the cheatsheet click ⭐ on the repo and spread the word.
 
 [Full screen reading](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md)
 
-# What is xonsh?
+# What is Xonsh?
 
-Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all Python-compatible systems, including Linux, macOS, and Windows. The xonsh shell is developed by a community of 300+ volunteers and the xonsh philosophy based on the principle of cooperation.
+Xonsh is a Python-powered, cross-platform, Unix-gazing shell language and command prompt. The language is a superset of Python 3.6+ with additional shell primitives that you are used to from [Bash](https://www.gnu.org/software/bash/) and [IPython](https://ipython.org/). It works on all Python-compatible systems, including Linux, macOS, and Windows. The Xonsh shell is developed by a community of 300+ volunteers and the Xonsh philosophy based on the principle of cooperation.
 
 If you don't want to learn step by step jump to [demo examples](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#xonsh-basics).
 
-# What does xonsh mean?
+# What does Xonsh mean?
 
 The word "xonsh" comes from [conch](https://www.google.com/search?q=what+is+conch) - a common name of a number of different sea snails or shells (🐚, `@`). So "xonsh" is pronounced like "consh" ([kɑːnʃ]) which is a playful reference to the word "shell", often used to describe [command shells](https://en.wikipedia.org/wiki/Shell_(computing)). "Consh" is sometimes interpreted as "console shell".
 
 Over time the approach to replace a letter in the words to "x" and pronounce as short [`/k/`](https://dictionary.cambridge.org/pronunciation/english/k) when used with vowels (e.g. "xat" sounds like "cat" `[kæt]`) became the way to create unique names for xonsh related solutions e.g. [xontrib](https://xon.sh/tutorial_xontrib.html#overview), [xonfig](https://xon.sh/aliases.html#xonfig), [xunter](https://github.com/anki-code/xunter). Adding "x" in the beginning is also the way to create xonsh-related name e.g. [xpip](https://xon.sh/aliases.html#xpip).
 
-Fun fact: when you run xonsh on *nix in the home directory the default prompt looks like `user@host ~ @` - it's a nice visual metaphor of snail (`~`) that lives in the conch (`@`) and the conch is the home for snail.
+Fun fact: when you run Xonsh on *nix in the home directory the default prompt looks like `user@host ~ @` - it's a nice visual metaphor of snail (`~`) that lives in the conch (`@`) and the conch is the home for snail.
 
-You can find more visuals around xonsh in [xonsh-logo](https://github.com/anki-code/xonsh-logo) repository.
+You can find more visuals around Xonsh in [xonsh-logo](https://github.com/anki-code/xonsh-logo) repository.
 
-# Install xonsh
+# Install Xonsh
 
 ### The right way
 
-Before xonsh 0.22.2 here was the section about installation. But now xonsh has [Xonsh Installation Guide](https://xon.sh/install.html) that is awesome start. Below we just have a talk about understanding the environment.
+Before Xonsh 0.22.2 here was the section about installation. But now xonsh has [Xonsh Installation Guide](https://xon.sh/install.html) that is awesome start. Below we just have a talk about understanding the environment.
 
-### Install xonsh with package and environment management system
+### Install Xonsh with package and environment management system
 
-Xonsh is a Python-based shell, and to run xonsh you must have Python installed. The Python version and its packages can be installed and located anywhere: in the operating system directories, as part of a virtual environment, as part of the user directory, or as a virtual drive created temporarily behind the scenes by the Linux AppImage.
+Xonsh is a Python-based shell, and to run Xonsh you must have Python installed. The Python version and its packages can be installed and located anywhere: in the operating system directories, as part of a virtual environment, as part of the user directory, or as a virtual drive created temporarily behind the scenes by the Linux AppImage.
 
-The first thing you have to remember is that when you execute `import` or any other Python code during a xonsh session, it will be executed in the Python environment that was used to run the current instance of xonsh. Use the [`xcontext`](https://xon.sh/aliases.html#xcontext) builtin alias to check the xonsh context.
+The first thing you have to remember is that when you execute `import` or any other Python code during a Xonsh session, it will be executed in the Python environment that was used to run the current instance of Xonsh. Use the [`xcontext`](https://xon.sh/aliases.html#xcontext) builtin alias to check the Xonsh context.
 
-In other words, you can activate a virtual environment during a xonsh session (using mamba, conda, [rye](https://github.com/xonsh/xonsh/discussions/5290), pyenv, pipx) but the current session will continue to use packages from the environment that was used to run xonsh. And if you want to run xonsh with the packages from the currently activated virtual environment you have to install xonsh in that environment and run it directly. Keep in mind current `$PATH` and as result `which xonsh` when running something.
+In other words, you can activate a virtual environment during a xonsh session (using mamba, conda, [rye](https://github.com/xonsh/xonsh/discussions/5290), pyenv, pipx) but the current session will continue to use packages from the environment that was used to run Xonsh. And if you want to run Xonsh with the packages from the currently activated virtual environment you have to install Xonsh in that environment and run it directly. Keep in mind current `$PATH` and as result `which xonsh` when running something.
 
 Thus the second thing you should remember is that when you run xonsh in a virtual environment it will try to load [xonsh RC files](https://xon.sh/xonshrc.html#run-control-file) (i.e. `~/.xonshrc`) and because the virtual environment is different from the environment you ordinarily use, the loading of the RC file will tend to fail because of the lack of the appropriate set of packages. When you write your `~/.xonshrc` it's good practice to check the existing external dependencies before loading them. See also [xontrib-rc-awesome](https://github.com/anki-code/xontrib-rc-awesome).
 
-#### Install xonsh on macOS or Linux using conda
+#### Install Xonsh on macOS or Linux using conda
 
 *Here is the real life example but mostly created for educational reasons. See the best way to install xonsh in the next section.*
 
