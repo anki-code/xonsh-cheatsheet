@@ -2207,32 +2207,17 @@ If you want to use xonsh in a Windows environment:
 
 # Answers to the holy war questions
 
-### Bash is everywhere! Why xonsh?
+### Bash is everywhere! Why Xonsh?
 
 Python is everywhere as well ;)
 
-### Xonsh is slower! Why xonsh?
+### Python is slower! Why Xonsh?
 
-You can spend significantly more time Googling and debugging sh-based solutions as well as significantly more time to make the payload work after running a command. Yeah, xonsh is a bit slower but you will not notice that in real-life tasks :)
+It's best to think of Python as an orchestrator. When solving any problem, much more time is spent on the workload that's actually running.
 
-Also, take a look:
-
-* [CinderX](https://github.com/facebookincubator/cinderx) - a Python extension that improves the performance of the Python runtime.
-* [Python 3.12: A Game-Changer in Performance and Efficiency](https://python.plainenglish.io/python-3-12-a-game-changer-in-performance-and-efficiency-8dfaaa1e744c)
-* [Python 3.11 is up to 10-60% faster than Python 3.10](https://docs.python.org/3.11/whatsnew/3.11.html)
-* [Making Python 5x FASTER with Guido van Rossum](https://www.youtube.com/watch?v=_r6bFhl6wR8).
-* [RustPython](https://github.com/RustPython/RustPython) ([performance](https://user-images.githubusercontent.com/1309177/212613257-5f4bca12-6d6b-4c79-9bac-51a4c6d08928.svg) of [Ruff](https://github.com/charliermarsh/ruff) - Python linter on Rust)
-* [xonsh parser on Rust](https://github.com/jnoortheen/xonsh-rd-parser)
-* [Nuitka the Python Compiler](https://nuitka.net/) ([xonsh-binary](https://github.com/anki-code/xonsh-binary))
-* [`uv`](https://github.com/astral-sh/uv?tab=readme-ov-file#uv) and [`mamba`](https://mamba.readthedocs.io/en/latest/user_guide/micromamba.html) to install packages as fast as possible.
-
-### My fancy prompt in another shell is super duper! Why xonsh?
+### My fancy prompt in another shell is super duper! Why Xonsh?
 
 The fancy prompt is the tip of the iceberg. Xonsh shell brings other important features to love: [sane language](https://github.com/anki-code/xonsh-cheatsheet#basics), [powerful aliases](https://github.com/anki-code/xonsh-cheatsheet#aliases), [agile extensions](https://github.com/anki-code/xonsh-cheatsheet#xontrib---extension-or-plugin-for-xonsh), [history backends](https://github.com/anki-code/xonsh-cheatsheet#history), [fully customisable tab completion](https://github.com/anki-code/xonsh-cheatsheet#tab-completion), [macro commands and blocks](https://github.com/anki-code/xonsh-cheatsheet#macro-block), [behaviour customisation via environment variables](https://xon.sh/envvars.html), and [more](https://github.com/anki-code/xonsh-cheatsheet#bind-hotkeys-in-prompt-toolkit-shell), and [more](https://github.com/anki-code/xonsh-cheatsheet#make-your-own-installable-xonsh-rc-file), and [more](https://github.com/anki-code/xonsh-cheatsheet#using-xonsh-wherever-you-go-through-the-ssh) :)
-
-### Xonsh has issues! Why xonsh?
-
-Compared to 20-40-year-old shells, yeah, xonsh is a 10-year-old youngster. But we've used it day by day to solve our tasks with success and happiness :)
 
 # Become a xonsh developer and contributor
 
