@@ -2083,16 +2083,15 @@ For example you can continuously [pulling history from other sessions](https://g
 $SHELL_TYPE
 # 'prompt_toolkit'
 
-import asyncio
-from prompt_toolkit.shortcuts import print_formatted_text
+import asyncio, threading
+from xonsh.tools import print_above_prompt
 
-async def print_and_sleep():
+async def ticker():
     while True:
-        print_formatted_text('hey!')        
+        print_above_prompt('hey!')
         await asyncio.sleep(2)
 
-loop = asyncio.get_event_loop()
-loop.create_task(print_and_sleep())
+threading.Thread(target=lambda: asyncio.run(ticker()), daemon=True).start()
 ```
 
 ### How to review the code instantly?
